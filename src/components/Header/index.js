@@ -1,10 +1,10 @@
 import './styles.scss';
 
 const Header = () => (
-  <div>
-    <p className="tryfont">
-      Hey
-    </p>
+  <div className="header">
+    <h1 className="logo">
+      KESKONMATE ?
+    </h1>
   </div>
 );
 

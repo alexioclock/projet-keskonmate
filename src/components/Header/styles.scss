@@ -1,4 +1,12 @@
-.tryfont{
-  font-family: 'Staatliches', cursive;
-  color: #062746;
+@use 'src/styles/vars';
+
+.header {
+  padding:1rem;
+  
+  .logo{
+    font-family: vars.$logoFont;
+    color: #062746;
+    text-align: center;
+    font-size: 2rem;
+  }
 }
