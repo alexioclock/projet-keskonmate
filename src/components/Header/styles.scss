@@ -1,14 +1,55 @@
 @use 'src/styles/vars';
 
-.header {
+.header{
   padding:1rem;
-  display: flex;
-  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display:flex;
+
+
+  .left-navbar{
+    width:43%;
+    align-self: center;
+
+    .form{
+      display: inline-block;
+      margin-left: 3rem;
+
+      .form-input{
+        height:1.7rem;
+        border:none;
+        border-radius: 5px;
+        width:400px;
+
+      }
+
+      button{
+        background-color: transparent;
+        border: none;
+        position:absolute;
+      }
+    }
+  }
   
   .logo{
     font-family: vars.$logoFont;
     color: #062746;
-    text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
+  
+  .right-navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    width:43%;
+
+    .user-name{
+      margin-left: 2rem;
+    }
+    .user-account-link{
+      margin-left: 1rem;
+      
+    }
+  }
+
 }
