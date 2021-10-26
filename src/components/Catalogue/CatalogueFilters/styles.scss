@@ -1,0 +1,19 @@
+.catalogue-filters {
+  border: 1px solid #000;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+
+  &--open {
+    width: 200px;
+    height: 100px;
+  }
+
+  &-header {
+    display: flex;
+    
+    & h2 {
+      margin: auto;
+    }
+  }
+}
