@@ -1,55 +1,165 @@
 @use 'src/styles/vars';
 
-.header{
-  padding:1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  display:flex;
 
+// @media screen and (max-width: 992px) {
+  .header{
+    padding:1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display:flex;
 
-  .left-navbar{
-    width:43%;
-    align-self: center;
+    .left-navbar{
+      width:40%;
+      align-self: center;
+      .series-link{
+        display:none;
+      }
 
-    .form{
-      display: inline-block;
-      margin-left: 3rem;
-
-      .form-input{
-        height:1.7rem;
+      .form-display{
+        // display: none;
         border:none;
-        border-radius: 5px;
-        width:400px;
-
-      }
-
-      button{
         background-color: transparent;
-        border: none;
+        margin-left: 1rem;
+        color: vars.$darkColor;
+      }
+
+      .form-mobile-element{
+        display: none;
         position:absolute;
+        top: 0px;
+        left: 0px;
+        background-color: #ffffff;
+        width:100%;
+        height:55px;
+        .form-mobile{
+          padding: 15px 0;
+          margin-left: 1rem;
+          padding-left: 1rem;
+
+          .form-mobile-input{
+            height:1.7rem;
+            border:none;
+            width:85%;
+          }
+          input::placeholder{
+            font-family: vars.$textFont;
+          }
+          .form-mobile-submit{
+            color:vars.$darkColor;
+          }
+        }
+        button{
+          background-color: transparent;
+          border: none;
+          position:absolute;
+          color: vars.$darkColor;          
+        }
+      }
+
+      .form{
+        display: none;
+        button{
+          display: none;
+        }
+      }
+
+      }
+
+    }
+
+    .logo{
+      width: 120px;
+    }
+
+    .right-navbar{
+      display: flex;
+      justify-content: flex-end;
+      align-self: center;
+      width:40%;
+
+      .list-link{
+        display: none;
+      }
+
+      .user-name{
+        display: none;
+      }
+      .user-account-link{
+        margin-left: 1rem;
+
+      }
+    }
+  
+// }
+
+
+@media screen and (min-width:1126px) {
+  .header{
+    .left-navbar{
+      .series-link{
+        display: inline-block;
+      }
+
+      .series-icon{
+        display: none;
+      }
+      .form-display{
+        display: none;
+      }
+      .form{
+        display: inline-block;
+        margin-left: 1.5rem;
+        width:55%;
+        
+        .form-input{
+          height:1.7rem;
+          border:none;
+          border-radius: 5px;
+          width:100%;
+          padding-left: 1rem;
+        }
+
+        input::placeholder{
+          font-family: vars.$textFont;
+        }
+
+        button{
+          display: inline-block;
+          background-color: transparent;
+          border: none;
+          position:absolute;
+        }
+      }
+    }
+  
+    .logo{
+      width:20%;
+    }
+
+    .right-navbar{
+      display: flex;
+      justify-content: flex-end;
+      width:40%;
+      
+      .list-link{
+        display: inline-block;
+        align-self: center;
+      }
+      .list-icon{
+        display: none;
+      }
+
+      .user-name{
+        display: inline-block;
+        margin-left: 2rem;
+        align-self: center;
+      }
+      .user-account-link{
+        margin-left: 1rem;
+        position: relative;
+        align-self: center;
+
       }
     }
   }
-  
-  .logo{
-    font-family: vars.$logoFont;
-    color: #062746;
-    font-size: 2.5rem;
-  }
-  
-  .right-navbar{
-    display: flex;
-    justify-content: flex-end;
-    align-self: center;
-    width:43%;
-
-    .user-name{
-      margin-left: 2rem;
-    }
-    .user-account-link{
-      margin-left: 1rem;
-      
-    }
-  }
-
 }
