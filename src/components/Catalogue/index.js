@@ -1,6 +1,7 @@
 // Composants
 import SeriesGrid from 'src/components/SeriesGrid';
 import CatalogueCarousel from './CatalogueCarousel';
+import CatalogueDropdown from './CatalogueDropdown';
 import CatalogueFilters from './CatalogueFilters';
 
 // Style
@@ -10,7 +11,7 @@ import './styles.scss';
 const Catalogue = () => (
   <div className="catalogue">
     {/* Carousel */}
-    <CatalogueCarousel />
+    <CatalogueDropdown />
     {/* Filtres */}
     <CatalogueFilters />
     {/* Grille de séries */}
