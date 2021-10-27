@@ -9,12 +9,36 @@ const CatalogueCarousel = () => (
     <ChevronLeft />
     <ul className="catalogue-carousel-list">
       {/* Carousel du catalogue */}
-      <li className="catalogue-carousel-item">Comédie</li>
-      <li className="catalogue-carousel-item">Drame</li>
-      <li className="catalogue-carousel-item">Action</li>
-      <li className="catalogue-carousel-item">Western</li>
-      <li className="catalogue-carousel-item">Horreur</li>
-      <li className="catalogue-carousel-item">Aventure</li>
+      <li className="catalogue-carousel-item">
+        <a className="catalogue-carousel-item-link">
+          Comédie
+        </a>
+      </li>
+      <li className="catalogue-carousel-item">
+        <a className="catalogue-carousel-item-link">
+          Drame
+        </a>
+      </li>
+      <li className="catalogue-carousel-item">
+        <a className="catalogue-carousel-item-link">
+          Action
+        </a>
+      </li>
+      <li className="catalogue-carousel-item">
+        <a className="catalogue-carousel-item-link">
+          Western
+        </a>
+      </li>
+      <li className="catalogue-carousel-item">
+        <a className="catalogue-carousel-item-link">
+          Horreur
+        </a>
+      </li>
+      <li className="catalogue-carousel-item">
+        <a className="catalogue-carousel-item-link">
+          Aventure
+        </a>
+      </li>
     </ul>
     <ChevronRight />
   </div>
