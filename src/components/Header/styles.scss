@@ -1,28 +1,171 @@
 @use 'src/styles/vars';
 
 
-// @media screen and (max-width: 992px) {
+.header{
+  padding:1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display:flex;
+  justify-content: space-between;
+  color: vars.$darkColor;
+  font-family: vars.$textFont;
+
+  .left-navbar{
+    display: flex;
+    width:40%;
+    align-self: center;
+
+    .series-link{
+      display:none;
+    }
+    .form-display{
+      border:none;
+      background-color: transparent;
+      margin-left: 0.7rem;
+      color: vars.$darkColor;
+    }
+
+    .form-mobile-element{
+      display: none;
+      position:absolute;
+      top: 0px;
+      left: 0px;
+      background-color: #ffffff;
+      width:100%;
+      height:55px;
+      .form-mobile{
+        padding: 15px 0;
+        margin-left: 1rem;
+        padding-left: 1rem;
+
+        .form-mobile-input{
+          height:1.7rem;
+          border:none;
+          width:85%;
+        }
+        input::placeholder{
+          font-family: vars.$textFont;
+        }
+      }
+      button{
+        background-color: transparent;
+        border: none;
+        position:absolute;
+        color: vars.$darkColor;          
+      }
+    }
+    // SearchBar on desktop
+    .form{
+      display: none;
+      button{
+        display: none;
+      }
+    }
+  }
+
+  .logo{
+    width: 90px;
+  }
+
+  .right-navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    width:40%;
+
+    .login-form{
+      // display: none;
+      position: absolute;
+    }
+    .list-link{
+      display: none;
+    }
+    .user-name{
+      display: none;
+    }
+    .user-account-link{
+      margin-left: 1rem;
+      color: vars.$darkColor;
+    }
+
+    .login-form{
+      background-color: vars.$backgroundColorLight;
+      width:90px;
+      position: absolute;
+      top: 40px;
+      right: 5px;
+      border-radius: 5px;
+      padding:10px 10px 20px 10px;
+      
+      label{
+        font-size: 0.4rem;
+        display: block;
+        font-weight: 500;
+        input{
+          width:100%;
+          margin-top:0.1rem;
+          margin-bottom: 0.2rem;
+          border:none;
+          border-radius: 3px;
+          background-color: #fff;
+          height: 1em;
+        }
+        .lost-password{
+          font-style:italic;
+          font-size: 0.3rem;
+        }
+      }
+    }
+    .login-submit{
+      font-size: 0.3rem;
+      font-weight: 500;
+      background-color: transparent;
+      border: none;
+      font-family: vars.$textFont;
+      color:vars.$darkColor;
+      text-align: left;
+      margin-top:0.3rem;
+      position:absolute;
+      left:3px;
+    }
+
+    .inscription{
+      position: absolute;
+      right:5px;
+      margin-top:0.5rem;
+      font-size: 0.3rem;
+      text-align: center;
+    }
+  }
+}
+
+
+
+@media screen and (min-width:768px) {
   .header{
     padding:1rem;
     font-size: 1.2rem;
     font-weight: 500;
     display:flex;
-
+    justify-content: space-between;
+    color: vars.$darkColor;
+    font-family: vars.$textFont;
+  
     .left-navbar{
+      display: flex;
       width:40%;
       align-self: center;
+  
       .series-link{
         display:none;
       }
-
       .form-display{
-        // display: none;
         border:none;
         background-color: transparent;
-        margin-left: 1rem;
+        margin-left: 0.7rem;
         color: vars.$darkColor;
       }
-
+  
       .form-mobile-element{
         display: none;
         position:absolute;
@@ -35,7 +178,7 @@
           padding: 15px 0;
           margin-left: 1rem;
           padding-left: 1rem;
-
+  
           .form-mobile-input{
             height:1.7rem;
             border:none;
@@ -43,9 +186,6 @@
           }
           input::placeholder{
             font-family: vars.$textFont;
-          }
-          .form-mobile-submit{
-            color:vars.$darkColor;
           }
         }
         button{
@@ -55,47 +195,100 @@
           color: vars.$darkColor;          
         }
       }
-
+      // SearchBar on desktop
       .form{
         display: none;
         button{
           display: none;
         }
       }
-
-      }
-
     }
-
+  
     .logo{
-      width: 120px;
+      width: 90px;
     }
-
+  
     .right-navbar{
       display: flex;
       justify-content: flex-end;
       align-self: center;
       width:40%;
-
+  
+      .login-form{
+        // display: none;
+        position: absolute;
+      }
       .list-link{
         display: none;
       }
-
       .user-name{
         display: none;
       }
       .user-account-link{
         margin-left: 1rem;
-
+        color: vars.$darkColor;
+      }
+  
+      .login-form{
+        background-color: vars.$backgroundColorLight;
+        width:90px;
+        position: absolute;
+        top: 40px;
+        right: 5px;
+        border-radius: 5px;
+        padding:10px 10px 20px 10px;
+        
+        label{
+          font-size: 0.4rem;
+          display: block;
+          font-weight: 500;
+          input{
+            width:100%;
+            margin-top:0.1rem;
+            margin-bottom: 0.2rem;
+            border:none;
+            border-radius: 3px;
+            background-color: #fff;
+            height: 1em;
+          }
+          .lost-password{
+            font-style:italic;
+            font-size: 0.3rem;
+          }
+        }
+      }
+      .login-submit{
+        font-size: 0.3rem;
+        font-weight: 500;
+        background-color: transparent;
+        border: none;
+        font-family: vars.$textFont;
+        color:vars.$darkColor;
+        text-align: left;
+        margin-top:0.3rem;
+        position:absolute;
+        left:3px;
+      }
+  
+      .inscription{
+        position: absolute;
+        right:5px;
+        margin-top:0.5rem;
+        font-size: 0.3rem;
+        text-align: center;
       }
     }
-  
-// }
+  }
+}
 
 
-@media screen and (min-width:1126px) {
+@media screen and (min-width:1114px) {
   .header{
+    color: vars.$darkColor;
     .left-navbar{
+      display: flex;
+      justify-content: flex-start;
+
       .series-link{
         display: inline-block;
       }
@@ -109,7 +302,7 @@
       .form{
         display: inline-block;
         margin-left: 1.5rem;
-        width:55%;
+        width:100%;
         
         .form-input{
           height:1.7rem;
