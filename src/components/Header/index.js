@@ -4,6 +4,7 @@ import {
 } from 'react-feather';
 import logo from 'src/assets/logo.png';
 import SearchBar from './SearchBar';
+import SearchBarMobile from './SearchBarMobile';
 import LoginForm from './LoginForm';
 
 const Header = () => (
@@ -13,10 +14,11 @@ const Header = () => (
         Toutes les séries
       </a>
       <a href="/series" className="series-icon">
-        <List size="20" />
+        <List size="25" />
       </a>
 
       <SearchBar />
+      <SearchBarMobile />
     </div>
 
     <img src={logo} alt="logo" className="logo" />
@@ -26,7 +28,7 @@ const Header = () => (
         Mes listes
       </a>
       <a href="/list" className="list-icon">
-        <Bookmark size="20" />
+        <Bookmark size="25" />
       </a>
 
       <p className="user-name">
@@ -34,7 +36,7 @@ const Header = () => (
       </p>
 
       <a href="/user" className="user-account-link">
-        <User size="20" />
+        <User size="25" />
       </a>
 
       <LoginForm />
