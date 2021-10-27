@@ -1,9 +1,20 @@
 .catalogue-carousel {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+
+  &-list {
+    display: flex;
+    width: 300px;
+    overflow-x: hidden;
+    justify-content: center;
+  }
+
+  &-item {
+    font-size: 2em;
+    margin: 0 0.5em;
+  }
 }
 
-.catalogue-carousel-list {
-  display: flex;
-  flex-direction: row;
-}

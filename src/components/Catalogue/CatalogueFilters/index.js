@@ -15,12 +15,12 @@ const CatalogueFilters = () => {
   }
   return (
     <div className={classCss}>
-      {!isOpen && <Filter />}
+      {!isOpen && <Filter size={48} />}
       {isOpen && (
       <div className="catalogue-filters-menu">
         <div className="catalogue-filters-header">
           <h2>Filtres</h2>
-          <X />
+          <X size={48} />
         </div>
         <ul className="catalogue-filters-list">
           {/* Filtres du catalogue */}

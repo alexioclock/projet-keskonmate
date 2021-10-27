@@ -10,11 +10,13 @@ const SeriesCard = () => (
     {/* Grille de SeriesCard */}
     <Card>
       <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
-      <Edit2 />
-      <Trash2 />
-      <Card.Content>
-        <Card.Header>Titre de la série</Card.Header>
-        <Card.Description>
+      <div className="series-card-icons-list">
+        <Edit2 className="series-card-icon" size={40} />
+        <Trash2 className="series-card-icon" size={40} />
+      </div>
+      <Card.Content className="series-card-content">
+        <Card.Header className="series-card-header">Titre de la série</Card.Header>
+        <Card.Description className="series-card-description">
           Description de la série : Genre, résumé, acteurs, réalisateur
         </Card.Description>
       </Card.Content>
