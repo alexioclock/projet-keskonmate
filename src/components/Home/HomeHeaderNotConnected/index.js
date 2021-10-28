@@ -8,7 +8,7 @@ const HomeHeaderNotConnected = () => (
     <p className="home-header-not-connected-second-line">
       Un site qui a été pensé pour gérer le visionnage de vos séries et créer vos propres listes.
     </p>
-    <p className="home-header-not-connected-second-line">
+    <p className="home-header-not-connected-third-line">
       <a href="#">
         Inscrivez-vous
       </a>

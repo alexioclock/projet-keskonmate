@@ -1,6 +1,22 @@
+@use 'src/styles/vars';
 
 .home-header-not-connected{
-  p{
-    text-align: center;
+  text-align: center;
+  font-weight: 500;
+
+  .home-header-not-connected-first-line{
+    margin: 1rem 0;
+  }
+  .home-header-not-connected-third-line{
+    margin: 1rem 0;
+
+    a{
+      font-weight: 700;
+    }
+
+    a:hover{
+      text-decoration: underline;
+      color:vars.$darkColor;
+    }
   }
 }
