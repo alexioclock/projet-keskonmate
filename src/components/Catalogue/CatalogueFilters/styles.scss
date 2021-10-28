@@ -2,6 +2,10 @@
   z-index: 1;
   position: sticky;
   top: 43px;
+
+  @media only screen and (min-device-width : 1024px) {
+    border-right: 1px solid #D6D6D6;
+  }
   
   &-close {
     border: 1px solid #D6D6D6;
@@ -17,7 +21,10 @@
     background: #FFF;
 
     @media only screen and (min-device-width : 1024px) {
-      width: 25%;
+      border: none;
+      z-index: 1;
+      position: sticky;
+      top: 50px;
     }
   }
 
@@ -34,15 +41,28 @@
     & h2 {
       margin: 5px auto;
       font-size: 2em;
+
+      @media only screen and (min-device-width : 1024px) {
+        font-size: 1.5em;
+      }
     }
   }
 
   &-list {
     margin: 50px 20px;
+
+    @media only screen and (min-device-width : 1024px) {
+      margin: 50px 10px;
+    }
   }
 
   &-item {
     margin: 50px 0;
     font-size: 1.5em;
+
+    @media only screen and (min-device-width : 1024px) {
+      font-size: 1em;
+      text-align: center;
+    }
   }
 }

@@ -36,6 +36,11 @@ const CatalogueFilters = () => {
           </li>
           <li className="catalogue-filters-item">
             <a className="catalogue-filters-item-link">
+              par nouveauté
+            </a>
+          </li>
+          <li className="catalogue-filters-item">
+            <a className="catalogue-filters-item-link">
               autre filtre
             </a>
           </li>

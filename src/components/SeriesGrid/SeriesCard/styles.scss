@@ -1,11 +1,29 @@
-.series-card {
+.series-card-div .series-card {
+  height: 400px;
   width: 250px;
-  height: 450px;
+  margin: auto;
+
+  @media only screen and (min-device-width : 768px) {
+    height: 350px;
+    width: 200px;
+  }
+
+  @media only screen and (min-device-width : 1440px) {
+    margin-right: 30px;
+  }
+
+  @media only screen and (min-device-width : 1900px) {
+    margin-right: 50px;
+  }
 
   &-icons-list {
     position: relative;
     top: -50px;
-    left: 200px;
+    left: 160px;
+
+    @media only screen and (min-device-width : 768px) {
+      left: 110px;
+    }
   }
 
   &-icon {

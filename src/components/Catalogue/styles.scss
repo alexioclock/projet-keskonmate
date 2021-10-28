@@ -3,3 +3,11 @@
   flex-direction: column;
   margin: 0 auto;
 }
+
+.filters-and-grid {
+
+  @media only screen and (min-device-width : 1024px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
