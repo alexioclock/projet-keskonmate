@@ -5,14 +5,15 @@ import Catalogue from 'src/components/Catalogue';
 import Detail from '../Detail';
 import Form from '../Form';
 import Footer from '../Footer';
+import Home from '../Home';
 import NotFound from '../NotFound';
 
 // == Composant
 const App = () => (
   <div className="app">
     <Header />
-    <Catalogue />
-    <NotFound />
+    <Home />
+    <Footer />
   </div>
 );
 
