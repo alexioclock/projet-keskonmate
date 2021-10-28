@@ -1,0 +1,41 @@
+//******CSS MOBILE LIST
+
+.mobile-list{
+  margin-top: 2em;
+}
+
+
+.desktop-list{
+  display: none;
+}
+
+//******CSS DESKTOP LIST
+
+@media screen and (min-width: 600px) {
+  .mobile-list{
+    display: none;
+  }
+
+  .desktop-list{
+    display:block;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: grey;
+  }
+
+  .list-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .current{
+    color: black;
+  }
+}

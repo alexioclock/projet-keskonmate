@@ -5,15 +5,14 @@ import Catalogue from 'src/components/Catalogue';
 import Detail from '../Detail';
 import Form from '../Form';
 import Footer from '../Footer';
-import NotFound from '../NotFound'
+import NotFound from '../NotFound';
+import PageList from '../PageList';
 
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Header />
-    <Catalogue />
-    <NotFound />
+    <PageList />
   </div>
 );
 
