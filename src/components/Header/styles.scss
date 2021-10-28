@@ -10,8 +10,10 @@
   color: vars.$darkColor;
   font-family: vars.$textFont;
 
+
   .left-navbar{
     display: flex;
+    // justify-content: space-around;
     width:40%;
 
     .series-link{
@@ -79,21 +81,8 @@
     width:40%;
 
     .login-form{
-      // display: none;
+      display: none;
       position: absolute;
-    }
-    .list-link{
-      display: none;
-    }
-    .user-name{
-      display: none;
-    }
-    .user-account-link{
-      margin-left: 1rem;
-      color: vars.$darkColor;
-    }
-
-    .login-form{
       background-color: vars.$backgroundColorLight;
       width:90px;
       position: absolute;
@@ -124,6 +113,7 @@
           font-size: 0.3rem;
         }
       }
+    
     }
     .login-submit{
       font-size: 0.3rem;
@@ -145,13 +135,64 @@
       font-size: 0.3rem;
       text-align: center;
     }
+
+    .list-link{
+      display: none;
+    }
+    .user-account-link{
+      margin-left: 1rem;
+      color: vars.$darkColor;
+      .user-name{
+        display: none;
+        margin-right: 1rem;
+        position: relative;
+        bottom:15%;
+      }
+      .connection{
+        display: none;
+        margin-right: 1rem;
+        position: relative;
+        bottom:15%;
+
+
+      }
+    }
+    .dropdown-content{
+      display: none;
+      position: absolute;
+      background-color: vars.$backgroundColorLight;
+      width:90px;
+      position: absolute;
+      top: 45px;
+      right: 5px;
+      border-radius: 5px;
+      
+      a{
+        font-size: 0.75rem;
+        display: block;
+        font-weight: 500;
+        padding:10px;
+        text-align: center;
+
+      }
+      a:hover{
+        background-color: vars.$backgroundColor;
+        border-radius:5px;
+        border: 0.5px solid #fff;
+      }
+
+    }
   }
 }
 
 
 
-@media screen and (min-width:768px) {
+@media only screen and (min-width:768px) {
   .header{
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
     .left-navbar{
       width:40%;
 
@@ -208,12 +249,6 @@
       align-self: center;
       width:40%;
 
-      .user-name{
-        display: inline-block;
-        margin-left: 2rem;
-        align-self: center;
-      }
-  
       .list-icon{
         display:none
       }
@@ -224,15 +259,29 @@
       .user-account-link{
         margin-left: 1rem;
         color: vars.$darkColor;
+
+        .user-name{
+          display: inline-block;
+        }
+        .user-name:hover{
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+        .user-icon:hover{
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+
+        .connection{
+          // display: inline-block;
+        }
+
       }
   
       .login-form{
-        background-color: vars.$backgroundColorLight;
         width:150px;
-        position: absolute;
         top: 55px;
         right: 10px;
-        border-radius: 5px;
         padding:10px 10px 40px 10px;
         
         label{
@@ -240,7 +289,6 @@
           input{
             margin-top:0.2rem;
             margin-bottom: 0.3rem;
-            border-radius: 3px;
             height: 1.5rem;
             font-size: 0.8rem;
           }
@@ -251,33 +299,44 @@
       }
       .login-submit{
         font-size: 0.7rem;
-        font-weight: 500;
-        font-family: vars.$textFont;
-        color:vars.$darkColor;
         margin-top:0.5rem;
-        left:3px;
       }
-  
       .inscription{
         right:7px;
         margin-top:0.7rem;
         font-size: 0.7rem;
       }
+      .dropdown-content{
+        width:150px;
+        top: 55px;
+        right: 10px;        
+        a{
+          font-size: 1rem;
+          padding:15px;
+        }
+  
+      }
+
     }
   }
 }
 
 
-@media screen and (min-width:1114px) {
+@media only screen and (min-width:1114px) {
   .header{
-
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      // border-bottom: 1px solid vars.$darkColor;
+    }
     .left-navbar{
       justify-content: space-between;
       align-self: center;
 
       .series-link{
         display: inline-block;
-        width:40%;
+        width:30%;
+        text-align: center;
       }
       .series-icon{
         display: none;
@@ -307,16 +366,26 @@
           font-size: 0.6rem;
         }
       }
-    }
+      }
       .login-submit{
         font-size: 0.7rem;
         margin-top:0.5rem;
         left:3px;
       }
       .inscription{
-        right:7px;
         margin-top:0.7rem;
         font-size: 0.7rem;
+      }
+      .dropdown-content{
+        width: 200px;
+        top: 70px;
+        right: 15px;     
+        border-radius: 10px;   
+        a{
+          border-radius:10px;
+          padding:20px;
+        }
+  
       }
     }
   }
