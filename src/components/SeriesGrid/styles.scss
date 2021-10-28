@@ -5,4 +5,9 @@
   margin: 10px auto;
   position: relative;
   top: -50px;
+
+  @media only screen and (min-device-width : 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    }
+
 }

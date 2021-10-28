@@ -8,7 +8,7 @@ const CatalogueFilters = () => {
   // isOpen : booléen qui simule le clic sur l'icone' filtre
   // s'il vaut false : on affiche uniquement l'icone filtre
   // s'il vaut true : il faut déployer le menu des filtres
-  const isOpen = false;
+  const isOpen = true;
   return (
     <div className="catalogue-filters">
       {!isOpen && (
@@ -20,7 +20,7 @@ const CatalogueFilters = () => {
       <div className="catalogue-filters-open">
         <div className="catalogue-filters-header">
           <h2>Filtres</h2>
-          <X size={48} />
+          <X size={48} className="catalogue-filters-close-button" />
         </div>
         <ul className="catalogue-filters-list">
           {/* Filtres du catalogue */}
