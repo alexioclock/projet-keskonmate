@@ -1,3 +1,5 @@
+import './styles.scss';
+
 const HomeHeaderNotConnected = () => (
   <div className="home-header-not-connected">
     <p className="home-header-not-connected-first-line">
@@ -10,7 +12,7 @@ const HomeHeaderNotConnected = () => (
       <a href="#">
         Inscrivez-vous
       </a>
-      pour commencer vos listes !
+      &nbsp;pour commencer vos listes !
     </p>
   </div>
 
