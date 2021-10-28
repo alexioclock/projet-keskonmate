@@ -1,0 +1,392 @@
+@use 'src/styles/vars';
+
+
+.header{
+  padding:1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display:flex;
+  justify-content: space-between;
+  color: vars.$darkColor;
+  font-family: vars.$textFont;
+
+
+  .left-navbar{
+    display: flex;
+    // justify-content: space-around;
+    width:40%;
+
+    .series-link{
+      display:none;
+    }
+
+    .series-icon{
+      align-self: center;
+    }
+
+    .form-display{
+      border:none;
+      background-color: transparent;
+      margin-left: 0.7rem;
+      color: vars.$darkColor;
+    }
+
+    // search bar on mobile that appears onClick
+    .form-mobile-element{
+      display: none;
+      position:absolute;
+      top: 0px;
+      left: 0px;
+      background-color: #ffffff;
+      width:100%;
+      height:55px;
+      .form-mobile{
+        padding: 15px 0;
+        margin-left: 1rem;
+        padding-left: 1rem;
+
+        .form-mobile-input{
+          height:1.7rem;
+          border:none;
+          width:85%;
+        }
+        input::placeholder{
+          font-family: vars.$textFont;
+        }
+      }
+      button{
+        background-color: transparent;
+        border: none;
+        position:absolute;
+        color: vars.$darkColor;          
+      }
+    }
+    // SearchBar on desktop
+    .form{
+      display: none;
+      button{
+        display: none;
+      }
+    }
+  }
+
+  .logo{
+    width: 90px;
+  }
+
+  .right-navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    width:40%;
+
+    .login-form{
+      display: none;
+      position: absolute;
+      background-color: vars.$backgroundColorLight;
+      width:90px;
+      position: absolute;
+      top: 45px;
+      right: 5px;
+      border-radius: 5px;
+      padding:10px 10px 20px 10px;
+      
+      label{
+        font-size: 0.4rem;
+        display: block;
+        font-weight: 500;
+        input{
+          width:100%;
+          margin-top:0.1rem;
+          margin-bottom: 0.2rem;
+          border:none;
+          border-radius: 3px;
+          background-color: #fff;
+          height: 1rem;
+          color:vars.$darkColor;
+          padding-left:0.2rem;
+          font-size:0.5rem;
+          font-family: vars.$textFont;
+        }
+        .lost-password{
+          font-style:italic;
+          font-size: 0.3rem;
+        }
+      }
+    
+    }
+    .login-submit{
+      font-size: 0.3rem;
+      font-weight: 500;
+      background-color: transparent;
+      border: none;
+      font-family: vars.$textFont;
+      color:vars.$darkColor;
+      text-align: left;
+      margin-top:0.3rem;
+      position:absolute;
+      left:3px;
+    }
+
+    .inscription{
+      position: absolute;
+      right:5px;
+      margin-top:0.5rem;
+      font-size: 0.3rem;
+      text-align: center;
+    }
+
+    .list-link{
+      display: none;
+    }
+    .user-account-link{
+      margin-left: 1rem;
+      color: vars.$darkColor;
+      .user-name{
+        display: none;
+        margin-right: 1rem;
+        position: relative;
+        bottom:15%;
+      }
+      .connection{
+        display: none;
+        margin-right: 1rem;
+        position: relative;
+        bottom:15%;
+
+
+      }
+    }
+    .dropdown-content{
+      display: none;
+      position: absolute;
+      background-color: vars.$backgroundColorLight;
+      width:90px;
+      position: absolute;
+      top: 45px;
+      right: 5px;
+      border-radius: 5px;
+      
+      a{
+        font-size: 0.75rem;
+        display: block;
+        font-weight: 500;
+        padding:10px;
+        text-align: center;
+
+      }
+      a:hover{
+        background-color: vars.$backgroundColor;
+        border-radius:5px;
+        border: 0.5px solid #fff;
+      }
+
+    }
+  }
+}
+
+
+
+@media only screen and (min-width:768px) {
+  .header{
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .left-navbar{
+      width:40%;
+
+      .series-icon{
+        align-self: center;
+      }
+      .form-display{
+        display: none;
+      }
+      .form-mobile-element{
+        display: none;
+      }
+
+      // SearchBar on large screen
+      .form{
+        display: inline-block;
+        align-self: center;
+        width:70%;
+        margin-right:3rem;
+
+        .form-input{
+          margin-left:1rem;
+          height:1.7rem;
+          border:none;
+          border-radius: 5px;
+          width:90%;
+          padding-left: 0.8rem;
+          font-family: vars.$textFont;
+          font-size: 0.8rem;
+          
+        }
+
+        input::placeholder{
+          font-family: vars.$textFont;
+        }
+
+        button{
+          color:vars.$darkColor;
+          display: inline-block;
+          background-color: transparent;
+          border: none;
+          position:absolute;
+        }
+      }
+    }
+  
+    .logo{
+      width: 20%;
+    }
+  
+    .right-navbar{
+      display: flex;
+      justify-content: flex-end;
+      align-self: center;
+      width:40%;
+
+      .list-icon{
+        display:none
+      }
+      .list-link{
+        display: inline-block;
+        align-self: center;
+      }
+      .user-account-link{
+        margin-left: 1rem;
+        color: vars.$darkColor;
+
+        .user-name{
+          display: inline-block;
+        }
+        .user-name:hover{
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+        .user-icon:hover{
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+
+        .connection{
+          // display: inline-block;
+        }
+
+      }
+  
+      .login-form{
+        width:150px;
+        top: 55px;
+        right: 10px;
+        padding:10px 10px 40px 10px;
+        
+        label{
+          font-size: 0.8rem;
+          input{
+            margin-top:0.2rem;
+            margin-bottom: 0.3rem;
+            height: 1.5rem;
+            font-size: 0.8rem;
+          }
+          .lost-password{
+            font-size: 0.6rem;
+          }
+        }
+      }
+      .login-submit{
+        font-size: 0.7rem;
+        margin-top:0.5rem;
+      }
+      .inscription{
+        right:7px;
+        margin-top:0.7rem;
+        font-size: 0.7rem;
+      }
+      .dropdown-content{
+        width:150px;
+        top: 55px;
+        right: 10px;        
+        a{
+          font-size: 1rem;
+          padding:15px;
+        }
+  
+      }
+
+    }
+  }
+}
+
+
+@media only screen and (min-width:1114px) {
+  .header{
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      // border-bottom: 1px solid vars.$darkColor;
+    }
+    .left-navbar{
+      justify-content: space-between;
+      align-self: center;
+
+      .series-link{
+        display: inline-block;
+        width:30%;
+        text-align: center;
+      }
+      .series-icon{
+        display: none;
+      }
+    }
+  
+    .right-navbar{
+
+      .login-form{
+        width:200px;
+        top: 70px;
+        right: 15px;
+        border-radius: 10px;
+        padding:10px 10px 40px 10px;
+
+      label{
+        font-size: 1rem;
+        input{
+          margin-top:0.2rem;
+          margin-bottom: 0.3rem;
+          border-radius: 5px;
+          height: 2em;
+
+
+        }
+        .lost-password{
+          font-size: 0.6rem;
+        }
+      }
+      }
+      .login-submit{
+        font-size: 0.7rem;
+        margin-top:0.5rem;
+        left:3px;
+      }
+      .inscription{
+        margin-top:0.7rem;
+        font-size: 0.7rem;
+      }
+      .dropdown-content{
+        width: 200px;
+        top: 70px;
+        right: 15px;     
+        border-radius: 10px;   
+        a{
+          border-radius:10px;
+          padding:20px;
+        }
+  
+      }
+    }
+  }
+}
