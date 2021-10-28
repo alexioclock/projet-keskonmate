@@ -14,6 +14,7 @@ const App = () => (
     <Header />
     <Catalogue />
     <NotFound />
+    <Footer />
   </div>
 );
 
