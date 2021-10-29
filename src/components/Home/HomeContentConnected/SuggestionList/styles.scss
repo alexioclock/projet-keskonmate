@@ -7,9 +7,10 @@
   border-radius: 10px;
   background-color: vars.$backgroundColorLight;
   width: 300px;
-  margin:auto;
-  margin-bottom: 1rem;
+  margin:1rem auto;
+  padding-bottom: 1rem;
   text-align: center;
+  font-weight: 500;
   .list-name{
     margin-top:1rem;
   }
@@ -35,6 +36,10 @@
         }
       }
     }
+  }
+  .series-link:hover{
+    color: vars.$darkColor;
+    text-decoration: underline;
   }
 }
 

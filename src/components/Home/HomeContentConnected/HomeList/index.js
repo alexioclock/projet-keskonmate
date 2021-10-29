@@ -6,7 +6,7 @@ const HomeList = () => (
     <p className="list-name">
       Les séries en cours
     </p>
-    <a href="#">
+    <a href="/lists">
       Voir la liste complète
     </a>
     <SeriesCard />
