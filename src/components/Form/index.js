@@ -1,5 +1,5 @@
 // == Import
-import './form.scss';
+import './styles.scss';
 import Popcorn from '../../assets/pictures/popcorn.png';
 
 // == Composant

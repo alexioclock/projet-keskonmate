@@ -1,6 +1,5 @@
 @use 'src/styles/vars';
 
-
 .header{
   padding:1rem;
   font-size: 1.2rem;
@@ -8,12 +7,9 @@
   display:flex;
   justify-content: space-between;
   color: vars.$darkColor;
-  font-family: vars.$textFont;
-
-
+  
   .left-navbar{
     display: flex;
-    // justify-content: space-around;
     width:40%;
 
     .series-link{
@@ -31,8 +27,8 @@
       color: vars.$darkColor;
     }
 
-    // search bar on mobile that appears onClick
     .form-mobile-element{
+      // search bar on mobile that appears onClick
       display: none;
       position:absolute;
       top: 0px;
@@ -40,6 +36,7 @@
       background-color: #ffffff;
       width:100%;
       height:55px;
+      z-index: 1;
       .form-mobile{
         padding: 15px 0;
         margin-left: 1rem;
@@ -49,9 +46,13 @@
           height:1.7rem;
           border:none;
           width:85%;
+          text-align: left;
+          font-family: vars.$textFont;
+          color:vars.$darkColor;
         }
         input::placeholder{
           font-family: vars.$textFont;
+          text-align: left;
         }
       }
       button{
@@ -185,8 +186,6 @@
   }
 }
 
-
-
 @media only screen and (min-width:768px) {
   .header{
     a:hover{
@@ -209,20 +208,16 @@
       // SearchBar on large screen
       .form{
         display: inline-block;
-        align-self: center;
-        width:70%;
-        margin-right:3rem;
+        width:85%;
+        margin-right:2rem;
 
         .form-input{
-          margin-left:1rem;
           height:1.7rem;
           border:none;
           border-radius: 5px;
-          width:90%;
-          padding-left: 0.8rem;
-          font-family: vars.$textFont;
+          width:75%;
           font-size: 0.8rem;
-          
+          margin-top: 20px;
         }
 
         input::placeholder{
@@ -235,7 +230,8 @@
           background-color: transparent;
           border: none;
           position:absolute;
-        }
+          top:30px;
+         }
       }
     }
   
@@ -280,7 +276,7 @@
   
       .login-form{
         width:150px;
-        top: 55px;
+        top: 70px;
         right: 10px;
         padding:10px 10px 40px 10px;
         
@@ -308,7 +304,7 @@
       }
       .dropdown-content{
         width:150px;
-        top: 55px;
+        top: 70px;
         right: 10px;        
         a{
           font-size: 1rem;
@@ -336,12 +332,25 @@
       .series-link{
         display: inline-block;
         width:30%;
-        text-align: center;
+        margin:auto
       }
       .series-icon{
         display: none;
       }
-    }
+
+      .form{
+        .form-input{
+          height:1.7rem;
+          border:none;
+          border-radius: 5px;
+          width:75%;
+          font-size: 0.8rem;
+          margin-top: 20px;
+        }
+        button{
+          position:absolute;
+        }
+      }
   
     .right-navbar{
 
@@ -351,7 +360,7 @@
         right: 15px;
         border-radius: 10px;
         padding:10px 10px 40px 10px;
-
+      }
       label{
         font-size: 1rem;
         input{
@@ -388,5 +397,46 @@
   
       }
     }
+  }
+}
+
+@media only screen and (min-width:1650px) {
+  .form{
+    button{
+      bottom:800px;
+    }
+  }
+}
+
+@media only screen and (min-width:2050px) {
+  .form{
+    button{
+      bottom:690px;
+    }
+  }
+  .right-navbar{
+      .login-form{
+        width:300px;
+      }
+  }
+}
+
+@media only screen and (min-width:2300px) {
+  .form{
+    button{
+      bottom:680px;
+    }
+  }
+}
+
+@media only screen and (min-width:2450px) {
+  .form{
+    button{
+      bottom:670px;
+    }
+  }
+  .login-form{
+    top:100px;
+    right: 15px;
   }
 }

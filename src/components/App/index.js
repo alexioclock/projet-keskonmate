@@ -11,6 +11,15 @@ import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
 
+<<<<<<< HEAD
+// == Composant
+const App = () => (
+  <div className="app">
+    <Header />
+    <Home />
+    <Footer />
+  </div>
+=======
 
 
 // == Composant
@@ -31,6 +40,7 @@ const App = () => {
         </Switch>
       <Footer />
     </BrowserRouter>
+>>>>>>> dev
 );
 }
 
