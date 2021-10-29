@@ -11,9 +11,10 @@
   margin-bottom: 1rem;
   text-align: center;
   font-weight: 500;
+  padding-bottom: 1rem;
 
   .list-name{
-    margin-top:1rem;
+    margin:1rem auto;
   }
   a:hover{
     color:vars.$darkColor;
@@ -21,7 +22,6 @@
   }
   .series-card-div {
     font-family: vars.$textFont;
-    
     .series-card {
       width:220px;
       height: 300px;
@@ -33,6 +33,7 @@
         }
       }
       .series-card-content {
+        border:none;
         .series-card-header {
           font-family: vars.$textFont;
           font-weight: 500;
@@ -45,9 +46,31 @@
   }
 }
 
-@media only screen and (min-width:1200px){
-
-  
+@media only screen and (min-width:1024px){
+  .home-list{
+    width:45%;
+    .series-cards{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap:20px;
+      .series-card-div{
+        margin:1rem auto;
+        .series-card{
+          width:180px;
+          height:260px;
+          margin:0 auto;
+          .series-card-icons-list{
+            left:65px;
+          }
+        }
+        .series-card-content {
+          top:-20%;
+          margin:auto;
+        }
+      }
+    }
+  }
 }
 
 

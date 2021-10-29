@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles.scss';
 
 const HomeHeaderConnected = () => (
   <div className="home-header-connected">

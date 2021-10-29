@@ -9,10 +9,12 @@ const HomeList = () => (
     <a href="/lists">
       Voir la liste complète
     </a>
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
+    <div className="series-cards">
+      <SeriesCard />
+      <SeriesCard />
+      <SeriesCard />
+      <SeriesCard />
+    </div>
 
   </div>
 );

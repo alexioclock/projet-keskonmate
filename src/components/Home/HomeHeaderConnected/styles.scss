@@ -3,7 +3,7 @@
   border-top: 2px solid vars.$darkColor;
   border-bottom: 2px solid vars.$darkColor;
   padding: 1rem 0rem 1rem;
-  margin: 1rem auto;
+  margin: 1rem auto 3rem;
   width:200px;
   p{
     text-align: center;
@@ -11,6 +11,10 @@
   }
 }
 
-@media only screen and (min-width:1200px){
-  
+@media only screen and (min-width:1024px){
+  .home-header-connected{
+    font-size: 2rem;
+    width:350px;  
+  }
+
 }

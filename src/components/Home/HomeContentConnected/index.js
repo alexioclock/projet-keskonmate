@@ -4,8 +4,10 @@ import SuggestionList from './SuggestionList';
 
 const HomeContentConnected = () => (
   <div className="home-content-connected">
-    <HomeList />
-    <HomeList />
+    <div className="home-lists">
+      <HomeList />
+      <HomeList />
+    </div>
     <SuggestionList />
   </div>
 
