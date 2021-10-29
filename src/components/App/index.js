@@ -10,14 +10,13 @@ import Footer from '../Footer';
 import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
-
+import ComponentTest from '../ComponentTest';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <PageList />
     <Header />
-    <ProfilePage />
+    <ComponentTest />
   </div>
 );
 
