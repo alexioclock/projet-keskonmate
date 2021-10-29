@@ -1,0 +1,55 @@
+.profile-page {
+
+  margin: 2em auto;
+  text-align: center;
+
+  &-title {
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  &-container {
+    margin: 2em;
+  }
+
+  &-subtitle {
+    font-weight: bold;
+    margin: 1.5em;
+  }
+  .form-subtitle {
+    margin: 1em;
+  }
+
+  input{
+    border: none;
+    background-color: #fff;
+    padding: 0.8em 1em 0.8em 1em;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    //*******************ADD AFTER MERGE
+    // color:vars.$darkColor;
+    //font-family: vars.$textFont;
+  }
+  
+  input::placeholder {
+    text-align: center;
+  }
+
+  .validation-button{
+    border-radius: 5px;
+    background-color: #13A713;
+    border: none;
+    padding: 0.8em 1em 0.8em 1em;
+    color: white;
+    margin-top: 1em;
+    box-shadow: 0 0 0 0 #13A713;
+    animation: pulse 1,3s infinite; 
+    transition-duration: 0.5s;
+    //*************************ADD AFTER MERGE
+    //font-family: vars.$textFont;
+  }
+  
+  .validation-button:hover{
+    background-color: #0e850e;
+  }
+}
