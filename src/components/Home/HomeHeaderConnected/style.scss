@@ -1,6 +1,12 @@
+@use 'src/styles/vars';
 .home-header-connected{
-  margin-bottom: 1rem;
+  border-top: 2px solid vars.$darkColor;
+  border-bottom: 2px solid vars.$darkColor;
+  padding: 1rem 0rem 1rem;
+  margin: 1rem auto;
+  width:50%;
   p{
     text-align: center;
+    font-weight: 500;
   }
 }

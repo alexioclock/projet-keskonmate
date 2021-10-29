@@ -10,15 +10,18 @@
   margin:auto;
   margin-bottom: 1rem;
   text-align: center;
+  font-weight: 500;
+
   .list-name{
     margin-top:1rem;
   }
   .series-card-div {
     font-family: vars.$textFont;
-    margin: 2rem 0;
+    
     .series-card {
       width:220px;
       height: 300px;
+      margin: 2rem auto;
       .series-card-icons-list{
         left:90px;
         .series-card-icon-edit{
