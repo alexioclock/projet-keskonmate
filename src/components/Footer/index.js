@@ -1,8 +1,9 @@
 // == Import
 import './footer.scss';
+import { Link } from 'react-router-dom';
 
 // == Composant
-const Form = () => {
+const Footer = () => {
 
   return(
     <div className="footer">
@@ -11,13 +12,13 @@ const Form = () => {
         <li className="element-footer-slash">|</li>
         <li className="element-footer">API fournie par TMDB</li>
         <li className="element-footer-slash">|</li>
-        <li className="element-footer">Contact</li>
+        <li className="element-footer"><Link to="/">Contact</Link></li>
         <li className="element-footer-slash">|</li>
-        <li className="element-footer">Mentions légales</li>
+        <li className="element-footer"><Link to="/">Mentions légales</Link></li>
       </ul>
     </div>
 );
 }
 
 // == Export
-export default Form;
+export default Footer;
