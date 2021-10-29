@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+
+
+
 const UserDropdown = () => (
   <div className="dropdown-content">
-    <a href="/account">Mon compte</a>
-    <a href="/logout">Déconnexion</a>
+    <Link to="/mon-compte">Mon compte</Link>
+    <Link to="/">Déconnexion</Link>
 
   </div>
 

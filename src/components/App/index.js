@@ -1,6 +1,6 @@
 // == Import
 import './styles.scss';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from 'src/components/Header';
 import ProfilePage from 'src/components/ProfilePage';
 import Catalogue from 'src/components/Catalogue';
@@ -12,14 +12,27 @@ import PageList from '../PageList';
 import Home from '../Home';
 
 
+
 // == Composant
-const App = () => (
-  <div className="app">
-    <Header />
-    <PageList />
-    <ProfilePage />
-  </div>
+const App = () => {
+
+
+  return(
+    <BrowserRouter>
+      <Header />
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/series" exact component={Catalogue}/>
+          <Route path="/series/nom" exact component={Detail}/>
+          <Route path="/mes-listes" exact component={PageList}/>
+          <Route path="/mon-compte" exact component={ProfilePage} />
+          <Route path="/inscription" exact component={Form} />
+          <Route component={NotFound} />
+        </Switch>
+      <Footer />
+    </BrowserRouter>
 );
+}
 
 // == Export
 export default App;

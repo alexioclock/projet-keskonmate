@@ -11,7 +11,7 @@ import ActualSeries from '../SeriesList/ActualSeries';
 const PageList = () => {
 
   return(
-    <div className="ListNavigation">
+    <div className="list-navigation">
       <Router>
         <ListNavigation />
 
@@ -19,6 +19,8 @@ const PageList = () => {
           <Route path="/series-en-cours" exact component={ActualSeries}/>
           <Route path="/series-a-voir" exact component={FutureSeries}/>
       </Router>
+
+      
 
     </div>
 );

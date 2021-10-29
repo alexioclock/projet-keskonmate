@@ -1,5 +1,6 @@
 .detail.container{
   background-color: #f1ded4;
+  margin-top: 5em;
 }
 
 
@@ -9,10 +10,9 @@
   height: 14em;
   width: 100%; 
   text-align: center;
-  padding-top: 3em;
-  padding-bottom: 3em;
   overflow-y: scroll;
-  margin-bottom: 140px;
+  margin-bottom: 2em;
+  margin-bottom: 2em;
 
   h1{
     font-size: 3em;
@@ -196,70 +196,4 @@ img{
 
 }
 
-@media screen and (min-width: 600px) {
 
-
-  .display-desktop{
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .resume {
-    display: none;
-  }
-
-  // .banner-container{
-  //   height: 13em;
-  // }
-
-  .banner-container h1{
-    margin-bottom: 0.2em;
-    margin-top: 0px;;
-  }
-
-  .banner-container p{
-    font-size: 0.8em;
-    width: 50%;
-    margin:auto;
-    margin-bottom: 3em;
-  }
-
-    .banner-container::-webkit-scrollbar {
-      display: none;
-      }
-  
-
-  .ul-actors{
-    display: flex;
-
-    .li-actors{
-      display: flex;
-      margin: 0 20px;
-    }
-  }
-
-.resume-for-desktop{
-  margin-bottom: 2em;
-
-}
-
-
-
-.add-list-button{
-  font-size: 0.8em;
-}
-
-}
-
-
-
-@media screen and (min-width: 1600px) {
-  .banner-container{
-     margin-bottom: 15em;
-  }
-  
-  .ul-seasons{
-    display: flex;
-    justify-content: space-around;
-  }
-}
