@@ -1,5 +1,4 @@
-// == Import
-import './footer.scss';
+import './styles.scss';
 import { Link } from 'react-router-dom';
 
 // == Composant
@@ -17,8 +16,8 @@ const Footer = () => {
         <li className="element-footer"><Link to="/">Mentions légales</Link></li>
       </ul>
     </div>
-);
+  );
 }
-
 // == Export
 export default Footer;
+
