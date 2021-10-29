@@ -11,7 +11,6 @@ import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
 
-
 // == Composant
 const App = () => (
   <div className="app">
