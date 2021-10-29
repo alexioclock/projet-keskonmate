@@ -15,9 +15,9 @@ import Home from '../Home';
 // == Composant
 const App = () => (
   <div className="app">
-    <PageList />
     <Header />
-    <ProfilePage />
+    <Home />
+    <Footer />
   </div>
 );
 
