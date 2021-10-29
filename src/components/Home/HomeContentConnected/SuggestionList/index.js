@@ -6,11 +6,13 @@ const SuggestionList = () => (
     <p className="list-name">
       Vous pourriez aimer...
     </p>
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
+    <div className="series-cards">
+      <SeriesCard />
+      <SeriesCard />
+      <SeriesCard />
+      <SeriesCard />
+      <SeriesCard />
+    </div>
 
   </div>
 );

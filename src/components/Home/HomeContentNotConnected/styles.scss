@@ -1,9 +1,21 @@
 .home-content-not-connected{
-  .series-card-icons-list {
-    display: none;
-  }
-  .series-card-content{
-    top:0;
-  }
+  .suggestion-list{
+    width:90%;
+    .series-cards{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 10px;
+      justify-content: space-around;
+      .series-card{
+        margin:0 15px;
+        .series-card-icons-list {
+          display: none;
+        }
+        .series-card-content{
+          top:0;
+        }
+      }
+    }
 
+  }
 }

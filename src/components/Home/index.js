@@ -7,6 +7,7 @@ import HomeContentNotConnected from './HomeContentNotConnected';
 const Home = () => (
   <div className="home">
     {/* <HomeHeaderConnected /> */}
+    {/* <HomeContentConnected /> */}
     <HomeHeaderNotConnected />
     <HomeContentNotConnected />
 

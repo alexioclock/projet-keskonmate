@@ -3,20 +3,21 @@
 .home-header-not-connected{
   text-align: center;
   font-weight: 500;
+  margin-top: 1rem;
 
-  .home-header-not-connected-first-line{
+  .home-header-not-connected-text{
     margin: 1rem 0;
   }
-  .home-header-not-connected-third-line{
+  .home-header-not-connected-links{
     margin: 1rem 0;
-
     a{
       font-weight: 700;
     }
-
     a:hover{
       text-decoration: underline;
       color:vars.$darkColor;
+  
     }
   }
+
 }
