@@ -1,4 +1,5 @@
 import './styles.scss';
+import { Link } from 'react-router-dom';
 import {
   User, List, Bookmark,
 } from 'react-feather';
@@ -12,9 +13,9 @@ const Header = () => (
   <div className="header">
     {/* Left part of the navbar : "Toutes les séries" + search bar */}
     <div className="left-navbar">
-      <a href="/series" className="series-link">
+      <Link to="/series" className="series-link">
         Toutes les séries
-      </a>
+      </Link>
       <a href="/series" className="series-icon">
         <List size="25" />
       </a>
@@ -24,30 +25,29 @@ const Header = () => (
     </div>
 
     {/* Logo */}
-    <img src={logo} alt="logo" className="logo" />
+    <Link to="/"><img src={logo} alt="logo" className="logo" style={{height:'2em', width:'auto'}}/></Link>  
 
     {/* Right part of the navbar:
     "Mes listes"
     + username/"se connecter
     + connection form/myaccount and logout links" */}
     <div className="right-navbar">
-      <a href="/list" className="list-link">
+      <Link to="/mes-listes" className="list-link">
         Mes listes
-      </a>
-      <a href="/list" className="list-icon">
+      </Link>
+      <a href="/mes-listes" className="list-icon">
         <Bookmark size="25" />
       </a>
 
-      <a href="/user" className="user-account-link">
+      <Link to="/mon-compte" className="user-account-link">
         <p className="user-name">
           Utilisateur
         </p>
-
         <p className="connection">
           Se connecter
         </p>
         <User size="25" className="user-icon" />
-      </a>
+      </Link>
       <UserDropdown />
 
       <LoginForm />
