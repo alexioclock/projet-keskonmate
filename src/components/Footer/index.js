@@ -1,5 +1,5 @@
 // == Import
-import './footer.scss';
+import './styles.scss';
 
 // == Composant
 const Footer = () => (
