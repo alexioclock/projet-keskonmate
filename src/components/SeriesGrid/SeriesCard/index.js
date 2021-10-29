@@ -11,8 +11,8 @@ const SeriesCard = () => (
     <Card className="series-card">
       <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
       <div className="series-card-icons-list">
-        <Edit2 className="series-card-icon" size={40} />
-        <Trash2 className="series-card-icon" size={40} />
+        <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
+        <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
       </div>
       <Card.Content className="series-card-content">
         <Card.Header className="series-card-header">Titre de la série</Card.Header>
