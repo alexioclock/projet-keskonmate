@@ -1,6 +1,8 @@
 // == Import
 import './styles.scss';
+
 import Header from 'src/components/Header';
+import ProfilePage from 'src/components/ProfilePage';
 import Catalogue from 'src/components/Catalogue';
 import Detail from '../Detail';
 import Form from '../Form';
@@ -12,9 +14,7 @@ import NotFound from '../NotFound';
 const App = () => (
   <div className="app">
     <Header />
-    <Home />
-    {/* <Catalogue /> */}
-    {/* <Footer /> */}
+    <ProfilePage />
   </div>
 );
 
