@@ -2,27 +2,27 @@ import './styles.scss';
 
 const HomeHeaderNotConnected = () => (
   <div className="home-header-not-connected">
-    <p className="home-header-not-connected-text">
-      Bienvenue sur keskonmate !
-    </p>
-    <p className="home-header-not-connected-text ">
-      Un site qui a été pensé pour gérer le visionnage de vos séries et créer vos propres listes.
-    </p>
-    <p className="home-header-not-connected-links">
+    <div className="home-header-not-connected-text">
+      <p className="line-one">
+        Bienvenue sur keskonmate !
+      </p>
+      <p className="line-two">
+        Un site qui a été pensé pour gérer le visionnage de vos séries et créer vos propres listes.
+      </p>
+    </div>
+
+    <div className="home-header-not-connected-links">
       <a href="/inscription">
         Inscrivez-vous
       </a>
       &nbsp;pour commencer vos listes !
-    </p>
-    <p>
-      ou
-    </p>
-    <p className="home-header-not-connected-links">
+      <p>
+        ou
+      </p>
       <a href="/login">
         Connectez-vous
       </a>
-      &nbsp;pour consulter vos listes !
-    </p>
+    </div>
   </div>
 
 );

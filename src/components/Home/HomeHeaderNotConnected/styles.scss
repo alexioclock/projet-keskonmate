@@ -1,15 +1,23 @@
 @use 'src/styles/vars';
 
 .home-header-not-connected{
+  width: 300px;
   text-align: center;
   font-weight: 500;
-  margin-top: 1rem;
+  margin: 2rem auto;
 
   .home-header-not-connected-text{
-    margin: 1rem 0;
+    p{
+      margin: 1rem 0;
+    }
   }
   .home-header-not-connected-links{
-    margin: 1rem 0;
+    padding:2rem 0;
+    width:90%;
+    border-top: 2px solid vars.$darkColor;
+    border-bottom: 2px solid vars.$darkColor;
+    margin: 1rem auto;
+    line-height: 1.2rem;
     a{
       font-weight: 700;
     }
@@ -17,6 +25,18 @@
       text-decoration: underline;
       color:vars.$darkColor;
   
+    }
+  }
+
+}
+
+@media only screen and (min-width:1024px){
+  .home-header-not-connected{
+    font-size: 1.2rem;
+    width:800px;  
+    .home-header-not-connected-links{
+      margin: 3rem auto;
+      line-height: 1.5rem;
     }
   }
 

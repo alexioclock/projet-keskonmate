@@ -15,7 +15,7 @@
     margin:1rem auto;
   }
   .series-cards{
-    margin:1rem auto;
+    margin:0 auto;
     .series-card-div {
       font-family: vars.$textFont;
       margin: 2rem auto;
@@ -44,6 +44,9 @@
   .series-link:hover{
     color: vars.$darkColor;
     text-decoration: underline;
+  }
+  .series-link{
+
   }
 }
 
