@@ -28,6 +28,7 @@ export default [
           {
             id: 1,
             title: 'Game of Thrones',
+            // la suite est-elle utile pour read un user ?
             synopsis: 'Il y a très longtemps, à une époque oubliée, une force a détruit l\'équilibre des saisons. Dans un pays où l\'été peut durer plusieurs années et l\'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes.',
             releaseDate: '2011-01-01',
             image: 'picture-series-1.jpg',

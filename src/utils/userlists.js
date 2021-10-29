@@ -18,6 +18,10 @@ export default [
         title: 'Game of Thrones',
       },
     ],
+    users: {
+      id: 1,
+      email: 'tux@keskonmate.io',
+    },
   },
   {
     id: 2,
@@ -34,6 +38,10 @@ export default [
         title: 'The Office',
       },
     ],
+    users: {
+      id: 1,
+      email: 'tux@keskonmate.io',
+    },
   },
   {
     id: 3,
@@ -50,6 +58,10 @@ export default [
         title: 'The Big Bang Theory',
       },
     ],
+    users: {
+      id: 1,
+      email: 'tux@keskonmate.io',
+    },
   },
   {
     id: 4,
@@ -66,6 +78,10 @@ export default [
         title: 'Squid Game',
       },
     ],
+    users: {
+      id: 1,
+      email: 'tux@keskonmate.io',
+    },
   },
   {
     id: 5,
@@ -82,5 +98,9 @@ export default [
         title: 'La Casa de Papel',
       },
     ],
+    users: {
+      id: 1,
+      email: 'tux@keskonmate.io',
+    },
   },
 ];
