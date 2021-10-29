@@ -16,8 +16,8 @@ const PageList = () => {
         <ListNavigation />
 
           <Route path="/series-vues" exact component={PassedSeries}/>
+          <Route path="/series-en-cours" exact component={ActualSeries}/>
           <Route path="/series-a-voir" exact component={FutureSeries}/>
-          <Route path="/serie-en-cours" exact component={ActualSeries}/>
       </Router>
 
     </div>

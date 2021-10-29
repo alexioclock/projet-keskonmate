@@ -2,41 +2,33 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react';
 
-const options = [
-  { key: 'passed', text: 'Séries déjà vues', value: 'passed' },
-  { key: 'actual', text: 'Séries en cours ', value: 'actual' },
-  { key: 'futur', text: 'Séries à voir', value: 'futur' },
-];
+// const options = [
+//   { key: 'series-vues', text: 'Séries déjà vues', value: 'series-vues' },
+//   { key: 'actual', text: 'Séries en cours ', value: 'series-en-cours' },
+//   { key: 'futur', text: 'Séries à voir', value: 'series-a-voir' },
+// ];
 
 
 const ListNavigation = () => {
 
   return(
-    <div className="list">
-      <div className="mobile-list">
-        <Dropdown
-              placeholder="Choisissez votre liste"
-              fluid
-              selection
-              options={options}
-            />
-      </div>
       <div className="desktop-list">
           <ul className="list-container">
             <NavLink activeClassName="current" to="series-vues">
               <li className="list-button">Séries déjà vues</li>
             </NavLink>
               
-            <NavLink activeClassName="current" to="serie-en-cours">
-              <li className="list-button">Séries à voir</li>
-            </NavLink>
-            <NavLink activeClassName="current" to="/series-a-voir">
+            <NavLink activeClassName="current" to="series-en-cours">
               <li className="list-button">Séries en cours</li>
+            </NavLink>
+
+            <NavLink activeClassName="current" to="series-a-voir">
+              <li className="list-button">Séries à voir</li>
             </NavLink>
           </ul>
       </div>
       
-    </div>
+    // </div>
   );
 }
 export default ListNavigation;

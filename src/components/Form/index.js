@@ -7,7 +7,7 @@ const Form = () => {
 
   return(
     <div className="Form">
-      <form action="/" method="post">
+      <form className="suscribe-form" action="/" method="post">
         
         <h1>Inscription</h1>
       

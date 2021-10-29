@@ -1,5 +1,5 @@
 // == Import
-import SeriesCard from './PassedSeriesCard';
+import SeriesCard from './FutureSeriesCard';
 
 // == Composant
 const FutureSeries = () => {

@@ -8,7 +8,7 @@ import './styles.scss';
 const SeriesCard = () => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
-    <Card className="series-card">
+    <Card className="series-card" style={{width:'13em'}}>
       <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
       <div className="series-card-icons-list">
         <Edit2 className="series-card-icon" size={40} />
@@ -19,9 +19,7 @@ const SeriesCard = () => (
         <Card.Description className="series-card-description">
           <ul>
             <li>Date de sortie</li>
-            <li>Réalisateur</li>
             <li>Genre</li>
-            <li>Acteurs principaux</li>
           </ul>
         </Card.Description>
       </Card.Content>

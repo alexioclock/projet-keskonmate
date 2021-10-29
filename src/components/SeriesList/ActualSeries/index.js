@@ -1,5 +1,5 @@
 // == Import
-import SeriesCard from './PassedSeriesCard';
+import SeriesCard from './ActualSeriesCard';
 
 
 // == Composant
@@ -13,7 +13,6 @@ const ActualSeries = () => {
         <SeriesCard />
         <SeriesCard />
         <SeriesCard />
-     
       </div>
   </div>
 );
