@@ -1,7 +1,8 @@
 .profile-page {
-
   margin: 2em auto;
   text-align: center;
+  width: 30em;
+
 
   &-title {
     font-weight: bold;
@@ -52,4 +53,11 @@
   .validation-button:hover{
     background-color: #0e850e;
   }
+}
+
+.profile-page-container-input{
+  padding-top:2em;
+  padding-bottom:2em;
+  background-color: #fff4f1;
+  border-radius:10px;
 }

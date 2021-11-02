@@ -11,15 +11,7 @@ import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
 
-<<<<<<< HEAD
-// == Composant
-const App = () => (
-  <div className="app">
-    <Header />
-    <Home />
-    <Footer />
-  </div>
-=======
+
 
 
 // == Composant
@@ -28,11 +20,11 @@ const App = () => {
 
   return(
     <BrowserRouter>
-      <Header />
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/series" exact component={Catalogue}/>
-          <Route path="/series/nom" exact component={Detail}/>
+      <Header  />
+        <Switch >
+          <Route path="/" exact component={Home} />
+          <Route path="/series" exact  component={Catalogue} />
+          <Route path="/series/nom" exact  component={Detail} />
           <Route path="/mes-listes" exact component={PageList}/>
           <Route path="/mon-compte" exact component={ProfilePage} />
           <Route path="/inscription" exact component={Form} />
@@ -40,7 +32,7 @@ const App = () => {
         </Switch>
       <Footer />
     </BrowserRouter>
->>>>>>> dev
+
 );
 }
 
