@@ -12,7 +12,11 @@ const options = [
   { key: 'animes', text: 'Animes', value: 'animes' },
 ];
 
-const CatalogueDropdown = () => (
+const CatalogueDropdown = ({genre}) => {
+
+
+
+return(
   <div className="catalogue-dropdown">
     <Dropdown
       placeholder="Choisissez vos catégories"
@@ -20,8 +24,9 @@ const CatalogueDropdown = () => (
       multiple
       selection
       options={options}
+
     />
   </div>
 );
-
+}
 export default CatalogueDropdown;

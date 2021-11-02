@@ -5,6 +5,6 @@ import genreFilter from './genreFilter';
 const rootReducer = combineReducers({
   /* nom du tiroir : reducer qui s'occupe du tiroir */
   reducer: reducer,
-  series: genreFilter,
+  dropdownFilter: genreFilter,
 });
 export default rootReducer;
