@@ -1,11 +1,13 @@
 import { DO_SOMETHING } from 'src/actions/actions';
 
+import seriesList from 'src/utils/series';
+
 const initialState = {
   // ici le state initial
-
+  seriesList: seriesList,
 };
 
-function reducer(state = initialState, action) {
+function seriesReducer(state = initialState, action) {
   switch (action.type) {
     case DO_SOMETHING:
     // on retourne un nouveau state
@@ -22,4 +24,4 @@ function reducer(state = initialState, action) {
   }
 }
 
-export default reducer;
+export default seriesReducer;

@@ -17,26 +17,25 @@ import seriesData from '../../utils/series';
 const App = () => {
 
   return (
-  <BrowserRouter>
-    <Header />
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/series" exact component={Catalogue} />
-      <Route
-        path="/series/nom"
-        exact
-        component={Detail}
-        seriesList={seriesData}
-      />
-      <Route path="/mes-listes" exact component={PageList} />
-      <Route path="/mon-compte" exact component={ProfilePage} />
-      <Route path="/inscription" exact component={Form} />
-      <Route component={NotFound} />
-    </Switch>
-    <Footer />
-  </BrowserRouter>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/series" exact component={Catalogue} />
+        <Route
+          path="/series/nom"
+          exact
+          component={Detail}
+          seriesList={seriesData}
+        />
+        <Route path="/mes-listes" exact component={PageList} />
+        <Route path="/mon-compte" exact component={ProfilePage} />
+        <Route path="/inscription" exact component={Form} />
+        <Route component={NotFound} />
+      </Switch>
+      <Footer />
+    </BrowserRouter>
   );
-};
-
+}
 // == Export
 export default App;
