@@ -1,11 +1,11 @@
 // == Import
-import './list.scss';
+import './styles.scss';
 
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ListNavigation from './ListNavigation';
-import PassedSeries from '../SeriesList/PassedSeries';
-import FutureSeries from '../SeriesList/FutureSeries';
-import ActualSeries from '../SeriesList/ActualSeries';
+import WatchedSeries from '../SeriesList/WatchedSeries';
+import ToWatchSeries from '../SeriesList/ToWatchSeries';
+import CurrentSeries from '../SeriesList/CurrentSeries';
 
 // == Composant
 const PageList = () => {
@@ -15,9 +15,9 @@ const PageList = () => {
       <Router>
         <ListNavigation />
 
-          <Route path="/series-vues" exact component={PassedSeries}/>
-          <Route path="/series-en-cours" exact component={ActualSeries}/>
-          <Route path="/series-a-voir" exact component={FutureSeries}/>
+          <Route path="/series-vues" exact component={WatchedSeries}/>
+          <Route path="/series-en-cours" exact component={CurrentSeries}/>
+          <Route path="/series-a-voir" exact component={ToWatchSeries}/>
       </Router>
 
       

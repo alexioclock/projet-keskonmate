@@ -1,9 +1,9 @@
 // == Import
-import SeriesCard from './PassedSeriesCard';
-
+import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
+import './styles.scss';
 
 // == Composant
-const PassedSeries = () => {
+const WatchedSeries = () => {
 
   return(
     <div className="actual-series">
@@ -28,4 +28,4 @@ const PassedSeries = () => {
 }
 
 // == Export
-export default PassedSeries;
+export default WatchedSeries;
