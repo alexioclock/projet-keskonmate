@@ -1,13 +1,12 @@
 // == Import
-import SeriesCard from './ActualSeriesCard';
-
+import SeriesCard from './CurrentSeriesCard';
+import './styles.scss';
 
 // == Composant
-const ActualSeries = () => {
+const CurrentSeries = () => {
 
   return(
     <div className="actual-series">
-
       <div className="series-grid">
         <SeriesCard />
         <SeriesCard />
@@ -19,4 +18,4 @@ const ActualSeries = () => {
 }
 
 // == Export
-export default ActualSeries;
+export default CurrentSeries;

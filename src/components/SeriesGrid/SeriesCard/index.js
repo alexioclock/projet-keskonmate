@@ -7,8 +7,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-const SeriesCard = ({ serieDetails }) => {
-  console.log({ serieDetails });
+const SeriesCard = () => {
   return (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
@@ -20,7 +19,7 @@ const SeriesCard = ({ serieDetails }) => {
         <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
       </div>
       <Card.Content className="series-card-content">
-        <Card.Header className="series-card-header">{ serieDetails.title }</Card.Header>
+        <Card.Header className="series-card-header">Titre de la série</Card.Header>
         <Card.Description className="series-card-description">
           <ul>
             <li>Date de sortie</li>
