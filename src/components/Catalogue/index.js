@@ -9,7 +9,9 @@ import CatalogueFilters from './CatalogueFilters';
 import './styles.scss';
 
 // == Composant
-const Catalogue = () => (
+const Catalogue = () => {
+
+  return(
   <div className="catalogue">
     {/* Carousel */}
     <CatalogueDropdown />
@@ -21,6 +23,6 @@ const Catalogue = () => (
     </div>
   </div>
 );
-
+}
 // == Export
 export default Catalogue;

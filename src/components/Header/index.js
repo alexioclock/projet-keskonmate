@@ -10,6 +10,8 @@ import LoginForm from './LoginForm';
 import UserDropdown from './UserDropdown';
 
 const Header = () => (
+
+
   <div className="header">
     {/* Left part of the navbar : "Toutes les séries" + search bar */}
     <div className="left-navbar">

@@ -20,7 +20,7 @@ const ProfilePage = () => (
       <p>example@keskonmate.io</p>
     </div>
     {/* Il faudra y mettre la route vers l'API qui édite un utilisateur */}
-    <form action="/" method="post" className="profile-page-container">
+    <form action="/" method="post" className="profile-page-container-input">
       <h2 className="form-title profile-page-subtitle">Je veux changer mon mot de passe</h2>
       <div className="old-password-container">
         <h3 className="old-password-title form-subtitle">Saisir l'ancien mot de passe</h3>

@@ -6,7 +6,7 @@ import Popcorn from '../../assets/pictures/popcorn.png';
 const Form = () => {
 
   return(
-    <div className="Form">
+    <div className="form">
       <form className="suscribe-form" action="/" method="post">
         
         <h1>Inscription</h1>
