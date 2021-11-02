@@ -6,8 +6,8 @@
 export default [
   {
     id: 1,
-    email: 'tux@keskonmate.io',
-    username: 'Tux123',
+    email: 'adrienodin@oclock.io',
+    username: 'Adrien Odin',
     createdAt: '2021-10-27T12:09:27+02:00',
     updatedAt: null,
     userlist: [
