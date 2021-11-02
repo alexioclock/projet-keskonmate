@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import {
@@ -10,7 +11,7 @@ import LoginForm from './LoginForm';
 import UserDropdown from './UserDropdown';
 
 const Header = ({ username }) => {
-
+  
   return (
     <div className="header">
       {/* Left part of the navbar : "Toutes les séries" + search bar */}
@@ -59,4 +60,9 @@ const Header = ({ username }) => {
     </div>
   );
 };
+
+Header.propTypes = {
+  username: PropTypes.string.isRequired,
+};
+
 export default Header;

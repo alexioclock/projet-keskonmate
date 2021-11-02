@@ -2,7 +2,7 @@
 import './styles.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from 'src/containers/Header';
-import ProfilePage from 'src/components/ProfilePage';
+import ProfilePage from 'src/containers/ProfilePage';
 import Catalogue from 'src/containers/Catalogue';
 import Detail from '../Detail';
 import Form from '../Form';
