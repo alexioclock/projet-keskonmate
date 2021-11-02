@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from 'src/containers/Header';
 import ProfilePage from 'src/containers/ProfilePage';
 import Catalogue from 'src/containers/Catalogue';
-import Detail from '../Detail';
+import Details from 'src/containers/Details';
 import Form from '../Form';
 import Footer from '../Footer';
 import NotFound from '../NotFound';
@@ -15,7 +15,7 @@ import seriesData from '../../utils/series';
 
 // == Composant
 const App = () => {
-
+  
   return (
   <BrowserRouter>
     <Header />
@@ -25,7 +25,7 @@ const App = () => {
       <Route
         path="/series/nom"
         exact
-        component={Detail}
+        component={Details}
         seriesList={seriesData}
       />
       <Route path="/mes-listes" exact component={PageList} />
