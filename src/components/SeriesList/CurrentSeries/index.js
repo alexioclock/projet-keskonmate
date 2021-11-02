@@ -1,5 +1,5 @@
 // == Import
-import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
+import SeriesCard from './CurrentSeriesCard';
 import './styles.scss';
 
 // == Composant

@@ -6,6 +6,9 @@
   @media only screen and (min-device-width : 768px) {
     height: 350px;
     width: 200px;
+
+
+
   }
 
   @media only screen and (min-device-width : 1440px) {
@@ -33,7 +36,7 @@
   &-content {
     text-align: center;
     position: relative;
-    top: -45px;
+    top: -40px;
     margin: 20px;
   }
 
@@ -44,5 +47,20 @@
 
   &-description {
     font-size: 1.2em;
+  }
+}
+
+.info-form{
+  display: flex;
+  justify-content: space-between;
+
+  input{
+    cursor: pointer;
+    display: flex;
+    width: 90px;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+    margin-right: 5px;
+    padding: 5px 5px 5px 5px;
   }
 }
