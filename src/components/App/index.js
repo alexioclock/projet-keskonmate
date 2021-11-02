@@ -35,8 +35,8 @@ const App = () => {
     </Switch>
     <Footer />
   </BrowserRouter>
-  );
-};
 
+  );
+}
 // == Export
 export default App;

@@ -1,5 +1,5 @@
 // Composants
-import SeriesGrid from 'src/components/SeriesGrid';
+import SeriesGrid from 'src/containers/SeriesGrid';
 
 import CatalogueDropdown from './CatalogueDropdown';
 
@@ -9,9 +9,7 @@ import CatalogueFilters from './CatalogueFilters';
 import './styles.scss';
 
 // == Composant
-const Catalogue = ({ seriesList }) => {
-
-  return(
+const Catalogue = () => (
   <div className="catalogue">
     {/* Carousel */}
     <CatalogueDropdown />
@@ -23,6 +21,5 @@ const Catalogue = ({ seriesList }) => {
     </div>
   </div>
 );
-}
 // == Export
 export default Catalogue;

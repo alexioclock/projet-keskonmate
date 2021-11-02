@@ -2,6 +2,7 @@ import { DO_SOMETHING } from 'src/actions/actions';
 
 const initialState = {
   // ici le state initial
+
 };
 
 function reducer(state = initialState, action) {
