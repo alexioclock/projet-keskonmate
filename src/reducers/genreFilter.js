@@ -1,13 +1,15 @@
-import { DO_SOMETHING } from 'src/actions/actions';
-
+import { FILTER_GENRE_SERIES } from 'src/actions/seriesFilter';
+import dataGenres from "../utils/genres";
+import dataSeries from "../utils/series";
 
 const initialState = {
   // ici le state initial
+    list:[dataSeries],
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case DO_SOMETHING:
+    case FILTER_GENRE_SERIES:
     // on retourne un nouveau state
       return {
         // en déversant les informations du state actuel
