@@ -1,12 +1,15 @@
 import { Trash2, Edit2 } from 'react-feather';
 import { Card, Image } from 'semantic-ui-react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Style
 import './styles.scss';
 
 // == Composant
-const SeriesCard = () => (
+const SeriesCard = ({ serieDetails }) => {
+  console.log({ serieDetails });
+  return (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
     <Link to="/series/nom">
@@ -17,7 +20,7 @@ const SeriesCard = () => (
         <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
       </div>
       <Card.Content className="series-card-content">
-        <Card.Header className="series-card-header">Titre de la série</Card.Header>
+        <Card.Header className="series-card-header">{ serieDetails.title }</Card.Header>
         <Card.Description className="series-card-description">
           <ul>
             <li>Date de sortie</li>
@@ -30,7 +33,20 @@ const SeriesCard = () => (
     </Card>
     </Link>
   </div>
-);
+  );
+};
+
+SeriesCard.propTypes = {
+  serieDetails: PropTypes.shape({
+    title: PropTypes.string,
+  }),
+};
+
+SeriesCard.defaultProps = {
+  serieDetails: PropTypes.shape({
+    title: 'Titre de la série',
+  }),
+};
 
 // == Export
 export default SeriesCard;

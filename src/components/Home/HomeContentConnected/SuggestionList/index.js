@@ -1,6 +1,8 @@
 import './styles.scss';
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
 
+import seriesData from '../../../../utils/series';
+
 const SuggestionList = () => (
   <div className="suggestion-list">
     <p className="list-name">
@@ -12,11 +14,9 @@ const SuggestionList = () => (
     </a>
 
     <div className="series-cards">
-      <SeriesCard />
-      <SeriesCard />
-      <SeriesCard />
-      <SeriesCard />
-      <SeriesCard />
+      {seriesData.map((serie) => (
+        <SeriesCard serieDetails={serie} key={serie.id} />
+      ))}
     </div>
   </div>
 );
