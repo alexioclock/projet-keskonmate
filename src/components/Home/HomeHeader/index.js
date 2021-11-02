@@ -29,7 +29,7 @@ const HomeHeader = () => {
             </a>
           </div>
         </div>
-      )};
+      )}
       {isConnected && (
         <div className="home-header-connected">
           <p className="home-header-connected-first-line">
@@ -39,7 +39,7 @@ const HomeHeader = () => {
             Alors, keskonmate ?
           </p>
         </div>
-      )};
+      )}
     </div>
   );
 };

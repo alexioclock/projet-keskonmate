@@ -7,7 +7,13 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-const SeriesCard = ({ title, releaseDate, director, genre, actor }) => (
+const SeriesCard = ({
+  title,
+  releaseDate,
+  director,
+  genre,
+  actor,
+}) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
     <Link to="/series/nom">
