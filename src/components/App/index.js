@@ -11,8 +11,6 @@ import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
 
-import seriesData from '../../utils/series';
-
 // == Composant
 const App = () => (
   <BrowserRouter>
@@ -24,7 +22,6 @@ const App = () => (
         path="/series/nom"
         exact
         component={Detail}
-        seriesList={seriesData}
       />
       <Route path="/mes-listes" exact component={PageList} />
       <Route path="/mon-compte" exact component={ProfilePage} />
