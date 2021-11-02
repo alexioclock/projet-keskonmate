@@ -9,7 +9,7 @@ import CatalogueFilters from './CatalogueFilters';
 import './styles.scss';
 
 // == Composant
-const Catalogue = () => {
+const Catalogue = ({ seriesList }) => {
 
   return(
   <div className="catalogue">

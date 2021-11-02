@@ -1,6 +1,8 @@
 // Composants
 import SeriesCard from './SeriesCard';
 
+import seriesData from '../../utils/series';
+
 // Style
 import './styles.scss';
 
@@ -8,16 +10,9 @@ import './styles.scss';
 const SeriesGrid = () => (
   <div className="series-grid">
     {/* Grille de SeriesCard */}
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
-    <SeriesCard />
+    {seriesData.map((serie) => (
+      <SeriesCard serieDetails={serie} key={serie.id} />
+    ))}
   </div>
 );
 

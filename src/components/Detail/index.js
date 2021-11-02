@@ -4,19 +4,18 @@ import { Card, Image } from 'semantic-ui-react'
 import actor from '../../assets/pictures/actors/will.jpg';
 import Poster from '../../assets/pictures/squid-game.jpg';
 
-
 // == Composant
-const Detail = () => {
-
+const Detail = ({ seriesList }) => {
   const isConnected = false;
+  console.log(seriesList);
 
-  return(
-  <div className="detail-container">
-    <div className="banner-container">
-      <img className="poster" src={Poster} alt=""></img>
-      <h1>Titre du film</h1>
-      <p className="resume-for-desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam</p>
-      { isConnected ? <a className="add-list-button">Ajouter à ma liste + </a> : <a className="add-list-button">Connecte-toi pour ajouter la série</a>}
+  return (
+    <div className="detail-container">
+      <div className="banner-container">
+        <img className="poster" src={Poster} alt=""></img>
+        <h1>Titre du film</h1>
+        <p className="resume-for-desktop">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam</p>
+        { isConnected ? <a className="add-list-button">Ajouter à ma liste + </a> : <a className="add-list-button">Connecte-toi pour ajouter la série</a>}
     </div>
 
       <div className="genre-list">
@@ -127,7 +126,9 @@ const Detail = () => {
       </div>
   </div>
 );
-}
+};
+
+
 
 // == Export
 export default Detail;
