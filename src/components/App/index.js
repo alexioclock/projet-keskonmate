@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import ProfilePage from 'src/components/ProfilePage';
 import Catalogue from 'src/containers/Catalogue';
 import Detail from '../Detail';
