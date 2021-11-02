@@ -15,7 +15,7 @@ import seriesData from '../../utils/series';
 
 // == Composant
 const App = () => {
-  console.log(seriesData);
+
   return (
   <BrowserRouter>
     <Header />

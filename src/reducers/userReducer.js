@@ -1,4 +1,8 @@
+import usersData from 'src/utils/users';
+
+console.log(usersData[0]);
 const initialState = {
+  user: usersData[0],
 };
 
 function userReducer(state = initialState, action) {
