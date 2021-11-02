@@ -11,7 +11,6 @@ import UserDropdown from './UserDropdown';
 
 const Header = () => (
 
-
   <div className="header">
     {/* Left part of the navbar : "Toutes les séries" + search bar */}
     <div className="left-navbar">
@@ -27,7 +26,7 @@ const Header = () => (
     </div>
 
     {/* Logo */}
-    <Link to="/"><img src={logo} alt="logo" className="logo" style={{height:'2em', width:'auto'}}/></Link>  
+    <Link to="/"><img src={logo} alt="logo" className="logo" style={{height:'2em', width:'auto'}}/></Link>
 
     {/* Right part of the navbar:
     "Mes listes"
