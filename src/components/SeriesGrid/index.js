@@ -1,22 +1,27 @@
+import PropTypes from 'prop-types';
+
 // Composants
 import SeriesCard from './SeriesCard';
-
-import seriesData from '../../utils/series';
 
 // Style
 import './styles.scss';
 
 // == Composant
-const SeriesGrid = () => (
+const SeriesGrid = ({ series }) => (
   <div className="series-grid">
-    {/* Grille de SeriesCard */}
-    {seriesData.map((serie) => (
-      <SeriesCard serieDetails={serie} key={serie.id} />
+    {series.map((serie) => (
+      <SeriesCard key={serie.id} {...serie} />
     ))}
   </div>
 );
 
-SeriesGrid.propTypes = {};
+SeriesGrid.propTypes = {
+  series: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 // == Export
 export default SeriesGrid;

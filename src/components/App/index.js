@@ -14,9 +14,7 @@ import Home from '../Home';
 import seriesData from '../../utils/series';
 
 // == Composant
-const App = () => {
-  console.log(seriesData);
-  return (
+const App = () => (
   <BrowserRouter>
     <Header />
     <Switch>
@@ -35,8 +33,7 @@ const App = () => {
     </Switch>
     <Footer />
   </BrowserRouter>
-  );
-};
+);
 
 // == Export
 export default App;

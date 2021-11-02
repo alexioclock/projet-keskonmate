@@ -5,9 +5,8 @@ import actor from '../../assets/pictures/actors/will.jpg';
 import Poster from '../../assets/pictures/squid-game.jpg';
 
 // == Composant
-const Detail = ({ seriesList }) => {
+const Detail = () => {
   const isConnected = false;
-  console.log(seriesList);
 
   return (
     <div className="detail-container">

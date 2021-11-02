@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware  } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducer from 'src/reducers/reducer';
+import reducer from 'src/reducers';
 import middleware from 'src/middlewares/middleware';
 
 // on combine devTools avec les middlewares
