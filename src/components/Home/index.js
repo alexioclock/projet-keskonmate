@@ -1,6 +1,6 @@
 import './style.scss';
-import HomeHeader from './HomeHeader';
-import HomeContent from './HomeContent';
+import HomeContent from 'src/containers/Home/HomeContent';
+import HomeHeader from 'src/containers/Home/HomeHeader';
 
 const Home = () => (
   <div className="home">
