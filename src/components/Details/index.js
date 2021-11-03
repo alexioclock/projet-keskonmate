@@ -4,7 +4,7 @@ import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
 
-// == Composant
+
 const Details = ({ serie }) => {
   const isConnected = false;
   return (
@@ -14,12 +14,15 @@ const Details = ({ serie }) => {
         <img className="poster" src={Poster} alt="" />
         <h1>{serie.title}</h1>
         <p className="resume-for-desktop">{serie.synopsis}</p>
+
         { isConnected ? <a className="add-list-button">Ajouter à ma liste + </a> : <a className="add-list-button">Connecte-toi pour ajouter la série</a>}
       </div>
 
       <div className="genre-list">
         <ul className="ul-genre">
+
           {serie.genre.map((genre) => (
+
             <li className="li-genre" key={genre.id}><a href="/">{genre.name}</a></li>
           ))}
         </ul>
@@ -64,6 +67,7 @@ const Details = ({ serie }) => {
 };
 
 Details.propTypes = {
+
   serie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     synopsis: PropTypes.string.isRequired,
