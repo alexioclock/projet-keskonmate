@@ -13,6 +13,7 @@ import { findSerie } from 'src/selectors/series';
 const mapStateToProps = (state, ownProps) => {
   return ({
     serie: findSerie(state.series.seriesList, ownProps.match.params.slug),
+    isConnected: state.user.isConnected,
   });
 };
 
