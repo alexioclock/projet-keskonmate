@@ -7,10 +7,15 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-const SeriesCard = ({ title, releaseDate, genre }) => (
+const SeriesCard = ({
+  id,
+  title,
+  releaseDate,
+  genre,
+}) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
-    <Link to="/series/nom">
+    <Link to={`/series/${id}`}>
       <Card className="series-card">
         <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
         <div className="series-card-icons-list">
@@ -36,6 +41,7 @@ const SeriesCard = ({ title, releaseDate, genre }) => (
 );
 
 SeriesCard.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
   genre: PropTypes.arrayOf(

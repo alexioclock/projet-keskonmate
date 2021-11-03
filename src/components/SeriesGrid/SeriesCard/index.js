@@ -8,6 +8,7 @@ import './styles.scss';
 
 // == Composant
 const SeriesCard = ({
+  id,
   title,
   releaseDate,
   director,
@@ -16,7 +17,7 @@ const SeriesCard = ({
 }) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
-    <Link to="/series/nom">
+    <Link to={`/series/${id}`}>
       <Card className="series-card">
         <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
         <div className="series-card-icons-list">
@@ -40,6 +41,7 @@ const SeriesCard = ({
 );
 
 SeriesCard.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
