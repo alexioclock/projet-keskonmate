@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
+import ListsButtons from './ListsButtons';
 
-const Details = ({ serie, isConnected }) => {
-  console.log(serie);
+const Details = ({ serie, isConnected, userSerie }) => {
+  console.log(userSerie.type);
   return (
     <div className="detail-container">
 
@@ -14,7 +15,15 @@ const Details = ({ serie, isConnected }) => {
         <img className="poster" src={Poster} alt="" />
         <h1>{serie.title}</h1>
         <p className="resume-for-desktop">{serie.synopsis}</p>
-        { isConnected ? <a className="add-list-button">Ajouter à ma liste + </a> : <a className="add-list-button">Connecte-toi pour ajouter la série</a>}
+        { !isConnected
+          ? <a className="add-list-button">Connecte toi </a>
+          : <ListsButtons type={userSerie.type} /> }
+
+        {/* <a className="add-list-button">Connecte-toi pour ajouter la série</a> */}
+        {/* {!isConnected && (
+          <a className="add-list-button">Connecte-toi pour ajouter la série</a>
+        )} */}
+
       </div>
 
       <div className="genre-list">
@@ -88,7 +97,12 @@ Details.propTypes = {
       }).isRequired,
     ).isRequired,
   }).isRequired,
+
   isConnected: PropTypes.bool.isRequired,
+
+  userSerie: PropTypes.shape({
+    type: PropTypes.number.isRequired,
+  }).isRequired,
 };
 // == Export
 export default Details;
