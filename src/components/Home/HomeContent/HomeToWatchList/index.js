@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
 
-const HomeList = ({ series }) => (
-  <div className="home-list">
+const HomeToWatchList = ({ series }) => (
+  <div className="home-list home-to-watch-list">
     <p className="list-name">
-      Les séries en cours
+      Les séries à voir
     </p>
     <a href="/lists">
       Voir la liste complète
@@ -20,7 +20,7 @@ const HomeList = ({ series }) => (
   </div>
 );
 
-HomeList.propTypes = {
+HomeToWatchList.propTypes = {
   series: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -28,4 +28,4 @@ HomeList.propTypes = {
   ).isRequired,
 };
 
-export default HomeList;
+export default HomeToWatchList;

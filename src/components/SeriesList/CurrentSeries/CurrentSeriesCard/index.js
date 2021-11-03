@@ -1,4 +1,4 @@
-import { Trash2, Edit2 } from 'react-feather';
+import { Plus, Trash2, Edit2 } from 'react-feather';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -11,23 +11,26 @@ const SeriesCard = ({
   id,
   title,
   releaseDate,
+  director,
   genre,
 }) => (
   <div className="current-series-card-div">
     {/* Grille de SeriesCard */}
     <Link to={`/series/${id}`}>
       <Card className="series-card">
-        <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
+        <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
         <div className="series-card-icons-list">
+          <Plus className="series-card-icon series-card-icon-add" strokeWidth={1.2} size={35} />
           <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
-          <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
+          <Trash2 className="series-card-icon series-card-icon-delete" strokeWidth={1.2} size={35} />
         </div>
-        <Card.Content className="series-card-content" style={{ padding: '1em 0.2em' }}>
-          <Card.Header className="series-card-header" style={{ fontSize: '1.2em', padding: '0' }}>{ title }</Card.Header>
+        <Card.Content className="series-card-content">
+          <Card.Header className="series-card-header">{ title }</Card.Header>
           <Card.Description className="series-card-description">
-            <ul>
-              <li>{ releaseDate }</li>
-              <li>{genre.map((item) => (item.name))}</li>
+            <ul className="series-card-description-list">
+              <li className="series-card-description-list-item">{ releaseDate }</li>
+              <li className="series-card-description-list-item">{ director }</li>
+              <li className="series-card-description-list-item">{genre.map((item) => (`${item.name} `))}</li>
             </ul>
             <form className="info-form" style={{ marginTop: '0.5em' }}>
               <input type="number" placeholder="Saison n°" />
@@ -44,6 +47,7 @@ SeriesCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
+  director: PropTypes.string.isRequired,
   genre: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

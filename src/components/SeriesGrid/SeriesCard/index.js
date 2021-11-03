@@ -17,13 +17,46 @@ const SeriesCard = ({
 }) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
+    {/* style={{ display: 'none' }} */}
     <Link to={`/series/${id}`}>
       <Card className="series-card">
         <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
         <div className="series-card-icons-list">
-          <Plus className="series-card-icon series-card-icon-add" strokeWidth={1.2} size={35} />
-          <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
-          <Trash2 className="series-card-icon series-card-icon-delete" strokeWidth={1.2} size={35} />
+          <div className="series-card-icon-add-div">
+            <Plus className="series-card-icon series-card-icon-add" strokeWidth={1.2} size={35} />
+            <div className="series-card-icon-add-dropdown">
+              <ul className="series-card-icon-add-dropdown-list" style={{ display: 'none' }}>
+                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-to-watch">
+                  Ajouter à la liste "A voir"
+                </li>
+                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-current">
+                  Ajouter à la liste "En cours"
+                </li>
+                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-watched">
+                  Ajouter à la liste "Déjà vues"
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="series-card-icon-edit-div">
+            <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
+            <div className="series-card-icon-edit-dropdown">
+              <ul className="series-card-icon-edit-dropdown-list" style={{ display: 'none' }}>
+                <li className="series-card-icon-edit-dropdown-list-item series-card-icon-edit-dropdown-list-item-to-watch">
+                  Déplacer vers la liste "A voir"
+                </li>
+                <li className="series-card-icon-edit-dropdown-list-item series-card-icon-edit-dropdown-list-item-current">
+                  Déplacer vers la liste "En cours"
+                </li>
+                <li className="series-card-icon-edit-dropdown-list-item series-card-icon-edit-dropdown-list-item-watched">
+                  Déplacer vers la liste "Déjà vues"
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="series-card-icon-delete-div">
+            <Trash2 className="series-card-icon series-card-icon-delete" strokeWidth={1.2} size={35} />
+          </div>
         </div>
         <Card.Content className="series-card-content">
           <Card.Header className="series-card-header">{ title }</Card.Header>

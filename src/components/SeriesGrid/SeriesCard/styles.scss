@@ -8,6 +8,7 @@
     top: -50px;
     left: 150px;
     width: 120px;
+    display: flex;
   }
 
   &-icon {
@@ -19,24 +20,25 @@
     position: relative;
     top: -35px;
     margin: 0px 20px;
-    padding: 0.2em;
-  }
-
-  &-header  {
-    font-size: 2em !important;
   }
 
   &-description {
     font-size: 1.2em;
     position: relative;
     top: -10px;
+    margin: 1em 0;
 
     &-list-item {
       margin: 0.5em 0;
     }
   }
 }
+// header de la card (sélecteurs de Semantic UI pour passer par dessus leurs propriétés)
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
+  font-size: 1.5em;
+  padding: 0.5em 0;
+}
 
-.series-card-div .series-card .series-card-header {
-  font-size: 2em;
+.ui.card>.content, .ui.cards>.card>.content {
+  padding: 0.5em;
 }

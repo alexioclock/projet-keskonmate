@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-.home-list{
+.home-current-list{
   font-family: vars.$textFont;
   text-align: center;
   border:1px solid #fff;
@@ -29,8 +29,8 @@
       height: 300px;
       margin: 2rem auto;
       .series-card-icons-list{
-        left:90px;
-        .series-card-icon-edit{
+        left:110px;
+        .series-card-icon-add {
           display: none;
         }
       }
