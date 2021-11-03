@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-
+import CurrentSeries from '../SeriesList/CurrentSeries'
 // const options = [
 //   { key: 'series-vues', text: 'Séries déjà vues', value: 'series-vues' },
 //   { key: 'actual', text: 'Séries en cours ', value: 'series-en-cours' },
