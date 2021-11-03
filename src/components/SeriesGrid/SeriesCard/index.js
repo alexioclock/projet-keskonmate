@@ -2,6 +2,7 @@ import { Trash2, Edit2 } from 'react-feather';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Details from '../../Details';
 
 // Style
 import './styles.scss';
@@ -16,7 +17,7 @@ const SeriesCard = ({
 }) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
-    <Link to="/series/nom">
+    <Link to="/series/nom" exact >
       <Card className="series-card">
         <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" ui={false} />
         <div className="series-card-icons-list">

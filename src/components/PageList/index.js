@@ -6,6 +6,7 @@ import WatchedSeries from 'src/containers/SeriesList/WatchedSeries';
 import ToWatchSeries from 'src/containers/SeriesList/ToWatchSeries';
 import CurrentSeries from 'src/containers/SeriesList/CurrentSeries';
 import ListNavigation from './ListNavigation';
+import Details from 'src/containers/Details';
 
 // == Composant
 const PageList = () => (
