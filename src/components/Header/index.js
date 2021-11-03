@@ -5,9 +5,9 @@ import {
   User, List, Bookmark,
 } from 'react-feather';
 import logo from 'src/assets/logo.png';
+import LoginForm from 'src/components/Header/LoginForm';
 import SearchBar from './SearchBar';
 import SearchBarMobile from './SearchBarMobile';
-import LoginForm from './LoginForm';
 import UserDropdown from './UserDropdown';
 
 const Header = ({ username, isConnected }) => (
