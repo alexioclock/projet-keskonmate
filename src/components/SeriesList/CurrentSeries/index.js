@@ -1,13 +1,11 @@
+// == Import
 import PropTypes from 'prop-types';
 
-// Composants
-import SeriesCard from './SeriesCard';
-
-// Style
+import SeriesCard from './CurrentSeriesCard';
 import './styles.scss';
 
 // == Composant
-const SeriesGrid = ({ series }) => (
+const CurrentSeries = ({ series }) => (
   <div className="series-grid">
     {series.map((serie) => (
       <SeriesCard key={serie.id} {...serie} />
@@ -15,7 +13,7 @@ const SeriesGrid = ({ series }) => (
   </div>
 );
 
-SeriesGrid.propTypes = {
+CurrentSeries.propTypes = {
   series: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -24,4 +22,4 @@ SeriesGrid.propTypes = {
 };
 
 // == Export
-export default SeriesGrid;
+export default CurrentSeries;

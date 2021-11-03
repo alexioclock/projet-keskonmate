@@ -11,9 +11,7 @@ const SeriesCard = ({
   id,
   title,
   releaseDate,
-  director,
   genre,
-  actor,
 }) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
@@ -24,15 +22,17 @@ const SeriesCard = ({
           <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
           <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
         </div>
-        <Card.Content className="series-card-content">
-          <Card.Header className="series-card-header">{ title }</Card.Header>
+        <Card.Content className="series-card-content" style={{ padding: '1em 0.2em' }}>
+          <Card.Header className="series-card-header" style={{ fontSize: '1.2em', padding: '0' }}>{ title }</Card.Header>
           <Card.Description className="series-card-description">
             <ul>
               <li>{ releaseDate }</li>
-              <li>{ director }</li>
               <li>{genre.map((item) => (item.name))}</li>
-              <li>{actor.map((item) => (`${item.firstname} ${item.lastname}`))}</li>
             </ul>
+            <form className="info-form" style={{ marginTop: '0.5em' }}>
+              <input type="number" placeholder="Saison n°" />
+              <input type="number" placeholder="Episode n°" />
+            </form>
           </Card.Description>
         </Card.Content>
       </Card>
@@ -44,16 +44,9 @@ SeriesCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
-  director: PropTypes.string.isRequired,
   genre: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-  actor: PropTypes.arrayOf(
-    PropTypes.shape({
-      firstname: PropTypes.string.isRequired,
-      lastname: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };

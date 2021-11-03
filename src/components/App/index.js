@@ -1,21 +1,19 @@
 // == Import
 import './styles.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from 'src/components/Header';
-import ProfilePage from 'src/components/ProfilePage';
+import Header from 'src/containers/Header';
+import ProfilePage from 'src/containers/ProfilePage';
 import Catalogue from 'src/containers/Catalogue';
-import Detail from '../Detail';
+import Details from 'src/containers/Details';
 import Form from '../Form';
 import Footer from '../Footer';
 import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
 
-import seriesData from '../../utils/series';
-
 // == Composant
 const App = () => {
-  console.log(seriesData);
+  
   return (
   <BrowserRouter>
     <Header />
@@ -23,10 +21,9 @@ const App = () => {
       <Route path="/" exact component={Home} />
       <Route path="/series" exact component={Catalogue} />
       <Route
-        path="/series/nom"
+        path="/series/:slug"
         exact
-        component={Detail}
-        seriesList={seriesData}
+        component={Details}
       />
       <Route path="/mes-listes" exact component={PageList} />
       <Route path="/mon-compte" exact component={ProfilePage} />
@@ -35,8 +32,8 @@ const App = () => {
     </Switch>
     <Footer />
   </BrowserRouter>
-  );
-};
 
+  );
+}
 // == Export
 export default App;

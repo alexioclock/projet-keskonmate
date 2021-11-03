@@ -1,23 +1,24 @@
-// Composants
+import PropTypes from "prop-types";
+// Components
 
 // Style
 import './styles.scss';
 
-// == Composant
-const ProfilePage = () => (
+// == Components
+const ProfilePage = ({ username, email }) => (
   <div className="profile-page">
     <h1 className="profile-page-title">Mon profil</h1>
     <div className="profile-page-container">
       <h2 className="profile-page-subtitle">Mon pseudo</h2>
       {/* value permet de préremplir le champ avec les données de l'utilisateur :
       TODO le rendre dynamique avec les données reçues */}
-      <p>Pseudo</p>
+      <p>{username}</p>
     </div>
     <div className="profile-page-container">
       <h2 className="profile-page-subtitle">Mon email</h2>
       {/* value permet de préremplir le champ avec les données de l'utilisateur :
       TODO le rendre dynamique avec les données reçues */}
-      <p>example@keskonmate.io</p>
+      <p>{email}</p>
     </div>
     {/* Il faudra y mettre la route vers l'API qui édite un utilisateur */}
     <form action="/" method="post" className="profile-page-container-input">
@@ -38,6 +39,11 @@ const ProfilePage = () => (
     </form>
   </div>
 );
+
+ProfilePage.propTypes = {
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+};
 
 // == Export
 export default ProfilePage;

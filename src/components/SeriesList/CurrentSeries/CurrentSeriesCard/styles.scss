@@ -35,16 +35,35 @@
     position: relative;
     top: -45px;
     margin: 20px;
+    padding: 0.2em;
   }
 
   &-header {
-    margin: 20px 0;
     font-size: 2em;
   }
 
   &-description {
     font-size: 1.2em;
     position: relative;
-    top: -30px;
+    top: -10px;
+  }
+}
+
+.info-form{
+  display: flex;
+  justify-content: space-between;
+
+  input{
+    cursor: pointer;
+    display: flex;
+    width: 90px;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+    margin-right: 5px;
+    padding: 5px 5px 5px 5px;
+
+    &::placeholder{
+      font-size: 0.7em;
+    }
   }
 }

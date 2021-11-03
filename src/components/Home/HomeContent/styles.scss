@@ -1,0 +1,51 @@
+@use 'src/styles/vars';
+
+
+.home-content{
+  font-family: vars.$textFont;
+  .suggestion-list{
+    width:90%;
+    .series-cards{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 10px;
+      justify-content: space-around;
+      .series-card{
+        margin:0 15px;
+        .series-card-content{
+          top:-40px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:1024px){
+  .home-content{
+    .suggestion-list{
+      width:95%;
+      .series-cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .series-card-div{
+          margin:1rem auto;
+          .series-card{
+            width:180px;
+            height:260px;
+            margin:0 auto;
+          }
+          .series-card-content {
+            top: -20%;
+            margin:auto;
+          }
+        }
+      }
+    }
+  }
+
+  .home-lists{
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}

@@ -1,30 +1,23 @@
 // == Import
-import './list.scss';
+import './styles.scss';
 
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import WatchedSeries from 'src/containers/SeriesList/WatchedSeries';
+import ToWatchSeries from 'src/containers/SeriesList/ToWatchSeries';
+import CurrentSeries from 'src/containers/SeriesList/CurrentSeries';
 import ListNavigation from './ListNavigation';
-import PassedSeries from '../SeriesList/PassedSeries';
-import FutureSeries from '../SeriesList/FutureSeries';
-import ActualSeries from '../SeriesList/ActualSeries';
 
 // == Composant
-const PageList = () => {
-
-  return(
-    <div className="list-navigation">
-      <Router>
-        <ListNavigation />
-
-          <Route path="/series-vues" exact component={PassedSeries}/>
-          <Route path="/series-en-cours" exact component={ActualSeries}/>
-          <Route path="/series-a-voir" exact component={FutureSeries}/>
-      </Router>
-
-      
-
-    </div>
+const PageList = () => (
+  <div className="list-navigation">
+    <Router>
+      <ListNavigation />
+      <Route path="/series-vues" exact component={WatchedSeries} />
+      <Route path="/series-en-cours" exact component={CurrentSeries} />
+      <Route path="/series-a-voir" exact component={ToWatchSeries} />
+    </Router>
+  </div>
 );
-}
 
 // == Export
 export default PageList;
