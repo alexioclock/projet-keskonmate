@@ -24,7 +24,6 @@ const App = () => {
         path="/series/nom"
         exact
         component={Details}
-        seriesList={seriesData}
       />
       <Route path="/mes-listes" exact component={PageList} />
       <Route path="/mon-compte" exact component={ProfilePage} />
