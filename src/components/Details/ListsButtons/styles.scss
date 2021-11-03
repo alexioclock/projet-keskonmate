@@ -1,0 +1,31 @@
+@use 'src/styles/vars';
+
+.type {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  color:#FFF;
+  font-weight: 500;
+  .list-name{
+    background-color: vars.$darkColor;
+    border: solid 1px #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: fit-content;
+    align-items: flex-end;
+  }
+  .button{
+    background-color: vars.$darkColor;
+    border: solid 1px #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: fit-content;
+  }
+
+}
+@media only screen and (min-width:768px) {
+  .type{
+    font-size: 1.2rem;
+  }
+}
