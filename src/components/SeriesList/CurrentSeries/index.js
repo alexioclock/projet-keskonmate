@@ -7,18 +7,16 @@ import './styles.scss';
 // == Composant
 const CurrentSeries = ({ currentSeries }) => {
 
-   console.log(currentSeries[4].type);
-   console.log(currentSeries);
-   console.log(currentSeries.series.title);
+
+
 
   return(
   <div className="series-grid">
-    {(currentSeries.type) === 2 ? currentSeries.map((serie) => (
- 
-      < SeriesCard key={serie.id}  {...serie}/>
-
-    )) 
-    : "Vous ne regardez pas de séries pour le moment"}
+    {currentSeries.map((serie) => {
+      return serie.type === 1 &&
+        <div>Coucou</div>/*<SeriesCard key={serie.id}  {...serie}/>*/
+      
+    })}
   </div>
   );
   }
