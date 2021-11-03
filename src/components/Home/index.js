@@ -1,16 +1,11 @@
 import './style.scss';
-import HomeContentConnected from './HomeContentConnected';
-import HomeHeaderConnected from './HomeHeaderConnected';
-import HomeHeaderNotConnected from './HomeHeaderNotConnected';
-import HomeContentNotConnected from './HomeContentNotConnected';
+import HomeHeader from './HomeHeader';
+import HomeContent from './HomeContent';
 
 const Home = () => (
   <div className="home">
-    {/* <HomeHeaderConnected /> */}
-    {/* <HomeContentConnected /> */}
-    <HomeHeaderNotConnected />
-    <HomeContentNotConnected />
-
+    <HomeHeader />
+    <HomeContent />
   </div>
 );
 

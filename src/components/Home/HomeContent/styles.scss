@@ -1,5 +1,7 @@
 @use 'src/styles/vars';
-.home-content-not-connected{
+
+
+.home-content{
   font-family: vars.$textFont;
   .suggestion-list{
     width:90%;
@@ -17,8 +19,9 @@
     }
   }
 }
+
 @media only screen and (min-width:1024px){
-  .home-content-not-connected{
+  .home-content{
     .suggestion-list{
       width:95%;
       .series-cards{
@@ -39,5 +42,10 @@
         }
       }
     }
+  }
+
+  .home-lists{
+    display: flex;
+    flex-wrap: nowrap;
   }
 }

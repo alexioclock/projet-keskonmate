@@ -11,8 +11,6 @@ import NotFound from '../NotFound';
 import PageList from '../PageList';
 import Home from '../Home';
 
-import seriesData from '../../utils/series';
-
 // == Composant
 const App = () => {
   
