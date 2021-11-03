@@ -1,7 +1,7 @@
 import './styles.scss';
 
 const HomeHeader = () => {
-  const isConnected = false;
+  const isConnected = true;
   return (
     <div className="home-header">
       {!isConnected && (

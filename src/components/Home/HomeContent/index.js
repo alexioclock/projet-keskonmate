@@ -3,7 +3,7 @@ import SuggestionList from 'src/containers/Home/HomeContent/SuggestionList';
 import HomeList from 'src/containers/Home/HomeContent/HomeList';
 
 const HomeContent = () => {
-  const isConnected = false;
+  const isConnected = true;
 
   return (
     <div className="home-content">

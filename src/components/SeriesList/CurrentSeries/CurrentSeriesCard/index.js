@@ -13,7 +13,7 @@ const SeriesCard = ({
   releaseDate,
   genre,
 }) => (
-  <div className="series-card-div">
+  <div className="current-series-card-div">
     {/* Grille de SeriesCard */}
     <Link to={`/series/${id}`}>
       <Card className="series-card">

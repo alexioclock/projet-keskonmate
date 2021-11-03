@@ -1,6 +1,5 @@
 // == Import
 import PropTypes from 'prop-types';
-// import SeriesCard from './FutureSeriesCard';
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
 import './styles.scss';
 
