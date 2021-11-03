@@ -62,6 +62,7 @@ const Header = ({ username, isConnected }) => (
 
 Header.propTypes = {
   username: PropTypes.string.isRequired,
+  isConnected: PropTypes.bool.isRequired,
 };
 
 export default Header;
