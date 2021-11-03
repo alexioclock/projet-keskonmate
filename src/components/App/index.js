@@ -9,7 +9,7 @@ import Form from '../Form';
 import Footer from '../Footer';
 import NotFound from '../NotFound';
 import PageList from '../PageList';
-import Home from '../Home';
+import Home from 'src/components/Home';
 
 // == Composant
 const App = () => {

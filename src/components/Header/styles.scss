@@ -99,31 +99,7 @@
 
       }
     }
-    .dropdown-content{
-      display: none;
-      position: absolute;
-      background-color: vars.$backgroundColorLight;
-      width:90px;
-      position: absolute;
-      top: 45px;
-      right: 5px;
-      border-radius: 5px;
-      
-      a{
-        font-size: 0.75rem;
-        display: block;
-        font-weight: 500;
-        padding:10px;
-        text-align: center;
 
-      }
-      a:hover{
-        background-color: vars.$backgroundColor;
-        border-radius:5px;
-        border: 0.5px solid #fff;
-      }
-
-    }
   }
 }
 
@@ -215,19 +191,6 @@
         }
 
       }
-  
-
-      .dropdown-content{
-        width:150px;
-        top: 70px;
-        right: 10px;        
-        a{
-          font-size: 1rem;
-          padding:15px;
-        }
-  
-      }
-
     }
   }
 }
@@ -267,21 +230,6 @@
         }
       }
   
-    .right-navbar{
-
-
-      .dropdown-content{
-        width: 200px;
-        top: 70px;
-        right: 15px;     
-        border-radius: 10px;   
-        a{
-          border-radius:10px;
-          padding:20px;
-        }
-  
-      }
-    }
   }
 }
 
@@ -320,4 +268,5 @@
       bottom:670px;
     }
   }
-}}
+}
+}
