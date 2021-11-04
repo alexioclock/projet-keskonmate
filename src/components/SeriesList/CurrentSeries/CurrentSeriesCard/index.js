@@ -11,9 +11,9 @@ const SeriesCard = ({
   id,
   series,
 }) => {
-
+console.log(series.title);
  
-  console.log(series[0].title);
+  // console.log(series[0].title);
   return(
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
@@ -25,7 +25,7 @@ const SeriesCard = ({
             <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
           </div>
           <Card.Content className="series-card-content" style={{ padding: '1em 0.2em' }}>
-            <Card.Header className="series-card-header" style={{ fontSize: '1.2em', padding: '0' }}>{ series[0].title }</Card.Header>
+            <Card.Header className="series-card-header" style={{ fontSize: '1.2em', padding: '0' }}>{ series.title }</Card.Header>
             <Card.Description className="series-card-description">
               {/* <ul>
                 <li>{ createdAt }</li>
