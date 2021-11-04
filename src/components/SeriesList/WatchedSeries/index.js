@@ -23,13 +23,13 @@ const WatchedSeries = ({ watchedSeries }) => {
     );
   }
 
-//   watchedSeries.propTypes = {
-//   series: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//     }).isRequired,
-//   ).isRequired,
-// };
-
+  // watchedSeries.propTypes = {
+  //   watchedSeries: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       id: PropTypes.number.isRequired,
+  //     }).isRequired,
+  //   ).isRequired,
+  // };
+  
 // == Export
 export default WatchedSeries;

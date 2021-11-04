@@ -27,13 +27,13 @@ const ToWatchSeries = ({ toWatchSeries }) => {
 );
 }
 
-// // toWatchSeries.propTypes = {
-// //   toWatchSeries: PropTypes.arrayOf(
-// //     PropTypes.shape({
-// //       id: PropTypes.number.isRequired,
-// //     }).isRequired,
-// //   ).isRequired,
-// // };
+// toWatchSeries.propTypes = {
+//   toWatchSeries: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
 
 // == Export
 export default ToWatchSeries;
