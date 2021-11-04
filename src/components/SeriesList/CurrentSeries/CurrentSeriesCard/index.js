@@ -12,7 +12,7 @@ const SeriesCard = ({
   series,
 }) => {
 
-  console.log(releaseDate);
+ 
   console.log(series[0].title);
   return(
     <div className="series-card-div">
@@ -27,10 +27,10 @@ const SeriesCard = ({
           <Card.Content className="series-card-content" style={{ padding: '1em 0.2em' }}>
             <Card.Header className="series-card-header" style={{ fontSize: '1.2em', padding: '0' }}>{ series[0].title }</Card.Header>
             <Card.Description className="series-card-description">
-              <ul>
-                <li>{ releaseDate }</li>
+              {/* <ul>
+                <li>{ createdAt }</li>
                 <li>{genre.map((item) => (item.name))}</li>
-              </ul>
+              </ul> */}
               <form className="info-form" style={{ marginTop: '0.5em' }}>
                 <input type="number" placeholder="Saison n°" />
                 <input type="number" placeholder="Episode n°" />
@@ -43,14 +43,12 @@ const SeriesCard = ({
   );
 }
 SeriesCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
-  genre: PropTypes.arrayOf(
+  series: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+
 };
 
 // == Export

@@ -10,6 +10,8 @@ const CurrentSeries = ({ currentSeries }) => {
 
 
   return(
+    <>
+    <PageList />
   <div className="series-grid">
     {currentSeries.map((serie) => {
       return serie.type === 2 &&
@@ -18,17 +20,18 @@ const CurrentSeries = ({ currentSeries }) => {
       
     })}
   </div>
+  </>
   );
   }
 
 
-CurrentSeries.propTypes = {
-  series: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
+// CurrentSeries.propTypes = {
+//   series: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
 
 // == Export
 export default CurrentSeries;
