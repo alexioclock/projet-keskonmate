@@ -24,7 +24,6 @@ const SeriesCard = ({
 }) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
-    {/* style={{ display: 'none' }} */}
     <Card className="series-card">
       <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
       <div className="series-card-icons-list">
@@ -34,13 +33,13 @@ const SeriesCard = ({
           <div className="series-card-icon-add-div">
             <div className="series-card-icon-add-dropdown">
               <ul className="series-card-icon-add-dropdown-list">
-                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-to-watch">
+                <li className="series-card-icon-add-dropdown-list-item">
                   Ajouter à ma liste [à voir]
                 </li>
-                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-current">
+                <li className="series-card-icon-add-dropdown-list-item">
                   Ajouter à ma liste [en cours]
                 </li>
-                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-watched">
+                <li className="series-card-icon-add-dropdown-list-item">
                   Ajouter à ma liste [déjà vu]
                 </li>
               </ul>
@@ -49,12 +48,6 @@ const SeriesCard = ({
               className="series-card-icon series-card-icon-add"
               strokeWidth={1.2}
               size={35}
-              onClick={(event) => {
-                event.preventDefault();
-                const dropdownToOpen = document.querySelector('.series-card-icon-add-dropdown');
-                dropdownToOpen.classList.toggle('series-card-icon-add-dropdown--open');
-                return (console.log(dropdownToOpen.classList));
-              }}
             />
           </div>
           )
@@ -112,8 +105,8 @@ const SeriesCard = ({
           <Trash2 className="series-card-icon series-card-icon-delete" strokeWidth={1.2} size={35} />
         </div>
       </div>
-      <Link to={`/series/${id}`}>
-        <Card.Content className="series-card-content">
+      <Card.Content className="series-card-content">
+        <Link to={`/series/${id}`}>
           <Card.Header className="series-card-header">{ title }</Card.Header>
           <Card.Description className="series-card-description">
             {
@@ -142,18 +135,18 @@ const SeriesCard = ({
                 </ul>
               )
             }
-            {
-              (isUserCurrentList)
-              && (
-                <form className="info-form">
-                  <input type="number" placeholder="Saison n°" />
-                  <input type="number" placeholder="Episode n°" />
-                </form>
-              )
-            }
           </Card.Description>
-        </Card.Content>
-      </Link>
+        </Link>
+        {
+          (isUserCurrentList)
+          && (
+            <form className="info-form">
+              <input type="text" placeholder="Saison n°" />
+              <input type="text" placeholder="Episode n°" />
+            </form>
+          )
+        }
+      </Card.Content>
     </Card>
   </div>
 );

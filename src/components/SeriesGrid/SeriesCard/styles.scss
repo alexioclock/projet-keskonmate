@@ -17,6 +17,7 @@
 
   &-icon {
     margin-left: 5px;
+    cursor: pointer;
   }
 
   &-icon-edit-dropdown, &-icon-add-dropdown {
@@ -24,6 +25,7 @@
   }
 
   &-icon-edit-dropdown--open, &-icon-add-dropdown--open {
+    display: block;
     background: #FFF;
     border-radius: 5px;
     width: 240px;
@@ -53,7 +55,7 @@
   &-content {
     text-align: center;
     position: relative;
-    top: -20px;
+    top: -40px;
     margin: 0px 20px;
   }
 
@@ -73,8 +75,8 @@
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 90px;
-  left: 35px;
+  top: 160px;
+  left: 50px;
   margin: 0.5em 0;
 
   input{
