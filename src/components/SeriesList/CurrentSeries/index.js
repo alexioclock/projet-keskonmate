@@ -1,13 +1,12 @@
 // == Import
 import PropTypes from 'prop-types';
-
+import PageList from '../../PageList'; 
 import SeriesCard from './CurrentSeriesCard';
 import './styles.scss';
 
 // == Composant
+
 const CurrentSeries = ({ currentSeries }) => {
-
-
 
 
   return(
@@ -21,6 +20,7 @@ const CurrentSeries = ({ currentSeries }) => {
   </div>
   );
   }
+
 
 CurrentSeries.propTypes = {
   series: PropTypes.arrayOf(
