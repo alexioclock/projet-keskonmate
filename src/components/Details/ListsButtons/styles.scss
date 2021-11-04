@@ -29,5 +29,11 @@
 @media only screen and (min-width:768px) {
   .type{
     font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:18rem;
+    .button{
+      width:42%;
+      padding:0.6rem;
+    }
   }
 }

@@ -40,7 +40,6 @@
     }
 
   }
-
     // CSS TAG GENRE
   .ul-genre{
     margin: 1em 0.5em 2em 0.5em;
@@ -171,22 +170,16 @@
       }
     }
   }
-
+  .resume-for-desktop{
+    display: none;
+    color: white;
+    margin-bottom: 3em;
+    margin-left: 10em;
+    margin-right: 10em;
   }
-
-// .season-number{
-//   font-size: 1.2;
-//   font-weight: bold;
-// }
-
-
-.resume-for-desktop{
-  display: none;
-  color: white;
-  margin-bottom: 3em;
-  margin-left: 10em;
-  margin-right: 10em;
 }
+
+
 
 @keyframes apparitionResume {
   from {
@@ -209,11 +202,13 @@
 }
 
 // CSS MEDIA SCREEN 
-@media screen and (min-width: 700px) {
-  .resume-for-desktop{
-    display: none;
+@media only screen and (min-width: 768px) {
+  .detail-container{
+    margin-top: 1rem;
+    .banner-container{
+      height: 15rem;
+    }
   }
-
 }
 
 
