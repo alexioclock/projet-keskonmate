@@ -10,7 +10,7 @@ import './styles.scss';
 const SeriesGrid = ({ series }) => (
   <div className="series-grid">
     {series.map((serie) => (
-      <SeriesCard key={serie.id} {...serie} />
+      <SeriesCard key={serie.id} isCatalogue {...serie} />
     ))}
   </div>
 );

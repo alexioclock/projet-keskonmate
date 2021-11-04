@@ -8,7 +8,7 @@ import './styles.scss';
 const CurrentSeries = ({ series }) => (
   <div className="series-grid">
     {series.map((serie) => (
-      <SeriesCard key={serie.id} {...serie} />
+      <SeriesCard key={serie.id} isUserCurrentList {...serie} />
     ))}
   </div>
 );

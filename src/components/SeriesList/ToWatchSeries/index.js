@@ -8,7 +8,7 @@ const ToWatchSeries = ({ series }) => (
   <div className="actual-series">
     <div className="series-grid">
       {series.map((serie) => (
-        <SeriesCard key={serie.id} {...serie} />
+        <SeriesCard key={serie.id} isUserToWatchList {...serie} />
       ))}
     </div>
   </div>

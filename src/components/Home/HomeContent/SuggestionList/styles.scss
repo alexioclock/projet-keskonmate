@@ -10,7 +10,7 @@
   margin:auto;
   margin-bottom: 1rem;
   text-align: center;
-  font-weight: 500;
+  font-size: 0.9em;
   padding-bottom: 1rem;
 
   & .list-name{
@@ -34,6 +34,11 @@
       
       & .series-card-icons-list {
         left: 90px;
+      }
+
+      & .series-card-icon-edit-dropdown--open, & .series-card-icon-add-dropdown--open {
+        width: 220px;
+        left: -90px;
       }
 
       & .series-card-content {

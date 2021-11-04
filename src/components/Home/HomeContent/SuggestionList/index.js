@@ -15,7 +15,7 @@ const SuggestionList = ({ series }) => (
 
     <div className="series-cards">
       {series.map((serie) => (
-        <SeriesCard key={serie.id} {...serie} />
+        <SeriesCard key={serie.id} isSuggestionsList {...serie} />
       ))}
     </div>
   </div>

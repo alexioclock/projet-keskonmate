@@ -9,7 +9,7 @@ const WatchedSeries = ({ series }) => (
   <div className="actual-series">
     <div className="series-grid">
       {series.map((serie) => (
-        <SeriesCard key={serie.id} {...serie} />
+        <SeriesCard key={serie.id} isUserWatchedList {...serie} />
       ))}
     </div>
   </div>

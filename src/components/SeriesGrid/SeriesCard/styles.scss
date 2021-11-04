@@ -20,16 +20,23 @@
   }
 
   &-icon-edit-dropdown, &-icon-add-dropdown {
+    display: none;
+  }
+
+  &-icon-edit-dropdown--open, &-icon-add-dropdown--open {
     background: #FFF;
     border-radius: 5px;
     width: 240px;
     position: absolute;
-    top: -90px;
+    bottom: 50px;
     left: -110px;
   }
 
   &-icon-edit-dropdown-list, &-icon-add-dropdown-list {
-    padding: 0.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0.2em 0;
   }
 
   &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item {

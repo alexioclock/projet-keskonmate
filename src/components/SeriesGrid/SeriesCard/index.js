@@ -28,38 +28,86 @@ const SeriesCard = ({
     <Card className="series-card">
       <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
       <div className="series-card-icons-list">
-        <div className="series-card-icon-add-div">
-          <div className="series-card-icon-add-dropdown" style={{ display: 'none' }}>
-            <ul className="series-card-icon-add-dropdown-list">
-              <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-to-watch">
-                Ajouter à la liste "A voir"
-              </li>
-              <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-current">
-                Ajouter à la liste "En cours"
-              </li>
-              <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-watched">
-                Ajouter à la liste "Déjà vues"
-              </li>
-            </ul>
+        {
+          (isSuggestionsList || isCatalogue)
+          && (
+          <div className="series-card-icon-add-div">
+            <div className="series-card-icon-add-dropdown">
+              <ul className="series-card-icon-add-dropdown-list">
+                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-to-watch">
+                  Ajouter à ma liste [à voir]
+                </li>
+                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-current">
+                  Ajouter à ma liste [en cours]
+                </li>
+                <li className="series-card-icon-add-dropdown-list-item series-card-icon-add-dropdown-list-item-watched">
+                  Ajouter à ma liste [déjà vu]
+                </li>
+              </ul>
+            </div>
+            <Plus
+              className="series-card-icon series-card-icon-add"
+              strokeWidth={1.2}
+              size={35}
+              onClick={(event) => {
+                event.preventDefault();
+                const dropdownToOpen = document.querySelector('.series-card-icon-add-dropdown');
+                dropdownToOpen.classList.toggle('series-card-icon-add-dropdown--open');
+                return (console.log(dropdownToOpen.classList));
+              }}
+            />
           </div>
-          <Plus className="series-card-icon series-card-icon-add" strokeWidth={1.2} size={35} />
-        </div>
-        <div className="series-card-icon-edit-div">
-          <div className="series-card-icon-edit-dropdown" style={{ display: 'none' }}>
-            <ul className="series-card-icon-edit-dropdown-list">
-              <li className="series-card-icon-edit-dropdown-list-item series-card-icon-edit-dropdown-list-item-to-watch">
-                Déplacer vers la liste "A voir"
-              </li>
-              <li className="series-card-icon-edit-dropdown-list-item series-card-icon-edit-dropdown-list-item-current">
-                Déplacer vers la liste "En cours"
-              </li>
-              <li className="series-card-icon-edit-dropdown-list-item series-card-icon-edit-dropdown-list-item-watched">
-                Déplacer vers la liste "Déjà vues"
-              </li>
-            </ul>
+          )
+        }
+        {
+          (isHomeCurrentList
+          || isHomeToWatchList
+          || isUserToWatchList
+          || isUserCurrentList
+          || isUserWatchedList
+          || isCatalogue)
+          && (
+          <div className="series-card-icon-edit-div">
+            <div className="series-card-icon-edit-dropdown">
+              <ul className="series-card-icon-edit-dropdown-list">
+                {
+                  (isUserCurrentList
+                  || isUserWatchedList
+                  || isCatalogue)
+                  && (
+                  <li className="series-card-icon-edit-dropdown-list-item">
+                    Déplacer vers ma liste [à voir]
+                  </li>
+                  )
+                }
+                {
+                  (isHomeToWatchList
+                  || isUserToWatchList
+                  || isUserWatchedList
+                  || isCatalogue)
+                  && (
+                  <li className="series-card-icon-edit-dropdown-list-item">
+                    Déplacer vers ma liste [en cours]
+                  </li>
+                  )
+                }
+                {
+                  (isHomeCurrentList
+                  || isUserCurrentList
+                  || isUserToWatchList
+                  || isCatalogue)
+                  && (
+                  <li className="series-card-icon-edit-dropdown-list-item">
+                    Déplacer vers ma liste [déjà vu]
+                  </li>
+                  )
+                }
+              </ul>
+            </div>
+            <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
           </div>
-          <Edit2 className="series-card-icon series-card-icon-edit" strokeWidth={1.2} size={35} />
-        </div>
+          )
+        }
         <div className="series-card-icon-delete-div">
           <Trash2 className="series-card-icon series-card-icon-delete" strokeWidth={1.2} size={35} />
         </div>
@@ -68,17 +116,41 @@ const SeriesCard = ({
         <Card.Content className="series-card-content">
           <Card.Header className="series-card-header">{ title }</Card.Header>
           <Card.Description className="series-card-description">
-            <ul className="series-card-description-list">
-              <li className="series-card-description-list-item">Sortie en { releaseDate.substring(0, 4) }</li>
-              <li className="series-card-description-list-item">{genre.map((item) => (`${item.name}, `))}</li>
-              { director !== ''
-                && <li className="series-card-description-list-item">Réalisée par { director }</li>}
-              <li className="series-card-description-list-item">avec {actor.map((item) => ((`${item.firstname} ${item.lastname}, `)))}</li>
-            </ul>
-            <form className="info-form" style={{ display: 'none' }}>
-              <input type="number" placeholder="Saison n°" />
-              <input type="number" placeholder="Episode n°" />
-            </form>
+            {
+              (isUserToWatchList
+              || isUserWatchedList
+              || isUserCurrentList
+              || isCatalogue)
+              && (
+                <ul className="series-card-description-list">
+                  <li className="series-card-description-list-item">Sortie en { releaseDate.substring(0, 4) }</li>
+                  <li className="series-card-description-list-item">{genre.map((item) => (`${item.name}, `))}</li>
+                  {
+                    (director !== '')
+                    && <li className="series-card-description-list-item">Réalisée par { director }</li>
+                  }
+                  {
+                    (isUserToWatchList
+                    || isUserWatchedList
+                    || isCatalogue)
+                    && (
+                      <li className="series-card-description-list-item">
+                        avec {actor.map((item) => ((`${item.firstname} ${item.lastname}, `)))}
+                      </li>
+                    )
+                  }
+                </ul>
+              )
+            }
+            {
+              (isUserCurrentList)
+              && (
+                <form className="info-form">
+                  <input type="number" placeholder="Saison n°" />
+                  <input type="number" placeholder="Episode n°" />
+                </form>
+              )
+            }
           </Card.Description>
         </Card.Content>
       </Link>
@@ -102,6 +174,23 @@ SeriesCard.propTypes = {
       lastname: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  isHomeToWatchList: PropTypes.bool,
+  isHomeCurrentList: PropTypes.bool,
+  isSuggestionsList: PropTypes.bool,
+  isCatalogue: PropTypes.bool,
+  isUserToWatchList: PropTypes.bool,
+  isUserCurrentList: PropTypes.bool,
+  isUserWatchedList: PropTypes.bool,
+};
+
+SeriesCard.defaultProps = {
+  isHomeToWatchList: false,
+  isHomeCurrentList: false,
+  isSuggestionsList: false,
+  isCatalogue: false,
+  isUserToWatchList: false,
+  isUserCurrentList: false,
+  isUserWatchedList: false,
 };
 
 // == Export

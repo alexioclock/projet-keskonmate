@@ -13,7 +13,7 @@ const HomeToWatchList = ({ series }) => (
     </a>
     <div className="series-cards">
       {series.map((serie) => (
-        <SeriesCard key={serie.id} {...serie} />
+        <SeriesCard key={serie.id} isHomeToWatchList {...serie} />
       ))}
     </div>
 
