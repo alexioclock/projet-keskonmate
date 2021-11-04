@@ -12,51 +12,62 @@ import UserDropdown from './UserDropdown';
 
 const Header = ({ username, isConnected }) => (
   <div className="header">
-    {/* Left part of the navbar : "Toutes les séries" + search bar */}
-    <div className="left-navbar">
-      <Link to="/series" className="series-link">
-        Toutes les séries
-      </Link>
-      <a href="/series" className="series-icon">
-        <List size="25" />
-      </a>
-      <SearchBar />
-      <SearchBarMobile />
-    </div>
-    {/* Logo */}
-    <Link to="/"><img src={logo} alt="logo" className="logo" style={{ height: '2em', width: 'auto' }}/></Link>
-    {/* Right part of the navbar:
-    "Mes listes"
-    + username/"se connecter
-    + connection form/myaccount and logout links" */}
-    <div className="right-navbar">
-      {isConnected && (
-        <Link to="/mes-listes">
-          <p className="list-link">Mes listes</p>
-          <p href="/mes-listes" className="list-icon">
-            <Bookmark size="25" />
-          </p>
+    <div className="navbar">
+      <div className="series">
+        <Link to="/series" className="series-link">
+          Toutes les séries
         </Link>
-      )}
+        <a href="/series" className="series-icon">
+          <List />
+        </a>
+      </div>
 
-      <Link to="/mon-compte" className="user-account-link">
+      <div className="searchbar">
+        <SearchBar />
+        <SearchBarMobile />
+      </div>
+
+      <Link to="/" className="link-logo">
+        <img src={logo} alt="logo" className="logo" style={{ height: '2em', width: 'auto' }} />
+      </Link>
+
+      <div className="lists">
         {isConnected && (
+          <Link to="/mes-listes">
+            <p className="list-link">Mes listes</p>
+            <Bookmark className="list-icon" />
+          </Link>
+        )}
+      </div>
+
+      <Link to="/mon-compte" className="account">
+        {isConnected && (
+        <div className="isConnected-links">
           <p className="user-name">
             {username}
           </p>
+          <User className="user-icon" />
+        </div>
         )}
         {!isConnected && (
+        <div className="isNotConnected-links">
           <p className="connection">
             Se connecter
           </p>
+          <User className="user-icon" />
+        </div>
         )}
-        <User size="25" className="user-icon" />
       </Link>
+
+    </div>
+
+    <div className="dropdown">
       <UserDropdown />
       {!isConnected && (
         <LoginForm />
       )}
     </div>
+
   </div>
 );
 
