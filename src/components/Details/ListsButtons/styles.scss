@@ -23,8 +23,24 @@
     padding: 0.3rem 0.1rem;
     border-radius: 5px;
     width: 48%;
+    animation : apparitionButton 0.8s ease-out;
+  }
+  @keyframes apparitionButton {
+    from {
+      opacity: 0;
+      transform: translate(0, -100px);
+    }
+    to{
+      opacity: 1;
+      transform: translate(0px);
+    }
   }
 
+  .button:hover{
+    background-color: vars.$backgroundColor;
+    color:vars.$darkColor;
+    transition-duration: 0.3s;
+  }
 }
 @media only screen and (min-width:768px) {
   .type{
@@ -37,3 +53,16 @@
     }
   }
 }
+
+@media only screen and (min-width:1024px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:24rem;
+    .button{
+      width:42%;
+      padding:0.6rem;
+    }
+  }
+}
+

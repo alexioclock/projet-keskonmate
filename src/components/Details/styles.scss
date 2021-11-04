@@ -81,7 +81,6 @@
     font-weight: 500;
     border-radius: 5px;
     border: 1.5px solid white;
-    cursor: pointer;
     background-color: vars.$darkColor;
     color: white;
     padding: 0.3rem 0.6rem;
@@ -179,8 +178,6 @@
   }
 }
 
-
-
 @keyframes apparitionResume {
   from {
     opacity: 0;
@@ -212,30 +209,37 @@
 }
 
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
+  .detail-container{
+    .banner-container{
+      height: 20rem;
+      .series-title{
+        bottom:18rem;
+      }
+    }
+    .resume-for-desktop{
+      display: block;
+      position: relative;
+      bottom: 22rem;
+    }
 
-  
-  .ul-actors{
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .ul-seasons{
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .li-seasons{
-    margin-right: 20px;
-  }
-
-  .seasons-container{
-    h3{
-      text-align: left;
-      margin-left: 2em;
+    .connection-button{
+      bottom:23.5rem;
     }
   }
-
-
 }
 
+@media screen and (min-width: 1440px) {
+  .detail-container{
+    .genre-list{
+      margin-left:2rem;
+    }
+    .resume{
+      width:90%;
+      margin: 0 auto 2rem;
+    }
+    .connection-button{
+      bottom:23rem;
+    }
+  }
+}
