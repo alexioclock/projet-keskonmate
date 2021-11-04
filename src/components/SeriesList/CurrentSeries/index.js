@@ -1,16 +1,19 @@
 // == Import
 import PropTypes from 'prop-types';
-
+import PageList from '../../PageList'; 
 import SeriesCard from './CurrentSeriesCard';
 import './styles.scss';
 
 // == Composant
 const CurrentSeries = ({ series }) => (
-  <div className="series-grid">
-    {series.map((serie) => (
-      <SeriesCard key={serie.id} {...serie} />
-    ))}
-  </div>
+  <>
+    <PageList />
+    <div className="series-grid">
+      {series.map((serie) => (
+        <SeriesCard key={serie.id} {...serie} />
+      ))}
+    </div>
+  </>
 );
 
 CurrentSeries.propTypes = {

@@ -2,6 +2,7 @@ import { Trash2, Edit2 } from 'react-feather';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Details from '../../Details';
 
 // Style
 import './styles.scss';
