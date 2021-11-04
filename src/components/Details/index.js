@@ -11,10 +11,10 @@ const Details = ({ serie, isConnected, userSerie }) => (
     <div className="banner-container">
       {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
       <img className="poster" src={Poster} alt="" />
-      <h1>{serie.title}</h1>
+      <h1 className="series-title">{serie.title}</h1>
       <p className="resume-for-desktop">{serie.synopsis}</p>
       { !isConnected
-        ? <a className="add-list-button">Connecte toi </a>
+        ? <a href="/connection" className="connection-button">Connecte-toi </a>
         : <ListsButtons type={userSerie.type} /> }
     </div>
 
@@ -36,10 +36,10 @@ const Details = ({ serie, isConnected, userSerie }) => (
       <ul className="ul-actors">
         {serie.actor.map((actor) => (
           <li className="li-actors" key={actor.id}>
-            <Card style={{ width: '9em', height: 'auto' }}>
-              <Image src={actor} wrapped ui={false} />
+            <Card className="actor-card">
+              <Image src={actor} />
               <Card.Content>
-                <Card.Header>{actor.firstname} {actor.lastname}</Card.Header>
+                <Card.Header className="actor-name" ui={false}>{actor.firstname} {actor.lastname}</Card.Header>
               </Card.Content>
             </Card>
           </li>
@@ -52,8 +52,8 @@ const Details = ({ serie, isConnected, userSerie }) => (
       <ul className="ul-seasons">
         {serie.season.map((season) => (
           <li className="li-seasons" key={season.id}>
-            <Card style={{ width: '10em', height: 'auto' }}>
-              <Image src="" wrapped ui={false} style={{ width: '150px', height: 'auto' }} />
+            <Card className="season-card">
+              <Image src="" className="season-image" />
               <Card.Content>
                 <Card.Header>Saison {season.seasonNumber}</Card.Header>
               </Card.Content>

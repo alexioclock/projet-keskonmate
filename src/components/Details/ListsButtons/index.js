@@ -5,9 +5,9 @@ const ListsButtons = ({ type }) => {
   if (type === 1) {
     return (
       <div className="type">
-        <p className="list-name">Déjà vu</p>
-        <a href="#" className="button">Revoir </a>
-        <a href="#" className="button">Supprimer </a>
+        {/* <p className="list-name">Déjà vu</p> */}
+        <a href="#" className="button">Ajouter à ma liste à voir </a>
+        <a href="#" className="button">Supprimer de ma liste déjà vu </a>
       </div>
     );
   }

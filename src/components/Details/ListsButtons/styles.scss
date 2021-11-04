@@ -4,23 +4,25 @@
   width: 90%;
   margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color:#FFF;
   font-weight: 500;
-  .list-name{
-    background-color: vars.$darkColor;
-    border: solid 1px #FFF;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    width: fit-content;
-    align-items: flex-end;
-  }
+  position:relative;
+  bottom:18.3rem;
+  // .list-name{
+  //   background-color: vars.$darkColor;
+  //   border: solid 1px #FFF;
+  //   padding: 0.5rem 1rem;
+  //   border-radius: 5px;
+  //   width: fit-content;
+  //   align-items: flex-end;
+  // }
   .button{
     background-color: vars.$darkColor;
     border: solid 1px #FFF;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.1rem;
     border-radius: 5px;
-    width: fit-content;
+    width: 48%;
   }
 
 }
