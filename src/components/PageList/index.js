@@ -8,7 +8,8 @@ import ListNavigation from './ListNavigation';
 const PageList = () => (
   <div className="list-navigation">
       <ListNavigation />
-      <CurrentSeries />
+      {/* <CurrentSeries /> */}
+      
   </div>
 );
 

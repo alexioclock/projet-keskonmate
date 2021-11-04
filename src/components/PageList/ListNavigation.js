@@ -19,6 +19,7 @@ const ListNavigation = () => (
         <li className="list-button">Séries à voir</li>
       </NavLink>
     </ul>
+
   </div>
 );
 

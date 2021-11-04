@@ -31,7 +31,7 @@ const App = () => {
         exact
         component={Details}
       />
-      <Route path="/mes-listes" exact component={PageList} />
+      <Route path="/mes-listes" exact component={CurrentSeries} />
       <Route path="/mon-compte" exact component={ProfilePage} />
       <Route path="/inscription" exact component={Form} />
       <Route component={NotFound} />
