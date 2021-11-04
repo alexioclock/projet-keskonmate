@@ -13,8 +13,9 @@ const CurrentSeries = ({ currentSeries }) => {
   return(
   <div className="series-grid">
     {currentSeries.map((serie) => {
-      return serie.type === 1 &&
-        <div>Coucou</div>/*<SeriesCard key={serie.id}  {...serie}/>*/
+      return serie.type === 2 &&
+        
+        <SeriesCard key={serie.id}  {...serie}/>
       
     })}
   </div>
