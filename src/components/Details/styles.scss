@@ -10,26 +10,6 @@
     height: 10rem;
     width: 100%; 
     text-align: center;
-    .series-title{
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: whitesmoke;
-      animation: apparitionTitle 1s ease-out;
-      position:relative;
-      bottom:13.5rem;
-    }
-
-    @keyframes apparitionTitle {
-      from {
-        opacity: 0;
-        transform: translate(0, -100px);
-      }
-      to{
-        opacity: 1;
-        transform: translate(0px);
-      }
-    }
-
     .poster{
       display: block;
       max-height: 100%;
@@ -38,8 +18,49 @@
       width: 100%;
       background-repeat: no-repeat;
     }
+    .banner-text{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      bottom: 10rem;
+      justify-content:flex-end;
+      height:10rem;
+      .series-title{
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: whitesmoke;
+        animation: apparitionTitle 1s ease-out;
+        margin:1rem auto;
+      }  
+      .connection-button{
+        font-weight: 500;
+        border-radius: 5px;
+        border: 1.5px solid white;
+        background-color: vars.$darkColor;
+        color: white;
+        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+        animation : apparitionButton 0.8s ease-out;
+        width: fit-content;
+        align-self: center;
+        margin-bottom: 0.5rem;
+      }
+    }
 
-  }
+
+    @keyframes apparitionTitle {
+      from {
+        opacity: 0;
+        transform: translate(0, -100px);
+      }  
+      to{
+        opacity: 1;
+        transform: translate(0px);
+      }  
+    }  
+
+
+  }  
     // CSS TAG GENRE
   .ul-genre{
     margin: 1em 0.5em 2em 0.5em;
@@ -58,8 +79,8 @@
       border-radius: 3px;
       font-size: 0.8em;
       margin-right: 0.5rem;
-    }
-  }
+    }  
+  }  
 
   // CSS RESUME SERIE
   .resume{
@@ -73,22 +94,8 @@
       margin-bottom: 1rem;
       font-weight: bold;
       font-size: 1.5em;
-    }
-  }
-
-  //CSS ADD BUTTON
-  .connection-button{
-    font-weight: 500;
-    border-radius: 5px;
-    border: 1.5px solid white;
-    background-color: vars.$darkColor;
-    color: white;
-    padding: 0.3rem 0.6rem;
-    font-size: 1rem;
-    animation : apparitionButton 0.8s ease-out;
-    position: relative;
-    bottom: 17.5rem;
-  }
+    }  
+  }  
 
   @keyframes apparitionButton {
     from {
@@ -175,6 +182,7 @@
     margin-bottom: 3em;
     margin-left: 10em;
     margin-right: 10em;
+    height:2rem;
   }
 }
 

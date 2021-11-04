@@ -5,7 +5,6 @@ const ListsButtons = ({ type }) => {
   if (type === 1) {
     return (
       <div className="type">
-        {/* <p className="list-name">Déjà vu</p> */}
         <a href="#" className="button">Ajouter à ma liste à voir </a>
         <a href="#" className="button">Supprimer de ma liste déjà vu </a>
       </div>
@@ -13,16 +12,17 @@ const ListsButtons = ({ type }) => {
   }
   if (type === 2) {
     return (
-      <div>
-        type=2
+      <div className="type">
+        <a href="#" className="button">Déplacer dans ma liste déjà vu </a>
+        <a href="#" className="button">Supprimer de ma liste en cours </a>
       </div>
     );
   }
-
-  if (type === 2) {
+  if (type === 3) {
     return (
-      <div>
-        type=2
+      <div className="type">
+        <a href="#" className="button">Déplacer dans ma liste en cours </a>
+        <a href="#" className="button">Supprimer de ma liste à voir </a>
       </div>
     );
   }

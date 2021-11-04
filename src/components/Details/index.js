@@ -11,11 +11,13 @@ const Details = ({ serie, isConnected, userSerie }) => (
     <div className="banner-container">
       {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
       <img className="poster" src={Poster} alt="" />
-      <h1 className="series-title">{serie.title}</h1>
-      <p className="resume-for-desktop">{serie.synopsis}</p>
-      { !isConnected
-        ? <a href="/connection" className="connection-button">Connecte-toi </a>
-        : <ListsButtons type={userSerie.type} /> }
+      <div className="banner-text">
+        <h1 className="series-title">{serie.title}</h1>
+        <p className="resume-for-desktop">{serie.synopsis}</p>
+        { !isConnected
+          ? <a href="/connection" className="connection-button">Connecte-toi </a>
+          : <ListsButtons type={userSerie.type} /> }
+      </div>
     </div>
 
     <div className="genre-list">
@@ -39,7 +41,7 @@ const Details = ({ serie, isConnected, userSerie }) => (
             <Card className="actor-card">
               <Image src={actor} />
               <Card.Content>
-                <Card.Header className="actor-name" ui={false}>{actor.firstname} {actor.lastname}</Card.Header>
+                <Card.Header className="actor-name">{actor.firstname} {actor.lastname}</Card.Header>
               </Card.Content>
             </Card>
           </li>
@@ -64,7 +66,6 @@ const Details = ({ serie, isConnected, userSerie }) => (
     </div>
   </div>
 );
-
 Details.propTypes = {
   serie: PropTypes.shape({
     title: PropTypes.string.isRequired,
