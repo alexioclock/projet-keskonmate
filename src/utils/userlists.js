@@ -12,6 +12,7 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 1,
+
     series:
     [
       {
@@ -33,12 +34,12 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 1,
-    series:
+    series: [
       {
         id: 2,
         title: 'The Office',
       },
-
+    ],
     users: {
       id: 1,
       email: 'tux@keskonmate.io',
@@ -53,8 +54,10 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 1,
+
     series:
     [
+
       {
         id: 4,
         title: 'The Big Bang Theory',
@@ -74,6 +77,7 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 3,
+
     series:
     [
       {
@@ -95,6 +99,7 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 2,
+
     series:
     [
       {

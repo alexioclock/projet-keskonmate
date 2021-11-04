@@ -5,8 +5,10 @@ import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
 import ListsButtons from './ListsButtons';
 
+
 const Details = ({ serie, isConnected, userSerie }) => (
   <div className="detail-container">
+
 
     <div className="banner-container">
       {/* Poster à changer quand on aura l'url de l'image depuis l'API */}

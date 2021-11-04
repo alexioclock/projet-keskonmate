@@ -7,26 +7,33 @@ import PageList from '../../PageList';
 import './styles.scss';
 
 // == Composant
-const ToWatchSeries = ({ series }) => (
+const ToWatchSeries = ({ toWatchSeries }) => {
+
+
+  return(
   <>
     <PageList />
     <div className="actual-series">
-      <div className="series-grid">
-        {series.map((serie) => (
-          <SeriesCard key={serie.id} {...serie} />
-        ))}
-      </div>
+    <div className="series-grid">
+    {toWatchSeries.map((serie) => {
+      return serie.type === 3 &&
+        
+        <SeriesCard key={serie.id}  {...serie}/>
+      
+    })}
+  </div>
     </div>
   </>
 );
+}
 
-ToWatchSeries.propTypes = {
-  series: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
+// toWatchSeries.propTypes = {
+//   toWatchSeries: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
 
 // == Export
 export default ToWatchSeries;
