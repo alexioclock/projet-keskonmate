@@ -1,5 +1,6 @@
 import userListsData from 'src/utils/userlists';
 
+
 const initialState = {
   userLists: userListsData,
 };

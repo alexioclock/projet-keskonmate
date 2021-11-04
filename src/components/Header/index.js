@@ -33,9 +33,9 @@ const Header = ({ username, isConnected }) => (
       {isConnected && (
         <Link to="/mes-listes">
           <p className="list-link">Mes listes</p>
-          <a href="/mes-listes" className="list-icon">
+          <p href="/mes-listes" className="list-icon">
             <Bookmark size="25" />
-          </a>
+          </p>
         </Link>
       )}
 
