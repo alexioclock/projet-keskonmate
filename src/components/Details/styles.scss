@@ -47,7 +47,6 @@
       }
     }
 
-
     @keyframes apparitionTitle {
       from {
         opacity: 0;
@@ -58,8 +57,6 @@
         transform: translate(0px);
       }  
     }  
-
-
   }  
     // CSS TAG GENRE
   .ul-genre{
@@ -176,9 +173,6 @@
       }
     }
   }
-  .resume-for-desktop{
-    display: none;
-  }
 }
 
 @keyframes apparitionResume {
@@ -219,27 +213,22 @@
 }
 
 
-@media screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   .detail-container{
     .banner-container{
       height: 20rem;
       .banner-text{
         height:20rem;
         bottom: 21rem;
+        .series-title{
+          height:4rem;
+        }
       }
     }
-    .resume-for-desktop{
-      display: inline-block;
-      color: white;
-      margin:0 auto 3rem;
-      width:80%;
-      height:2rem;
-    }
-
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   .detail-container{
     .genre-list{
       margin-left:2rem;

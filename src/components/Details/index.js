@@ -13,7 +13,6 @@ const Details = ({ serie, isConnected, userSerie }) => (
       <img className="poster" src={Poster} alt="" />
       <div className="banner-text">
         <h1 className="series-title">{serie.title}</h1>
-        <p className="resume-for-desktop">{serie.synopsis}</p>
         { !isConnected
           ? <a href="/connection" className="connection-button">Connecte-toi </a>
           : <ListsButtons type={userSerie.type} /> }
