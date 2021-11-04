@@ -5,7 +5,7 @@ const ListsButtons = ({ type }) => {
   if (type === 1) {
     return (
       <div className="type">
-        <a href="#" className="button">Ajouter à ma liste à voir </a>
+        <a href="#" className="button">Déplacer dans ma liste à voir </a>
         <a href="#" className="button">Supprimer de ma liste déjà vu </a>
       </div>
     );
@@ -27,8 +27,10 @@ const ListsButtons = ({ type }) => {
     );
   }
   return (
-    <div>
-      <a className="add-list-button">A voir</a>
+    <div className="type">
+      <a href="#" className="button">Ajouter à ma liste déjà vu </a>
+      <a href="#" className="button">Ajouter à ma liste en cours </a>
+      <a href="#" className="button">Ajouter à ma liste à voir </a>
     </div>
   );
 };
@@ -36,4 +38,5 @@ const ListsButtons = ({ type }) => {
 ListsButtons.propTypes = {
   type: PropTypes.number.isRequired,
 };
+
 export default ListsButtons;

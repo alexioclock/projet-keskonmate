@@ -95,7 +95,13 @@ Details.propTypes = {
 
   userSerie: PropTypes.shape({
     type: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
+};
+
+Details.defaultProps = {
+  userSerie: {
+    type: 0,
+  },
 };
 // == Export
 export default Details;
