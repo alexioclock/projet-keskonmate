@@ -12,12 +12,12 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 1,
-    series:
+    series: [
       {
         id: 1,
         title: 'Game of Thrones',
       },
-    
+    ],
     users: {
       id: 1,
       email: 'tux@keskonmate.io',
@@ -32,12 +32,12 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 1,
-    series:
+    series: [
       {
         id: 2,
         title: 'The Office',
       },
-
+    ],
     users: {
       id: 1,
       email: 'tux@keskonmate.io',
@@ -52,12 +52,12 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 1,
-    series:
+    series: [
       {
         id: 4,
         title: 'The Big Bang Theory',
       },
-  
+    ],
     users: {
       id: 1,
       email: 'tux@keskonmate.io',
@@ -72,12 +72,12 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 3,
-    series:
+    series: [
       {
         id: 5,
         title: 'Squid Game',
       },
-    
+    ],
     users: {
       id: 1,
       email: 'tux@keskonmate.io',
@@ -92,12 +92,12 @@ export default [
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch
     type: 2,
-    series:
+    series: [
       {
         id: 3,
         title: 'La Casa de Papel',
       },
-  
+    ],
     users: {
       id: 1,
       email: 'tux@keskonmate.io',

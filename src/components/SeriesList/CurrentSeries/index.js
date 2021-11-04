@@ -8,7 +8,6 @@ import './styles.scss';
 
 const CurrentSeries = ({ currentSeries }) => {
 
-
   return(
     <>
     <PageList />
@@ -25,13 +24,13 @@ const CurrentSeries = ({ currentSeries }) => {
   }
 
 
-// CurrentSeries.propTypes = {
-//   series: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//     }).isRequired,
-//   ).isRequired,
-// };
+CurrentSeries.propTypes = {
+  currentSeries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 // == Export
 export default CurrentSeries;

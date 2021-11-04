@@ -5,7 +5,7 @@ import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
 
 const Details = ({ serie, isConnected }) => {
-  console.log(serie);
+   
   return (
     <div className="detail-container">
 

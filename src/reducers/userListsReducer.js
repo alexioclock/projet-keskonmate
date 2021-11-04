@@ -3,6 +3,7 @@ import userListsData from 'src/utils/userlists';
 
 const initialState = {
   userLists: userListsData,
+
 };
 
 function userListsReducer(state = initialState, action) {

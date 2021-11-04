@@ -10,12 +10,11 @@ import './styles.scss';
 // == Composant
 const SeriesCard = ({
   id,
-  title,
-  releaseDate,
-  director,
-  genre,
-  actor,
-}) => (
+  series
+}) => {
+
+
+  return(
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
     <Link to={`/series/${id}`}>
@@ -26,38 +25,46 @@ const SeriesCard = ({
           <Trash2 className="series-card-icon" strokeWidth={1.2} size={35} />
         </div>
         <Card.Content className="series-card-content">
-          <Card.Header className="series-card-header">{ title }</Card.Header>
+          <Card.Header className="series-card-header">{ series[0].title }</Card.Header>
           <Card.Description className="series-card-description">
-            <ul>
+            {/* <ul>
               <li>{ releaseDate }</li>
               <li>{ director }</li>
               <li>{genre.map((item) => (item.name))}</li>
               <li>{actor.map((item) => (`${item.firstname} ${item.lastname}`))}</li>
-            </ul>
+            </ul> */}
           </Card.Description>
         </Card.Content>
       </Card>
     </Link>
   </div>
 );
+}
+// SeriesCard.propTypes = {
+//   id: PropTypes.number.isRequired,
+//   title: PropTypes.string.isRequired,
+//   releaseDate: PropTypes.string.isRequired,
+//   director: PropTypes.string.isRequired,
+//   genre: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+//   actor: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       firstname: PropTypes.string.isRequired,
+//       lastname: PropTypes.string.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
+// SeriesCard.propTypes = {
 
-SeriesCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
-  director: PropTypes.string.isRequired,
-  genre: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-  actor: PropTypes.arrayOf(
-    PropTypes.shape({
-      firstname: PropTypes.string.isRequired,
-      lastname: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
+//   series: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       title: PropTypes.string.isRequired,
+//     }).isRequired,
+//   ).isRequired,
 
+// };
 // == Export
 export default SeriesCard;
