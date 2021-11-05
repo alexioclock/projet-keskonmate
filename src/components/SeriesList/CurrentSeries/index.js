@@ -9,15 +9,17 @@ import './styles.scss';
 // == Composant
 
 const CurrentSeries = ({ currentSeries }) => (
-  <div className="list-navigation">
-    <ListNavigation />
-    <div className="series-grid">
-      {currentSeries.map((serie) => (
-        serie.type === 2
-        && <SeriesCard key={serie.id} isUserCurrentList {...serie.series[0]} />
-      ))}
+  <>
+    <div className="list-navigation">
+      <ListNavigation />
+      <div className="series-grid current-series-grid">
+        {currentSeries.map((serie) => (
+          serie.type === 2
+          && <SeriesCard key={serie.id} isUserCurrentList {...serie.series[0]} />
+        ))}
+      </div>
     </div>
-  </div>
+  </>
 );
 
 CurrentSeries.propTypes = {
