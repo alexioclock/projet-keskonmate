@@ -28,6 +28,16 @@
   
     }
   }
+  .connection{
+    border:none;
+    background-color: transparent;
+    color: vars.$darkColor;
+    font-weight: 700;
+    font-family: vars.$textFont;
+  }
+  .connection:hover{
+    text-decoration: underline;
+  }
 
 }
 
