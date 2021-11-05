@@ -25,14 +25,15 @@
           border:none;
           background-color: transparent;
           color: vars.$darkColor;
-        
         }
-
         .form-mobile{
-          display: none;
+          position: absolute;
+          top:0;
+          left:0;
+          width:100%;
           padding: 15px 0;
-          margin-left: 1rem;
-          padding-left: 1rem;
+          margin:none;
+          background-color: #fff;
           .form-mobile-input{
             height:1.7rem;
             border:none;
@@ -40,10 +41,15 @@
             text-align: left;
             font-family: vars.$textFont;
             color:vars.$darkColor;
+            margin:auto;
           }
           input::placeholder{
             font-family: vars.$textFont;
             text-align: left;
+          }
+          button{
+            border:none;
+            background-color: transparent;
           }
         }
       }
