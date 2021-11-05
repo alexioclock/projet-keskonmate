@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const HomeHeader = ({ isConnected }) => (
+const HomeHeader = ({ isConnected, username }) => (
   <div className="home-header">
     {!isConnected && (
       <div className="home-header-not-connected">
@@ -32,7 +32,7 @@ const HomeHeader = ({ isConnected }) => (
     {isConnected && (
       <div className="home-header-connected">
         <p className="home-header-connected-first-line">
-          Salut Utilisateur !
+          Salut {username} !
         </p>
         <p className="home-header-connected-second-line">
           Alors, keskonmate ?
@@ -44,6 +44,7 @@ const HomeHeader = ({ isConnected }) => (
 
 HomeHeader.propTypes = {
   isConnected: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired,
 };
 
 export default HomeHeader;
