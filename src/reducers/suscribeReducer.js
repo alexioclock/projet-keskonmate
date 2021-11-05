@@ -13,6 +13,7 @@ const initialState = {
     emailInput: '',
     passwordInput: '',
     confirmPasswordInput: '',
+    isRegistered: false,
 
 };
 
@@ -40,6 +41,8 @@ function suscribeReducer (state = initialState, action) {
           ...state,
           confirmPasswordInput: action.value,
         }
+
+
           
         
 

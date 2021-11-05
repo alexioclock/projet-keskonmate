@@ -1,5 +1,6 @@
 // == Import
 import './styles.scss';
+import PropTypes from 'prop-types';
 import Popcorn from '../../assets/pictures/popcorn.png';
 
 // == Composant
@@ -11,11 +12,18 @@ const Form = ( {
         setInputNickname,
         setEmailInput,
         setPasswordInput,
-        setConfirmPasswordInput
-      }) => (
-    <div className="form">
-      <form className="suscribe-form" action="/" method="post">
+        setConfirmPasswordInput,
+      }) =>  {
+
         
+      return(
+    <div className="form">
+      <form 
+      className="suscribe-form" 
+      action="/" 
+      method="post"
+       >
+      
         <h1>Inscription</h1>
       
         <div className="pseudo-container">
@@ -26,7 +34,7 @@ const Form = ( {
               placeholder="pseudo"
               value={inputNickname}
               onChange={(event) => {
-                setInputNickname(event.target.value);
+              setInputNickname(event.target.value);
               }}
               />    
         </div>
@@ -39,7 +47,7 @@ const Form = ( {
               placeholder="e-mail"
               value={emailInput}
               onChange={(event) => {
-                setEmailInput(event.target.value);
+              setEmailInput(event.target.value);
               }}
               />
         </div>
@@ -52,7 +60,7 @@ const Form = ( {
               placeholder="Mot de passe"
               value={passwordInput}
               onChange={(event) => {
-                setPasswordInput(event.target.value);
+              setPasswordInput(event.target.value);
               }}
               />
         </div>
@@ -64,8 +72,7 @@ const Form = ( {
               placeholder="Confirmer le mot de passe"
               value={confirmPasswordInput}
               onChange={(event) => {
-                const newValue = event.target.value;
-                setConfirmPasswordInput(newValue);
+                setConfirmPasswordInput(event.target.value);
               }}
               />
         </div>
@@ -86,6 +93,20 @@ const Form = ( {
       </ul>
   </div>
 );
+}
+
+
+Form.propTypes = {
+  inputNickname: PropTypes.string.isRequired,
+  emailInput: PropTypes.string.isRequired,
+  passwordInput: PropTypes.string.isRequired,
+  confirmPasswordInput: PropTypes.string.isRequired,
+  setInputNickname: PropTypes.func.isRequired,
+  setEmailInput: PropTypes.func.isRequired,
+  setPasswordInput: PropTypes.func.isRequired,
+  setConfirmPasswordInput: PropTypes.func.isRequired,
+};
+
 
 // == Export
 export default Form;
