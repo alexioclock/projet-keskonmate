@@ -1,0 +1,42 @@
+.list-navigation .series-grid {
+  & .series-card {
+    width: 220px;
+    height: 350px;
+    margin: 2rem auto;
+    
+    & .series-card-icons-list {
+      left: 90px;
+    }
+
+    & .series-card-icon-edit-dropdown--open, & .series-card-icon-add-dropdown--open {
+      width: 220px;
+      left: -90px;
+    }
+
+    & .series-card-content {
+      top: -35px;
+    }
+  }
+}
+
+@media only screen and (min-width:1024px){
+  .list-navigation .series-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap:20px;
+    
+    & .series-card {
+
+      & .series-card-div {
+        margin:1rem auto; 
+
+        & .series-card {
+          width:180px;
+          height:260px;
+          margin:0 auto;
+        }
+      }
+    }
+  }
+}

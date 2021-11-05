@@ -160,7 +160,7 @@ SeriesCard.propTypes = {
   director: PropTypes.string,
   genre: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string
+      name: PropTypes.string,
     }),
   ),
   actor: PropTypes.arrayOf(
