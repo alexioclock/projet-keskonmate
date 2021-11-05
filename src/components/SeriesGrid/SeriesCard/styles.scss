@@ -57,6 +57,26 @@
     position: relative;
     top: -40px;
     margin: 0px 20px;
+
+    & .info-form{
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5em 0;
+    
+      input{
+        cursor: pointer;
+        display: flex;
+        width: 90px;
+        border: 1px lightgray solid;
+        border-radius: 20px;
+        margin-right: 5px;
+        padding: 5px 5px 5px 5px;
+    
+        &::placeholder{
+          font-size: 0.7em;
+        }
+      }
+    }
   }
 
   &-description {
@@ -71,28 +91,6 @@
   }
 }
 
-.info-form{
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 160px;
-  left: 50px;
-  margin: 0.5em 0;
-
-  input{
-    cursor: pointer;
-    display: flex;
-    width: 90px;
-    border: 1px lightgray solid;
-    border-radius: 20px;
-    margin-right: 5px;
-    padding: 5px 5px 5px 5px;
-
-    &::placeholder{
-      font-size: 0.7em;
-    }
-  }
-}
 
 // header de la card (sélecteurs de Semantic UI pour passer par dessus leurs propriétés)
 .ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {

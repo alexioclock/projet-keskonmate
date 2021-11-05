@@ -10,7 +10,7 @@ import './styles.scss';
 const ToWatchSeries = ({ toWatchSeries }) => (
   <div className="list-navigation">
     <ListNavigation />
-    <div className="series-grid">
+    <div className="series-grid to-watch-series-grid">
       {toWatchSeries.map((serie) => (
         serie.type === 3
         && <SeriesCard key={serie.id} isUserToWatchList {...serie.series[0]} />

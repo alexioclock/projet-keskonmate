@@ -13,10 +13,9 @@ import ToWatchSeries from 'src/containers/SeriesList/ToWatchSeries';
 import CurrentSeries from 'src/containers/SeriesList/CurrentSeries';
 import Home from 'src/components/Home';
 
+
 // == Composant
-const App = () => {
-  
-  return (
+const App = () => (
   <BrowserRouter>
     <Header />
     <Switch>
@@ -38,8 +37,7 @@ const App = () => {
     </Switch>
     <Footer />
   </BrowserRouter>
+);
 
-  );
-}
 // == Export
 export default App;
