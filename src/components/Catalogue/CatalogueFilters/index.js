@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Filter, X } from 'react-feather';
 
 // Style
@@ -8,19 +10,19 @@ const CatalogueFilters = () => {
   // isOpen : booléen qui simule le clic sur l'icone' filtre
   // s'il vaut false : on affiche uniquement l'icone filtre
   // s'il vaut true : il faut déployer le menu des filtres
-  const isOpen = false;
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   return (
     <div className="catalogue-filters">
-      {!isOpen && (
+      {!isFiltersOpen && (
       <div className="catalogue-filters-close">
-        <Filter size={48} />
+        <Filter size={48} onClick={() => setIsFiltersOpen(true)} />
       </div>
       )}
-      {isOpen && (
+      {isFiltersOpen && (
       <div className="catalogue-filters-open">
         <div className="catalogue-filters-header">
           <h2>Filtres</h2>
-          <X size={48} className="catalogue-filters-close-button" />
+          <X size={48} className="catalogue-filters-close-button" onClick={() => setIsFiltersOpen(false)} />
         </div>
         <ul className="catalogue-filters-list">
           {/* Filtres du catalogue */}

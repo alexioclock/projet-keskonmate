@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Plus, Trash2, Edit2 } from 'react-feather';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
@@ -5,7 +6,6 @@ import PropTypes from 'prop-types';
 
 // Style
 import './styles.scss';
-import { useState } from 'react';
 
 // == Composant
 const SeriesCard = ({
