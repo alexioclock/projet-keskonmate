@@ -5,7 +5,7 @@ import Header from 'src/containers/Header';
 import ProfilePage from 'src/containers/ProfilePage';
 import Catalogue from 'src/containers/Catalogue';
 import Details from 'src/containers/Details';
-import Form from '../Form';
+import Form from 'src/containers/Form';
 import Footer from '../Footer';
 import NotFound from '../NotFound';
 import WatchedSeries from 'src/containers/SeriesList/WatchedSeries';

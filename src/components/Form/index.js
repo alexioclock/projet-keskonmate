@@ -3,30 +3,78 @@ import './styles.scss';
 import Popcorn from '../../assets/pictures/popcorn.png';
 
 // == Composant
-const Form = () => {
-
-  return(
+const Form = ( {
+        inputNickname, 
+        emailInput, 
+        passwordInput, 
+        confirmPasswordInput,
+        setInputNickname,
+        setEmailInput,
+        setPasswordInput,
+        setConfirmPasswordInput
+      }) => (
     <div className="form">
       <form className="suscribe-form" action="/" method="post">
         
         <h1>Inscription</h1>
       
         <div className="pseudo-container">
-              <input type="text" id="name" name="user_name" placeholder="pseudo"/>
+              <input 
+              type="text" 
+              id="name" 
+              name="user_name" 
+              placeholder="pseudo"
+              value={inputNickname}
+              onChange={(event) => {
+                setInputNickname(event.target.value);
+              }}
+              />    
         </div>
 
         <div className="email-container">
-              <input type="email" id="mail" name="user_mail" placeholder="e-mail"/>
+              <input 
+              type="email" 
+              id="mail" 
+              name="user_mail" 
+              placeholder="e-mail"
+              value={emailInput}
+              onChange={(event) => {
+                setEmailInput(event.target.value);
+              }}
+              />
         </div>
 
         <div className="password-container">
-              <input type="password" id="password" name="password" placeholder="Mot de passe"/>
+              <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="Mot de passe"
+              value={passwordInput}
+              onChange={(event) => {
+                setPasswordInput(event.target.value);
+              }}
+              />
         </div>
         <div className="password-validation-container">
-              <input type="password" id="password-validation" name="password-validation" placeholder="Confirmer le mot de passe"/>
+              <input 
+              type="password" 
+              id="password-validation" 
+              name="password-validation" 
+              placeholder="Confirmer le mot de passe"
+              value={confirmPasswordInput}
+              onChange={(event) => {
+                const newValue = event.target.value;
+                setConfirmPasswordInput(newValue);
+              }}
+              />
         </div>
 
-        <button className="validation-button" type="submit">Valider</button>
+        <button 
+        className="validation-button" 
+        type="submit"
+        >Valider
+        </button>
         <img src={Popcorn} alt="" className="popcorn"></img>
       </form>
       
@@ -38,7 +86,6 @@ const Form = () => {
       </ul>
   </div>
 );
-}
 
 // == Export
 export default Form;
