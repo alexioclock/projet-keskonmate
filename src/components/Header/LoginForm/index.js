@@ -1,9 +1,7 @@
 import './styles.scss';
 
 const LoginForm = () => (
-
   <form className="login-form">
-
     <label htmlFor="username-input">
       Pseudo
       <input
@@ -24,13 +22,14 @@ const LoginForm = () => (
       </a>
     </label>
 
-    <button type="submit" className="login-submit">
-      Se connecter
-    </button>
-
-    <a href="/inscription" className="inscription">
-      Inscription
-    </a>
+    <div className="links">
+      <button type="submit" className="login-submit">
+        Se connecter
+      </button>
+      <a href="/inscription" className="inscription">
+        Inscription
+      </a>
+    </div>
   </form>
 );
 

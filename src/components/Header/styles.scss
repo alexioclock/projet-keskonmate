@@ -1,108 +1,92 @@
 @use 'src/styles/vars';
 
 .header{
-  padding:1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  display:flex;
-  justify-content: space-between;
-  color: vars.$darkColor;
+  .navbar{
+    display:flex;
+    justify-content: space-between;
+    color: vars.$darkColor;
+    padding:1rem;
 
-  
-  .left-navbar{
-    display: flex;
-    width:40%;
-
-    .series-link{
-      display:none;
-    }
-
-    .series-icon{
+    .series{
       align-self: center;
-    }
-
-    .form-display{
-      border:none;
-      background-color: transparent;
-      margin-left: 0.7rem;
-      color: vars.$darkColor;
-    }
-
-    .form-mobile-element{
-      // search bar on mobile that appears onClick
-      display: none;
-      position:absolute;
-      top: 0px;
-      left: 0px;
-      background-color: #ffffff;
-      width:100%;
-      height:55px;
-      z-index: 1;
-      .form-mobile{
-        padding: 15px 0;
-        margin-left: 1rem;
-        padding-left: 1rem;
-
-        .form-mobile-input{
-          height:1.7rem;
-          border:none;
-          width:85%;
-          text-align: left;
-          font-family: vars.$textFont;
-          color:vars.$darkColor;
-        }
-        input::placeholder{
-          font-family: vars.$textFont;
-          text-align: left;
-        }
-      }
-      button{
-        background-color: transparent;
-        border: none;
-        position:absolute;
-        color: vars.$darkColor;          
-      }
-    }
-    // SearchBar on desktop
-    .form{
-      display: none;
-      button{
-        display: none;
-      }
-    }
-  }
-
-  .logo{
-    width: 90px;
-  }
-
-  .right-navbar{
-    display: flex;
-    justify-content: flex-end;
-    width:40%;
-
-    .list-link{
+      .series-link{
       display:none;
-    }
-    .user-account-link{
-      margin-left: 1rem;
-      color: vars.$darkColor;
-      width:30%;
-      display:flex;
-      .user-name{
-        margin-right: 1rem;
-        align-self: center;
       }
-      .connection{
-        margin-right: 1rem;
-        align-self: center;
+      .series-icon:hover{
+        color: vars.$darkColor;
+      }
 
+    }
+    .searchbar{
+      align-self: center;
+      .div-form-mobile{
+      // the button we have to click for the form to appear
+        .form-display{
+          border:none;
+          background-color: transparent;
+          color: vars.$darkColor;
+        
+        }
+
+        .form-mobile{
+          display: none;
+          padding: 15px 0;
+          margin-left: 1rem;
+          padding-left: 1rem;
+          .form-mobile-input{
+            height:1.7rem;
+            border:none;
+            width:85%;
+            text-align: left;
+            font-family: vars.$textFont;
+            color:vars.$darkColor;
+          }
+          input::placeholder{
+            font-family: vars.$textFont;
+            text-align: left;
+          }
+        }
+      }
+      // SearchBar on desktop
+      .form{
+        display: none;
+        button{
+          display: none;
+        }
       }
     }
+  
+    .logo{
+      font-size: 15px;
+    }
 
+    .lists{
+      align-self: center;
+      .list-link{
+      display:none;
+      }
+      .list-icon:hover{
+        color: vars.$darkColor;
+      }
+    }
+    .account{
+      align-self: center;
+      .isConnected-links{
+        .user-name{
+          display: none;
+        }
+      }
+      .isNotConnected-links{
+        .connection{
+          display: none;
+        }
+      }
+      .user-icon:hover{
+        color:vars.$darkColor;
+      }
+    }
   }
-}
-
+} 
 
 @media only screen and (min-width:768px) {
   .header{
@@ -110,162 +94,183 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .left-navbar{
-      width:40%;
-
-      .series-icon{
-        align-self: center;
+    .navbar{
+      justify-content: flex-start;
+      .series{
+        width:5%;
       }
-      .form-display{
+      .searchbar{
+        width:32%;
+        .form-display{
+          display: none;
+        }
+        .form-mobile-element{
         display: none;
-      }
-      .form-mobile-element{
-        display: none;
-      }
-
+        }
       // SearchBar on large screen
-      .form{
-        display: inline-block;
-        width:85%;
-        margin-right:2rem;
-
-        .form-input{
-          height:1.7rem;
-          border:none;
-          border-radius: 5px;
-          width:75%;
-          font-size: 0.8rem;
-          margin-top: 20px;
-        }
-
-        input::placeholder{
+        .form{
+          display: flex;
+          .form-input{
+            border:none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin:auto 0;
+          }
+          input::placeholder{
           font-family: vars.$textFont;
-        }
+          }
 
-        button{
+          button{
           color:vars.$darkColor;
           display: inline-block;
           background-color: transparent;
           border: none;
-          position:absolute;
-          top:30px;
-         }
+          }
+        }
       }
-    }
-  
-    .logo{
-      width: 20%;
-    }
-  
-    .right-navbar{
-      display: flex;
-      justify-content: flex-end;
-      align-self: center;
-      width:40%;
-
-      .list-icon{
-        display:none
+      .link-logo{
+        width:30%;
+        .logo{
+          font-size: 20px;
+        }
       }
-      .list-link{
-        display: inline-block;
-        align-self: center;
+      .lists{
+        width:10%;
+        text-align: right;
       }
-      .user-account-link{
-        margin-left: 1rem;
-        color: vars.$darkColor;
-
-        .user-name{
-          display: inline-block;
+      .account{
+        width:20%;
+        .isConnected-links{
+          display: flex;
+          justify-content: flex-end;
+          .user-name{
+            display: inline-block;
+            width:95%;
+            align-self: center;
+            margin-right:5px;
+            font-weight: 500;
+            text-align:right;
+          }
         }
-        .user-name:hover{
-          text-decoration: underline;
-          text-underline-offset: 3px;
+        .isNotConnected-links{
+          display: flex;
+          justify-content: flex-end;
+          .connection{
+            display: inline-block;
+            width:95%;
+            align-self: center;
+            margin-right:5px;
+            font-weight: 500;
+            text-align:right;
+          }
         }
-        .user-icon:hover{
-          text-decoration: underline;
-          text-underline-offset: 3px;
-        }
-
-        .connection{
-          // display: inline-block;
-        }
-
+      }
+      .account:hover{
+        color:vars.$darkColor;   
       }
     }
   }
 }
 
-
-@media only screen and (min-width:1114px) {
+@media only screen and (min-width:1024px) {
   .header{
     a:hover{
       text-decoration: underline;
       text-underline-offset: 3px;
-      // border-bottom: 1px solid vars.$darkColor;
     }
-    .left-navbar{
-      justify-content: space-between;
-      align-self: center;
+    .navbar{
+      .series{
+        .series-link{
+          display: inline-block;
+          text-align: center;
+          font-weight: 500;
+        }
+        .series-link:hover{
+          color:vars.$darkColor;
 
-      .series-link{
-        display: inline-block;
-        width:30%;
-        margin:auto
+        }
+        .series-icon{
+          display: none;
+        }
+        width:10%;
       }
-      .series-icon{
-        display: none;
+
+      .searchbar{
+        width: 29%;
       }
 
       .form{
         .form-input{
-          height:1.7rem;
-          border:none;
-          border-radius: 5px;
-          width:75%;
-          font-size: 0.8rem;
-          margin-top: 20px;
+          width:75%
         }
-        button{
-          position:absolute;
+      }
+
+      .link-logo{
+        .logo{
+          font-size: 23px;
         }
+      }
+      .lists{
+        .list-link{
+          display: inline-block;
+          font-weight:500 ;
+        }
+        .list-link:hover{
+          color:vars.$darkColor;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+        .list-icon{
+          display: none;
+        }
+      }
+      .account{
+        width:18%;
+        .isConnected-links{
+          .user-name{
+            text-align: right;
+            margin-right:10px;
+          }
+          .user-icon{
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media only screen and (min-width:1440px) {
+  .header{
+    font-size: 1.2rem;
+    .navbar{
+      .searchbar{
+        width: 34%;
+      }
+      .account{
+        width:15%;
       }
     }
   }
 }
 
-@media only screen and (min-width:1650px) {
-  .form{
-    button{
-      bottom:800px;
-    }
-  }
-}
 
-@media only screen and (min-width:2050px) {
-  .form{
-    button{
-      bottom:690px;
-    }
-  }
-  .right-navbar{
-      .login-form{
-        width:300px;
+@media only screen and (min-width:1850px) {
+  .header{
+    .navbar{
+      .searchbar{
+        width: 35%;
       }
+    }
   }
 }
 
 @media only screen and (min-width:2300px) {
-  .form{
-    button{
-      bottom:680px;
-    }
-  }
-}
-
-@media only screen and (min-width:2450px) {
-  .form{
-    button{
-      bottom:670px;
+  .header{
+    .navbar{
+      .searchbar{
+        width: 36%;
+      }
     }
   }
 }
