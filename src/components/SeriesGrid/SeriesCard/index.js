@@ -21,6 +21,8 @@ const SeriesCard = ({
   isUserToWatchList,
   isUserCurrentList,
   isUserWatchedList,
+  toggleOpen,
+  isOpen,
 }) => (
   <div className="series-card-div">
     {/* Grille de SeriesCard */}
@@ -31,7 +33,7 @@ const SeriesCard = ({
           (isSuggestionsList || isCatalogue)
           && (
           <div className="series-card-icon-add-div">
-            <div className="series-card-icon-add-dropdown">
+            <div className={isOpen ? 'series-card-icon-add-dropdown--open' : 'series-card-icon-add-dropdown'}>
               <ul className="series-card-icon-add-dropdown-list">
                 <li className="series-card-icon-add-dropdown-list-item">
                   Ajouter à ma liste [à voir]
@@ -45,9 +47,14 @@ const SeriesCard = ({
               </ul>
             </div>
             <Plus
+              // id={`series-card-icon-${id}`}
               className="series-card-icon series-card-icon-add"
               strokeWidth={1.2}
               size={35}
+              onClick={(event) => {
+                // console.log(event.target.id);
+                toggleOpen();
+              }}
             />
           </div>
           )
@@ -174,6 +181,8 @@ SeriesCard.propTypes = {
   isUserToWatchList: PropTypes.bool,
   isUserCurrentList: PropTypes.bool,
   isUserWatchedList: PropTypes.bool,
+  toggleOpen: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 SeriesCard.defaultProps = {

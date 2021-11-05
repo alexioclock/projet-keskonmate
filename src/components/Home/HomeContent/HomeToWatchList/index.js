@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import './styles.scss';
-import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
+import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
 const HomeToWatchList = ({ series }) => (
   <div className="home-list home-to-watch-list">

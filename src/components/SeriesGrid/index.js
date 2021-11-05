@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // Composants
-import SeriesCard from './SeriesCard';
+import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
 // Style
 import './styles.scss';
