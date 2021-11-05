@@ -8,7 +8,6 @@ import Details from 'src/containers/Details';
 import Form from '../Form';
 import Footer from '../Footer';
 import NotFound from '../NotFound';
-import PageList from '../PageList';
 import WatchedSeries from 'src/containers/SeriesList/WatchedSeries';
 import ToWatchSeries from 'src/containers/SeriesList/ToWatchSeries';
 import CurrentSeries from 'src/containers/SeriesList/CurrentSeries';

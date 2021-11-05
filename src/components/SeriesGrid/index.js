@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // Composants
-import SeriesCard from './SeriesCard';
+import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
 // Style
 import './styles.scss';
@@ -10,7 +10,7 @@ import './styles.scss';
 const SeriesGrid = ({ series }) => (
   <div className="series-grid">
     {series.map((serie) => (
-      <SeriesCard key={serie.id} {...serie} />
+      <SeriesCard key={serie.id} isCatalogue {...serie} />
     ))}
   </div>
 );

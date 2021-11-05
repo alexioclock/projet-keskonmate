@@ -3,25 +3,24 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
-const SuggestionList = ({ series }) => (
-  <div className="suggestion-list">
+const HomeToWatchList = ({ series }) => (
+  <div className="home-list home-to-watch-list">
     <p className="list-name">
-      Vous pourriez aimer...
+      Les séries à voir
     </p>
-
-    <a href="/series" className="series-link">
-      Voir notre catalogue de séries
+    <a href="/lists" className="series-link">
+      Voir la liste complète
     </a>
-
     <div className="series-cards">
       {series.map((serie) => (
-        <SeriesCard key={serie.id} isSuggestionsList {...serie} />
+        <SeriesCard key={serie.id} isHomeToWatchList {...serie} />
       ))}
     </div>
+
   </div>
 );
 
-SuggestionList.propTypes = {
+HomeToWatchList.propTypes = {
   series: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -29,4 +28,4 @@ SuggestionList.propTypes = {
   ).isRequired,
 };
 
-export default SuggestionList;
+export default HomeToWatchList;

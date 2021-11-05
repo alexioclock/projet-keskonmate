@@ -3,6 +3,7 @@ import reducer from './reducer';
 import genreFilter from './genreFilter';
 import userReducer from './userReducer';
 import seriesReducer from './seriesReducer';
+import cardReducer from './cardReducer';
 import userListsReducer from './userListsReducer';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   dropdownFilter: genreFilter,
   user: userReducer,
   series: seriesReducer,
+  cards: cardReducer,
   userLists: userListsReducer,
 });
 

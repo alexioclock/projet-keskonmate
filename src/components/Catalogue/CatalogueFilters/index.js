@@ -8,7 +8,7 @@ const CatalogueFilters = () => {
   // isOpen : booléen qui simule le clic sur l'icone' filtre
   // s'il vaut false : on affiche uniquement l'icone filtre
   // s'il vaut true : il faut déployer le menu des filtres
-  const isOpen = true;
+  const isOpen = false;
   return (
     <div className="catalogue-filters">
       {!isOpen && (

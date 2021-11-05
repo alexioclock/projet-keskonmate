@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import './styles.scss';
 import SuggestionList from 'src/containers/Home/HomeContent/SuggestionList';
-import HomeList from 'src/containers/Home/HomeContent/HomeList';
+import HomeCurrentList from 'src/containers/Home/HomeContent/HomeCurrentList';
+import HomeToWatchList from 'src/containers/Home/HomeContent/HomeToWatchList';
 
 const HomeContent = ({ isConnected }) => (
   <div className="home-content">
     {isConnected && (
       <div className="home-lists">
-        <HomeList />
-        <HomeList />
+        <HomeCurrentList />
+        <HomeToWatchList />
       </div>
     )}
     <SuggestionList />

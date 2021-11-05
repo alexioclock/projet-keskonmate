@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './styles.scss';
 
 const HomeHeader = ({ isConnected }) => (
@@ -40,5 +42,8 @@ const HomeHeader = ({ isConnected }) => (
   </div>
 );
 
+HomeHeader.propTypes = {
+  isConnected: PropTypes.bool.isRequired,
+};
 
 export default HomeHeader;

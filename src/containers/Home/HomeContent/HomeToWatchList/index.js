@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // on importe le composant de présentation
-import HomeList from 'src/components/Home/HomeContent/HomeList';
+import HomeToWatchList from 'src/components/Home/HomeContent/HomeToWatchList';
 
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(HomeList);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeToWatchList);

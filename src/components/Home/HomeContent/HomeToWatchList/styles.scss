@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-.suggestion-list {
+.home-to-watch-list {
   font-family: vars.$textFont;
   text-align: center;
   border:1px solid #fff;
@@ -17,7 +17,6 @@
     margin:1rem auto;
     font-weight: 700;
     text-transform: uppercase;
-
   }
 
   & .series-link:hover{
@@ -49,8 +48,9 @@
 }
 
 @media only screen and (min-width:1024px){
-  .suggestion-list {
-
+  .home-to-watch-list {
+    width:45%;
+    
     & .series-cards {
       display: flex;
       flex-wrap: wrap;
