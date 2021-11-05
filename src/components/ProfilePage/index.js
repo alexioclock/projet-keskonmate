@@ -25,11 +25,11 @@ const ProfilePage = ({ username, email }) => (
       <h2 className="form-title profile-page-subtitle">Je veux changer mon mot de passe</h2>
       <div className="old-password-container">
         <h3 className="old-password-title form-subtitle">Saisir l'ancien mot de passe</h3>
-        <input type="password" id="password" name="password" placeholder="Ancien mot de passe" />
+        <input type="password" id="old-password" name="old-password" placeholder="Ancien mot de passe" />
       </div>
       <div className="password-container">
         <h3 className="password-title form-subtitle">Saisir le nouveau mot de passe</h3>
-        <input type="password" id="password" name="password" placeholder="Nouveau mot de passe" />
+        <input type="password" id="new-password" name="new-password" placeholder="Nouveau mot de passe" />
       </div>
       <div className="password-validation-container">
         <h3 className="password-validation-title form-subtitle">Confirmer le nouveau mot de passe</h3>

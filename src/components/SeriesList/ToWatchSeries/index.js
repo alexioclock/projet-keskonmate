@@ -1,21 +1,26 @@
 // == Import
 import PropTypes from 'prop-types';
+
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
+import ListNavigation from '../../ListNavigation';
+
 import './styles.scss';
 
 // == Composant
-const ToWatchSeries = ({ series }) => (
-  <div className="actual-series">
+const ToWatchSeries = ({ toWatchSeries }) => (
+  <div className="list-navigation">
+    <ListNavigation />
     <div className="series-grid">
-      {series.map((serie) => (
-        <SeriesCard key={serie.id} isUserToWatchList {...serie} />
+      {toWatchSeries.map((serie) => (
+        serie.type === 3
+        && <SeriesCard key={serie.id} isUserToWatchList {...serie.series[0]} />
       ))}
     </div>
   </div>
 );
 
 ToWatchSeries.propTypes = {
-  series: PropTypes.arrayOf(
+  toWatchSeries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,

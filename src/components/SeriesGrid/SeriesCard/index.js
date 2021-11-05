@@ -51,7 +51,7 @@ const SeriesCard = ({
               className="series-card-icon series-card-icon-add"
               strokeWidth={1.2}
               size={35}
-              onClick={(event) => {
+              onClick={() => {
                 // console.log(event.target.id);
                 toggleOpen();
               }}
@@ -117,10 +117,7 @@ const SeriesCard = ({
           <Card.Header className="series-card-header">{ title }</Card.Header>
           <Card.Description className="series-card-description">
             {
-              (isUserToWatchList
-              || isUserWatchedList
-              || isUserCurrentList
-              || isCatalogue)
+              (isCatalogue)
               && (
                 <ul className="series-card-description-list">
                   <li className="series-card-description-list-item">Sortie en { releaseDate.substring(0, 4) }</li>
@@ -130,9 +127,7 @@ const SeriesCard = ({
                     && <li className="series-card-description-list-item">Réalisée par { director }</li>
                   }
                   {
-                    (isUserToWatchList
-                    || isUserWatchedList
-                    || isCatalogue)
+                    (isCatalogue)
                     && (
                       <li className="series-card-description-list-item">
                         avec {actor.map((item) => ((`${item.firstname} ${item.lastname}, `)))}
@@ -161,19 +156,19 @@ const SeriesCard = ({
 SeriesCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
-  director: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string,
+  director: PropTypes.string,
   genre: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+      name: PropTypes.string
+    }),
+  ),
   actor: PropTypes.arrayOf(
     PropTypes.shape({
-      firstname: PropTypes.string.isRequired,
-      lastname: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+      firstname: PropTypes.string,
+      lastname: PropTypes.string,
+    }),
+  ),
   isHomeToWatchList: PropTypes.bool,
   isHomeCurrentList: PropTypes.bool,
   isSuggestionsList: PropTypes.bool,
@@ -181,11 +176,15 @@ SeriesCard.propTypes = {
   isUserToWatchList: PropTypes.bool,
   isUserCurrentList: PropTypes.bool,
   isUserWatchedList: PropTypes.bool,
-  toggleOpen: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func,
+  isOpen: PropTypes.bool,
 };
 
 SeriesCard.defaultProps = {
+  releaseDate: '',
+  director: '',
+  genre: [],
+  actor: [],
   isHomeToWatchList: false,
   isHomeCurrentList: false,
   isSuggestionsList: false,
@@ -193,7 +192,10 @@ SeriesCard.defaultProps = {
   isUserToWatchList: false,
   isUserCurrentList: false,
   isUserWatchedList: false,
+  toggleOpen: () => {},
+  isOpen: false,
 };
 
+// };
 // == Export
 export default SeriesCard;

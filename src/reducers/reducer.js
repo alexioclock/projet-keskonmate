@@ -1,5 +1,6 @@
 import { DO_SOMETHING } from 'src/actions/actions';
 
+
 const initialState = {
   // ici le state initial
 

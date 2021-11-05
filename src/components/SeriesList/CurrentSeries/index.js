@@ -2,19 +2,26 @@
 import PropTypes from 'prop-types';
 
 import SeriesCard from '../../SeriesGrid/SeriesCard';
+import ListNavigation from '../../ListNavigation';
+
 import './styles.scss';
 
 // == Composant
-const CurrentSeries = ({ series }) => (
-  <div className="series-grid">
-    {series.map((serie) => (
-      <SeriesCard key={serie.id} isUserCurrentList {...serie} />
-    ))}
+
+const CurrentSeries = ({ currentSeries }) => (
+  <div className="list-navigation">
+    <ListNavigation />
+    <div className="series-grid">
+      {currentSeries.map((serie) => (
+        serie.type === 2
+        && <SeriesCard key={serie.id} isUserCurrentList {...serie.series[0]} />
+      ))}
+    </div>
   </div>
 );
 
 CurrentSeries.propTypes = {
-  series: PropTypes.arrayOf(
+  currentSeries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,

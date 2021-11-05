@@ -1,192 +1,92 @@
 @use 'src/styles/vars';
 
 .header{
-  padding:1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  display:flex;
-  justify-content: space-between;
-  color: vars.$darkColor;
+  .navbar{
+    display:flex;
+    justify-content: space-between;
+    color: vars.$darkColor;
+    padding:1rem;
 
-  
-  .left-navbar{
-    display: flex;
-    width:40%;
-
-    .series-link{
-      display:none;
-    }
-
-    .series-icon{
+    .series{
       align-self: center;
+      .series-link{
+      display:none;
+      }
+      .series-icon:hover{
+        color: vars.$darkColor;
+      }
+
     }
-
-    .form-display{
-      border:none;
-      background-color: transparent;
-      margin-left: 0.7rem;
-      color: vars.$darkColor;
-    }
-
-    .form-mobile-element{
-      // search bar on mobile that appears onClick
-      display: none;
-      position:absolute;
-      top: 0px;
-      left: 0px;
-      background-color: #ffffff;
-      width:100%;
-      height:55px;
-      z-index: 1;
-      .form-mobile{
-        padding: 15px 0;
-        margin-left: 1rem;
-        padding-left: 1rem;
-
-        .form-mobile-input{
-          height:1.7rem;
+    .searchbar{
+      align-self: center;
+      .div-form-mobile{
+      // the button we have to click for the form to appear
+        .form-display{
           border:none;
-          width:85%;
-          text-align: left;
-          font-family: vars.$textFont;
-          color:vars.$darkColor;
+          background-color: transparent;
+          color: vars.$darkColor;
+        
         }
-        input::placeholder{
-          font-family: vars.$textFont;
-          text-align: left;
+
+        .form-mobile{
+          display: none;
+          padding: 15px 0;
+          margin-left: 1rem;
+          padding-left: 1rem;
+          .form-mobile-input{
+            height:1.7rem;
+            border:none;
+            width:85%;
+            text-align: left;
+            font-family: vars.$textFont;
+            color:vars.$darkColor;
+          }
+          input::placeholder{
+            font-family: vars.$textFont;
+            text-align: left;
+          }
         }
       }
-      button{
-        background-color: transparent;
-        border: none;
-        position:absolute;
-        color: vars.$darkColor;          
+      // SearchBar on desktop
+      .form{
+        display: none;
+        button{
+          display: none;
+        }
       }
     }
-    // SearchBar on desktop
-    .form{
-      display: none;
-      button{
-        display: none;
+  
+    .logo{
+      font-size: 15px;
+    }
+
+    .lists{
+      align-self: center;
+      .list-link{
+      display:none;
+      }
+      .list-icon:hover{
+        color: vars.$darkColor;
+      }
+    }
+    .account{
+      align-self: center;
+      .isConnected-links{
+        .user-name{
+          display: none;
+        }
+      }
+      .isNotConnected-links{
+        .connection{
+          display: none;
+        }
+      }
+      .user-icon:hover{
+        color:vars.$darkColor;
       }
     }
   }
-
-  .logo{
-    width: 90px;
-  }
-
-  .right-navbar{
-    display: flex;
-    justify-content: flex-end;
-    align-self: center;
-    width:40%;
-
-    .login-form{
-      display: none;
-      position: absolute;
-      background-color: vars.$backgroundColorLight;
-      width:90px;
-      position: absolute;
-      top: 45px;
-      right: 5px;
-      border-radius: 5px;
-      padding:10px 10px 20px 10px;
-      
-      label{
-        font-size: 0.4rem;
-        display: block;
-        font-weight: 500;
-        input{
-          width:100%;
-          margin-top:0.1rem;
-          margin-bottom: 0.2rem;
-          border:none;
-          border-radius: 3px;
-          background-color: #fff;
-          height: 1rem;
-          color:vars.$darkColor;
-          padding-left:0.2rem;
-          font-size:0.5rem;
-          font-family: vars.$textFont;
-        }
-        .lost-password{
-          font-style:italic;
-          font-size: 0.3rem;
-        }
-      }
-    
-    }
-    .login-submit{
-      font-size: 0.3rem;
-      font-weight: 500;
-      background-color: transparent;
-      border: none;
-      font-family: vars.$textFont;
-      color:vars.$darkColor;
-      text-align: left;
-      margin-top:0.3rem;
-      position:absolute;
-      left:3px;
-    }
-
-    .inscription{
-      position: absolute;
-      right:5px;
-      margin-top:0.5rem;
-      font-size: 0.3rem;
-      text-align: center;
-    }
-
-    .list-link{
-      display: none;
-    }
-    .user-account-link{
-      margin-left: 1rem;
-      color: vars.$darkColor;
-      .user-name{
-        display: none;
-        margin-right: 1rem;
-        position: relative;
-        bottom:15%;
-      }
-      .connection{
-        display: none;
-        margin-right: 1rem;
-        position: relative;
-        bottom:15%;
-
-
-      }
-    }
-    .dropdown-content{
-      display: none;
-      position: absolute;
-      background-color: vars.$backgroundColorLight;
-      width:90px;
-      position: absolute;
-      top: 45px;
-      right: 5px;
-      border-radius: 5px;
-      
-      a{
-        font-size: 0.75rem;
-        display: block;
-        font-weight: 500;
-        padding:10px;
-        text-align: center;
-
-      }
-      a:hover{
-        background-color: vars.$backgroundColor;
-        border-radius:5px;
-        border: 0.5px solid #fff;
-      }
-
-    }
-  }
-}
-
+} 
 
 @media only screen and (min-width:768px) {
   .header{
@@ -194,251 +94,184 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .left-navbar{
-      width:40%;
-
-      .series-icon{
-        align-self: center;
+    .navbar{
+      justify-content: flex-start;
+      .series{
+        width:5%;
       }
-      .form-display{
+      .searchbar{
+        width:32%;
+        .form-display{
+          display: none;
+        }
+        .form-mobile-element{
         display: none;
-      }
-      .form-mobile-element{
-        display: none;
-      }
-
+        }
       // SearchBar on large screen
-      .form{
-        display: inline-block;
-        width:85%;
-        margin-right:2rem;
-
-        .form-input{
-          height:1.7rem;
-          border:none;
-          border-radius: 5px;
-          width:75%;
-          font-size: 0.8rem;
-          margin-top: 20px;
-        }
-
-        input::placeholder{
+        .form{
+          display: flex;
+          .form-input{
+            border:none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin:auto 0;
+          }
+          input::placeholder{
           font-family: vars.$textFont;
-        }
+          }
 
-        button{
+          button{
           color:vars.$darkColor;
           display: inline-block;
           background-color: transparent;
           border: none;
-          position:absolute;
-          top:30px;
-         }
-      }
-    }
-  
-    .logo{
-      width: 20%;
-    }
-  
-    .right-navbar{
-      display: flex;
-      justify-content: flex-end;
-      align-self: center;
-      width:40%;
-
-      .list-icon{
-        display:none
-      }
-      .list-link{
-        display: inline-block;
-        align-self: center;
-      }
-      .user-account-link{
-        margin-left: 1rem;
-        color: vars.$darkColor;
-
-        .user-name{
-          display: inline-block;
-        }
-        .user-name:hover{
-          text-decoration: underline;
-          text-underline-offset: 3px;
-        }
-        .user-icon:hover{
-          text-decoration: underline;
-          text-underline-offset: 3px;
-        }
-
-        .connection{
-          // display: inline-block;
-        }
-
-      }
-  
-      .login-form{
-        width:150px;
-        top: 70px;
-        right: 10px;
-        padding:10px 10px 40px 10px;
-        
-        label{
-          font-size: 0.8rem;
-          input{
-            margin-top:0.2rem;
-            margin-bottom: 0.3rem;
-            height: 1.5rem;
-            font-size: 0.8rem;
-          }
-          .lost-password{
-            font-size: 0.6rem;
           }
         }
       }
-      .login-submit{
-        font-size: 0.7rem;
-        margin-top:0.5rem;
-      }
-      .inscription{
-        right:7px;
-        margin-top:0.7rem;
-        font-size: 0.7rem;
-      }
-      .dropdown-content{
-        width:150px;
-        top: 70px;
-        right: 10px;        
-        a{
-          font-size: 1rem;
-          padding:15px;
+      .link-logo{
+        width:30%;
+        .logo{
+          font-size: 20px;
         }
-  
       }
-
+      .lists{
+        width:10%;
+        text-align: right;
+      }
+      .account{
+        width:20%;
+        .isConnected-links{
+          display: flex;
+          justify-content: flex-end;
+          .user-name{
+            display: inline-block;
+            width:95%;
+            align-self: center;
+            margin-right:5px;
+            font-weight: 500;
+            text-align:right;
+          }
+        }
+        .isNotConnected-links{
+          display: flex;
+          justify-content: flex-end;
+          .connection{
+            display: inline-block;
+            width:95%;
+            align-self: center;
+            margin-right:5px;
+            font-weight: 500;
+            text-align:right;
+          }
+        }
+      }
+      .account:hover{
+        color:vars.$darkColor;   
+      }
     }
   }
 }
 
-
-@media only screen and (min-width:1114px) {
+@media only screen and (min-width:1024px) {
   .header{
     a:hover{
       text-decoration: underline;
       text-underline-offset: 3px;
-      // border-bottom: 1px solid vars.$darkColor;
     }
-    .left-navbar{
-      justify-content: space-between;
-      align-self: center;
+    .navbar{
+      .series{
+        .series-link{
+          display: inline-block;
+          text-align: center;
+          font-weight: 500;
+        }
+        .series-link:hover{
+          color:vars.$darkColor;
 
-      .series-link{
-        display: inline-block;
-        width:30%;
-        margin:auto
+        }
+        .series-icon{
+          display: none;
+        }
+        width:10%;
       }
-      .series-icon{
-        display: none;
+
+      .searchbar{
+        width: 29%;
       }
 
       .form{
         .form-input{
-          height:1.7rem;
-          border:none;
-          border-radius: 5px;
-          width:75%;
-          font-size: 0.8rem;
-          margin-top: 20px;
-        }
-        button{
-          position:absolute;
+          width:75%
         }
       }
-  
-    .right-navbar{
 
-      .login-form{
-        width:200px;
-        top: 70px;
-        right: 15px;
-        border-radius: 10px;
-        padding:10px 10px 40px 10px;
+      .link-logo{
+        .logo{
+          font-size: 23px;
+        }
       }
-      label{
-        font-size: 1rem;
-        input{
-          margin-top:0.2rem;
-          margin-bottom: 0.3rem;
-          border-radius: 5px;
-          height: 2em;
+      .lists{
+        .list-link{
+          display: inline-block;
+          font-weight:500 ;
+        }
+        .list-link:hover{
+          color:vars.$darkColor;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+        .list-icon{
+          display: none;
+        }
+      }
+      .account{
+        width:18%;
+        .isConnected-links{
+          .user-name{
+            text-align: right;
+            margin-right:10px;
+          }
+          .user-icon{
+          }
+        }
+      }
 
+    }
+  }
+}
 
-        }
-        .lost-password{
-          font-size: 0.6rem;
-        }
+@media only screen and (min-width:1440px) {
+  .header{
+    font-size: 1.2rem;
+    .navbar{
+      .searchbar{
+        width: 34%;
       }
-      }
-      .login-submit{
-        font-size: 0.7rem;
-        margin-top:0.5rem;
-        left:3px;
-      }
-      .inscription{
-        margin-top:0.7rem;
-        font-size: 0.7rem;
-      }
-      .dropdown-content{
-        width: 200px;
-        top: 70px;
-        right: 15px;     
-        border-radius: 10px;   
-        a{
-          border-radius:10px;
-          padding:20px;
-        }
-  
+      .account{
+        width:15%;
       }
     }
   }
 }
 
-@media only screen and (min-width:1650px) {
-  .form{
-    button{
-      bottom:800px;
-    }
-  }
-}
 
-@media only screen and (min-width:2050px) {
-  .form{
-    button{
-      bottom:690px;
-    }
-  }
-  .right-navbar{
-      .login-form{
-        width:300px;
+@media only screen and (min-width:1850px) {
+  .header{
+    .navbar{
+      .searchbar{
+        width: 35%;
       }
+    }
   }
 }
 
 @media only screen and (min-width:2300px) {
-  .form{
-    button{
-      bottom:680px;
+  .header{
+    .navbar{
+      .searchbar{
+        width: 36%;
+      }
     }
   }
 }
 
-@media only screen and (min-width:2450px) {
-  .form{
-    button{
-      bottom:670px;
-    }
-  }
-  .login-form{
-    top:100px;
-    right: 15px;
-  }
-}

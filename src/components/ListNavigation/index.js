@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-
 // const options = [
 //   { key: 'series-vues', text: 'Séries déjà vues', value: 'series-vues' },
 //   { key: 'actual', text: 'Séries en cours ', value: 'series-en-cours' },
@@ -9,16 +8,17 @@ import { NavLink } from 'react-router-dom';
 const ListNavigation = () => (
   <div className="desktop-list">
     <ul className="list-container">
-      <NavLink activeClassName="current" to="series-vues">
+      <NavLink activeClassName="current" to="series-vues" exact>
         <li className="list-button">Séries déjà vues</li>
       </NavLink>
-      <NavLink activeClassName="current" to="series-en-cours">
+      <NavLink activeClassName="current" to="series-en-cours" exact>
         <li className="list-button">Séries en cours</li>
       </NavLink>
-      <NavLink activeClassName="current" to="series-a-voir">
+      <NavLink activeClassName="current" to="series-a-voir" exact>
         <li className="list-button">Séries à voir</li>
       </NavLink>
     </ul>
+
   </div>
 );
 

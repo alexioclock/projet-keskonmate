@@ -1,0 +1,115 @@
+@use 'src/styles/vars';
+
+.login-form{
+  // display: none;
+  position: absolute;
+  background-color: vars.$backgroundColorLight;
+  width: 10rem;
+  height:11rem;
+  position: absolute;
+  top: 45px;
+  right: 5px;
+  border-radius: 5px;
+  padding:10px 10px 20px 10px;
+  
+  label{
+    margin-top:0.2rem;
+    font-size: 1rem;
+    display: block;
+    font-weight: 500;
+    input{
+      width:100%;
+      margin-top:0.1rem;
+      margin-bottom: 0.2rem;
+      border:none;
+      border-radius: 3px;
+      background-color: #fff;
+      height: 1.7rem;
+      color:vars.$darkColor;
+      padding-left:0.2rem;
+      font-size:1rem;
+      font-family: vars.$textFont;
+    }
+    .lost-password{
+      font-style:italic;
+      font-size: 0.7rem;
+    }
+    .lost-password:hover{
+      color: vars.$darkColor;
+      font-weight:700;
+      text-decoration:none;
+    }
+  }
+}
+.links{
+  display:flex;
+  justify-content: space-between;
+  height:3rem;
+  .login-submit{
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    font-family: vars.$textFont;
+    color:vars.$darkColor;
+    align-self: center;
+    margin:none;
+    padding: none;
+  }
+  .login-submit:hover{
+    font-weight: 700;
+  }
+  .inscription{
+    font-weight: 500;
+    font-size: 0.7rem;
+    align-self: center;
+  }
+  .inscription:hover{
+    color: vars.$darkColor;
+    font-weight: 700;
+    text-decoration:none;
+  }
+}
+
+
+@media only screen and (min-width:768px) {
+  .login-form{
+    top: 60px;
+    right: 10px;
+    padding:10px 10px 40px 10px;
+  }
+}
+
+@media only screen and (min-width:1114px) {
+  .login-form{
+    width:200px;
+    top: 70px;
+    right: 15px;
+    border-radius: 10px;
+    padding:10px 10px 40px 10px;
+  }
+  label{
+    font-size: 1rem;
+    input{
+      margin-top:0.2rem;
+      margin-bottom: 0.3rem;
+      border-radius: 5px;
+      height: 2em;
+
+
+    }
+    .lost-password{
+      font-size: 0.6rem;
+    }
+  }
+
+  .login-submit{
+    font-size: 0.7rem;
+    margin-top:0.5rem;
+    left:3px;
+  }
+  .inscription{
+    margin-top:0.7rem;
+    font-size: 0.7rem;
+  }
+}

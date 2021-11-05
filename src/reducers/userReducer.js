@@ -2,6 +2,7 @@ import usersData from 'src/utils/users';
 
 const initialState = {
   user: usersData[0],
+  isConnected: true,
 };
 
 function userReducer(state = initialState, action) {
