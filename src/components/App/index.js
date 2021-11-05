@@ -5,13 +5,13 @@ import Header from 'src/containers/Header';
 import ProfilePage from 'src/containers/ProfilePage';
 import Catalogue from 'src/containers/Catalogue';
 import Details from 'src/containers/Details';
+import Form from 'src/containers/Form';
 import WatchedSeries from 'src/containers/SeriesList/WatchedSeries';
 import ToWatchSeries from 'src/containers/SeriesList/ToWatchSeries';
 import CurrentSeries from 'src/containers/SeriesList/CurrentSeries';
 import Home from 'src/components/Home';
 import NotFound from '../NotFound';
 import Footer from '../Footer';
-import Form from '../Form';
 
 // == Composant
 const App = () => (
@@ -36,7 +36,7 @@ const App = () => (
     </Switch>
     <Footer />
   </BrowserRouter>
-
 );
+
 // == Export
 export default App;

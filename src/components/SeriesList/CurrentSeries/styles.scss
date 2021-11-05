@@ -1,0 +1,24 @@
+.list-navigation .current-series-grid {
+  & .series-card {
+    width: 220px;
+    height: 350px;
+    margin: 2rem auto;
+    
+    &-icons-list {
+      left: 90px;
+    }
+
+    &-icon-edit-dropdown--open, &icon-add-dropdown--open {
+      width: 220px;
+      left: -90px;
+    }
+
+    &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item {
+      font-size: 0.9em;
+    }
+
+    &-content {
+      top: -40px;
+    }
+  }
+}
