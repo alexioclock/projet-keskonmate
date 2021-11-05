@@ -27,6 +27,7 @@
           color: vars.$darkColor;
         }
         .form-mobile{
+          display: flex;
           position: absolute;
           top:0;
           left:0;
@@ -34,6 +35,8 @@
           padding: 15px 0;
           margin:none;
           background-color: #fff;
+          height:100px;
+          z-index: 5;
           .form-mobile-input{
             height:1.7rem;
             border:none;

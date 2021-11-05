@@ -11,6 +11,7 @@
   right: 5px;
   border-radius: 5px;
   padding:10px 10px 20px 10px;
+  z-index: 5;
   
   label{
     margin-top:0.2rem;
@@ -80,36 +81,33 @@
   }
 }
 
-@media only screen and (min-width:1114px) {
+@media only screen and (min-width:1024px) {
   .login-form{
-    width:200px;
+    width:300px;
+    height:300px;
     top: 70px;
     right: 15px;
-    border-radius: 10px;
-    padding:10px 10px 40px 10px;
-  }
-  label{
-    font-size: 1rem;
-    input{
-      margin-top:0.2rem;
-      margin-bottom: 0.3rem;
-      border-radius: 5px;
-      height: 2em;
+    padding:25px 25px 40px 25px;
 
-
+    label{
+      font-size: 1.3rem;
+      input{
+        margin-top:0.6rem;
+        margin-bottom: 0.6rem;
+        height: 2rem;
+      }
+      .lost-password{
+        font-size: 0.8rem;
+      }
     }
-    .lost-password{
-      font-size: 0.6rem;
+    .links{
+      margin-top: 1.5rem;
+      .login-submit{
+        font-size: 1rem;
+      }
+      .inscription{
+        font-size: 1rem;
+      }
     }
-  }
-
-  .login-submit{
-    font-size: 0.7rem;
-    margin-top:0.5rem;
-    left:3px;
-  }
-  .inscription{
-    margin-top:0.7rem;
-    font-size: 0.7rem;
   }
 }
