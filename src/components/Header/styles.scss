@@ -25,14 +25,15 @@
           border:none;
           background-color: transparent;
           color: vars.$darkColor;
-        
         }
-
         .form-mobile{
-          display: none;
+          position: absolute;
+          top:0;
+          left:0;
+          width:100%;
           padding: 15px 0;
-          margin-left: 1rem;
-          padding-left: 1rem;
+          margin:none;
+          background-color: #fff;
           .form-mobile-input{
             height:1.7rem;
             border:none;
@@ -40,10 +41,15 @@
             text-align: left;
             font-family: vars.$textFont;
             color:vars.$darkColor;
+            margin:auto;
           }
           input::placeholder{
             font-family: vars.$textFont;
             text-align: left;
+          }
+          button{
+            border:none;
+            background-color: transparent;
           }
         }
       }
@@ -69,21 +75,30 @@
         color: vars.$darkColor;
       }
     }
-    .account{
-      align-self: center;
-      .isConnected-links{
+ 
+    .isConnected-links{
+      .account-button{
+        border:none;
+        background-color: transparent;
+        color: vars.$darkColor;          
         .user-name{
           display: none;
         }
       }
-      .isNotConnected-links{
+    }
+    
+    .isNotConnected-links{
+      .account-button{
+        border: none;
+        background-color: transparent;
+        color: vars.$darkColor;
         .connection{
           display: none;
         }
       }
-      .user-icon:hover{
-        color:vars.$darkColor;
-      }
+    }
+    .user-icon:hover{
+      color:vars.$darkColor;
     }
   }
 } 
@@ -100,7 +115,7 @@
         width:5%;
       }
       .searchbar{
-        width:32%;
+        width:36%;
         .form-display{
           display: none;
         }
@@ -135,14 +150,16 @@
         }
       }
       .lists{
-        width:10%;
+        width:17%;
         text-align: right;
       }
-      .account{
+
+      .isConnected-links{
+        align-self: center;
         width:20%;
-        .isConnected-links{
-          display: flex;
-          justify-content: flex-end;
+        .account-button{
+        display: flex;
+        justify-content: flex-end;
           .user-name{
             display: inline-block;
             width:95%;
@@ -152,19 +169,24 @@
             text-align:right;
           }
         }
-        .isNotConnected-links{
+      }
+      .isNotConnected-links{
+        align-self:center ;
+        width:22%;
+        .account-button{
           display: flex;
           justify-content: flex-end;
           .connection{
             display: inline-block;
             width:95%;
-            align-self: center;
             margin-right:5px;
             font-weight: 500;
             text-align:right;
+            align-self: center;
           }
         }
       }
+      
       .account:hover{
         color:vars.$darkColor;   
       }
@@ -184,6 +206,7 @@
           display: inline-block;
           text-align: center;
           font-weight: 500;
+          margin-right:1rem;
         }
         .series-link:hover{
           color:vars.$darkColor;
@@ -196,7 +219,7 @@
       }
 
       .searchbar{
-        width: 29%;
+        width: 32%;
       }
 
       .form{
@@ -206,6 +229,7 @@
       }
 
       .link-logo{
+        width:30%;
         .logo{
           font-size: 23px;
         }
@@ -224,18 +248,40 @@
           display: none;
         }
       }
-      .account{
+      .isConnected-links{
         width:18%;
-        .isConnected-links{
+        .account-button{
+          display: flex;
+          width: 100%;
           .user-name{
+            display: inline-block;
             text-align: right;
             margin-right:10px;
+            margin-top: 5px;
+            align-self: center;
           }
           .user-icon{
+            align-self: center;
           }
         }
       }
-
+      .isNotConnected-links{
+        width:18%;
+        .account-button{
+          display: flex;
+          width: 100%;
+          .connection{
+            display: inline-block;
+            text-align: right;
+            margin-right:10px;
+            margin-top: 5px;
+            align-self: center;
+          }
+          .user-icon{
+            align-self: center;
+          }
+        }
+      }
     }
   }
 }
@@ -247,9 +293,13 @@
       .searchbar{
         width: 34%;
       }
+      .link-logo{
+        width:25%;
+      }
       .account{
         width:15%;
       }
+
     }
   }
 }
@@ -259,7 +309,7 @@
   .header{
     .navbar{
       .searchbar{
-        width: 35%;
+        width: 38%;
       }
     }
   }
@@ -269,7 +319,7 @@
   .header{
     .navbar{
       .searchbar{
-        width: 36%;
+        width: 41%;
       }
     }
   }
