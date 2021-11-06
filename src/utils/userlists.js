@@ -92,9 +92,9 @@ export default [
   },
   {
     id: 5,
-    seasonNb: null,
+    seasonNb: 2,
     seriesNb: 3,
-    episodeNb: null,
+    episodeNb: 4,
     createdAt: '2021-10-27T12:40:34+02:00',
     updatedAt: null,
     // 1 = Already watched, 2 = Watching, 3 = To watch

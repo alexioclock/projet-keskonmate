@@ -20,11 +20,11 @@
     cursor: pointer;
   }
 
-  &-icon-edit-dropdown, &-icon-add-dropdown {
+  &-icon-edit-dropdown, &-icon-add-dropdown, &-icon-delete-dropdown {
     display: none;
   }
 
-  &-icon-edit-dropdown--open, &-icon-add-dropdown--open {
+  &-icon-edit-dropdown--open, &-icon-add-dropdown--open, &-icon-delete-dropdown--open {
     display: block;
     background: #FFF;
     border-radius: 5px;
@@ -34,16 +34,19 @@
     left: -110px;
   }
 
-  &-icon-edit-dropdown-list, &-icon-add-dropdown-list {
+  &-icon-edit-dropdown-list, &-icon-add-dropdown-list, &-icon-delete-dropdown-list {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 0.2em 0;
   }
 
-  &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item {
+  &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item, &-icon-delete-dropdown-list-item {
     margin: 0.5em 0;
     text-align: center;
+    font-size: 0.9em;
+    border: hidden;
+    background: none;
   }
 
   &-header {
@@ -58,23 +61,20 @@
     top: -40px;
     margin: 0px 20px;
 
-    & .info-form{
+    & .info-form {
       display: flex;
       justify-content: space-between;
       margin: 0.5em 0;
     
-      input{
+      input {
         cursor: pointer;
         display: flex;
         width: 90px;
         border: 1px lightgray solid;
         border-radius: 20px;
-        margin-right: 5px;
         padding: 5px 5px 5px 5px;
-    
-        &::placeholder{
-          font-size: 0.7em;
-        }
+        font-size: 0.9em;
+        text-align: center;
       }
     }
   }

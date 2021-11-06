@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
-const HomeToWatchList = ({ series }) => (
+const HomeToWatchList = ({ toWatchSeries }) => (
   <div className="home-list home-to-watch-list">
     <p className="list-name">
       Les séries à voir
@@ -12,16 +12,16 @@ const HomeToWatchList = ({ series }) => (
       Voir la liste complète
     </a>
     <div className="series-cards">
-      {series.map((serie) => (
-        <SeriesCard key={serie.id} isHomeToWatchList {...serie} />
+      {toWatchSeries.map((serie) => (
+        serie.type === 3
+        && <SeriesCard key={serie.id} type={serie.type} isHomeToWatchList {...serie.series[0]} />
       ))}
     </div>
-
   </div>
 );
 
 HomeToWatchList.propTypes = {
-  series: PropTypes.arrayOf(
+  toWatchSeries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,

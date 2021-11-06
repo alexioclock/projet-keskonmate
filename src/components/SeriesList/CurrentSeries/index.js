@@ -15,7 +15,16 @@ const CurrentSeries = ({ currentSeries }) => (
       <div className="series-grid current-series-grid">
         {currentSeries.map((serie) => (
           serie.type === 2
-          && <SeriesCard key={serie.id} isUserCurrentList {...serie.series[0]} />
+          && (
+          <SeriesCard
+            key={serie.id}
+            type={serie.type}
+            currentSeason={serie.seasonNb}
+            currentEpisode={serie.episodeNb}
+            isUserCurrentList
+            {...serie.series[0]}
+          />
+          )
         ))}
       </div>
     </div>

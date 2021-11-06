@@ -23,10 +23,14 @@ const SeriesCard = ({
   isUserCurrentList,
   isUserWatchedList,
   type,
+  currentSeason,
+  currentEpisode,
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
-  console.log(`Type de la série ${title} : ${type}`);
+  const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
+  const [currentSeasonNb, setCurrentSeasonNb] = useState(currentSeason);
+  const [currentEpisodeNb, setCurrentEpisodeNb] = useState(currentEpisode);
   return (
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
@@ -34,24 +38,23 @@ const SeriesCard = ({
         <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
         <div className="series-card-icons-list">
           {
-            (isSuggestionsList || isCatalogue)
+            ((isSuggestionsList || isCatalogue) && type === 0)
             && (
             <div className="series-card-icon-add-div">
               <div className={isAddDropdownOpen ? 'series-card-icon-add-dropdown--open' : 'series-card-icon-add-dropdown'}>
                 <ul className="series-card-icon-add-dropdown-list">
-                  <li className="series-card-icon-add-dropdown-list-item">
+                  <button type="button" className="series-card-icon-add-dropdown-list-item">
                     Ajouter à ma liste [à voir]
-                  </li>
-                  <li className="series-card-icon-add-dropdown-list-item">
+                  </button>
+                  <button type="button" className="series-card-icon-add-dropdown-list-item">
                     Ajouter à ma liste [en cours]
-                  </li>
-                  <li className="series-card-icon-add-dropdown-list-item">
+                  </button>
+                  <button type="button" className="series-card-icon-add-dropdown-list-item">
                     Ajouter à ma liste [déjà vu]
-                  </li>
+                  </button>
                 </ul>
               </div>
               <Plus
-                // id={`series-card-icon-${id}`}
                 className="series-card-icon series-card-icon-add"
                 strokeWidth={1.2}
                 size={35}
@@ -61,46 +64,42 @@ const SeriesCard = ({
             )
           }
           {
-            (isHomeCurrentList
+            ((isHomeCurrentList
             || isHomeToWatchList
             || isUserToWatchList
             || isUserCurrentList
             || isUserWatchedList
             || isCatalogue)
+            && type !== 0)
             && (
             <div className="series-card-icon-edit-div">
               <div className={isEditDropdownOpen ? 'series-card-icon-edit-dropdown--open' : 'series-card-icon-edit-dropdown'}>
                 <ul className="series-card-icon-edit-dropdown-list">
                   {
-                    (isUserCurrentList
-                    || isUserWatchedList
-                    || isCatalogue)
+                    (type === 2
+                    || type === 3)
                     && (
-                    <li className="series-card-icon-edit-dropdown-list-item">
-                      Déplacer vers ma liste [à voir]
-                    </li>
-                    )
-                  }
-                  {
-                    (isHomeToWatchList
-                    || isUserToWatchList
-                    || isUserWatchedList
-                    || isCatalogue)
-                    && (
-                    <li className="series-card-icon-edit-dropdown-list-item">
-                      Déplacer vers ma liste [en cours]
-                    </li>
-                    )
-                  }
-                  {
-                    (isHomeCurrentList
-                    || isUserCurrentList
-                    || isUserToWatchList
-                    || isCatalogue)
-                    && (
-                    <li className="series-card-icon-edit-dropdown-list-item">
+                    <button type="button" className="series-card-icon-edit-dropdown-list-item">
                       Déplacer vers ma liste [déjà vu]
-                    </li>
+                    </button>
+                    )
+                  }
+                  {
+                    (type === 1
+                    || type === 3)
+                    && (
+                    <button type="button" className="series-card-icon-edit-dropdown-list-item">
+                      Déplacer vers ma liste [en cours]
+                    </button>
+                    )
+                  }
+                  {
+                    (type === 1
+                    || type === 2)
+                    && (
+                    <button type="button" className="series-card-icon-edit-dropdown-list-item">
+                      Déplacer vers ma liste [à voir]
+                    </button>
                     )
                   }
                 </ul>
@@ -114,9 +113,49 @@ const SeriesCard = ({
             </div>
             )
           }
-          <div className="series-card-icon-delete-div">
-            <Trash2 className="series-card-icon series-card-icon-delete" strokeWidth={1.2} size={35} />
-          </div>
+          {
+            (type === 1
+            || type === 2
+            || type === 3)
+            && (
+              <div className="series-card-icon-delete-div">
+                <div className={isDeleteDropdownOpen ? 'series-card-icon-delete-dropdown--open' : 'series-card-icon-delete-dropdown'}>
+                  <ul className="series-card-icon-delete-dropdown-list">
+                    {
+                      (type === 1)
+                      && (
+                      <button type="button" className="series-card-icon-delete-dropdown-list-item">
+                        Supprimer de ma liste [déjà vu]
+                      </button>
+                      )
+                    }
+                    {
+                      (type === 2)
+                      && (
+                      <button type="button" className="series-card-icon-delete-dropdown-list-item">
+                        Supprimer de ma liste [en cours]
+                      </button>
+                      )
+                    }
+                    {
+                      (type === 3)
+                      && (
+                      <button type="button" className="series-card-icon-delete-dropdown-list-item">
+                        Supprimer de ma liste [à voir]
+                      </button>
+                      )
+                    }
+                  </ul>
+                </div>
+                <Trash2
+                  className="series-card-icon series-card-icon-delete"
+                  strokeWidth={1.2}
+                  size={35}
+                  onClick={() => setIsDeleteDropdownOpen(!isDeleteDropdownOpen)}
+                />
+              </div>
+            )
+          }
         </div>
         <Card.Content className="series-card-content">
           <Link to={`/series/${id}`}>
@@ -149,8 +188,32 @@ const SeriesCard = ({
             (isUserCurrentList)
             && (
               <form className="info-form">
-                <input type="text" placeholder="Saison n°" />
-                <input type="text" placeholder="Episode n°" />
+                <div>
+                  <label htmlFor="season-nb">Saison
+                    <input
+                      type="text"
+                      placeholder="n°"
+                      name="season-nb"
+                      value={currentSeasonNb}
+                      onChange={(event) => {
+                        setCurrentSeasonNb(event.target.value);
+                      }}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="episode-nb">Episode
+                    <input
+                      type="text"
+                      placeholder="n°"
+                      name="episode-nb"
+                      value={currentEpisodeNb}
+                      onChange={(event) => {
+                        setCurrentEpisodeNb(event.target.value);
+                      }}
+                    />
+                  </label>
+                </div>
               </form>
             )
           }
@@ -184,6 +247,8 @@ SeriesCard.propTypes = {
   isUserCurrentList: PropTypes.bool,
   isUserWatchedList: PropTypes.bool,
   type: PropTypes.number,
+  currentEpisode: PropTypes.number,
+  currentSeason: PropTypes.number,
 };
 
 SeriesCard.defaultProps = {
@@ -199,6 +264,8 @@ SeriesCard.defaultProps = {
   isUserCurrentList: false,
   isUserWatchedList: false,
   type: 0,
+  currentEpisode: 0,
+  currentSeason: 0,
 };
 
 // };

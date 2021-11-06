@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Composants
@@ -22,7 +21,12 @@ const SeriesGrid = ({ series, userlist }) => {
             })}
           </>;
           return (
-            <SeriesCard key={serie.id} isCatalogue type={serieType} {...serie} />
+            <SeriesCard
+              key={serie.id}
+              isCatalogue
+              type={serieType}
+              {...serie}
+            />
           );
       })}
     </div>
