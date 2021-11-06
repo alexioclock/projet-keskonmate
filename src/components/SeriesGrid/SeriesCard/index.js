@@ -25,12 +25,16 @@ const SeriesCard = ({
   type,
   currentSeason,
   currentEpisode,
+  addSerieToUserlist,
+  editUserlistSerie,
+  deleteUserlistSerie,
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
   const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
   const [currentSeasonNb, setCurrentSeasonNb] = useState(currentSeason);
   const [currentEpisodeNb, setCurrentEpisodeNb] = useState(currentEpisode);
+  const [seriesType, setSeriesType] = useState(type);
   return (
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
@@ -38,19 +42,43 @@ const SeriesCard = ({
         <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
         <div className="series-card-icons-list">
           {
-            ((isSuggestionsList || isCatalogue) && type === 0)
+            ((isSuggestionsList || isCatalogue) && seriesType === 0)
             && (
             <div className="series-card-icon-add-div">
               <div className={isAddDropdownOpen ? 'series-card-icon-add-dropdown--open' : 'series-card-icon-add-dropdown'}>
                 <ul className="series-card-icon-add-dropdown-list">
-                  <button type="button" className="series-card-icon-add-dropdown-list-item">
-                    Ajouter à ma liste [à voir]
+                  <button
+                    type="button"
+                    className="series-card-icon-add-dropdown-list-item"
+                    onClick={() => {
+                      addSerieToUserlist(id, title, 1);
+                      setSeriesType(1);
+                      setIsAddDropdownOpen(false);
+                    }}
+                  >
+                    Ajouter à ma liste [déjà vu]
                   </button>
-                  <button type="button" className="series-card-icon-add-dropdown-list-item">
+                  <button
+                    type="button"
+                    className="series-card-icon-add-dropdown-list-item"
+                    onClick={() => {
+                      addSerieToUserlist(id, title, 2);
+                      setSeriesType(2);
+                      setIsAddDropdownOpen(false);
+                    }}
+                  >
                     Ajouter à ma liste [en cours]
                   </button>
-                  <button type="button" className="series-card-icon-add-dropdown-list-item">
-                    Ajouter à ma liste [déjà vu]
+                  <button
+                    type="button"
+                    className="series-card-icon-add-dropdown-list-item"
+                    onClick={() => {
+                      addSerieToUserlist(id, title, 3);
+                      setSeriesType(3);
+                      setIsAddDropdownOpen(false);
+                    }}
+                  >
+                    Ajouter à ma liste [à voir]
                   </button>
                 </ul>
               </div>
@@ -70,34 +98,58 @@ const SeriesCard = ({
             || isUserCurrentList
             || isUserWatchedList
             || isCatalogue)
-            && type !== 0)
+            && seriesType !== 0)
             && (
             <div className="series-card-icon-edit-div">
               <div className={isEditDropdownOpen ? 'series-card-icon-edit-dropdown--open' : 'series-card-icon-edit-dropdown'}>
                 <ul className="series-card-icon-edit-dropdown-list">
                   {
-                    (type === 2
-                    || type === 3)
+                    (seriesType === 2
+                    || seriesType === 3)
                     && (
-                    <button type="button" className="series-card-icon-edit-dropdown-list-item">
+                    <button
+                      type="button"
+                      className="series-card-icon-edit-dropdown-list-item"
+                      onClick={() => {
+                        editUserlistSerie(id, 1);
+                        setSeriesType(1);
+                        setIsEditDropdownOpen(false);
+                      }}
+                    >
                       Déplacer vers ma liste [déjà vu]
                     </button>
                     )
                   }
                   {
-                    (type === 1
-                    || type === 3)
+                    (seriesType === 1
+                    || seriesType === 3)
                     && (
-                    <button type="button" className="series-card-icon-edit-dropdown-list-item">
+                    <button
+                      type="button"
+                      className="series-card-icon-edit-dropdown-list-item"
+                      onClick={() => {
+                        editUserlistSerie(id, 2);
+                        setSeriesType(2);
+                        setIsEditDropdownOpen(false);
+                      }}
+                    >
                       Déplacer vers ma liste [en cours]
                     </button>
                     )
                   }
                   {
-                    (type === 1
-                    || type === 2)
+                    (seriesType === 1
+                    || seriesType === 2)
                     && (
-                    <button type="button" className="series-card-icon-edit-dropdown-list-item">
+                    <button
+                      type="button"
+                      className="series-card-icon-edit-dropdown-list-item"
+                      onClick={() => {
+                        editUserlistSerie(id, 3);
+                        setSeriesType(3);
+                        setIsEditDropdownOpen(false);
+                      }}
+                    >
                       Déplacer vers ma liste [à voir]
                     </button>
                     )
@@ -114,33 +166,57 @@ const SeriesCard = ({
             )
           }
           {
-            (type === 1
-            || type === 2
-            || type === 3)
+            (seriesType === 1
+            || seriesType === 2
+            || seriesType === 3)
             && (
               <div className="series-card-icon-delete-div">
                 <div className={isDeleteDropdownOpen ? 'series-card-icon-delete-dropdown--open' : 'series-card-icon-delete-dropdown'}>
                   <ul className="series-card-icon-delete-dropdown-list">
                     {
-                      (type === 1)
+                      (seriesType === 1)
                       && (
-                      <button type="button" className="series-card-icon-delete-dropdown-list-item">
+                      <button
+                        type="button"
+                        className="series-card-icon-delete-dropdown-list-item"
+                        onClick={() => {
+                          deleteUserlistSerie(id);
+                          setSeriesType(0);
+                          setIsDeleteDropdownOpen(false);
+                        }}
+                      >
                         Supprimer de ma liste [déjà vu]
                       </button>
                       )
                     }
                     {
-                      (type === 2)
+                      (seriesType === 2)
                       && (
-                      <button type="button" className="series-card-icon-delete-dropdown-list-item">
+                      <button
+                        type="button"
+                        className="series-card-icon-delete-dropdown-list-item"
+                        onClick={() => {
+                          deleteUserlistSerie(id);
+                          setSeriesType(0);
+                          setIsDeleteDropdownOpen(false);
+                        }}
+                      >
                         Supprimer de ma liste [en cours]
                       </button>
                       )
                     }
                     {
-                      (type === 3)
+                      (seriesType === 3)
                       && (
-                      <button type="button" className="series-card-icon-delete-dropdown-list-item">
+                      <button
+                        type="button"
+                        className="series-card-icon-delete-dropdown-list-item"
+                        onClick={() => {
+                          deleteUserlistSerie(id);
+                          setSeriesType(0);
+                          setIsDeleteDropdownOpen(false);
+                        }}
+                      >
                         Supprimer de ma liste [à voir]
                       </button>
                       )
@@ -249,6 +325,9 @@ SeriesCard.propTypes = {
   type: PropTypes.number,
   currentEpisode: PropTypes.number,
   currentSeason: PropTypes.number,
+  addSerieToUserlist: PropTypes.func,
+  editUserlistSerie: PropTypes.func,
+  deleteUserlistSerie: PropTypes.func,
 };
 
 SeriesCard.defaultProps = {
@@ -266,6 +345,9 @@ SeriesCard.defaultProps = {
   type: 0,
   currentEpisode: 0,
   currentSeason: 0,
+  addSerieToUserlist: () => {},
+  editUserlistSerie: () => {},
+  deleteUserlistSerie: () => {},
 };
 
 // };

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
 
+import { addSerieToList, editUserlistSerie, deleteUserlistSerie } from 'src/actions/actions';
+
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
@@ -14,6 +16,15 @@ const mapStateToProps = (state) => ({
 // si on a besoin de dispatcher des actions vers le store (modifier le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
+  addSerieToUserlist: (newSerieId, newSerieTitle, newSerieType) => {
+    dispatch(addSerieToList(newSerieId, newSerieTitle, newSerieType));
+  },
+  editUserlistSerie: (serieId, newSerieType) => {
+    dispatch(editUserlistSerie(serieId, newSerieType));
+  },
+  deleteUserlistSerie: (serieId) => {
+    dispatch(deleteUserlistSerie(serieId));
+  },
 });
 
 // === création de l'assistant
