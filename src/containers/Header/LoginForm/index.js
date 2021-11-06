@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import LoginForm from 'src/components/Header/LoginForm';
-import { setPAssword, setNickname } from 'src/actions/login';
+import { setPAssword, setNickname, submitLogin } from 'src/actions/login';
 
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
@@ -22,7 +22,12 @@ const mapDispatchToProps = (dispatch) => ({
   setPassword: (newValue) => {
     const action = setPAssword(newValue);
     dispatch(action);
+  },
+  
+  handleSubmit: () => {
+    dispatch(submitLogin);
   }
+
 });
 
 // === création de l'assistant

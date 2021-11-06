@@ -7,8 +7,15 @@ const LoginForm = (
     password,
     setNickname,
     setPassword,
+    handleSubmit,
     }) => (
-  <form className="login-form">
+  <form 
+    className="login-form"
+    onSubmit={(event) => {
+      event.preventDefault();
+      handleSubmit();
+    }}
+    >
     <label htmlFor="username-input">
       Pseudo
       <input
