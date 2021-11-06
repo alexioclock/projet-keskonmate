@@ -22,9 +22,11 @@ const SeriesCard = ({
   isUserToWatchList,
   isUserCurrentList,
   isUserWatchedList,
+  type,
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
+  console.log(`Type de la série ${title} : ${type}`);
   return (
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
@@ -181,6 +183,7 @@ SeriesCard.propTypes = {
   isUserToWatchList: PropTypes.bool,
   isUserCurrentList: PropTypes.bool,
   isUserWatchedList: PropTypes.bool,
+  type: PropTypes.number,
 };
 
 SeriesCard.defaultProps = {
@@ -195,6 +198,7 @@ SeriesCard.defaultProps = {
   isUserToWatchList: false,
   isUserCurrentList: false,
   isUserWatchedList: false,
+  type: 0,
 };
 
 // };
