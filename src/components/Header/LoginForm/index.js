@@ -1,12 +1,23 @@
 import './styles.scss';
+import PropTypes from 'prop-types';
 
-const LoginForm = () => (
+const LoginForm = (
+    {
+    nickname,
+    password,
+    setNickname,
+    setPassword,
+    }) => (
   <form className="login-form">
     <label htmlFor="username-input">
       Pseudo
       <input
         className="username-input"
         id="username-input"
+        value={nickname}
+        onChange={(e) => {
+          setNickname(e.target.value)
+        }}
       />
     </label>
 
@@ -16,6 +27,10 @@ const LoginForm = () => (
         className="password-input"
         id="password-input"
         type="password"
+        value={password}
+        onChange={(e) => {
+          setPassword(e.target.value)
+        }}
       />
       <a href="/lost-password" className="lost-password">
         Mot de passe oublié
@@ -33,4 +48,12 @@ const LoginForm = () => (
   </form>
 );
 
+
+LoginForm.propTypes = {
+  nickname: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  setNickname: PropTypes.func.isRequired,
+  setPassword: PropTypes.func.isRequired,
+
+};
 export default LoginForm;

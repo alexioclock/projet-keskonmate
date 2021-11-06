@@ -6,7 +6,7 @@ import {
   User, List, Bookmark,
 } from 'react-feather';
 import logo from 'src/assets/logo.png';
-import LoginForm from 'src/components/Header/LoginForm';
+import LoginForm from 'src/containers/Header/LoginForm';
 import UserDropdown from 'src/components/Header/UserDropdown';
 import SearchBar from './SearchBar';
 import SearchBarMobile from './SearchBarMobile';
