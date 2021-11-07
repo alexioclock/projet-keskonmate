@@ -28,12 +28,12 @@ const SeriesCard = ({
   addSerieToUserlist,
   editUserlistSerie,
   deleteUserlistSerie,
+  changeCurrentSeason,
+  changeCurrentEpisode,
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
   const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
-  const [currentSeasonNb, setCurrentSeasonNb] = useState(currentSeason);
-  const [currentEpisodeNb, setCurrentEpisodeNb] = useState(currentEpisode);
   const [seriesType, setSeriesType] = useState(type);
   console.log(`${title}, id : ${id}, type : ${type}`);
   return (
@@ -271,9 +271,9 @@ const SeriesCard = ({
                       type="text"
                       placeholder="n°"
                       name="season-nb"
-                      value={currentSeasonNb}
+                      value={currentSeason}
                       onChange={(event) => {
-                        setCurrentSeasonNb(event.target.value);
+                        changeCurrentSeason(id, event.target.value);
                       }}
                     />
                   </label>
@@ -284,9 +284,9 @@ const SeriesCard = ({
                       type="text"
                       placeholder="n°"
                       name="episode-nb"
-                      value={currentEpisodeNb}
+                      value={currentEpisode}
                       onChange={(event) => {
-                        setCurrentEpisodeNb(event.target.value);
+                        changeCurrentEpisode(id, Number(event.target.value));
                       }}
                     />
                   </label>
@@ -324,11 +324,19 @@ SeriesCard.propTypes = {
   isUserCurrentList: PropTypes.bool,
   isUserWatchedList: PropTypes.bool,
   type: PropTypes.number,
-  currentEpisode: PropTypes.number,
-  currentSeason: PropTypes.number,
+  currentEpisode: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  currentSeason: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   addSerieToUserlist: PropTypes.func,
   editUserlistSerie: PropTypes.func,
   deleteUserlistSerie: PropTypes.func,
+  changeCurrentSeason: PropTypes.func,
+  changeCurrentEpisode: PropTypes.func,
 };
 
 SeriesCard.defaultProps = {
@@ -349,6 +357,8 @@ SeriesCard.defaultProps = {
   addSerieToUserlist: () => {},
   editUserlistSerie: () => {},
   deleteUserlistSerie: () => {},
+  changeCurrentSeason: () => {},
+  changeCurrentEpisode: () => {},
 };
 
 // };

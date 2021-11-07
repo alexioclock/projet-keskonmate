@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
 
-import { addSerieToList, editUserlistSerie, deleteUserlistSerie } from 'src/actions/actions';
+import {
+  addSerieToList,
+  editUserlistSerie,
+  deleteUserlistSerie,
+  changeCurrentSeasonValue,
+  changeCurrentEpisodeValue,
+} from 'src/actions/actions';
 
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
@@ -24,6 +30,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteUserlistSerie: (serieId) => {
     dispatch(deleteUserlistSerie(serieId));
+  },
+  changeCurrentSeason: (serieId, newSeasonValue) => {
+    dispatch(changeCurrentSeasonValue(serieId, newSeasonValue));
+  },
+  changeCurrentEpisode: (serieId, newEpisodeValue) => {
+    dispatch(changeCurrentEpisodeValue(serieId, newEpisodeValue));
   },
 });
 

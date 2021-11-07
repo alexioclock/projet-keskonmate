@@ -1,6 +1,12 @@
 import userListsData from 'src/utils/userlists';
 
-import { ADD_SERIE_TO_LIST, EDIT_USERLIST_SERIE, DELETE_USERLIST_SERIE } from 'src/actions/actions';
+import {
+  ADD_SERIE_TO_LIST,
+  EDIT_USERLIST_SERIE,
+  DELETE_USERLIST_SERIE,
+  CHANGE_CURRENT_SEASON_VALUE,
+  CHANGE_CURRENT_EPISODE_VALUE
+} from 'src/actions/actions';
 
 const initialState = {
   userLists: userListsData,
@@ -10,7 +16,7 @@ function userListsReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_SERIE_TO_LIST: {
       const newUserlistArray = [...state.userLists, {
-        id: state.userLists[state.userLists.length - 1].id + 1,
+        id: (state.userLists.length > 0 ? state.userLists[state.userLists.length - 1].id + 1 : 1),
         seasonNb: 0,
         seriesNb: action.serieId,
         episodeNb: 0,
@@ -68,6 +74,32 @@ function userListsReducer(state = initialState, action) {
         }
         else {
           serie.type = 0;
+        }
+      });
+      return {
+        ...state,
+        userLists: newUserlistArray,
+      };
+    }
+
+    case CHANGE_CURRENT_SEASON_VALUE: {
+      const newUserlistArray = [...state.userLists];
+      newUserlistArray.forEach((serie) => {
+        if (serie.seriesNb === action.serieId) {
+          serie.seasonNb = action.value;
+        }
+      });
+      return {
+        ...state,
+        userLists: newUserlistArray,
+      };
+    }
+
+    case CHANGE_CURRENT_EPISODE_VALUE: {
+      const newUserlistArray = [...state.userLists];
+      newUserlistArray.forEach((serie) => {
+        if (serie.seriesNb === action.serieId) {
+          serie.episodeNb = action.value;
         }
       });
       return {
