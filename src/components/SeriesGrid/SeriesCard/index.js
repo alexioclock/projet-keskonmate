@@ -35,6 +35,7 @@ const SeriesCard = ({
   const [currentSeasonNb, setCurrentSeasonNb] = useState(currentSeason);
   const [currentEpisodeNb, setCurrentEpisodeNb] = useState(currentEpisode);
   const [seriesType, setSeriesType] = useState(type);
+  console.log(`${title}, id : ${id}, type : ${type}`);
   return (
     <div className="series-card-div">
       {/* Grille de SeriesCard */}

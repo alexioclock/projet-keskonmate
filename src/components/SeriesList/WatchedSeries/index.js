@@ -1,7 +1,9 @@
 // == Import
 import PropTypes from 'prop-types';
-import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
-import ListNavigation from '../../ListNavigation';
+
+import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
+import ListNavigation from 'src/components/ListNavigation';
+
 import './styles.scss';
 
 // == Composant

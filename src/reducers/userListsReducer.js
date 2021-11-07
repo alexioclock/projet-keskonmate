@@ -64,10 +64,6 @@ function userListsReducer(state = initialState, action) {
                 title: serie.series[0].title,
               },
             ],
-            users: {
-              id: serie.users.id,
-              email: serie.users.id,
-            },
           });
         }
         else {

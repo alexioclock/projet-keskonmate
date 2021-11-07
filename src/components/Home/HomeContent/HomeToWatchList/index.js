@@ -8,7 +8,7 @@ const HomeToWatchList = ({ toWatchSeries }) => (
     <p className="list-name">
       Les séries à voir
     </p>
-    <a href="/lists" className="series-link">
+    <a href="/series-a-voir" className="series-link">
       Voir la liste complète
     </a>
     <div className="series-cards">

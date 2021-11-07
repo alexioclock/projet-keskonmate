@@ -8,7 +8,7 @@ const HomeCurrentList = ({ currentSeries }) => (
     <p className="list-name">
       Les séries en cours
     </p>
-    <a href="/lists" className="series-link">
+    <a href="/series-en-cours" className="series-link">
       Voir la liste complète
     </a>
     <div className="series-cards">
