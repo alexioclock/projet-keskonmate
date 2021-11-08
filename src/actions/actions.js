@@ -6,7 +6,6 @@ export const EDIT_USERLIST_SERIE = 'EDIT_USERLIST_SERIE';
 export const DELETE_USERLIST_SERIE = 'DELETE_USERLIST_SERIE';
 export const CHANGE_CURRENT_SEASON_VALUE = 'CHANGE_CURRENT_SEASON_VALUE';
 export const CHANGE_CURRENT_EPISODE_VALUE = 'CHANGE_CURRENT_EPISODE_VALUE';
-
 // === action creators
 export const addSerieToList = (newSerieId, newSerieTitle, newSerieType) => ({
   type: ADD_SERIE_TO_LIST,
