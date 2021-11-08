@@ -1,5 +1,5 @@
 import {
-  Search,
+  Search, X,
 } from 'react-feather';
 import { useState } from 'react';
 
@@ -36,8 +36,11 @@ const SearchBarMobile = () => {
         <button
           type="button"
           className="close-searchbar"
+          onClick={() => {
+            setIsSearchBarOpen(!isSearchBarOpen);
+          }}
         >
-          X
+          <X />
         </button>
       </form>
       )}
