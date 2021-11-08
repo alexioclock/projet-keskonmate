@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import { useEffect } from 'react';
 // Composants
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
@@ -7,8 +7,12 @@ import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 import './styles.scss';
 
 // == Composant
-const SeriesGrid = ({ series, userlist }) => {
+
+const SeriesGrid = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
+  useEffect(() => {
+    loadSeries();
+  }, []);
   return (
     <div className="series-grid">
       {series.map((serie) => {
@@ -39,12 +43,16 @@ SeriesGrid.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+
+  loadSeries: PropTypes.func.isRequired,
+
   userlist: PropTypes.arrayOf(
     PropTypes.shape({
       seriesNb: PropTypes.number.isRequired,
       type: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+
 };
 
 // == Export

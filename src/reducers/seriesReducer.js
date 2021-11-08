@@ -1,22 +1,32 @@
+import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
-
-import seriesList from 'src/utils/series';
 
 const initialState = {
   // ici le state initial
-  seriesList: seriesList,
+  seriesList: [],
   searchedSerie: '',
   filteredSeries: [],
+
 };
 
 function seriesReducer(state = initialState, action) {
   switch (action.type) {
+    case SAVE_SERIES:
+      return {
+        ...state,
+        seriesList: action.series,
+      };
+
     case HANDLE_SEARCH_CHANGE:
       return {
-        // en déversant les informations du state actuel
         ...state,
-        // et en appliquant des modifications
         searchedSerie: action.value,
+      };
+
+    case SAVE_CURRENT_SERIES_DETAILS:
+      return {
+        ...state,
+        currentSeriesDetails: action.currentSeriesDetails,
       };
 
     case FILTER_SEARCHED_SERIES: {

@@ -1,7 +1,6 @@
 import { LOG_IN } from 'src/actions/actions';
 
 const middleware = (store) => (next) => (action) => {
-
   switch (action.type) {
     case LOG_IN:
       console.log('on a mis en place le middleware');
