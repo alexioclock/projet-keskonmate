@@ -8,13 +8,13 @@
       left: 90px;
     }
 
-    &-icon-edit-dropdown--open, &icon-add-dropdown--open {
+    &-icon-edit-dropdown--open, &-icon-add-dropdown--open, &-icon-delete-dropdown--open {
       width: 220px;
       left: -90px;
     }
 
-    &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item {
-      font-size: 0.9em;
+    &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item, &-icon-delete-dropdown-list-item {
+      font-size: 0.8em;
     }
 
     &-content {

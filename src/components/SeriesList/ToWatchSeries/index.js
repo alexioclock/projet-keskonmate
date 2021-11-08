@@ -1,8 +1,8 @@
 // == Import
 import PropTypes from 'prop-types';
 
-import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
-import ListNavigation from '../../ListNavigation';
+import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
+import ListNavigation from 'src/components/ListNavigation';
 
 import './styles.scss';
 
@@ -13,7 +13,7 @@ const ToWatchSeries = ({ toWatchSeries }) => (
     <div className="series-grid to-watch-series-grid">
       {toWatchSeries.map((serie) => (
         serie.type === 3
-        && <SeriesCard key={serie.id} isUserToWatchList {...serie.series[0]} />
+        && <SeriesCard key={serie.id} type={serie.type} isUserToWatchList {...serie.series[0]} />
       ))}
     </div>
   </div>

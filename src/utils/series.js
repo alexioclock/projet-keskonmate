@@ -15,6 +15,7 @@ export default [
     image: 'src/assets/pictures/series/game-of-thrones.jpg',
     director: 'D.B. Weiss, David Benioff',
     numberOfSeasons: 8,
+    home_order: 4,
     createdAt: '2021-10-27T15:18:38+02:00',
     updatedAt: null,
     genre: [
@@ -90,6 +91,7 @@ export default [
     image: 'src/assets/pictures/series/the-office.jpg',
     director: 'Greg Daniels, Paul Lieberstein, Ricky Gervais',
     numberOfSeasons: 9,
+    home_order: 1,
     createdAt: '2021-10-27T15:18:38+02:00',
     updatedAt: null,
     genre: [
@@ -165,6 +167,7 @@ export default [
     image: 'src/assets/pictures/series/la-casa-de-papel.jpg',
     director: 'Alex Pina',
     numberOfSeasons: 5,
+    home_order: 2,
     createdAt: '2021-10-27T15:18:38+02:00',
     updatedAt: null,
     genre: [
@@ -228,6 +231,7 @@ export default [
     image: 'src/assets/pictures/series/the-big-bang-theory.jpg',
     director: 'Bill Prady, Chuck Lorre',
     numberOfSeasons: 12,
+    home_order: 0,
     createdAt: '2021-10-27T15:18:38+02:00',
     updatedAt: null,
     genre: [
@@ -315,6 +319,7 @@ export default [
     image: 'src/assets/pictures/series/squid-game.jpg',
     director: 'Hwang Dong-hyuk',
     numberOfSeasons: 1,
+    home_order: 5,
     createdAt: '2021-10-27T15:18:38+02:00',
     updatedAt: null,
     genre: [
@@ -366,6 +371,7 @@ export default [
     image: 'src/assets/pictures/series/death-note.jpg',
     director: '',
     numberOfSeasons: 1,
+    home_order: 3,
     createdAt: '2021-10-27T15:18:38+02:00',
     updatedAt: null,
     genre: [
