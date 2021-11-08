@@ -7,8 +7,7 @@
   border-radius: 10px;
   background-color: vars.$backgroundColorLight;
   width: 95%;
-  margin:auto;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
   text-align: center;
   font-size: 0.9em;
   padding-bottom: 1rem;
@@ -35,7 +34,7 @@
         left: 90px;
       }
 
-      & .series-card-icon-edit-dropdown--open, & .series-card-icon-add-dropdown--open {
+      & .series-card-icon-edit-dropdown--open, & .series-card-icon-add-dropdown--open, & .series-card-icon-delete-dropdown--open {
         width: 220px;
         left: -90px;
       }

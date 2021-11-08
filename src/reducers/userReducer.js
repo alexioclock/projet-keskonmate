@@ -4,10 +4,11 @@ import { errorConnexion } from '../actions/login';
 
 const initialState = {
   user: usersData[0],
-  isConnected: false,
   nicknameLogin: '',
   passwordLogin: '',
   errorConnexion: false,
+  isConnected: true,
+
 };
 
 function userReducer(state = initialState, action) {

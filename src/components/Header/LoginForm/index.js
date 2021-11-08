@@ -54,7 +54,7 @@ const LoginForm = (
         Inscription
       </a>
     </div>
-    {error ? "erreur" : ""}
+    {/* {error ? "erreur" : ""} */}
   </form>
 );
     
