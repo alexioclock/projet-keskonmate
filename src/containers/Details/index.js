@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { findSerie, findSerieInUserLists } from 'src/selectors/series';
 import Details from 'src/components/Details';
+import { fetchSeries } from '../../actions/series';
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state, ownProps) => {
@@ -13,7 +14,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  // nom de la prop à remplir: fonction qui dispatch l'action
+  loadSeries: () => {
+    dispatch(fetchSeries());
+  },
 });
 
 const container = connect(mapStateToProps, mapDispatchToProps)(Details);

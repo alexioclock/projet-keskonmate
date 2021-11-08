@@ -26,15 +26,19 @@ const SeriesCard = ({
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
+  const seriesImage = image;
   return (
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
       <Card className="series-card">
-        <Image
-          className="series-card-image"
-          src={image}
-          // src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-        />
+        {seriesImage === ''
+          && (
+          <Image
+            className="series-card-image"
+            src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+          />
+          )}
+        <Image className="series-card-image" src={image} />
         <div className="series-card-icons-list">
           {
             (isSuggestionsList || isCatalogue)

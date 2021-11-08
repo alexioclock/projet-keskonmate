@@ -2,17 +2,26 @@
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
-import Poster from 'src/assets/pictures/squid-game.jpg';
+import { Poster } from 'src/assets/pictures/squid-game.jpg';
 import ListsButtons from './ListsButtons';
 
-
-const Details = ({ serie, isConnected, userSerie }) => (
+const Details = ({
+  serie,
+  isConnected,
+  userSerie,
+}) => (
   <div className="detail-container">
-
-
     <div className="banner-container">
       {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
-      <img className="poster" src={Poster} alt="" />
+      {serie.image === ''
+        && (
+          <img
+            className="poster"
+            src={Poster}
+            alt="poster"
+          />
+        )}
+      <img className="poster" src={serie.image} alt="" />
       <div className="banner-text">
         <h1 className="series-title">{serie.title}</h1>
         { !isConnected
@@ -40,9 +49,16 @@ const Details = ({ serie, isConnected, userSerie }) => (
         {serie.actor.map((actor) => (
           <li className="li-actors" key={actor.id}>
             <Card className="actor-card">
-              <Image src={actor} />
+              {actor.image === ''
+                  && (
+                    <Image
+                      className="actor-card-image"
+                      src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+                    />
+                  )}
+              <Image src={actor.image} />
               <Card.Content>
-                <Card.Header className="actor-name">{actor.firstname} {actor.lastname}</Card.Header>
+                <Card.Header className="actor-name">{actor.name}</Card.Header>
               </Card.Content>
             </Card>
           </li>
@@ -67,6 +83,7 @@ const Details = ({ serie, isConnected, userSerie }) => (
     </div>
   </div>
 );
+
 Details.propTypes = {
   serie: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -90,6 +107,7 @@ Details.propTypes = {
         seasonNumber: PropTypes.number.isRequired,
       }).isRequired,
     ).isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
 
   isConnected: PropTypes.bool.isRequired,
@@ -97,6 +115,8 @@ Details.propTypes = {
   userSerie: PropTypes.shape({
     type: PropTypes.number.isRequired,
   }),
+
+  loadSeries: PropTypes.func.isRequired,
 };
 
 Details.defaultProps = {
