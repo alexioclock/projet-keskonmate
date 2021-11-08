@@ -1,18 +1,20 @@
 import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from 'src/reducers';
 import middleware from 'src/middlewares/middleware';
+import seriesMiddleware from 'src/middlewares/seriesMiddleware';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // on combine devTools avec les middlewares
-const enhancers = composeWithDevTools(
+const enhancers = composeEnhancers(
   applyMiddleware(
-    middleware,
+    middleware, seriesMiddleware,
     // ... d'autres middlewares
   ),
 );
 
 const store = createStore(
-  // reducer
+  // reducers
   reducer,
   // enhancer
   enhancers,

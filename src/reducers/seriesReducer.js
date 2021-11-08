@@ -1,22 +1,16 @@
-import { DO_SOMETHING } from 'src/actions/actions';
-
-import seriesList from 'src/utils/series';
+import { SAVE_SERIES } from 'src/actions/series';
+// import seriesList from 'src/utils/series';
 
 const initialState = {
-  // ici le state initial
-  seriesList: seriesList,
+  seriesList: [],
 };
 
 function seriesReducer(state = initialState, action) {
   switch (action.type) {
-    case DO_SOMETHING:
-    // on retourne un nouveau state
+    case SAVE_SERIES:
       return {
-        // en déversant les informations du state actuel
         ...state,
-        // et en appliquant des modifications
-        propriété_à_modifier_1: 'valeur',
-        propriété_à_modifier_2: action.newValue,
+        seriesList: action.series,
       };
 
     default:

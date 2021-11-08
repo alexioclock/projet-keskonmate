@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import { useEffect } from 'react';
 // Composants
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
@@ -7,20 +7,25 @@ import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 import './styles.scss';
 
 // == Composant
-const SeriesGrid = ({ series }) => (
-  <div className="series-grid">
-    {series.map((serie) => (
-      <SeriesCard key={serie.id} isCatalogue {...serie} />
-    ))}
-  </div>
-);
-
+const SeriesGrid = ({ series, loadSeries }) => {
+  useEffect(() => {
+    loadSeries();
+  }, []);
+  return (
+    <div className="series-grid">
+      {series.map((serie) => (
+        <SeriesCard key={serie.id} isCatalogue {...serie} />
+      ))}
+    </div>
+  );
+};
 SeriesGrid.propTypes = {
   series: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  loadSeries: PropTypes.func.isRequired,
 };
 
 // == Export
