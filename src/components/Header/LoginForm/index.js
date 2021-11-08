@@ -8,6 +8,7 @@ const LoginForm = (
     setNickname,
     setPassword,
     handleSubmit,
+    messageError,
     }) => (
   <form 
     className="login-form"

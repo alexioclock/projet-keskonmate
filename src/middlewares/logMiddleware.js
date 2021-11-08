@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUBMIT_LOGIN, successLogin  } from 'src/actions/login';
+import { SUBMIT_LOGIN, successLogin, errorLogin  } from 'src/actions/login';
 
 
 const logMiddleware = (store) => (next) => (action) => {
@@ -15,19 +15,18 @@ const logMiddleware = (store) => (next) => (action) => {
         {
           // username: state.user.nicknameLogin,
           // password: state.user.passwordLogin,
-           username: "tux@keskonmate.io",
+          username: "tux@keskonmate.io",
           password:"admin",
 
         },
       )
         .then((response) => {
           console.log(response);
-          const token = response.data;
-          console.log(token);
-
-
-          localStorage.setItem(token);
           
+          const token = response.data.token;
+
+          localStorage.setItem("token", token);
+
           const actionSuccess = successLogin(response.data.nickname);
           store.dispatch(actionSuccess);
 
@@ -35,6 +34,7 @@ const logMiddleware = (store) => (next) => (action) => {
         }) 
         .catch((error) => {
           console.warn(error);
+
 
         });
 

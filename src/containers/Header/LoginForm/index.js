@@ -27,7 +27,8 @@ const mapDispatchToProps = (dispatch) => ({
   
   handleSubmit: () => {
     dispatch(submitLogin());
-  }
+  },
+
 
 });
 

@@ -28,6 +28,7 @@ function userReducer(state = initialState, action) {
           isConnected: true,
           nickname: action.nicknameLogin,
         };
+
     default:
       return state;
   }
