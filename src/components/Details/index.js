@@ -1,4 +1,7 @@
 // == Import
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
@@ -6,14 +9,30 @@ import Poster from 'src/assets/pictures/squid-game.jpg';
 import ListsButtons from './ListsButtons';
 
 const Details = ({
-  serie,
   isConnected,
   userSerie,
-}) => (
-  <div className="detail-container">
-    <div className="banner-container">
-      {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
-      {serie.image === ''
+}) => {
+  const { slug } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentSeriesDetails, setCurrentSeriesDetails] = useState({});
+  useEffect(() => {
+    axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
+      .then((response) => {
+        console.log(response.data);
+        setCurrentSeriesDetails(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, []);
+  return (
+    <div className="detail-container">
+      {!isLoading && (
+      <>
+        <div className="banner-container">
+          {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
+          {currentSeriesDetails.image === ''
         && (
           <img
             className="poster"
@@ -21,102 +40,78 @@ const Details = ({
             alt="poster"
           />
         )}
-      <img className="poster" src={serie.image} alt="" />
-      <div className="banner-text">
-        <h1 className="series-title">{serie.title}</h1>
-        { !isConnected
-          ? <a href="/connection" className="connection-button">Connecte-toi </a>
-          : <ListsButtons type={userSerie.type} /> }
-      </div>
-    </div>
+          <img className="poster" src={currentSeriesDetails.image} alt="" />
+          <div className="banner-text">
+            <h1 className="series-title">{currentSeriesDetails.title}</h1>
+            { !isConnected
+              ? <a href="/connection" className="connection-button">Connecte-toi </a>
+              : <ListsButtons type={userSerie.type} /> }
+          </div>
+        </div>
 
-    <div className="genre-list">
-      <ul className="ul-genre">
-        {serie.genre.map((genre) => (
-          <li className="li-genre" key={genre.id}><a href="/">{genre.name}</a></li>
-        ))}
-      </ul>
-    </div>
+        <div className="genre-list">
+          <ul className="ul-genre">
+            {currentSeriesDetails.genre.map((genre) => (
+              <li className="li-genre" key={genre.id}><a href="/">{genre.name}</a></li>
+            ))}
+          </ul>
+        </div>
 
-    <div className="resume">
-      <h3>Résumé</h3>
-      <p>{serie.synopsis}</p>
-    </div>
+        <div className="resume">
+          <h3>Résumé</h3>
+          <p>{currentSeriesDetails.synopsis}</p>
+        </div>
 
-    <div className="actors-container">
-      <h3>Acteurs Principaux</h3>
-      <ul className="ul-actors">
-        {serie.actor.map((actor) => (
-          <li className="li-actors" key={actor.id}>
-            <Card className="actor-card">
-              {actor.image === ''
+        <div className="actors-container">
+          <h3>Acteurs Principaux</h3>
+          <ul className="ul-actors">
+            {currentSeriesDetails.actor.map((actor) => (
+              <li className="li-actors" key={actor.id}>
+                <Card className="actor-card">
+                  {actor.image === ''
                   && (
                     <Image
                       className="actor-card-image"
                       src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
                     />
                   )}
-              <Image src={actor.image} />
-              <Card.Content>
-                <Card.Header className="actor-name">{actor.name}</Card.Header>
-              </Card.Content>
-            </Card>
-          </li>
-        ))}
-      </ul>
-    </div>
+                  <Image src={actor.image} />
+                  <Card.Content>
+                    <Card.Header className="actor-name">{actor.name}</Card.Header>
+                  </Card.Content>
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-    <div className="seasons-container">
-      <h3>Saisons</h3>
-      <ul className="ul-seasons">
-        {serie.season.map((season) => (
-          <li className="li-seasons" key={season.id}>
-            <Card className="season-card">
-              <Image src="" className="season-image" />
-              <Card.Content>
-                <Card.Header>Saison {season.seasonNumber}</Card.Header>
-              </Card.Content>
-            </Card>
-          </li>
-        ))}
-      </ul>
+        <div className="seasons-container">
+          <h3>Saisons</h3>
+          <ul className="ul-seasons">
+            {currentSeriesDetails.season.map((season) => (
+              <li className="li-seasons" key={season.id}>
+                <Card className="season-card">
+                  <Image src="" className="season-image" />
+                  <Card.Content>
+                    <Card.Header>Saison {season.seasonNumber}</Card.Header>
+                  </Card.Content>
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
+      )}
     </div>
-  </div>
-);
-
+  );
+};
 Details.propTypes = {
-  serie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    synopsis: PropTypes.string.isRequired,
-    genre: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-      }).isRequired,
-    ).isRequired,
-    actor: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        firstname: PropTypes.string.isRequired,
-        lastname: PropTypes.string.isRequired,
-      }).isRequired,
-    ).isRequired,
-    season: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        seasonNumber: PropTypes.number.isRequired,
-      }).isRequired,
-    ).isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-
   isConnected: PropTypes.bool.isRequired,
 
   userSerie: PropTypes.shape({
     type: PropTypes.number.isRequired,
   }),
 
-  loadSeries: PropTypes.func.isRequired,
 };
 
 Details.defaultProps = {

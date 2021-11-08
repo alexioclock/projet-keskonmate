@@ -35,7 +35,7 @@ const SeriesCard = ({
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
   const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
-  console.log(`${title}, id : ${id}, type : ${type}`);
+  // console.log(`${title}, id : ${id}, type : ${type}`);
   const seriesImage = image;
 
   return (
