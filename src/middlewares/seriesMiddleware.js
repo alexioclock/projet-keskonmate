@@ -6,7 +6,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case FETCH_SERIES:
       axios.get('http://keskonmate.me/api/v1/series')
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {

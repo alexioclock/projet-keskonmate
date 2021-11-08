@@ -8,6 +8,7 @@ import './styles.scss';
 
 // == Composant
 const SeriesGrid = ({ series, loadSeries }) => {
+  console.log(series);
   useEffect(() => {
     loadSeries();
   }, []);

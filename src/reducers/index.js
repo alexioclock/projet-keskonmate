@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   series: seriesReducer,
   cards: cardReducer,
   userLists: userListsReducer,
-  suscribeForm : suscribeReducer,
+  suscribeForm: suscribeReducer,
 });
 
 export default rootReducer;

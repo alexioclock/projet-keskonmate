@@ -15,6 +15,7 @@ const SeriesCard = ({
   director,
   genre,
   actor,
+  image,
   isHomeToWatchList,
   isHomeCurrentList,
   isSuggestionsList,
@@ -29,7 +30,11 @@ const SeriesCard = ({
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
       <Card className="series-card">
-        <Image className="series-card-image" src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
+        <Image
+          className="series-card-image"
+          src={image}
+          // src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+        />
         <div className="series-card-icons-list">
           {
             (isSuggestionsList || isCatalogue)
@@ -135,7 +140,7 @@ const SeriesCard = ({
                     (isCatalogue)
                     && (
                       <li className="series-card-description-list-item">
-                        avec {actor.map((item) => ((`${item.firstname} ${item.lastname}, `)))}
+                        avec {actor.map((item) => ((`${item.name}, `)))}
                       </li>
                     )
                   }
