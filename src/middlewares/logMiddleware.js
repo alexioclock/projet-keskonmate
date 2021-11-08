@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUBMIT_LOGIN, successLogin, errorLogin  } from 'src/actions/login';
+import { SUBMIT_LOGIN, successLogin, errorConnexion } from 'src/actions/login';
 
 
 const logMiddleware = (store) => (next) => (action) => {
@@ -16,7 +16,7 @@ const logMiddleware = (store) => (next) => (action) => {
           // username: state.user.nicknameLogin,
           // password: state.user.passwordLogin,
           username: "tux@keskonmate.io",
-          password:"admin",
+          password:"adin",
 
         },
       )
@@ -34,7 +34,7 @@ const logMiddleware = (store) => (next) => (action) => {
         }) 
         .catch((error) => {
           console.warn(error);
-
+          store.dispatch(errorConnexion)
 
         });
 

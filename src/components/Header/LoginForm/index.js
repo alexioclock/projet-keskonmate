@@ -8,7 +8,9 @@ const LoginForm = (
     setNickname,
     setPassword,
     handleSubmit,
-    }) => (
+    error
+    }) => 
+    (
   <form 
     className="login-form"
     onSubmit={(event) => {
@@ -52,6 +54,7 @@ const LoginForm = (
         Inscription
       </a>
     </div>
+    {error ? "erreur" : ""}
   </form>
 );
     
