@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import './styles.scss';
 import { Link } from 'react-router-dom';
 import {
   User, List, Bookmark,
 } from 'react-feather';
 import logo from 'src/assets/logo.png';
-import LoginForm from 'src/components/Header/LoginForm';
-import UserDropdown from 'src/components/Header/UserDropdown';
-import SearchBar from './SearchBar';
-import SearchBarMobile from './SearchBarMobile';
+import LoginForm from 'src/containers/Header/LoginForm';
+import UserDropdown from 'src/containers/Header/UserDropdown';
+import SearchBar from 'src/containers/Header/SearchBar';
+import SearchBarMobile from 'src/containers/Header/SearchBarMobile';
+import './styles.scss';
 
-const Header = ({username, isConnected}) => {
+const Header = ({ username, isConnected }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
