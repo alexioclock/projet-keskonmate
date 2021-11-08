@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
-import { Poster } from 'src/assets/pictures/squid-game.jpg';
+import Poster from 'src/assets/pictures/squid-game.jpg';
 import ListsButtons from './ListsButtons';
 
 const Details = ({
