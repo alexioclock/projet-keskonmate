@@ -8,7 +8,6 @@ const LoginForm = (
     setNickname,
     setPassword,
     handleSubmit,
-    messageError,
     }) => (
   <form 
     className="login-form"
@@ -55,8 +54,7 @@ const LoginForm = (
     </div>
   </form>
 );
-
-
+    
 LoginForm.propTypes = {
   nickname: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,

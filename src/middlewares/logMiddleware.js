@@ -22,7 +22,7 @@ const logMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          
+
           const token = response.data.token;
 
           localStorage.setItem("token", token);

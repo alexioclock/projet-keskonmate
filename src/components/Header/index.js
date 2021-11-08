@@ -7,7 +7,7 @@ import {
 } from 'react-feather';
 import logo from 'src/assets/logo.png';
 import LoginForm from 'src/containers/Header/LoginForm';
-import UserDropdown from 'src/components/Header/UserDropdown';
+import UserDropdown from 'src/containers/Header/UserDropdown';
 import SearchBar from './SearchBar';
 import SearchBarMobile from './SearchBarMobile';
 
