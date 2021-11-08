@@ -61,6 +61,7 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   setNickname: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 
 };
 export default LoginForm;

@@ -1,27 +1,41 @@
 import axios from 'axios';
-import { SUBMIT_LOGIN, successLogin } from 'src/actions/login';
+import { SUBMIT_LOGIN, successLogin  } from 'src/actions/login';
+
 
 const logMiddleware = (store) => (next) => (action) => {
  
 
   switch (action.type) {
     case SUBMIT_LOGIN:
+      const state = store.getState();
 
       axios.post(
         // URL
-        'http://keskonmate.me/api/v1/users',
+        'http://keskonmate.me/api/login',
         {
-          nickname: store.getState().user.nicknameLogin,
-          password: store.getState().user.nicknamePassword,
+          // username: state.user.nicknameLogin,
+          // password: state.user.passwordLogin,
+           username: "tux@keskonmate.io",
+          password:"admin",
+
         },
       )
         .then((response) => {
           console.log(response);
-          const actionSuccess = successLogin(response.data);
+          const token = response.data;
+          console.log(token);
+
+
+          localStorage.setItem(token);
+          
+          const actionSuccess = successLogin(response.data.nickname);
           store.dispatch(actionSuccess);
+
+         
         }) 
         .catch((error) => {
           console.warn(error);
+
         });
 
       break;

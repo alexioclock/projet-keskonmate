@@ -1,11 +1,12 @@
 import usersData from 'src/utils/users';
-import { SET_PASSWORD, SET_NICKNAME} from 'src/actions/login';
+import { SET_PASSWORD, SET_NICKNAME, SUCCESS_LOGIN } from 'src/actions/login';
 
 const initialState = {
   user: usersData[0],
   isConnected: false,
   nicknameLogin: '',
-  passwordLogin: ''
+  passwordLogin: '',
+  
 };
 
 function userReducer(state = initialState, action) {
@@ -20,6 +21,13 @@ function userReducer(state = initialState, action) {
           ...state,
           passwordLogin: action.value,
         }
+
+       case SUCCESS_LOGIN:
+        return {
+          ...state,
+          isConnected: true,
+          nickname: action.nicknameLogin,
+        };
     default:
       return state;
   }

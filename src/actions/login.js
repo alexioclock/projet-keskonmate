@@ -10,7 +10,7 @@ export const setNickname = (newValue) => ({
 });
 
 // === action creators
-export const setPAssword = (newValue) => ({
+export const setPassword = (newValue) => ({
   type: SET_PASSWORD,
   value: newValue,
 });
