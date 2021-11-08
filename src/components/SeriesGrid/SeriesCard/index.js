@@ -276,7 +276,7 @@ const SeriesCard = ({
                       name="episode-nb"
                       value={currentEpisode}
                       onChange={(event) => {
-                        changeCurrentEpisode(id, Number(event.target.value));
+                        changeCurrentEpisode(id, event.target.value);
                       }}
                     />
                   </label>
