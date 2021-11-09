@@ -1,7 +1,6 @@
 @use 'src/styles/vars';
 
 .dropdown-content{
-  // display: none;
   position: absolute;
   background-color: vars.$backgroundColorLight;
   width:90px;
@@ -9,6 +8,8 @@
   top: 45px;
   right: 5px;
   border-radius: 5px;
+  z-index: 5;
+  
   
   a{
     font-size: 0.75rem;
