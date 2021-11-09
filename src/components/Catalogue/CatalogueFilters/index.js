@@ -15,7 +15,7 @@ const CatalogueFilters = () => {
     <div className="catalogue-filters">
       {!isFiltersOpen && (
       <div className="catalogue-filters-close">
-        <Filter size={48} onClick={() => setIsFiltersOpen(true)} />
+        <Filter size={30} onClick={() => setIsFiltersOpen(true)} className="catalogue-filters-close-logo" />
       </div>
       )}
       {isFiltersOpen && (
