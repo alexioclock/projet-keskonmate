@@ -1,5 +1,3 @@
-import userListsData from 'src/utils/userlists';
-
 import {
   ADD_SERIE_TO_LIST,
   EDIT_USERLIST_SERIE,
@@ -8,12 +6,20 @@ import {
   CHANGE_CURRENT_EPISODE_VALUE,
 } from 'src/actions/actions';
 
+import { SAVE_USERLIST } from 'src/actions/login';
+
 const initialState = {
-  userLists: userListsData,
+  userLists: [],
 };
 
 function userListsReducer(state = initialState, action) {
   switch (action.type) {
+    case SAVE_USERLIST:
+      return {
+        ...state,
+        userLists: action.userlist,
+      };
+
     case ADD_SERIE_TO_LIST: {
       const newUserlistArray = [...state.userLists, {
         id: (state.userLists.length > 0 ? state.userLists[state.userLists.length - 1].id + 1 : 1),

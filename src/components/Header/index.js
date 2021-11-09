@@ -93,9 +93,14 @@ const Header = ({ username, isConnected }) => {
     </div>
   );
 };
+
 Header.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
   isConnected: PropTypes.bool.isRequired,
+};
+
+Header.defaultProps = {
+  username: '',
 };
 
 export default Header;

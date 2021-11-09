@@ -6,7 +6,7 @@ import Header from 'src/components/Header';
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
-  username: state.user.user.username,
+  username: state.user.currentUser.userNickname,
   isConnected: state.user.isConnected,
 });
 

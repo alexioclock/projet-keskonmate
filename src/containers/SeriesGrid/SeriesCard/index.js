@@ -9,6 +9,7 @@ import {
   deleteUserlistSerie,
   changeCurrentSeasonValue,
   changeCurrentEpisodeValue,
+  updateApiUserlist,
 } from 'src/actions/actions';
 
 // === mapStateToProps
@@ -36,6 +37,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeCurrentEpisode: (serieId, newEpisodeValue) => {
     dispatch(changeCurrentEpisodeValue(serieId, newEpisodeValue));
+  },
+  updateApiUserlist: () => {
+    dispatch(updateApiUserlist());
   },
 });
 
