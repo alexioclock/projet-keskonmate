@@ -1,12 +1,12 @@
 import { useState } from 'react';
-
+import PropTypes from 'prop-types';
 import { Filter, X } from 'react-feather';
 
 // Style
 import './styles.scss';
 
 // == Composant
-const CatalogueFilters = () => {
+const CatalogueFilters = ({ alphabeticalFilter }) => {
   // isOpen : booléen qui simule le clic sur l'icone' filtre
   // s'il vaut false : on affiche uniquement l'icone filtre
   // s'il vaut true : il faut déployer le menu des filtres
@@ -15,7 +15,7 @@ const CatalogueFilters = () => {
     <div className="catalogue-filters">
       {!isFiltersOpen && (
       <div className="catalogue-filters-close">
-        <Filter size={30} onClick={() => setIsFiltersOpen(true)} className="catalogue-filters-close-logo" />
+        <Filter size={48} onClick={() => setIsFiltersOpen(true)} />
       </div>
       )}
       {isFiltersOpen && (
@@ -27,7 +27,13 @@ const CatalogueFilters = () => {
         <ul className="catalogue-filters-list">
           {/* Filtres du catalogue */}
           <li className="catalogue-filters-item">
-            <button className="catalogue-filters-item-button" type="button">
+            <button
+              className="catalogue-filters-item-button"
+              type="button"
+              onClick={() => {
+                alphabeticalFilter();
+              }}
+            >
               par ordre alphabétique
             </button>
           </li>
@@ -53,5 +59,8 @@ const CatalogueFilters = () => {
   );
 };
 
+CatalogueFilters.propTypes = {
+  alphabeticalFilter: PropTypes.func.isRequired,
+};
 // == Export
 export default CatalogueFilters;

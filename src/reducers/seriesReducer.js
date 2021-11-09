@@ -1,12 +1,13 @@
 import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
+import { SET_ALPHABETICAL_FILTER } from '../actions/seriesFilter';
 
 const initialState = {
   // ici le state initial
   seriesList: [],
   searchedSerie: '',
   filteredSeries: [],
-
+  isAlphabeticallyFiltered: false,
 };
 
 function seriesReducer(state = initialState, action) {
@@ -43,6 +44,12 @@ function seriesReducer(state = initialState, action) {
         filteredSeries: newSeriesArrayFiltered,
       };
     }
+
+    case SET_ALPHABETICAL_FILTER:
+      return {
+        ...state,
+        isAlphabeticallyFiltered: !state.isAlphabeticallyFiltered,
+      };
 
     default:
       return state;
