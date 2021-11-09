@@ -8,12 +8,11 @@ import './styles.scss';
 
 // == Composant
 
-const SeriesGrid = ({ series, userlist, loadSeries, isAlphabetical }) => {
+const SeriesGrid = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
   useEffect(() => {
     loadSeries();
   }, []);
-  console.log(isAlphabetical);
   return (
     <div className="series-grid">
       {series.map((serie) => {
@@ -54,7 +53,6 @@ SeriesGrid.propTypes = {
     }).isRequired,
   ).isRequired,
 
-  isAlphabetical: PropTypes.bool.isRequired,
 };
 
 // == Export
