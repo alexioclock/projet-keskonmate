@@ -18,31 +18,30 @@ function userReducer(state = initialState, action) {
         ...state,
         nicknameLogin: action.value,
       };
-      case SET_PASSWORD:
-        return {
-          ...state,
-          passwordLogin: action.value,
-        }
 
-       case SUCCESS_LOGIN:
-        return {
-          ...state,
-          isConnected: true,
-          nickname: action.nicknameLogin,
-        };
+    case SET_PASSWORD:
+      return {
+        ...state,
+        passwordLogin: action.value,
+      };
 
-       case LOG_OUT:
-        return {
-          ...state,
-          isConnected: false,
-        };
+    case SUCCESS_LOGIN:
+      return {
+        ...state,
+        isConnected: true,
+      };
 
-        case ERROR_CONNEXION:
-        return {
-          ...state,
-          errorConnexion: true,
-        };
+    case LOG_OUT:
+      return {
+        ...state,
+        isConnected: false,
+      };
 
+    case ERROR_CONNEXION:
+      return {
+        ...state,
+        errorConnexion: true,
+      };
 
     default:
       return state;
