@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import './styles.scss';
 
 
-const CatalogueDropdown = ({genre}) => {
+const CatalogueDropdown = () => {
 
   const [currentGenre, setCurrentGenre] = useState([]);
 
@@ -16,28 +16,27 @@ const CatalogueDropdown = ({genre}) => {
   useEffect(() => {
     axios.get(`http://keskonmate.me/api/v1/genres`)
       .then((response) => {
-        console.log(response.data[0].name);
          setCurrentGenre(response.data);
-        // setIsLoading(false);
       })
       .catch((error) => {
         console.warn(error);
       });
   }, []);
 
-
-  console.log(currentGenre);
   
 return(
   <div className="catalogue-dropdown">
     <Dropdown
       placeholder="Choisissez vos catégories"
       fluid
-      multiple
       selection
       options= {currentGenre.map((item) => (
         { key: (item.id), text: (item.name), value: (item.name) }
       ))}
+      // onChange={(e, data) => {
+      //   e.preventDefault();
+      //   console.log(e, data.value);
+      // }}
     />
   </div>
 );

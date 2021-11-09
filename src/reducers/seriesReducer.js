@@ -1,11 +1,13 @@
 import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
+import { FILTER_BY_GENRE } from '../actions/seriesFilter';
 
 const initialState = {
   // ici le state initial
   seriesList: [],
   searchedSerie: '',
   filteredSeries: [],
+  filterBygenre: [],
 
 };
 
@@ -43,6 +45,18 @@ function seriesReducer(state = initialState, action) {
         filteredSeries: newSeriesArrayFiltered,
       };
     }
+
+    // case FILTER_BY_GENRE: {
+    //   const newSeriesArray = [...state.seriesList];
+    //   const FilteredByGenre = newSeriesArray.filter((serie) => {
+    //     const filter = serie.genre === action.genre,
+    //   });
+    //   return {
+    //     ...state, 
+    //     filteredSeries: filter,
+        
+    //   };
+    // }
 
     default:
       return state;
