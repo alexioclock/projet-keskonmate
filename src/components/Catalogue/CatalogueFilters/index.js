@@ -22,29 +22,29 @@ const CatalogueFilters = () => {
       <div className="catalogue-filters-open">
         <div className="catalogue-filters-header">
           <h2>Filtres</h2>
-          <X size={48} className="catalogue-filters-close-button" onClick={() => setIsFiltersOpen(false)} />
+          <X size={30} className="catalogue-filters-close-button" onClick={() => setIsFiltersOpen(false)} />
         </div>
         <ul className="catalogue-filters-list">
           {/* Filtres du catalogue */}
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
+            <button className="catalogue-filters-item-button" type="button">
               par ordre alphabétique
-            </a>
+            </button>
           </li>
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
+            <button className="catalogue-filters-item-button" type="button">
               par date de parution
-            </a>
+            </button>
           </li>
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
+            <button className="catalogue-filters-item-button" type="button">
               par nouveauté
-            </a>
+            </button>
           </li>
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
+            <button className="catalogue-filters-item-button" type="button">
               autre filtre
-            </a>
+            </button>
           </li>
         </ul>
       </div>

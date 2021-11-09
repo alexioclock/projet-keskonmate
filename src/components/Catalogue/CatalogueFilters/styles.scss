@@ -1,3 +1,5 @@
+@use "src/styles/vars";
+
 .catalogue-filters {
   z-index: 1;
   position: sticky;
@@ -42,6 +44,7 @@
     & h2 {
       margin: 5px auto;
       font-size: 2em;
+      font-weight: 500;
 
       @media only screen and (min-device-width : 1024px) {
         font-size: 1.5em;
@@ -64,6 +67,15 @@
     @media only screen and (min-device-width : 1024px) {
       font-size: 1em;
       text-align: center;
+    }
+    &-button {
+      background-color: transparent;
+      border:none;
+      color: vars.$darkColor;
+      font-family: vars.$textFont;
+    }
+    &-button:hover {
+      font-weight: 500;
     }
   }
 }
