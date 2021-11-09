@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-
 // Style
 import './styles.scss';
 

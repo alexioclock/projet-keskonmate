@@ -1,6 +1,7 @@
 import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
 import { FILTER_BY_GENRE } from '../actions/seriesFilter';
+import { SET_ALPHABETICAL_FILTER } from '../actions/seriesFilter';
 
 const initialState = {
   // ici le state initial
@@ -8,7 +9,16 @@ const initialState = {
   searchedSerie: '',
   filteredSeries: [],
   filterBygenre: [],
+};
 
+const compare = function (a, b) {
+  if (a.title < b.title) {
+    return -1;
+  }
+  if (a.title > b.title) {
+    return 1;
+  }
+  return 0;
 };
 
 function seriesReducer(state = initialState, action) {
@@ -46,18 +56,35 @@ function seriesReducer(state = initialState, action) {
       };
     }
 
-    // case FILTER_BY_GENRE: {
-    //   const newSeriesArray = [...state.seriesList];
-    //   const FilteredByGenre = newSeriesArray.filter((serie) => {
-    //     const filter = serie.genre === action.genre,
-    //   });
-    //   return {
-    //     ...state, 
-    //     filteredSeries: filter,
-        
-    //   };
-    // }
 
+    case SET_ALPHABETICAL_FILTER: {
+      const newSeriesArray = [...state.seriesList];
+      const newSeriesArraySort = newSeriesArray.sort(compare);
+      return {
+        ...state,
+        seriesList: newSeriesArraySort,
+      };
+    }
+
+    case FILTER_BY_GENRE: {
+      const newSeriesArray = [...state.seriesList];
+      const newSeriesArrayByGenre = newSeriesArray.filter((serie) => {
+        const serieGenre = serie.genre;
+        const genreFilter = action.genre;
+        
+        serieGenre.forEach((element) => {
+            return  element.includes(element.includes(genreFilter));
+        });
+        
+        console.log(element)
+
+      });
+      return {
+        ...state,
+        filteredSeries: newSeriesArrayByGenre,
+       };
+    }
+    
     default:
       return state;
   }
