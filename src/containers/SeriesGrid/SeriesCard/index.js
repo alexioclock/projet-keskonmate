@@ -9,7 +9,9 @@ import {
   deleteUserlistSerie,
   changeCurrentSeasonValue,
   changeCurrentEpisodeValue,
-  updateApiUserlist,
+  addSerieToApiUserlist,
+  editSerieToApiUserlist,
+  deleteSerieToApiUserlist,
 } from 'src/actions/actions';
 
 // === mapStateToProps
@@ -38,8 +40,14 @@ const mapDispatchToProps = (dispatch) => ({
   changeCurrentEpisode: (serieId, newEpisodeValue) => {
     dispatch(changeCurrentEpisodeValue(serieId, newEpisodeValue));
   },
-  updateApiUserlist: () => {
-    dispatch(updateApiUserlist());
+  addSerieToApiUserlist: () => {
+    dispatch(addSerieToApiUserlist());
+  },
+  editSerieToApiUserlist: () => {
+    dispatch(editSerieToApiUserlist());
+  },
+  deleteSerieToApiUserlist: () => {
+    dispatch(deleteSerieToApiUserlist());
   },
 });
 

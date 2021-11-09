@@ -9,7 +9,9 @@ export const CHANGE_CURRENT_SEASON_VALUE = 'CHANGE_CURRENT_SEASON_VALUE';
 export const CHANGE_CURRENT_EPISODE_VALUE = 'CHANGE_CURRENT_EPISODE_VALUE';
 export const HANDLE_SEARCH_CHANGE = 'HANDLE_SEARCH_CHANGE';
 export const FILTER_SEARCHED_SERIES = 'FILTER_SEARCHED_SERIES';
-export const UPDATE_API_USERLIST = 'UPDATE_API_USERLIST';
+export const ADD_SERIE_TO_API_USERLIST = 'ADD_SERIE_TO_API_USERLIST';
+export const EDIT_SERIE_TO_API_USERLIST = 'EDIT_SERIE_TO_API_USERLIST';
+export const DELETE_SERIE_TO_API_USERLIST = 'DELETE_SERIE_TO_API_USERLIST';
 
 // === action creators
 export const addSerieToList = (newSerieId, newSerieTitle, newSerieType) => ({
@@ -68,6 +70,14 @@ export const filterSearchedSeries = () => ({
   type: FILTER_SEARCHED_SERIES,
 });
 
-export const updateApiUserlist = () => ({
-  type: UPDATE_API_USERLIST,
+export const addSerieToApiUserlist = () => ({
+  type: ADD_SERIE_TO_API_USERLIST,
+});
+
+export const editSerieToApiUserlist = () => ({
+  type: EDIT_SERIE_TO_API_USERLIST,
+});
+
+export const deleteSerieToApiUserlist = () => ({
+  type: DELETE_SERIE_TO_API_USERLIST,
 });

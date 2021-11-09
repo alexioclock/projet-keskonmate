@@ -19,15 +19,13 @@ const logMiddleware = (store) => (next) => (action) => {
         {
           // username: state.user.nicknameLogin,
           // password: state.user.passwordLogin,
-          username: "front@keskonmate.me",
-          password: "front",
+          username: 'front@keskonmate.me',
+          password: 'front',
 
         },
       )
         .then((response) => {
           const { token, userId } = response.data;
-
-          console.log(response.data);
 
           localStorage.setItem('token', token);
 
@@ -48,8 +46,6 @@ const logMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
-
           store.dispatch(saveUser(response.data));
           store.dispatch(saveUserlist(response.data.userlist));
         })

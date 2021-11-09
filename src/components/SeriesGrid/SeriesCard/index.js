@@ -31,7 +31,10 @@ const SeriesCard = ({
   deleteUserlistSerie,
   changeCurrentSeason,
   changeCurrentEpisode,
-  updateApiUserlist,
+  addSerieToApiUserlist,
+  editSerieToApiUserlist,
+  deleteSerieToApiUserlist,
+
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
@@ -63,7 +66,7 @@ const SeriesCard = ({
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
                       addSerieToUserlist(id, title, 1);
-                      updateApiUserlist();
+                      addSerieToApiUserlist();
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -74,7 +77,7 @@ const SeriesCard = ({
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
                       addSerieToUserlist(id, title, 2);
-                      updateApiUserlist();
+                      addSerieToApiUserlist();
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -85,7 +88,7 @@ const SeriesCard = ({
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
                       addSerieToUserlist(id, title, 3);
-                      updateApiUserlist();
+                      addSerieToApiUserlist();
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -123,7 +126,7 @@ const SeriesCard = ({
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
                         editUserlistSerie(id, 1);
-                        updateApiUserlist();
+                        editSerieToApiUserlist();
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -140,7 +143,7 @@ const SeriesCard = ({
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
                         editUserlistSerie(id, 2);
-                        updateApiUserlist();
+                        editSerieToApiUserlist();
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -157,7 +160,7 @@ const SeriesCard = ({
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
                         editUserlistSerie(id, 3);
-                        updateApiUserlist();
+                        editSerieToApiUserlist();
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -192,7 +195,7 @@ const SeriesCard = ({
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
                           deleteUserlistSerie(id);
-                          updateApiUserlist();
+                          deleteSerieToApiUserlist();
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -208,7 +211,7 @@ const SeriesCard = ({
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
                           deleteUserlistSerie(id);
-                          updateApiUserlist();
+                          deleteSerieToApiUserlist();
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -224,7 +227,7 @@ const SeriesCard = ({
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
                           deleteUserlistSerie(id);
-                          updateApiUserlist();
+                          deleteSerieToApiUserlist();
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -347,7 +350,9 @@ SeriesCard.propTypes = {
   deleteUserlistSerie: PropTypes.func,
   changeCurrentSeason: PropTypes.func,
   changeCurrentEpisode: PropTypes.func,
-  updateApiUserlist: PropTypes.func,
+  addSerieToApiUserlist: PropTypes.func,
+  editSerieToApiUserlist: PropTypes.func,
+  deleteSerieToApiUserlist: PropTypes.func,
 };
 
 SeriesCard.defaultProps = {
@@ -370,7 +375,9 @@ SeriesCard.defaultProps = {
   deleteUserlistSerie: () => {},
   changeCurrentSeason: () => {},
   changeCurrentEpisode: () => {},
-  updateApiUserlist: () => {},
+  addSerieToApiUserlist: () => {},
+  editSerieToApiUserlist: () => {},
+  deleteSerieToApiUserlist: () => {},
 };
 
 // };

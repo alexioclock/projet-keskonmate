@@ -10,6 +10,9 @@ import { SAVE_USERLIST } from 'src/actions/login';
 
 const initialState = {
   userLists: [],
+  currentSerieId: 0,
+  currentSerieType: 0,
+  currentUserlistId: 0,
 };
 
 function userListsReducer(state = initialState, action) {
@@ -39,23 +42,31 @@ function userListsReducer(state = initialState, action) {
       return {
         ...state,
         userLists: newUserlistArray,
+        currentSerieId: action.serieId,
+        currentSerieType: action.serieType,
       };
     }
 
     case EDIT_USERLIST_SERIE: {
+      let userlistId = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
         if (serie.seriesNb === action.serieId) {
           serie.type = action.serieType;
+          userlistId = serie.id;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
+        currentSerieId: action.serieId,
+        currentSerieType: action.serieType,
+        currentUserlistId: userlistId,
       };
     }
 
     case DELETE_USERLIST_SERIE: {
+      let userlistId = 0;
       const userlistArray = [...state.userLists];
       const newUserlistArray = [];
       userlistArray.forEach((serie) => {
@@ -80,11 +91,14 @@ function userListsReducer(state = initialState, action) {
         }
         else {
           serie.type = 0;
+          userlistId = serie.id;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
+        currentSerieId: action.serieId,
+        currentUserlistId: userlistId,
       };
     }
 
