@@ -26,7 +26,7 @@ const SuggestionList = ({ series, userlist }) => {
               })}
             </>;
             return (
-              serie.home_order >= 1
+              serie.homeOrder >= 1
             && <SeriesCard key={serie.id} isSuggestionsList type={serieType} {...serie} />
             );
         })}
