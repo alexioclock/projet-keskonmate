@@ -11,17 +11,15 @@ const logMiddleware = (store) => (next) => (action) => {
         {
           // username: state.user.nicknameLogin,
           // password: state.user.passwordLogin,
-          username: "tux@keskonmate.io",
-          password: "admin",
+          username: 'tux@keskonmate.io',
+          password: 'admin',
 
         },
       )
         .then((response) => {
-          console.log(response);
+          const { token } = response.data;
 
-          const token = response.data.token;
-
-          localStorage.setItem("token", token);
+          localStorage.setItem('token', token);
 
           const actionSuccess = successLogin(response.data.nickname);
           store.dispatch(actionSuccess);

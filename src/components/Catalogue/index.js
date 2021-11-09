@@ -1,9 +1,8 @@
 // Composants
 import SeriesGrid from 'src/containers/SeriesGrid';
 
+import CatalogueFilters from 'src/containers/Catalogue/CatalogueFilters';
 import CatalogueDropdown from '../../containers/Catalogue/CatalogueDropdown';
-
-import CatalogueFilters from './CatalogueFilters';
 
 // Style
 import './styles.scss';
