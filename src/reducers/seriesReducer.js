@@ -7,6 +7,7 @@ const initialState = {
   seriesList: [],
   searchedSerie: '',
   filteredSeries: [],
+  filterBygenre: [],
 };
 
 const compare = function (a, b) {
@@ -53,6 +54,7 @@ function seriesReducer(state = initialState, action) {
         filteredSeries: newSeriesArrayFiltered,
       };
     }
+
 
     case SET_ALPHABETICAL_FILTER: {
       const newSeriesArray = [...state.seriesList];
