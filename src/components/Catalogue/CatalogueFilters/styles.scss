@@ -4,6 +4,19 @@
   z-index: 1;
   position: sticky;
   top: 43px;
+  animation: filterTransition 2s ease-in-out;
+
+  @keyframes filterTransition {
+    0%{
+      opacity: 0;
+    }
+    80%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 
   @media only screen and (min-device-width : 1024px) {
     border:none;
@@ -43,6 +56,7 @@
       position: sticky;
       top: 40px;
     }
+    
   }
 
   &-header {
@@ -92,3 +106,4 @@
   transition: 0.4s;
   transform: scale(1.1);
 }
+

@@ -9,7 +9,7 @@
   align-items: center;
   align-content: center;
   margin: 2rem 0 1rem;
-  animation: footerDisplay 5s ease-in-out;
+  animation: footerDisplay 2s ease-in-out;
 
 }
 
@@ -43,6 +43,7 @@
   .container-footer{
     display: flex;
     flex-direction: row;
+    
   }
 
   .element-footer-slash{
