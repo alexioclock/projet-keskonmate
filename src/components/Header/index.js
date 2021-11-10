@@ -35,8 +35,6 @@ const Header = ({ username, isConnected }) => {
           <img src={logo} alt="logo" className="logo" style={{ height: '2em', width: 'auto' }} />
         </Link>
 
-        
-
         <div className="lists">
           {isConnected && (
           <Link to="/mes-listes">
