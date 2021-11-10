@@ -1,7 +1,6 @@
 import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
-import { FILTER_BY_GENRE } from '../actions/seriesFilter';
-import { SET_ALPHABETICAL_FILTER } from '../actions/seriesFilter';
+import { SET_ALPHABETICAL_FILTER, SET_ALPHABETICAL_REVERSE_FILTER } from '../actions/seriesFilter';
 
 const initialState = {
   // ici le state initial
@@ -65,7 +64,15 @@ function seriesReducer(state = initialState, action) {
         seriesList: newSeriesArraySort,
       };
     }
-    
+
+    case SET_ALPHABETICAL_REVERSE_FILTER: {
+      const newSeriesArray = [...state.seriesList];
+      const newSeriesArrayReverse = newSeriesArray.reverse(compare);
+      return {
+        ...state,
+        seriesList: newSeriesArrayReverse,
+      };
+    }
     default:
       return state;
   }

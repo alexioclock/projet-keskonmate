@@ -6,7 +6,7 @@ import { Filter, X } from 'react-feather';
 import './styles.scss';
 
 // == Composant
-const CatalogueFilters = ({ alphabeticalFilter }) => {
+const CatalogueFilters = ({ alphabeticalFilter, alphabeticalReverseFilter }) => {
   // isOpen : booléen qui simule le clic sur l'icone' filtre
   // s'il vaut false : on affiche uniquement l'icone filtre
   // s'il vaut true : il faut déployer le menu des filtres
@@ -34,17 +34,23 @@ const CatalogueFilters = ({ alphabeticalFilter }) => {
                 alphabeticalFilter();
               }}
             >
-              par ordre alphabétique
+              A-Z
+            </button>
+          </li>
+          <li className="catalogue-filters-item">
+            <button
+              className="catalogue-filters-item-button"
+              type="button"
+              onClick={() => {
+                alphabeticalReverseFilter();
+              }}
+            >
+              Z-A
             </button>
           </li>
           <li className="catalogue-filters-item">
             <button className="catalogue-filters-item-button" type="button">
               par date de parution
-            </button>
-          </li>
-          <li className="catalogue-filters-item">
-            <button className="catalogue-filters-item-button" type="button">
-              par nouveauté
             </button>
           </li>
           <li className="catalogue-filters-item">
@@ -61,6 +67,7 @@ const CatalogueFilters = ({ alphabeticalFilter }) => {
 
 CatalogueFilters.propTypes = {
   alphabeticalFilter: PropTypes.func.isRequired,
+  alphabeticalReverseFilter: PropTypes.func.isRequired,
 };
 // == Export
 export default CatalogueFilters;
