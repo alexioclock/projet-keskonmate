@@ -3,6 +3,16 @@
     width: 220px;
     height: 300px;
     margin: 2rem auto;
+    animation: slidetoWatchList 0.8s ease-in-out;
+
+
+  @keyframes slidetoWatchList {
+    from{
+      transform: translateX(1500px);
+    } to{
+      transform: translateX(0);
+    }
+  }
     
     &-icons-list {
       left: 90px;
