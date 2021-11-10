@@ -233,8 +233,8 @@ const SeriesCard = ({
               (isCatalogue)
               && (
                 <ul className="series-card-description-list">
-                  <li className="series-card-description-list-item">Sortie en { releaseDate.substring(0, 4) }</li>
-                  <li className="series-card-description-list-item">{genre.map((item) => (`${item.name}, `))}</li>
+                  <li className="series-card-description-list-item release-date">Sortie en { releaseDate.substring(0, 4) }</li>
+                  <li className="series-card-description-list-item genre">{genre.map((item) => (`${item.name}, `))}</li>
                   {
                     (director !== '')
                     && <li className="series-card-description-list-item">Réalisée par { director }</li>
@@ -255,32 +255,31 @@ const SeriesCard = ({
             (isUserCurrentList)
             && (
               <form className="info-form">
-                <div>
-                  <label htmlFor="season-nb">Saison
-                    <input
-                      type="text"
-                      placeholder="n°"
-                      name="season-nb"
-                      value={currentSeason}
-                      onChange={(event) => {
-                        changeCurrentSeason(id, event.target.value);
-                      }}
-                    />
-                  </label>
-                </div>
-                <div>
-                  <label htmlFor="episode-nb">Episode
-                    <input
-                      type="text"
-                      placeholder="n°"
-                      name="episode-nb"
-                      value={currentEpisode}
-                      onChange={(event) => {
-                        changeCurrentEpisode(id, event.target.value);
-                      }}
-                    />
-                  </label>
-                </div>
+                <label htmlFor="season-nb">Saison
+                  <input
+                    className="season-nb"
+                    type="text"
+                    placeholder="n°"
+                    name="season-nb"
+                    value={currentSeason}
+                    onChange={(event) => {
+                      changeCurrentSeason(id, event.target.value);
+                    }}
+                  />
+                </label>
+
+                <label htmlFor="episode-nb">Episode
+                  <input
+                    type="text"
+                    placeholder="n°"
+                    name="episode-nb"
+                    value={currentEpisode}
+                    onChange={(event) => {
+                      changeCurrentEpisode(id, event.target.value);
+                    }}
+                  />
+                </label>
+
               </form>
             )
           }
