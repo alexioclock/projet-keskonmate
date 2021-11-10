@@ -1,15 +1,18 @@
+/* eslint-disable eqeqeq */
 import {
   ADD_SERIE_TO_LIST,
   EDIT_USERLIST_SERIE,
   DELETE_USERLIST_SERIE,
   CHANGE_CURRENT_SEASON_VALUE,
   CHANGE_CURRENT_EPISODE_VALUE,
+  FIND_SERIE_IN_USERLIST,
 } from 'src/actions/actions';
 
 import { SAVE_USERLIST } from 'src/actions/login';
 
 const initialState = {
   userLists: [],
+  currentSerieInUserlist: {},
   currentSerieId: 0,
   currentSerieType: 0,
   currentUserlistId: 0,
@@ -29,16 +32,14 @@ function userListsReducer(state = initialState, action) {
       const newUserlistArray = [...state.userLists, {
         id: (state.userLists.length > 0 ? state.userLists[state.userLists.length - 1].id + 1 : 1),
         seasonNb: 0,
-        seriesNb: action.serieId,
         episodeNb: 0,
         type: action.serieType,
         series:
-        [
           {
             id: action.serieId,
             title: action.serieTitle,
+            image: action.serieImage,
           },
-        ],
       }];
 
       return {
@@ -54,7 +55,7 @@ function userListsReducer(state = initialState, action) {
       let userlistId = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
-        if (serie.seriesNb === action.serieId) {
+        if (serie.series.id == action.serieId) {
           serie.type = action.serieType;
           userlistId = serie.id;
         }
@@ -73,23 +74,21 @@ function userListsReducer(state = initialState, action) {
       const userlistArray = [...state.userLists];
       const newUserlistArray = [];
       userlistArray.forEach((serie) => {
-        if (serie.seriesNb !== action.serieId) {
+        if (serie.series.id != action.serieId) {
           newUserlistArray.push({
             id: serie.id,
             seasonNb: serie.seasonNb,
-            seriesNb: serie.seriesNb,
             episodeNb: serie.episodeNb,
             createdAt: serie.createdAt,
             updatedAt: serie.updatedAt,
             type: serie.type,
 
             series:
-            [
               {
                 id: serie.series.id,
                 title: serie.series.title,
+                image: serie.series.image,
               },
-            ],
           });
         }
         else {
@@ -109,7 +108,7 @@ function userListsReducer(state = initialState, action) {
       let seasonValue = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
-        if (serie.seriesNb === action.serieId) {
+        if (serie.series.id == action.serieId) {
           serie.seasonNb = action.value;
           seasonValue = action.value;
         }
@@ -125,7 +124,7 @@ function userListsReducer(state = initialState, action) {
       let episodeValue = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
-        if (serie.seriesNb === action.serieId) {
+        if (serie.series.id === action.serieId) {
           serie.episodeNb = action.value;
           episodeValue = action.value;
         }
@@ -134,6 +133,40 @@ function userListsReducer(state = initialState, action) {
         ...state,
         userLists: newUserlistArray,
         currentEpisodeValue: episodeValue,
+      };
+    }
+
+    case FIND_SERIE_IN_USERLIST: {
+      let serieInUserlist = {
+        id: 0,
+        seasonNb: 0,
+        episodeNb: 0,
+        createdAt: '',
+        updatedAt: '',
+        type: 0,
+        series: {
+          id: 0,
+          title: '',
+          image: '',
+        },
+      };
+      const newUserlistArray = [...state.userLists];
+      newUserlistArray.forEach((serie) => {
+        if (serie.series.id == action.serieId) {
+          serieInUserlist.id = serie.id;
+          serieInUserlist.seasonNb = serie.seasonNb;
+          serieInUserlist.episodeNb = serie.episodeNb;
+          serieInUserlist.createdAt = serie.createdAt;
+          serieInUserlist.updatedAt = serie.updatedAt;
+          serieInUserlist.type = serie.type;
+          serieInUserlist.series.id = serie.series.id;
+          serieInUserlist.series.title = serie.series.title;
+          serieInUserlist.series.image = serie.series.image;
+        }
+      });
+      return {
+        ...state,
+        currentSerieInUserlist: serieInUserlist,
       };
     }
 

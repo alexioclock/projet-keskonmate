@@ -12,12 +12,14 @@ export const FILTER_SEARCHED_SERIES = 'FILTER_SEARCHED_SERIES';
 export const ADD_SERIE_TO_API_USERLIST = 'ADD_SERIE_TO_API_USERLIST';
 export const EDIT_SERIE_TO_API_USERLIST = 'EDIT_SERIE_TO_API_USERLIST';
 export const DELETE_SERIE_TO_API_USERLIST = 'DELETE_SERIE_TO_API_USERLIST';
+export const FIND_SERIE_IN_USERLIST = 'FIND_SERIE_IN_USERLIST';
 
 // === action creators
-export const addSerieToList = (newSerieId, newSerieTitle, newSerieType) => ({
+export const addSerieToList = (newSerieId, newSerieTitle, newSerieImage, newSerieType) => ({
   type: ADD_SERIE_TO_LIST,
   serieId: newSerieId,
   serieTitle: newSerieTitle,
+  serieImage: newSerieImage,
   serieType: newSerieType,
 });
 
@@ -80,4 +82,9 @@ export const editSerieToApiUserlist = () => ({
 
 export const deleteSerieToApiUserlist = () => ({
   type: DELETE_SERIE_TO_API_USERLIST,
+});
+
+export const findSerieInUserlist = (serieId) => ({
+  type: FIND_SERIE_IN_USERLIST,
+  serieId: serieId,
 });

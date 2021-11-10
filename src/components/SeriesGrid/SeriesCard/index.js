@@ -14,7 +14,6 @@ const SeriesCard = ({
   releaseDate,
   director,
   genre,
-  actor,
   image,
   isHomeToWatchList,
   isHomeCurrentList,
@@ -55,7 +54,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, 1);
+                      addSerieToUserlist(id, title, image, 1);
                       addSerieToApiUserlist();
                       setIsAddDropdownOpen(false);
                     }}
@@ -66,7 +65,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, 2);
+                      addSerieToUserlist(id, title, image, 2);
                       addSerieToApiUserlist();
                       setIsAddDropdownOpen(false);
                     }}
@@ -77,7 +76,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, 3);
+                      addSerieToUserlist(id, title, image, 3);
                       addSerieToApiUserlist();
                       setIsAddDropdownOpen(false);
                     }}
@@ -252,14 +251,6 @@ const SeriesCard = ({
                     (director !== '')
                     && <li className="series-card-description-list-item">Réalisée par { director }</li>
                   }
-                  {
-                    (isCatalogue)
-                    && (
-                      <li className="series-card-description-list-item">
-                        avec {actor.map((item) => ((`${item.name}, `)))}
-                      </li>
-                    )
-                  }
                 </ul>
               )
             }
@@ -312,12 +303,6 @@ SeriesCard.propTypes = {
       name: PropTypes.string,
     }),
   ),
-  actor: PropTypes.arrayOf(
-    PropTypes.shape({
-      firstname: PropTypes.string,
-      lastname: PropTypes.string,
-    }),
-  ),
   image: PropTypes.string.isRequired,
   isHomeToWatchList: PropTypes.bool,
   isHomeCurrentList: PropTypes.bool,
@@ -349,7 +334,6 @@ SeriesCard.defaultProps = {
   releaseDate: '',
   director: '',
   genre: [],
-  actor: [],
   isHomeToWatchList: false,
   isHomeCurrentList: false,
   isSuggestionsList: false,

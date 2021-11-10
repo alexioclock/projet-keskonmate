@@ -13,9 +13,7 @@ const CurrentSeries = ({ currentSeries }) => (
     <div className="list-navigation">
       <ListNavigation />
       <div className="series-grid current-series-grid">
-        {currentSeries.map((serie) => {
-          console.log(serie);
-          return (
+        {currentSeries.map((serie) => (
           serie.type === 2
           && (
             <SeriesCard
@@ -27,7 +25,7 @@ const CurrentSeries = ({ currentSeries }) => (
               {...serie.series}
             />
           )
-        )})}
+        ))}
       </div>
     </div>
   </>

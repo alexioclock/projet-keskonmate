@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
-const SuggestionList = ({ series, userlist }) => {
+const SuggestionList = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
+  useEffect(() => {
+    loadSeries();
+  }, []);
   return (
     <div className="suggestion-list">
       <p className="list-name">
@@ -20,7 +24,7 @@ const SuggestionList = ({ series, userlist }) => {
           serieType = 0;
             <>
               {userlist.forEach((userlistSerie) => {
-                if (serie.id === userlistSerie.seriesNb) {
+                if (serie.id === userlistSerie.series.id) {
                   serieType = userlistSerie.type;
                 }
               })}
@@ -41,9 +45,16 @@ SuggestionList.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+
+  loadSeries: PropTypes.func.isRequired,
+
   userlist: PropTypes.arrayOf(
     PropTypes.shape({
-      seriesNb: PropTypes.number.isRequired,
+      series: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+        }).isRequired,
+      ).isRequired,
       type: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,

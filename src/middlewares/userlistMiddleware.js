@@ -18,8 +18,6 @@ const userlistMiddleware = (store) => (next) => (action) => {
         users: currentUser.id,
       };
 
-      console.log(newUserLists);
-
       axios.post(
         // URL
         'http://keskonmate.me/api/v1/userlists/',

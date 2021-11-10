@@ -19,7 +19,7 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
         serieType = 0;
           <>
             {userlist.forEach((userlistSerie) => {
-              if (serie.id === userlistSerie.seriesNb) {
+              if (serie.id === userlistSerie.series.id) {
                 serieType = userlistSerie.type;
               }
             })}
@@ -48,7 +48,10 @@ SeriesGrid.propTypes = {
 
   userlist: PropTypes.arrayOf(
     PropTypes.shape({
-      seriesNb: PropTypes.number.isRequired,
+      series: PropTypes.oneOfType([
+        PropTypes.array.isRequired,
+        PropTypes.object.isRequired,
+      ]).isRequired,
       type: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,

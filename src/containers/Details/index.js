@@ -1,21 +1,19 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { findSerieInUserLists } from 'src/selectors/series';
+import { findSerieInUserlist } from 'src/actions/actions';
 import Details from 'src/components/Details';
-import { findSeries } from '../../actions/series';
 
 // eslint-disable-next-line arrow-body-style
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return ({
-    currentSeries: state.series.currentSeriesDetails,
     isConnected: state.user.isConnected,
-    userSerie: findSerieInUserLists(state.userLists.userLists, ownProps.match.params.slug),
+    currentSerieType: state.userLists.currentSerieType,
   });
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  findSeries: (slug) => {
-    dispatch(findSeries(slug));
+  findSerieInUserlist: (serieId) => {
+    dispatch(findSerieInUserlist(serieId));
   },
 });
 

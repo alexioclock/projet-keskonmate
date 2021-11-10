@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 
 // on importe le composant de présentation
-import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
+import ListsButtons from 'src/components/Details/ListsButtons';
 
 import {
   addSerieToList,
   editUserlistSerie,
   deleteUserlistSerie,
-  changeCurrentSeasonValue,
-  changeCurrentEpisodeValue,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
   deleteSerieToApiUserlist,
@@ -24,20 +22,14 @@ const mapStateToProps = (state) => ({
 // si on a besoin de dispatcher des actions vers le store (modifier le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  addSerieToUserlist: (newSerieId, newSerieTitle, newSerieImage, newSerieType) => {
-    dispatch(addSerieToList(newSerieId, newSerieTitle, newSerieImage, newSerieType));
+  addSerieToUserlist: (newSerieId, newSerieTitle, newSerieType) => {
+    dispatch(addSerieToList(newSerieId, newSerieTitle, newSerieType));
   },
   editUserlistSerie: (serieId, newSerieType) => {
     dispatch(editUserlistSerie(serieId, newSerieType));
   },
   deleteUserlistSerie: (serieId) => {
     dispatch(deleteUserlistSerie(serieId));
-  },
-  changeCurrentSeason: (serieId, newSeasonValue) => {
-    dispatch(changeCurrentSeasonValue(serieId, newSeasonValue));
-  },
-  changeCurrentEpisode: (serieId, newEpisodeValue) => {
-    dispatch(changeCurrentEpisodeValue(serieId, newEpisodeValue));
   },
   addSerieToApiUserlist: () => {
     dispatch(addSerieToApiUserlist());
@@ -51,4 +43,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(SeriesCard);
+export default connect(mapStateToProps, mapDispatchToProps)(ListsButtons);

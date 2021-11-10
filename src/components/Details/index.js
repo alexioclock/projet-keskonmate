@@ -6,11 +6,12 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
-import ListsButtons from './ListsButtons';
+import ListsButtons from 'src/containers/Details/ListsButtons';
 
 const Details = ({
   isConnected,
-  userSerie,
+  currentSerieType,
+  findSerieInUserlist,
 }) => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -18,9 +19,11 @@ const Details = ({
   useEffect(() => {
     axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
       .then((response) => {
-        console.log(response.data);
         setCurrentSeriesDetails(response.data);
         setIsLoading(false);
+        if (isConnected) {
+          findSerieInUserlist(slug);
+        }
       })
       .catch((error) => {
         console.warn(error);
@@ -33,19 +36,26 @@ const Details = ({
         <div className="banner-container">
           {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
           {currentSeriesDetails.image === ''
-        && (
-          <img
-            className="poster"
-            src={Poster}
-            alt="poster"
-          />
-        )}
+            && (
+              <img
+                className="poster"
+                src={Poster}
+                alt="poster"
+              />
+            )}
           <img className="poster" src={currentSeriesDetails.image} alt="" />
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
             { !isConnected
               ? <a href="/connection" className="connection-button">Connecte-toi </a>
-              : <ListsButtons type={userSerie.type} /> }
+              : (
+                <ListsButtons
+                  id={currentSeriesDetails.id}
+                  title={currentSeriesDetails.title}
+                  image={currentSeriesDetails.image}
+                  type={currentSerieType}
+                />
+              )}
           </div>
         </div>
 
@@ -107,17 +117,12 @@ const Details = ({
 };
 Details.propTypes = {
   isConnected: PropTypes.bool.isRequired,
-
-  userSerie: PropTypes.shape({
-    type: PropTypes.number.isRequired,
-  }),
-
+  findSerieInUserlist: PropTypes.func.isRequired,
+  currentSerieType: PropTypes.number,
 };
 
 Details.defaultProps = {
-  userSerie: {
-    type: 0,
-  },
+  currentSerieType: 0,
 };
 // == Export
 export default Details;
