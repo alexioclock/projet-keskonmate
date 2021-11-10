@@ -65,25 +65,6 @@ function seriesReducer(state = initialState, action) {
         seriesList: newSeriesArraySort,
       };
     }
-
-    case FILTER_BY_GENRE: {
-      const newSeriesArray = [...state.seriesList];
-      const newSeriesArrayByGenre = newSeriesArray.filter((serie) => {
-        const serieGenre = serie.genre;
-        const genreFilter = action.genre;
-        
-        serieGenre.forEach((element) => {
-            return  element.includes(element.includes(genreFilter));
-        });
-        
-        console.log(element)
-
-      });
-      return {
-        ...state,
-        filteredSeries: newSeriesArrayByGenre,
-       };
-    }
     
     default:
       return state;

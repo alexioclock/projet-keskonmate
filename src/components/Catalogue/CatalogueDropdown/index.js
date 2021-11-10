@@ -30,11 +30,6 @@ return(
         { key: (item.id), text: (item.name), value: (item.name) }
 
       ))}
-      onChange={(e, data) => {
-        e.preventDefault();
-        console.log(e, data.value);
-        filterByGenreProps(data.value);
-      }}
     />
   </div>
 );

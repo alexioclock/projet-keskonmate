@@ -2,8 +2,6 @@
 import SeriesGrid from 'src/containers/SeriesGrid';
 import CatalogueDropdown from '../../containers/Catalogue/CatalogueDropdown';
 import CatalogueFilters from './CatalogueFilters';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 
 // Style
