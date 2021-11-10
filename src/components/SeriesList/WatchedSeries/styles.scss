@@ -1,4 +1,14 @@
 .list-navigation .watched-series-grid {
+  animation: slideWatchList 0.8s ease-in-out;
+
+
+  @keyframes slideWatchList {
+    from{
+      transform: translateX(1500px);
+    } to{
+      transform: translateX(0);
+    }
+  }
   & .series-card {
     width: 220px;
     height: 300px;
