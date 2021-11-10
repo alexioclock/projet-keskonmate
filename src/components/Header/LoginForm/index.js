@@ -19,7 +19,7 @@ const LoginForm = (
     }}
     >
     <label htmlFor="username-input">
-      Pseudo
+      Email
       <input
         className="username-input"
         id="username-input"

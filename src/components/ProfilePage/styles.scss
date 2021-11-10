@@ -3,6 +3,8 @@
 .profile-page {
   margin: 2em auto;
   text-align: center;
+  animation: slideProfile 2s ease-in-out;
+
 
   &-title {
     font-weight: bold;
@@ -72,5 +74,15 @@
         width:50%;
       }
     }
+  }
+}
+
+
+@keyframes slideProfile {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
   }
 }

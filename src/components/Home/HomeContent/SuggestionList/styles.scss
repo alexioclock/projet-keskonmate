@@ -12,6 +12,7 @@
   text-align: center;
   font-size: 0.9em;
   padding-bottom: 1rem;
+  animation: suggestionSlide 0.8s ease-in-out;
 
   & .list-name{
     margin:1rem auto;
@@ -23,6 +24,7 @@
   & .series-link:hover{
     color:vars.$darkColor;
     text-decoration: underline;
+    
   }
 
   & .series-cards {
@@ -45,6 +47,15 @@
         top: -35px;
       }
     }
+  }
+}
+
+@keyframes suggestionSlide {
+  from {
+    transform: translateY(200px);
+  } to {
+    transform: translateY(0);
+
   }
 }
 

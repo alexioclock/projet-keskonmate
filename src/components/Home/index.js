@@ -4,6 +4,7 @@ import HomeHeader from 'src/containers/Home/HomeHeader';
 
 const Home = () => (
   <div className="home">
+   
     <HomeHeader />
     <HomeContent />
   </div>
