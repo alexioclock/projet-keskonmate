@@ -1,3 +1,4 @@
+@use 'src/styles/vars';
 .catalogue-dropdown {
   z-index: 2;
   position: sticky;
@@ -8,4 +9,25 @@
   &-item{
     height:50px;
   }
+}
+.ui.fluid.dropdown{
+  border: vars.$backgroundColorLight;
+}
+.ui.dropdown>.text{
+  font-weight: 500;
+  color: vars.$darkColor;
+}
+.ui.selection.visible.dropdown>.text:not(.default){
+  color: vars.$darkColor;
+}
+.ui.dropdown .menu .selected.item, .ui.dropdown.selected{
+  background-color: vars.$backgroundColorLight;
+}
+.ui.selection.dropdown .menu>.item{
+  color: vars.$darkColor;
+}
+.ui.selection.dropdown .menu>.item:hover {
+  background-color: vars.$backgroundColorLight;
+  font-weight: 700;
+  color: vars.$darkColor;
 }
