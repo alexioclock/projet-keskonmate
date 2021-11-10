@@ -1,3 +1,4 @@
+@use 'src/styles/vars';
 .profile-page {
   margin: 2em auto;
   text-align: center;
@@ -27,9 +28,8 @@
     padding: 0.8em 1em 0.8em 1em;
     margin-bottom: 20px;
     border-radius: 5px;
-    //*******************ADD AFTER MERGE
-    // color:vars.$darkColor;
-    //font-family: vars.$textFont;
+    color:vars.$darkColor;
+    font-family: vars.$textFont;
   }
   
   input::placeholder {
@@ -46,8 +46,7 @@
     box-shadow: 0 0 0 0 #13A713;
     animation: pulse 1,3s infinite; 
     transition-duration: 0.5s;
-    //*************************ADD AFTER MERGE
-    //font-family: vars.$textFont;
+    font-family: vars.$textFont;
   }
   
   .validation-button:hover{

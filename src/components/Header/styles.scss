@@ -1,6 +1,7 @@
 @use 'src/styles/vars';
 
 .header{
+  z-index: 4;
   .navbar{
     display:flex;
     justify-content: space-between;
@@ -22,12 +23,13 @@
       z-index: 3;
       .div-form-mobile{
       // the button we have to click for the form to appear
-        .form-display{
-          border:none;
-          background-color: transparent;
-          color: vars.$darkColor;
-        }
-        .form-mobile{
+      .form-display{
+        border:none;
+        background-color: transparent;
+        color: vars.$darkColor;
+      }
+      .form-mobile{
+          z-index: 5;
           display: flex;
           position: absolute;
           top:0;
@@ -37,7 +39,6 @@
           margin:none;
           background-color: #fff;
           height:100px;
-          z-index: 5;
           .form-mobile-input{
             height:1.7rem;
             border:none;

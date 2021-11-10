@@ -1,6 +1,7 @@
 @use 'src/styles/vars';
 
 .series-card-div .series-card {
+  z-index:1;
   height: 400px;
   width: 280px;
   margin: 0 auto;
@@ -39,9 +40,8 @@
     position: absolute;
     bottom: 50px;
     left: -110px;
-    z-index:5;
   }
-
+  
   &-icon-edit-dropdown-list, &-icon-add-dropdown-list, &-icon-delete-dropdown-list {
     display: flex;
     flex-direction: column;
