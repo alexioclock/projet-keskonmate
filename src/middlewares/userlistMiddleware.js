@@ -4,20 +4,25 @@ import { ADD_SERIE_TO_API_USERLIST, EDIT_SERIE_TO_API_USERLIST, DELETE_SERIE_TO_
 const userlistMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_SERIE_TO_API_USERLIST: {
-      const { currentSerieId, currentSerieType } = store.getState().userLists;
+      const { currentSerieId, currentSerieType, currentUserlistId } = store.getState().userLists;
       const { currentUser } = store.getState().user;
       const newUserLists = {
-        users_id: currentUser.id,
-        series_nb: currentSerieId,
+        id: currentUserlistId,
+        seasonNb: 0,
+        seriesNb: currentSerieId,
+        episodeNb: 0,
+        createdAt: '2021-10-27T15:31:06+02:00',
+        updatedAt: null,
         type: currentSerieType,
-        series_id: currentSerieId,
+        series: currentSerieId,
+        users: currentUser.id,
       };
 
       console.log(newUserLists);
 
       axios.post(
         // URL
-        'http://keskonmate.me/api/v1/userlists',
+        'http://keskonmate.me/api/v1/userlists/',
         { newUserLists },
         {
           headers: {
@@ -35,14 +40,22 @@ const userlistMiddleware = (store) => (next) => (action) => {
     }
 
     case EDIT_SERIE_TO_API_USERLIST: {
-      const { currentSerieType, currentUserlistId } = store.getState().userLists;
+      const {
+        currentSerieType,
+        currentUserlistId,
+        currentSeasonValue,
+        currentEpisodeValue,
+      } = store.getState().userLists;
+
       const newUserLists = {
         type: currentSerieType,
+        seasonNb: currentSeasonValue,
+        episodeNb: currentEpisodeValue,
       };
 
       console.log(newUserLists);
 
-      axios.put(
+      axios.patch(
         // URL
         `http://keskonmate.me/api/v1/userlists/${currentUserlistId}`,
         { newUserLists },
@@ -63,10 +76,12 @@ const userlistMiddleware = (store) => (next) => (action) => {
 
     case DELETE_SERIE_TO_API_USERLIST: {
       const { currentUserlistId } = store.getState().userLists;
+      const newUserLists = { type: 0 };
 
-      axios.delete(
+      axios.patch(
         // URL
         `http://keskonmate.me/api/v1/userlists/${currentUserlistId}`,
+        { newUserLists },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,

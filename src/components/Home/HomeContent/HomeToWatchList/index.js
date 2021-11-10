@@ -14,7 +14,7 @@ const HomeToWatchList = ({ toWatchSeries }) => (
     <div className="series-cards">
       {toWatchSeries.map((serie) => (
         serie.type === 3
-        && <SeriesCard key={serie.id} type={serie.type} isHomeToWatchList {...serie.series[0]} />
+        && <SeriesCard key={serie.id} type={serie.type} isHomeToWatchList {...serie.series} />
       ))}
     </div>
   </div>

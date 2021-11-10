@@ -13,6 +13,8 @@ const initialState = {
   currentSerieId: 0,
   currentSerieType: 0,
   currentUserlistId: 0,
+  currentSeasonValue: 0,
+  currentEpisodeValue: 0,
 };
 
 function userListsReducer(state = initialState, action) {
@@ -44,6 +46,7 @@ function userListsReducer(state = initialState, action) {
         userLists: newUserlistArray,
         currentSerieId: action.serieId,
         currentSerieType: action.serieType,
+        currentUserlistId: newUserlistArray[newUserlistArray.length - 1].id,
       };
     }
 
@@ -83,8 +86,8 @@ function userListsReducer(state = initialState, action) {
             series:
             [
               {
-                id: serie.series[0].id,
-                title: serie.series[0].title,
+                id: serie.series.id,
+                title: serie.series.title,
               },
             ],
           });
@@ -103,28 +106,34 @@ function userListsReducer(state = initialState, action) {
     }
 
     case CHANGE_CURRENT_SEASON_VALUE: {
+      let seasonValue = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
         if (serie.seriesNb === action.serieId) {
           serie.seasonNb = action.value;
+          seasonValue = action.value;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
+        currentSeasonValue: seasonValue,
       };
     }
 
     case CHANGE_CURRENT_EPISODE_VALUE: {
+      let episodeValue = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
         if (serie.seriesNb === action.serieId) {
           serie.episodeNb = action.value;
+          episodeValue = action.value;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
+        currentEpisodeValue: episodeValue,
       };
     }
 
