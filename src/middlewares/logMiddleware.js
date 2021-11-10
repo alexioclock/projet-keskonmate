@@ -11,7 +11,7 @@ const logMiddleware = (store) => (next) => (action) => {
         {
           // username: state.user.nicknameLogin,
           // password: state.user.passwordLogin,
-          username: 'tux@keskonmate.io',
+          username: 'admin@keskonmate.me',
           password: 'admin',
 
         },
