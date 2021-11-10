@@ -55,7 +55,7 @@ const CatalogueFilters = ({ alphabeticalFilter, alphabeticalReverseFilter }) => 
           </li>
           <li className="catalogue-filters-item">
             <button className="catalogue-filters-item-button" type="button">
-              autre filtre
+              sans filtre
             </button>
           </li>
         </ul>
