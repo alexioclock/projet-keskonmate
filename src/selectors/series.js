@@ -17,7 +17,7 @@ export function findSerie(series, searchedSlug) {
 export function findSerieInUserLists(userLists, searchedSlug) {
   const serie = userLists.find((testedSerie) => {
     // eslint-disable-next-line eqeqeq
-    return testedSerie.series[0].id == searchedSlug;
+    return testedSerie.series.id == searchedSlug;
   });
   return serie;
 }

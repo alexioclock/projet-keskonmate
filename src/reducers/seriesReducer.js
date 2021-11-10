@@ -1,12 +1,23 @@
 import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
+import { SET_ALPHABETICAL_FILTER, SET_ALPHABETICAL_REVERSE_FILTER } from '../actions/seriesFilter';
 
 const initialState = {
   // ici le state initial
   seriesList: [],
   searchedSerie: '',
   filteredSeries: [],
+  filterBygenre: [],
+};
 
+const compare = function (a, b) {
+  if (a.title < b.title) {
+    return -1;
+  }
+  if (a.title > b.title) {
+    return 1;
+  }
+  return 0;
 };
 
 function seriesReducer(state = initialState, action) {
@@ -44,6 +55,24 @@ function seriesReducer(state = initialState, action) {
       };
     }
 
+
+    case SET_ALPHABETICAL_FILTER: {
+      const newSeriesArray = [...state.seriesList];
+      const newSeriesArraySort = newSeriesArray.sort(compare);
+      return {
+        ...state,
+        seriesList: newSeriesArraySort,
+      };
+    }
+
+    case SET_ALPHABETICAL_REVERSE_FILTER: {
+      const newSeriesArray = [...state.seriesList];
+      const newSeriesArrayReverse = newSeriesArray.reverse(compare);
+      return {
+        ...state,
+        seriesList: newSeriesArrayReverse,
+      };
+    }
     default:
       return state;
   }

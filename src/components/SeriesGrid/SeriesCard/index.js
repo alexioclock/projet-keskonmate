@@ -39,19 +39,10 @@ const SeriesCard = ({
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
   const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
-  const seriesImage = image;
-
   return (
     <div className="series-card-div">
       {/* Grille de SeriesCard */}
       <Card className="series-card">
-        {seriesImage === ''
-          && (
-          <Image
-            className="series-card-image"
-            src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-          />
-          )}
         <Image className="series-card-image" src={image} />
         <div className="series-card-icons-list">
           {
@@ -248,15 +239,15 @@ const SeriesCard = ({
         </div>
         <Card.Content className="series-card-content">
           <Link to={`/series/${id}`}>
-            <Card.Header className="series-card-header">{ title }</Card.Header>
+            <Card.Header className="series-card-header">{title}</Card.Header>
           </Link>
           <Card.Description className="series-card-description">
             {
               (isCatalogue)
               && (
                 <ul className="series-card-description-list">
-                  <li className="series-card-description-list-item">Sortie en { releaseDate.substring(0, 4) }</li>
-                  <li className="series-card-description-list-item">{genre.map((item) => (`${item.name}, `))}</li>
+                  <li className="series-card-description-list-item release-date">Sortie en { releaseDate.substring(0, 4) }</li>
+                  <li className="series-card-description-list-item genre">{genre.map((item) => (`${item.name}, `))}</li>
                   {
                     (director !== '')
                     && <li className="series-card-description-list-item">Réalisée par { director }</li>
@@ -277,32 +268,31 @@ const SeriesCard = ({
             (isUserCurrentList)
             && (
               <form className="info-form">
-                <div>
-                  <label htmlFor="season-nb">Saison
-                    <input
-                      type="text"
-                      placeholder="n°"
-                      name="season-nb"
-                      value={currentSeason}
-                      onChange={(event) => {
-                        changeCurrentSeason(id, event.target.value);
-                      }}
-                    />
-                  </label>
-                </div>
-                <div>
-                  <label htmlFor="episode-nb">Episode
-                    <input
-                      type="text"
-                      placeholder="n°"
-                      name="episode-nb"
-                      value={currentEpisode}
-                      onChange={(event) => {
-                        changeCurrentEpisode(id, event.target.value);
-                      }}
-                    />
-                  </label>
-                </div>
+                <label htmlFor="season-nb">Saison
+                  <input
+                    className="season-nb"
+                    type="text"
+                    placeholder="n°"
+                    name="season-nb"
+                    value={currentSeason}
+                    onChange={(event) => {
+                      changeCurrentSeason(id, event.target.value);
+                    }}
+                  />
+                </label>
+
+                <label htmlFor="episode-nb">Episode
+                  <input
+                    type="text"
+                    placeholder="n°"
+                    name="episode-nb"
+                    value={currentEpisode}
+                    onChange={(event) => {
+                      changeCurrentEpisode(id, event.target.value);
+                    }}
+                  />
+                </label>
+
               </form>
             )
           }
@@ -328,6 +318,7 @@ SeriesCard.propTypes = {
       lastname: PropTypes.string,
     }),
   ),
+  image: PropTypes.string.isRequired,
   isHomeToWatchList: PropTypes.bool,
   isHomeCurrentList: PropTypes.bool,
   isSuggestionsList: PropTypes.bool,

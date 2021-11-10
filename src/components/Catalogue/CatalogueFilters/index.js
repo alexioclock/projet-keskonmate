@@ -1,12 +1,12 @@
 import { useState } from 'react';
-
+import PropTypes from 'prop-types';
 import { Filter, X } from 'react-feather';
 
 // Style
 import './styles.scss';
 
 // == Composant
-const CatalogueFilters = () => {
+const CatalogueFilters = ({ alphabeticalFilter, alphabeticalReverseFilter }) => {
   // isOpen : booléen qui simule le clic sur l'icone' filtre
   // s'il vaut false : on affiche uniquement l'icone filtre
   // s'il vaut true : il faut déployer le menu des filtres
@@ -22,29 +22,41 @@ const CatalogueFilters = () => {
       <div className="catalogue-filters-open">
         <div className="catalogue-filters-header">
           <h2>Filtres</h2>
-          <X size={48} className="catalogue-filters-close-button" onClick={() => setIsFiltersOpen(false)} />
+          <X size={30} className="catalogue-filters-close-button" onClick={() => setIsFiltersOpen(false)} />
         </div>
         <ul className="catalogue-filters-list">
           {/* Filtres du catalogue */}
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
-              par ordre alphabétique
-            </a>
+            <button
+              className="catalogue-filters-item-button"
+              type="button"
+              onClick={() => {
+                alphabeticalFilter();
+              }}
+            >
+              A-Z
+            </button>
           </li>
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
+            <button
+              className="catalogue-filters-item-button"
+              type="button"
+              onClick={() => {
+                alphabeticalReverseFilter();
+              }}
+            >
+              Z-A
+            </button>
+          </li>
+          <li className="catalogue-filters-item">
+            <button className="catalogue-filters-item-button" type="button">
               par date de parution
-            </a>
+            </button>
           </li>
           <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
-              par nouveauté
-            </a>
-          </li>
-          <li className="catalogue-filters-item">
-            <a className="catalogue-filters-item-link">
+            <button className="catalogue-filters-item-button" type="button">
               autre filtre
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -53,5 +65,9 @@ const CatalogueFilters = () => {
   );
 };
 
+CatalogueFilters.propTypes = {
+  alphabeticalFilter: PropTypes.func.isRequired,
+  alphabeticalReverseFilter: PropTypes.func.isRequired,
+};
 // == Export
 export default CatalogueFilters;

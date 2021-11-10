@@ -1,11 +1,15 @@
+
 // === action types
 
-// export const ALL_GENRES = 'ALL_GENRES';
+export const SET_ALPHABETICAL_FILTER = 'SET_ALPHABETICAL_FILTER';
 
-// // === action creators
+export const alphabeticalFilter = () => ({
+  type: SET_ALPHABETICAL_FILTER,
 
-// export const allGenres = () => ({
-//   type: ALL_GENRES,
-// });
+});
 
+export const SET_ALPHABETICAL_REVERSE_FILTER = 'SET_ALPHABETICAL_REVERSE_FILTER';
 
+export const alphabeticalReverseFilter = () => ({
+  type: SET_ALPHABETICAL_REVERSE_FILTER,
+});

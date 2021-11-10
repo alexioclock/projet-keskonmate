@@ -2,15 +2,14 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import Form from 'src/components/Form';
-import { 
-  setInputNickname, 
-  setEmailInput, 
+import {
+  setInputNickname,
+  setEmailInput,
   setPasswordInput,
-  setConfirmPasswordInput } from '../../actions/suscribeForm';
-
+  setConfirmPasswordInput,
+} from '../../actions/suscribeForm';
 
 // on importe l'action que l'on veut dispatch
-
 
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
@@ -25,7 +24,7 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // si on a besoin de dispatcher des actions vers le store (modifier le state)
 const mapDispatchToProps = (dispatch) => ({
- 
+
   setInputNickname: (newValue) => {
     const action = setInputNickname(newValue);
     dispatch(action);
@@ -40,7 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   setConfirmPasswordInput: (newValue) => {
-    const action =  setConfirmPasswordInput(newValue);
+    const action = setConfirmPasswordInput(newValue);
     dispatch(action);
   },
 });
