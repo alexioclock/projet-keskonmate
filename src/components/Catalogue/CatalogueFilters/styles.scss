@@ -4,7 +4,6 @@
   z-index: 1;
   position: sticky;
   top: 43px;
-  
 
   @media only screen and (min-device-width : 1024px) {
     border:none;
@@ -87,4 +86,9 @@
       font-weight: 500;
     }
   }
+}
+
+.catalogue-filters-close:hover{
+  transition: 0.4s;
+  transform: scale(1.1);
 }

@@ -1,5 +1,6 @@
 .container-footer{
   position: absolute;
+  min-height: calc(100vh - 90vh);
   font-size: 1em;
   width: 100%;
   display: flex;
@@ -8,6 +9,20 @@
   align-items: center;
   align-content: center;
   margin: 2rem 0 1rem;
+  animation: footerDisplay 5s ease-in-out;
+
+}
+
+@keyframes footerDisplay {
+  0%{
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100%{
+    transform: translateY(1000px);
+    opacity: 1;
+  }
 }
 
 .element-footer{
