@@ -20,7 +20,7 @@ const userlistMiddleware = (store) => (next) => (action) => {
 
       axios.post(
         // URL
-        'http://keskonmate.me/api/v1/userlists/',
+        'http://keskonmate.me/api/v1/userlists',
         { newUserLists },
         {
           headers: {
@@ -44,6 +44,8 @@ const userlistMiddleware = (store) => (next) => (action) => {
         currentSeasonValue,
         currentEpisodeValue,
       } = store.getState().userLists;
+
+      console.log(`Id de la série dans la userlist : ${currentUserlistId}`);
 
       const newUserLists = {
         type: currentSerieType,

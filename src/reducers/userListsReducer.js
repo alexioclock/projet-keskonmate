@@ -106,33 +106,45 @@ function userListsReducer(state = initialState, action) {
     }
 
     case CHANGE_CURRENT_SEASON_VALUE: {
+      let userlistId = 0;
       let seasonValue = 0;
+      let episodeValue = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
         if (serie.series.id == action.serieId) {
           serie.seasonNb = action.value;
+          userlistId = serie.series.id;
           seasonValue = action.value;
+          episodeValue = serie.episodeNb;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
+        currentUserlistId: userlistId,
         currentSeasonValue: seasonValue,
+        currentEpisodeValue: episodeValue,
       };
     }
 
     case CHANGE_CURRENT_EPISODE_VALUE: {
+      let userlistId = 0;
+      let seasonValue = 0;
       let episodeValue = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
         if (serie.series.id === action.serieId) {
           serie.episodeNb = action.value;
-          episodeValue = action.value;
+          userlistId = serie.series.id;
+          seasonValue = action.value;
+          episodeValue = serie.episodeNb;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
+        currentUserlistId: userlistId,
+        currentSeasonValue: seasonValue,
         currentEpisodeValue: episodeValue,
       };
     }

@@ -268,6 +268,7 @@ const SeriesCard = ({
                     value={currentSeason}
                     onChange={(event) => {
                       changeCurrentSeason(id, event.target.value);
+                      editSerieToApiUserlist();
                     }}
                   />
                 </label>
@@ -280,6 +281,7 @@ const SeriesCard = ({
                     value={currentEpisode}
                     onChange={(event) => {
                       changeCurrentEpisode(id, event.target.value);
+                      editSerieToApiUserlist();
                     }}
                   />
                 </label>
