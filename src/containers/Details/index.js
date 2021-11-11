@@ -4,10 +4,8 @@ import {
   findSerieInUserlist,
   addSerieToList,
   editUserlistSerie,
-  deleteUserlistSerie,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
-  deleteSerieToApiUserlist,
 } from 'src/actions/actions';
 import Details from 'src/components/Details';
 
@@ -27,17 +25,11 @@ const mapDispatchToProps = (dispatch) => ({
   editUserlistSerie: (serieId, newSerieType) => {
     dispatch(editUserlistSerie(serieId, newSerieType));
   },
-  deleteUserlistSerie: (serieId) => {
-    dispatch(deleteUserlistSerie(serieId));
-  },
   addSerieToApiUserlist: () => {
     dispatch(addSerieToApiUserlist());
   },
   editSerieToApiUserlist: () => {
     dispatch(editSerieToApiUserlist());
-  },
-  deleteSerieToApiUserlist: () => {
-    dispatch(deleteSerieToApiUserlist());
   },
 });
 

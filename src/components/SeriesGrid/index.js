@@ -10,6 +10,7 @@ import './styles.scss';
 
 const SeriesGrid = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
+  let userlistId = 0;
   useEffect(() => {
     loadSeries();
   }, []);
@@ -17,10 +18,12 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
     <div className="series-grid">
       {series.map((serie) => {
         serieType = 0;
+        userlistId = 0;
           <>
             {userlist.forEach((userlistSerie) => {
               if (serie.id === userlistSerie.series.id) {
                 serieType = userlistSerie.type;
+                userlistId = userlistSerie.id;
               }
             })}
           </>;
@@ -28,6 +31,7 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
             <SeriesCard
               key={serie.id}
               isCatalogue
+              userlistId={userlistId}
               type={serieType}
               {...serie}
             />

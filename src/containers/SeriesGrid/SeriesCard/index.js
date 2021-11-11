@@ -6,12 +6,10 @@ import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
 import {
   addSerieToList,
   editUserlistSerie,
-  deleteUserlistSerie,
   changeCurrentSeasonValue,
   changeCurrentEpisodeValue,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
-  deleteSerieToApiUserlist,
 } from 'src/actions/actions';
 
 // === mapStateToProps
@@ -27,26 +25,20 @@ const mapDispatchToProps = (dispatch) => ({
   addSerieToUserlist: (newSerieId, newSerieTitle, newSerieImage, newSerieType) => {
     dispatch(addSerieToList(newSerieId, newSerieTitle, newSerieImage, newSerieType));
   },
-  editUserlistSerie: (serieId, newSerieType) => {
-    dispatch(editUserlistSerie(serieId, newSerieType));
+  editUserlistSerie: (userlistId, newSerieType) => {
+    dispatch(editUserlistSerie(userlistId, newSerieType));
   },
-  deleteUserlistSerie: (serieId) => {
-    dispatch(deleteUserlistSerie(serieId));
+  changeCurrentSeason: (userlistId, newSeasonValue) => {
+    dispatch(changeCurrentSeasonValue(userlistId, newSeasonValue));
   },
-  changeCurrentSeason: (serieId, newSeasonValue) => {
-    dispatch(changeCurrentSeasonValue(serieId, newSeasonValue));
-  },
-  changeCurrentEpisode: (serieId, newEpisodeValue) => {
-    dispatch(changeCurrentEpisodeValue(serieId, newEpisodeValue));
+  changeCurrentEpisode: (userlistId, newEpisodeValue) => {
+    dispatch(changeCurrentEpisodeValue(userlistId, newEpisodeValue));
   },
   addSerieToApiUserlist: () => {
     dispatch(addSerieToApiUserlist());
   },
   editSerieToApiUserlist: () => {
     dispatch(editSerieToApiUserlist());
-  },
-  deleteSerieToApiUserlist: () => {
-    dispatch(deleteSerieToApiUserlist());
   },
 });
 

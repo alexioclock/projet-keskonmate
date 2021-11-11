@@ -13,10 +13,8 @@ const Details = ({
   findSerieInUserlist,
   addSerieToUserlist,
   editUserlistSerie,
-  deleteUserlistSerie,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
-  deleteSerieToApiUserlist,
 }) => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -67,8 +65,8 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    deleteUserlistSerie(slug);
-                    deleteSerieToApiUserlist();
+                    editUserlistSerie(slug, 0);
+                    editSerieToApiUserlist();
                   }}
                 >
                   Supprimer de ma liste [déjà vu]
@@ -91,8 +89,8 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    deleteUserlistSerie(slug);
-                    deleteSerieToApiUserlist();
+                    editUserlistSerie(slug, 0);
+                    editSerieToApiUserlist();
                   }}
                 >
                   Supprimer de ma liste [en cours]
@@ -115,8 +113,8 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    deleteUserlistSerie(slug);
-                    deleteSerieToApiUserlist();
+                    editUserlistSerie(slug, 0);
+                    editSerieToApiUserlist();
                   }}
                 >
                   Supprimer de ma liste [à voir]
@@ -236,19 +234,15 @@ Details.propTypes = {
   type: PropTypes.number.isRequired,
   addSerieToUserlist: PropTypes.func,
   editUserlistSerie: PropTypes.func,
-  deleteUserlistSerie: PropTypes.func,
   addSerieToApiUserlist: PropTypes.func,
   editSerieToApiUserlist: PropTypes.func,
-  deleteSerieToApiUserlist: PropTypes.func,
 };
 
 Details.defaultProps = {
   addSerieToUserlist: () => {},
   editUserlistSerie: () => {},
-  deleteUserlistSerie: () => {},
   addSerieToApiUserlist: () => {},
   editSerieToApiUserlist: () => {},
-  deleteSerieToApiUserlist: () => {},
 };
 
 // == Export

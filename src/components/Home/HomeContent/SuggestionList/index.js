@@ -6,6 +6,7 @@ import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
 const SuggestionList = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
+  let userlistId = 0;
   useEffect(() => {
     loadSeries();
   }, []);
@@ -22,16 +23,26 @@ const SuggestionList = ({ series, userlist, loadSeries }) => {
       <div className="series-cards">
         {series.map((serie) => {
           serieType = 0;
+          userlistId = 0;
             <>
               {userlist.forEach((userlistSerie) => {
                 if (serie.id === userlistSerie.series.id) {
                   serieType = userlistSerie.type;
+                  userlistId = userlistSerie.id;
                 }
               })}
             </>;
             return (
               serie.homeOrder >= 1
-            && <SeriesCard key={serie.id} isSuggestionsList type={serieType} {...serie} />
+              && (
+                <SeriesCard
+                  key={serie.id}
+                  isSuggestionsList
+                  userlistId={userlistId}
+                  type={serieType}
+                  {...serie}
+                />
+              )
             );
         })}
       </div>

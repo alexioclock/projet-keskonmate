@@ -2,13 +2,11 @@
 import {
   ADD_SERIE_TO_LIST,
   EDIT_USERLIST_SERIE,
-  DELETE_USERLIST_SERIE,
   CHANGE_CURRENT_SEASON_VALUE,
   CHANGE_CURRENT_EPISODE_VALUE,
   FIND_SERIE_IN_USERLIST,
+  SAVE_USERLIST,
 } from 'src/actions/actions';
-
-import { SAVE_USERLIST } from 'src/actions/login';
 
 const initialState = {
   userLists: [],
@@ -45,107 +43,53 @@ function userListsReducer(state = initialState, action) {
       return {
         ...state,
         userLists: newUserlistArray,
-        currentSerieId: action.serieId,
+        currentSerieId: newUserlistArray[newUserlistArray.length - 1].id,
         currentSerieType: action.serieType,
-        currentUserlistId: newUserlistArray[newUserlistArray.length - 1].id,
       };
     }
 
     case EDIT_USERLIST_SERIE: {
-      let userlistId = 0;
       const newUserlistArray = [...state.userLists];
-      newUserlistArray.forEach((serie) => {
-        if (serie.series.id == action.serieId) {
-          serie.type = action.serieType;
-          userlistId = serie.id;
+      newUserlistArray.forEach((userlistSerie) => {
+        if (userlistSerie.id == action.userlistId) {
+          userlistSerie.type = action.serieType;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
-        currentSerieId: action.serieId,
         currentSerieType: action.serieType,
-        currentUserlistId: userlistId,
-      };
-    }
-
-    case DELETE_USERLIST_SERIE: {
-      let userlistId = 0;
-      const userlistArray = [...state.userLists];
-      const newUserlistArray = [];
-      userlistArray.forEach((serie) => {
-        if (serie.series.id != action.serieId) {
-          newUserlistArray.push({
-            id: serie.id,
-            seasonNb: serie.seasonNb,
-            episodeNb: serie.episodeNb,
-            createdAt: serie.createdAt,
-            updatedAt: serie.updatedAt,
-            type: serie.type,
-
-            series:
-              {
-                id: serie.series.id,
-                title: serie.series.title,
-                image: serie.series.image,
-              },
-          });
-        }
-        else {
-          serie.type = 0;
-          userlistId = serie.id;
-        }
-      });
-      return {
-        ...state,
-        userLists: newUserlistArray,
-        currentSerieId: action.serieId,
-        currentUserlistId: userlistId,
-        currentSerieType: 0,
+        currentUserlistId: action.userlistId,
       };
     }
 
     case CHANGE_CURRENT_SEASON_VALUE: {
-      let userlistId = 0;
-      let seasonValue = 0;
-      let episodeValue = 0;
       const newUserlistArray = [...state.userLists];
-      newUserlistArray.forEach((serie) => {
-        if (serie.series.id == action.serieId) {
-          serie.seasonNb = action.value;
-          userlistId = serie.series.id;
-          seasonValue = action.value;
-          episodeValue = serie.episodeNb;
+      newUserlistArray.forEach((userlistSerie) => {
+        if (userlistSerie.id == action.userlistId) {
+          userlistSerie.seasonNb = action.seasonValue;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
-        currentUserlistId: userlistId,
-        currentSeasonValue: seasonValue,
-        currentEpisodeValue: episodeValue,
+        currentUserlistId: action.userlistId,
+        currentSeasonValue: action.seasonValue,
       };
     }
 
     case CHANGE_CURRENT_EPISODE_VALUE: {
-      let userlistId = 0;
-      let seasonValue = 0;
-      let episodeValue = 0;
       const newUserlistArray = [...state.userLists];
-      newUserlistArray.forEach((serie) => {
-        if (serie.series.id === action.serieId) {
-          serie.episodeNb = action.value;
-          userlistId = serie.series.id;
-          seasonValue = action.value;
-          episodeValue = serie.episodeNb;
+      newUserlistArray.forEach((userlistSerie) => {
+        if (userlistSerie.id == action.userlistId) {
+          userlistSerie.episodeNb = action.episodeValue;
         }
       });
       return {
         ...state,
         userLists: newUserlistArray,
-        currentUserlistId: userlistId,
-        currentSeasonValue: seasonValue,
-        currentEpisodeValue: episodeValue,
+        currentUserlistId: action.userlistId,
+        currentEpisodeValue: action.episodeValue,
       };
     }
 

@@ -6,7 +6,6 @@ export const LOG_OUT = 'LOG_OUT';
 export const ERROR_CONNEXION = 'ERROR_CONNEXION';
 export const FETCH_USER = 'FETCH_USER';
 export const SAVE_USER = 'SAVE_USER';
-export const SAVE_USERLIST = 'SAVE_USERLIST';
 
 // === action creators
 export const setNickname = (newValue) => ({
@@ -44,9 +43,4 @@ export const fetchUser = (userId) => ({
 export const saveUser = (userInfos) => ({
   type: SAVE_USER,
   userInfos: userInfos,
-});
-
-export const saveUserlist = (userlist) => ({
-  type: SAVE_USERLIST,
-  userlist: userlist,
 });
