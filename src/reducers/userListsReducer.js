@@ -95,16 +95,19 @@ function userListsReducer(state = initialState, action) {
 
     case FIND_SERIE_IN_USERLIST: {
       let serieType = 0;
+      let userlistId = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
-        if (serie.series.id == action.serieId) {
+        if (serie.series.id == action.serieId && serie.type != 0) {
           serieType = serie.type;
+          userlistId = serie.id;
         }
       });
       return {
         ...state,
         currentSerieType: serieType,
         currentSerieId: action.serieId,
+        currentUserlistId: userlistId,
       };
     }
 

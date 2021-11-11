@@ -13,6 +13,7 @@ import Details from 'src/components/Details';
 const mapStateToProps = (state) => ({
   isConnected: state.user.isConnected,
   type: state.userLists.currentSerieType,
+  userlistId: state.userLists.currentUserlistId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

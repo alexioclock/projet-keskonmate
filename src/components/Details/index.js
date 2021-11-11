@@ -10,6 +10,7 @@ import Poster from 'src/assets/pictures/squid-game.jpg';
 const Details = ({
   isConnected,
   type,
+  userlistId,
   findSerieInUserlist,
   addSerieToUserlist,
   editUserlistSerie,
@@ -56,7 +57,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(slug, 3);
+                    editUserlistSerie(userlistId, 3);
                     editSerieToApiUserlist();
                   }}
                 >
@@ -65,7 +66,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(slug, 0);
+                    editUserlistSerie(userlistId, 0);
                     editSerieToApiUserlist();
                   }}
                 >
@@ -80,7 +81,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(slug, 1);
+                    editUserlistSerie(userlistId, 1);
                     editSerieToApiUserlist();
                   }}
                 >
@@ -89,7 +90,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(slug, 0);
+                    editUserlistSerie(userlistId, 0);
                     editSerieToApiUserlist();
                   }}
                 >
@@ -104,7 +105,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(slug, 2);
+                    editUserlistSerie(userlistId, 2);
                     editSerieToApiUserlist();
                   }}
                 >
@@ -113,7 +114,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(slug, 0);
+                    editUserlistSerie(userlistId, 0);
                     editSerieToApiUserlist();
                   }}
                 >
@@ -232,6 +233,7 @@ Details.propTypes = {
   isConnected: PropTypes.bool.isRequired,
   findSerieInUserlist: PropTypes.func.isRequired,
   type: PropTypes.number.isRequired,
+  userlistId: PropTypes.number,
   addSerieToUserlist: PropTypes.func,
   editUserlistSerie: PropTypes.func,
   addSerieToApiUserlist: PropTypes.func,
@@ -239,6 +241,7 @@ Details.propTypes = {
 };
 
 Details.defaultProps = {
+  userlistId: 0,
   addSerieToUserlist: () => {},
   editUserlistSerie: () => {},
   addSerieToApiUserlist: () => {},
