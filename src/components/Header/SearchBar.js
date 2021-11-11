@@ -38,9 +38,6 @@ const SearchBar = ({
               <li
                 className="form-results-list-item"
                 key={serie.id}
-                onClick={() => {
-                  console.log('coucou');
-                }}
               >
                 {serie.title}
               </li>

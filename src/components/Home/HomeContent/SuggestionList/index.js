@@ -40,24 +40,11 @@ const SuggestionList = ({ series, userlist, loadSeries }) => {
 };
 
 SuggestionList.propTypes = {
-  series: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  series: PropTypes.array.isRequired,
 
   loadSeries: PropTypes.func.isRequired,
 
-  userlist: PropTypes.arrayOf(
-    PropTypes.shape({
-      series: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number.isRequired,
-        }).isRequired,
-      ).isRequired,
-      type: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  userlist: PropTypes.array.isRequired,
 };
 
 export default SuggestionList;

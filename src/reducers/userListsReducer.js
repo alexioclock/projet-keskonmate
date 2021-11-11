@@ -101,6 +101,7 @@ function userListsReducer(state = initialState, action) {
         userLists: newUserlistArray,
         currentSerieId: action.serieId,
         currentUserlistId: userlistId,
+        currentSerieType: 0,
       };
     }
 
@@ -137,36 +138,17 @@ function userListsReducer(state = initialState, action) {
     }
 
     case FIND_SERIE_IN_USERLIST: {
-      let serieInUserlist = {
-        id: 0,
-        seasonNb: 0,
-        episodeNb: 0,
-        createdAt: '',
-        updatedAt: '',
-        type: 0,
-        series: {
-          id: 0,
-          title: '',
-          image: '',
-        },
-      };
+      let serieType = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
         if (serie.series.id == action.serieId) {
-          serieInUserlist.id = serie.id;
-          serieInUserlist.seasonNb = serie.seasonNb;
-          serieInUserlist.episodeNb = serie.episodeNb;
-          serieInUserlist.createdAt = serie.createdAt;
-          serieInUserlist.updatedAt = serie.updatedAt;
-          serieInUserlist.type = serie.type;
-          serieInUserlist.series.id = serie.series.id;
-          serieInUserlist.series.title = serie.series.title;
-          serieInUserlist.series.image = serie.series.image;
+          serieType = serie.type;
         }
       });
       return {
         ...state,
-        currentSerieInUserlist: serieInUserlist,
+        currentSerieType: serieType,
+        currentSerieId: action.serieId,
       };
     }
 

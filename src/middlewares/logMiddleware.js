@@ -8,6 +8,7 @@ import {
   saveUser,
   saveUserlist,
 } from 'src/actions/login';
+import { findSerieInUserlist } from 'src/actions/actions';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -46,8 +47,10 @@ const logMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
+          const { currentSerieId } = store.getState().userLists;
           store.dispatch(saveUser(response.data));
           store.dispatch(saveUserlist(response.data.userlist));
+          store.dispatch(findSerieInUserlist(currentSerieId));
         })
         .catch((error) => {
           console.warn(error);

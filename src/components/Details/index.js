@@ -6,12 +6,17 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
-import ListsButtons from 'src/containers/Details/ListsButtons';
 
 const Details = ({
   isConnected,
-  currentSerieType,
+  type,
   findSerieInUserlist,
+  addSerieToUserlist,
+  editUserlistSerie,
+  deleteUserlistSerie,
+  addSerieToApiUserlist,
+  editSerieToApiUserlist,
+  deleteSerieToApiUserlist,
 }) => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -20,10 +25,8 @@ const Details = ({
     axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
       .then((response) => {
         setCurrentSeriesDetails(response.data);
+        findSerieInUserlist(slug);
         setIsLoading(false);
-        if (isConnected) {
-          findSerieInUserlist(slug);
-        }
       })
       .catch((error) => {
         console.warn(error);
@@ -46,16 +49,128 @@ const Details = ({
           <img className="poster" src={currentSeriesDetails.image} alt="" />
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
-            { !isConnected
-              ? <a href="/connection" className="connection-button">Connecte-toi </a>
-              : (
-                <ListsButtons
-                  id={currentSeriesDetails.id}
-                  title={currentSeriesDetails.title}
-                  image={currentSeriesDetails.image}
-                  type={currentSerieType}
-                />
-              )}
+            {!isConnected
+            && <a href="/connection" className="connection-button">Connecte-toi </a>}
+            {isConnected
+            && (type === 1)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    editUserlistSerie(slug, 3);
+                    editSerieToApiUserlist();
+                  }}
+                >
+                  Déplacer vers ma liste [à voir]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    deleteUserlistSerie(slug);
+                    deleteSerieToApiUserlist();
+                  }}
+                >
+                  Supprimer de ma liste [déjà vu]
+                </a>
+              </div>
+            )}
+            {isConnected
+            && (type === 2)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    editUserlistSerie(slug, 1);
+                    editSerieToApiUserlist();
+                  }}
+                >
+                  Déplacer vers ma liste [déjà vu]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    deleteUserlistSerie(slug);
+                    deleteSerieToApiUserlist();
+                  }}
+                >
+                  Supprimer de ma liste [en cours]
+                </a>
+              </div>
+            )}
+            {isConnected
+            && (type === 3)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    editUserlistSerie(slug, 2);
+                    editSerieToApiUserlist();
+                  }}
+                >
+                  Déplacer vers ma liste [en cours]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    deleteUserlistSerie(slug);
+                    deleteSerieToApiUserlist();
+                  }}
+                >
+                  Supprimer de ma liste [à voir]
+                </a>
+              </div>
+            )}
+            {isConnected
+            && (type === 0)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    addSerieToUserlist(
+                      slug,
+                      currentSeriesDetails.title,
+                      currentSeriesDetails.image,
+                      1,
+                    );
+                    addSerieToApiUserlist();
+                  }}
+                >
+                  Ajouter à ma liste [déjà vu]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    addSerieToUserlist(
+                      slug,
+                      currentSeriesDetails.title,
+                      currentSeriesDetails.image,
+                      2,
+                    );
+                    addSerieToApiUserlist();
+                  }}
+                >
+                  Ajouter à ma liste [en cours]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    addSerieToUserlist(
+                      slug,
+                      currentSeriesDetails.title,
+                      currentSeriesDetails.image,
+                      3,
+                    );
+                    addSerieToApiUserlist();
+                  }}
+                >
+                  Ajouter à ma liste [à voir]
+                </a>
+              </div>
+            )}
           </div>
         </div>
 
@@ -118,11 +233,23 @@ const Details = ({
 Details.propTypes = {
   isConnected: PropTypes.bool.isRequired,
   findSerieInUserlist: PropTypes.func.isRequired,
-  currentSerieType: PropTypes.number,
+  type: PropTypes.number.isRequired,
+  addSerieToUserlist: PropTypes.func,
+  editUserlistSerie: PropTypes.func,
+  deleteUserlistSerie: PropTypes.func,
+  addSerieToApiUserlist: PropTypes.func,
+  editSerieToApiUserlist: PropTypes.func,
+  deleteSerieToApiUserlist: PropTypes.func,
 };
 
 Details.defaultProps = {
-  currentSerieType: 0,
+  addSerieToUserlist: () => {},
+  editUserlistSerie: () => {},
+  deleteUserlistSerie: () => {},
+  addSerieToApiUserlist: () => {},
+  editSerieToApiUserlist: () => {},
+  deleteSerieToApiUserlist: () => {},
 };
+
 // == Export
 export default Details;
