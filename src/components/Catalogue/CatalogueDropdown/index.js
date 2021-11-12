@@ -1,11 +1,12 @@
-import { Dropdown } from 'semantic-ui-react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
+import { Dropdown } from 'semantic-ui-react';
 // Style
 import './styles.scss';
 
-const CatalogueDropdown = ({ filterByGenreProps }) => {
+const CatalogueDropdown = ({ setGenreFilter }) => {
   const [currentGenre, setCurrentGenre] = useState([]);
 
   useEffect(() => {
@@ -26,11 +27,23 @@ const CatalogueDropdown = ({ filterByGenreProps }) => {
         fluid
         selection
         options={currentGenre.map((item) => (
-          { key: (item.id), text: (item.name), value: (item.name) }
-
+          {
+            key: (item.id),
+            text: (item.name),
+            value: (item.name),
+            onClick: () => {
+              setGenreFilter(item.id);
+              console.log(item.id);
+            },
+          }
         ))}
       />
     </div>
   );
 };
+
+CatalogueDropdown.propTypes = {
+  setGenreFilter: PropTypes.func.isRequired,
+};
+
 export default CatalogueDropdown;
