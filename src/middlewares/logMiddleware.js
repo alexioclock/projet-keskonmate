@@ -3,7 +3,7 @@ import {
   SUBMIT_LOGIN,
   FETCH_USER,
   successLogin,
-  errorConnexion,
+  errorLogin,
   fetchUser,
   saveUser,
 } from 'src/actions/login';
@@ -11,17 +11,16 @@ import { fetchUserlist } from 'src/actions/actions';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case SUBMIT_LOGIN:
-      // const state = store.getState();
+    case SUBMIT_LOGIN: {
+      const state = store.getState();
       axios.post(
         // URL
         'http://keskonmate.me/api/login',
         {
-          // username: state.user.nicknameLogin,
-          // password: state.user.passwordLogin,
-          username: 'admin@keskonmate.me',
-          password: 'admin',
-
+          username: state.user.nicknameLogin,
+          password: state.user.passwordLogin,
+          // username: 'admin@keskonmate.me',
+          // password: 'admin',
         },
       )
         .then((response) => {
@@ -34,10 +33,10 @@ const logMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.warn(error);
-          store.dispatch(errorConnexion());
+          store.dispatch(errorLogin());
         });
-
       break;
+    }
 
     case FETCH_USER:
       axios.get(`http://keskonmate.me/api/v1/users/${action.userId}`, {

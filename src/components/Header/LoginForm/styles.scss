@@ -5,7 +5,7 @@
   position: absolute;
   background-color: vars.$backgroundColorLight;
   width: 10rem;
-  height:11rem;
+  height:12rem;
   position: absolute;
   top: 45px;
   right: 5px;
@@ -40,6 +40,14 @@
       font-weight:700;
       text-decoration:none;
     }
+  }
+
+  .login-error{
+    color:red;
+    position: absolute;
+    bottom: 0.8rem;
+    left:1.5rem;
+    font-weight: 500;
   }
 }
 .links{
@@ -108,6 +116,13 @@
       .inscription{
         font-size: 1rem;
       }
+    }
+
+    .login-error{
+      font-size: 1.5rem;
+      bottom: 1rem;
+      left:4rem;
+      font-weight: 500;
     }
   }
 }
