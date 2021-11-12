@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUBMIT_LOGIN, successLogin, errorConnexion } from 'src/actions/login';
+import { SUBMIT_LOGIN, successLogin, errorLogin } from 'src/actions/login';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -9,10 +9,10 @@ const logMiddleware = (store) => (next) => (action) => {
         // URL
         'http://keskonmate.me/api/login',
         {
-          // username: state.user.nicknameLogin,
-          // password: state.user.passwordLogin,
-          username: 'admin@keskonmate.me',
-          password: 'admin',
+          username: state.user.nicknameLogin,
+          password: state.user.passwordLogin,
+          // username: 'admin@keskonmate.me',
+          // password: 'admin',
 
         },
       )
@@ -26,7 +26,7 @@ const logMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.warn(error);
-          store.dispatch(errorConnexion);
+          store.dispatch(errorLogin);
         });
 
       break;

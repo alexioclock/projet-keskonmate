@@ -2,13 +2,16 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import LoginForm from 'src/components/Header/LoginForm';
-import { setPassword, setNickname, submitLogin, errorConnexion } from 'src/actions/login';
+import {
+  setPassword, setNickname, submitLogin, errorLogin,
+} from 'src/actions/login';
 
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   nickname: state.user.nicknameLogin,
   password: state.user.passwordLogin,
+  isError: state.user.isError,
 
 });
 
@@ -24,14 +27,14 @@ const mapDispatchToProps = (dispatch) => ({
     const action = setPassword(newValue);
     dispatch(action);
   },
-  
+
   handleSubmit: () => {
     dispatch(submitLogin());
   },
 
-  error: () => {
-    dispatch(errorConnexion());
-  },
+  // handleError: () => {
+  //   dispatch(errorLogin());
+  // },
 
 });
 
