@@ -35,8 +35,6 @@ const Header = ({ username, isConnected }) => {
           <img src={logo} alt="logo" className="logo" style={{ height: '2em', width: 'auto' }} />
         </Link>
 
-        
-
         <div className="lists">
           {isConnected && (
           <Link to="/mes-listes">
@@ -95,9 +93,14 @@ const Header = ({ username, isConnected }) => {
     </div>
   );
 };
+
 Header.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
   isConnected: PropTypes.bool.isRequired,
+};
+
+Header.defaultProps = {
+  username: '',
 };
 
 export default Header;

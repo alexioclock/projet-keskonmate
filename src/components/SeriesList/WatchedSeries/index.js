@@ -13,7 +13,17 @@ const WatchedSeries = ({ watchedSeries }) => (
     <div className="series-grid watched-series-grid">
       {watchedSeries.map((serie) => (
         serie.type === 1
-        && <SeriesCard key={serie.id} type={serie.type} isUserWatchedList {...serie.series[0]} />
+        && (
+          <SeriesCard
+            key={serie.id}
+            type={serie.type}
+            userlistId={serie.id}
+            currentSeason={serie.seasonNb}
+            currentEpisode={serie.episodeNb}
+            isUserWatchedList
+            {...serie.series}
+          />
+        )
       ))}
     </div>
   </div>

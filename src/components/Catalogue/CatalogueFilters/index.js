@@ -55,7 +55,7 @@ const CatalogueFilters = ({ alphabeticalFilter, alphabeticalReverseFilter }) => 
           </li>
           <li className="catalogue-filters-item">
             <button className="catalogue-filters-item-button" type="button">
-              autre filtre
+              sans filtre
             </button>
           </li>
         </ul>
@@ -66,8 +66,13 @@ const CatalogueFilters = ({ alphabeticalFilter, alphabeticalReverseFilter }) => 
 };
 
 CatalogueFilters.propTypes = {
-  alphabeticalFilter: PropTypes.func.isRequired,
-  alphabeticalReverseFilter: PropTypes.func.isRequired,
+  alphabeticalFilter: PropTypes.func,
+  alphabeticalReverseFilter: PropTypes.func,
+};
+
+CatalogueFilters.defaultProps = {
+  alphabeticalFilter: () => {},
+  alphabeticalReverseFilter: () => {},
 };
 // == Export
 export default CatalogueFilters;

@@ -55,7 +55,6 @@ function seriesReducer(state = initialState, action) {
       };
     }
 
-
     case SET_ALPHABETICAL_FILTER: {
       const newSeriesArray = [...state.seriesList];
       const newSeriesArraySort = newSeriesArray.sort(compare);

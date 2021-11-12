@@ -6,8 +6,8 @@ import ProfilePage from 'src/components/ProfilePage';
 // === mapStateToProps
 // si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
-  username: state.user.user.username,
-  email: state.user.user.email,
+  username: state.user.currentUser.userNickname,
+  email: state.user.currentUser.email,
 });
 
 // === mapDispatchToProps

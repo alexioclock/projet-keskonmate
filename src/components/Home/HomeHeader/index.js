@@ -58,7 +58,11 @@ const HomeHeader = ({ isConnected, username }) => {
 };
 HomeHeader.propTypes = {
   isConnected: PropTypes.bool.isRequired,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
+};
+
+HomeHeader.defaultProps = {
+  username: '',
 };
 
 export default HomeHeader;

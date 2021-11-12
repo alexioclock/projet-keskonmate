@@ -2,22 +2,22 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 
 const LoginForm = (
-    {
+  {
     nickname,
     password,
     setNickname,
     setPassword,
     handleSubmit,
-    error
-    }) => 
-    (
-  <form 
+    error,
+  },
+) => (
+  <form
     className="login-form"
     onSubmit={(event) => {
       event.preventDefault();
       handleSubmit();
     }}
-    >
+  >
     <label htmlFor="username-input">
       Email
       <input
@@ -25,7 +25,7 @@ const LoginForm = (
         id="username-input"
         value={nickname}
         onChange={(e) => {
-          setNickname(e.target.value)
+          setNickname(e.target.value);
         }}
       />
     </label>
@@ -38,7 +38,7 @@ const LoginForm = (
         type="password"
         value={password}
         onChange={(e) => {
-          setPassword(e.target.value)
+          setPassword(e.target.value);
         }}
       />
       <a href="/lost-password" className="lost-password">
@@ -57,7 +57,7 @@ const LoginForm = (
     {/* {error ? "erreur" : ""} */}
   </form>
 );
-    
+
 LoginForm.propTypes = {
   nickname: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,

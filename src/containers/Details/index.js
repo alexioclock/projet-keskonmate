@@ -1,21 +1,30 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { findSerieInUserLists } from 'src/selectors/series';
+import {
+  findSerieInUserlist,
+  addSerieToApiUserlist,
+  editSerieToApiUserlist,
+} from 'src/actions/actions';
 import Details from 'src/components/Details';
-import { findSeries } from '../../actions/series';
 
 // eslint-disable-next-line arrow-body-style
-const mapStateToProps = (state, ownProps) => {
-  return ({
-    currentSeries: state.series.currentSeriesDetails,
-    isConnected: state.user.isConnected,
-    userSerie: findSerieInUserLists(state.userLists.userLists, ownProps.match.params.slug),
-  });
-};
+const mapStateToProps = (state) => ({
+  isConnected: state.user.isConnected,
+  type: state.userLists.currentSerieType,
+  userlistId: state.userLists.currentUserlistId,
+  userlistSeasonNb: state.userLists.currentUserlistSeasonNb,
+  userlistEpisodeNb: state.userLists.currentUserlistEpisodeNb,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  findSeries: (slug) => {
-    dispatch(findSeries(slug));
+  findSerieInUserlist: (serieId) => {
+    dispatch(findSerieInUserlist(serieId));
+  },
+  addSerieToApiUserlist: (newSerieId, newSerieTitle, newSerieImage, newSerieType) => {
+    dispatch(addSerieToApiUserlist(newSerieId, newSerieTitle, newSerieImage, newSerieType));
+  },
+  editSerieToApiUserlist: (serieId, newSerieType) => {
+    dispatch(editSerieToApiUserlist(serieId, newSerieType));
   },
 });
 
