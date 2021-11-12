@@ -13,9 +13,8 @@ const SeriesCard = ({
   title,
   releaseDate,
   director,
-  genre,
-  actor,
   image,
+  genre,
   isHomeToWatchList,
   isHomeCurrentList,
   isSuggestionsList,
@@ -239,14 +238,14 @@ const SeriesCard = ({
                     (director !== '')
                     && <li className="series-card-description-list-item">Réalisée par { director }</li>
                   }
-                  {
+                  {/* {
                     (isCatalogue)
                     && (
                       <li className="series-card-description-list-item">
                         avec {actor.map((item) => ((`${item.name}, `)))}
                       </li>
                     )
-                  }
+                  } */}
                 </ul>
               )
             }
