@@ -36,7 +36,7 @@ const Header = ({
 
       <div className="lists">
         {isConnected && (
-          <Link to="/mes-listes">
+          <Link to="/series-en-cours">
             <p className="list-link">Mes listes</p>
             <Bookmark className="list-icon" />
           </Link>

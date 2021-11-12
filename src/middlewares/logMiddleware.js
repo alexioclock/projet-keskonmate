@@ -17,10 +17,10 @@ const logMiddleware = (store) => (next) => (action) => {
         // URL
         'http://keskonmate.me/api/login',
         {
-          username: state.user.nicknameLogin,
-          password: state.user.passwordLogin,
-          // username: 'admin@keskonmate.me',
-          // password: 'admin',
+          // username: state.user.nicknameLogin,
+          // password: state.user.passwordLogin,
+          username: 'admin@keskonmate.me',
+          password: 'admin',
         },
       )
         .then((response) => {
