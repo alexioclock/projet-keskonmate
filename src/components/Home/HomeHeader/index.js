@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import './styles.scss';
-import LoginForm from 'src/components/Header/LoginForm';
 
-const HomeHeader = ({ isConnected, username }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  return (
-    <div className="home-header">
-      {!isConnected && (
+const HomeHeader = ({
+  isConnected, username, openLoginForm,
+}) => (
+  <div className="home-header">
+    {!isConnected && (
       <div className="home-header-not-connected">
         <div className="home-header-not-connected-text">
           <p className="line-one">
@@ -30,19 +28,15 @@ const HomeHeader = ({ isConnected, username }) => {
             type="button"
             className="connection"
             onClick={() => {
-              setIsDropdownOpen(!isDropdownOpen);
+              openLoginForm();
             }}
           >
             Connectez-vous
           </button>
         </div>
-        {isDropdownOpen && (
-        <LoginForm />
-        
-        )}
       </div>
-      )}
-      {isConnected && (
+    )}
+    {isConnected && (
       <div className="home-header-connected">
         <p className="home-header-connected-first-line">
           Salut {username} !
@@ -51,14 +45,14 @@ const HomeHeader = ({ isConnected, username }) => {
           Alors, keskonmate ?
         </p>
       </div>
-      )}
-    </div>
-  );
-  
-};
+    )}
+  </div>
+);
+
 HomeHeader.propTypes = {
   isConnected: PropTypes.bool.isRequired,
   username: PropTypes.string,
+  openLoginForm: PropTypes.func.isRequired,
 };
 
 HomeHeader.defaultProps = {

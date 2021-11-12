@@ -1,20 +1,19 @@
 import { connect } from 'react-redux';
-
-// on importe le composant de présentation
 import Header from 'src/components/Header';
+import { openLoginForm } from 'src/actions/subscribeForm';
 
-// === mapStateToProps
-// si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   username: state.user.currentUser.userNickname,
   isConnected: state.user.isConnected,
+  isLoginFormOpened: state.subscribeForm.isLoginFormOpened,
+
 });
 
-// === mapDispatchToProps
-// si on a besoin de dispatcher des actions vers le store (modifier le state)
 const mapDispatchToProps = (dispatch) => ({
-  // nom de la prop à remplir: fonction qui dispatch l'action
+  openLoginForm: () => {
+    const action = openLoginForm();
+    dispatch(action);
+  },
 });
 
-// === création de l'assistant
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

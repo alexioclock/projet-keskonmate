@@ -1,17 +1,12 @@
 import {
-  SET_PASSWORD,
-  SET_NICKNAME,
-  SUCCESS_LOGIN,
-  LOG_OUT,
-  ERROR_CONNEXION,
-  SAVE_USER,
+  SET_PASSWORD, SET_NICKNAME, SUCCESS_LOGIN, LOG_OUT, ERROR_LOGIN, SAVE_USER,
 } from 'src/actions/login';
 
 const initialState = {
   currentUser: {},
   nicknameLogin: '',
   passwordLogin: '',
-  errorConnexion: false,
+  isError: false,
   isConnected: false,
 };
 
@@ -22,7 +17,6 @@ function userReducer(state = initialState, action) {
         ...state,
         nicknameLogin: action.value,
       };
-
     case SET_PASSWORD:
       return {
         ...state,
@@ -33,6 +27,7 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         isConnected: true,
+        nickname: action.nicknameLogin,
       };
 
     case LOG_OUT:
@@ -41,10 +36,10 @@ function userReducer(state = initialState, action) {
         isConnected: false,
       };
 
-    case ERROR_CONNEXION:
+    case ERROR_LOGIN:
       return {
         ...state,
-        errorConnexion: true,
+        isError: true,
       };
 
     case SAVE_USER:
@@ -52,7 +47,6 @@ function userReducer(state = initialState, action) {
         ...state,
         currentUser: action.userInfos,
       };
-
     default:
       return state;
   }

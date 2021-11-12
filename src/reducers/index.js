@@ -4,7 +4,7 @@ import userReducer from './userReducer';
 import seriesReducer from './seriesReducer';
 import cardReducer from './cardReducer';
 import userListsReducer from './userListsReducer';
-import suscribeReducer from './suscribeReducer';
+import subscribeReducer from './subscribeReducer';
 
 const rootReducer = combineReducers({
   /* nom du tiroir : reducer qui s'occupe du tiroir */
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   series: seriesReducer,
   cards: cardReducer,
   userLists: userListsReducer,
-  suscribeForm: suscribeReducer,
+  subscribeForm: subscribeReducer,
 });
 
 export default rootReducer;
