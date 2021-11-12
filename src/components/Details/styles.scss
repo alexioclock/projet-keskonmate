@@ -26,7 +26,7 @@
       justify-content:flex-end;
       height:10rem;
       .series-title{
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         font-weight: 700;
         color: whitesmoke;
         animation: apparitionTitle 1s ease-out;
@@ -204,6 +204,9 @@
       .banner-text{
         height:15rem;
         bottom:16rem;
+        .series-title{
+          font-size: 2.8rem;
+        }
       }
     }
     .connection-button{

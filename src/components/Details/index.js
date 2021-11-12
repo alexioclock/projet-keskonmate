@@ -18,7 +18,6 @@ const Details = ({
   useEffect(() => {
     axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
       .then((response) => {
-        console.log(response.data);
         setCurrentSeriesDetails(response.data);
         setIsLoading(false);
       })

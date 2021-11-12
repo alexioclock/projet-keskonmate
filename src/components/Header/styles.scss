@@ -127,8 +127,18 @@
   max-height: 180px;
   overflow: auto;
 
-  .mobile-form-results-list-item {
-    margin: 1em 0;
+  .mobile-form-results-list{
+    width: 100%;
+    .mobile-form-results-list-item {
+    padding: 1em 1em;
+    width:100%;
+    font-family: vars.$textFont;
+    }
+    .mobile-form-results-list-item:hover {
+    color: vars.$darkColor;
+    background-color: vars.$backgroundColorLight;
+    border-radius: 5px;
+    }
   }
 }
 
@@ -156,10 +166,13 @@
         .form{
           display: flex;
           .form-input{
+            width:80%;
             border:none;
             border-radius: 5px;
             font-size: 0.8rem;
             margin:auto 0;
+            font-family: vars.$textFont;
+            color: vars.$darkColor;
           }
           input::placeholder{
           font-family: vars.$textFont;
@@ -241,8 +254,21 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
   
-    .form-results-list-item {
-      margin: 1em 0;
+    .form-results-list-link{    
+
+      .form-results-list-item {
+      padding: 1em 1em;
+      }
+      .form-results-list-item:hover{
+        padding: 1em 1em;
+        font-size: vars.$textFont;
+        color: vars.$darkColor;
+        background-color: vars.$backgroundColorLight;
+        border-radius: 5px;
+      }
+    }
+    .form-results-list-link:hover{
+      text-decoration: none;
     }
   }
 }
