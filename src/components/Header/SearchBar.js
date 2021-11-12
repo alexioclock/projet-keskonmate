@@ -34,13 +34,11 @@ const SearchBar = ({
             <Link
               to={`/series/${serie.id}`}
               key={serie.id}
+              className="form-results-list-link"
             >
               <li
                 className="form-results-list-item"
                 key={serie.id}
-                onClick={() => {
-                  console.log('coucou');
-                }}
               >
                 {serie.title}
               </li>
