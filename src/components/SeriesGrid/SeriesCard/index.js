@@ -23,13 +23,11 @@ const SeriesCard = ({
   isUserCurrentList,
   isUserWatchedList,
   type,
+  userlistId,
   currentSeason,
   currentEpisode,
-  addSerieToUserlist,
-  editUserlistSerie,
-  deleteUserlistSerie,
-  changeCurrentSeason,
-  changeCurrentEpisode,
+  addSerieToApiUserlist,
+  editSerieToApiUserlist,
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
@@ -50,7 +48,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, 1);
+                      addSerieToApiUserlist(id, title, image, 1);
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -60,7 +58,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, 2);
+                      addSerieToApiUserlist(id, title, image, 2);
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -70,7 +68,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, 3);
+                      addSerieToApiUserlist(id, title, image, 3);
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -107,7 +105,7 @@ const SeriesCard = ({
                       type="button"
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
-                        editUserlistSerie(id, 1);
+                        editSerieToApiUserlist(userlistId, 1, currentSeason, currentEpisode);
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -123,7 +121,7 @@ const SeriesCard = ({
                       type="button"
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
-                        editUserlistSerie(id, 2);
+                        editSerieToApiUserlist(userlistId, 2, currentSeason, currentEpisode);
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -139,7 +137,7 @@ const SeriesCard = ({
                       type="button"
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
-                        editUserlistSerie(id, 3);
+                        editSerieToApiUserlist(userlistId, 3, currentSeason, currentEpisode);
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -173,7 +171,7 @@ const SeriesCard = ({
                         type="button"
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
-                          deleteUserlistSerie(id);
+                          editSerieToApiUserlist(userlistId, 0, currentSeason, currentEpisode);
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -188,7 +186,7 @@ const SeriesCard = ({
                         type="button"
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
-                          deleteUserlistSerie(id);
+                          editSerieToApiUserlist(userlistId, 0, currentSeason, currentEpisode);
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -203,7 +201,7 @@ const SeriesCard = ({
                         type="button"
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
-                          deleteUserlistSerie(id);
+                          editSerieToApiUserlist(userlistId, 0, currentSeason, currentEpisode);
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -238,14 +236,6 @@ const SeriesCard = ({
                     (director !== '')
                     && <li className="series-card-description-list-item">Réalisée par { director }</li>
                   }
-                  {/* {
-                    (isCatalogue)
-                    && (
-                      <li className="series-card-description-list-item">
-                        avec {actor.map((item) => ((`${item.name}, `)))}
-                      </li>
-                    )
-                  } */}
                 </ul>
               )
             }
@@ -262,7 +252,7 @@ const SeriesCard = ({
                     name="season-nb"
                     value={currentSeason}
                     onChange={(event) => {
-                      changeCurrentSeason(id, event.target.value);
+                      editSerieToApiUserlist(userlistId, type, event.target.value, currentEpisode);
                     }}
                   />
                 </label>
@@ -274,7 +264,7 @@ const SeriesCard = ({
                     name="episode-nb"
                     value={currentEpisode}
                     onChange={(event) => {
-                      changeCurrentEpisode(id, event.target.value);
+                      editSerieToApiUserlist(userlistId, type, currentSeason, event.target.value);
                     }}
                   />
                 </label>
@@ -298,12 +288,6 @@ SeriesCard.propTypes = {
       name: PropTypes.string,
     }),
   ),
-  actor: PropTypes.arrayOf(
-    PropTypes.shape({
-      firstname: PropTypes.string,
-      lastname: PropTypes.string,
-    }),
-  ),
   image: PropTypes.string.isRequired,
   isHomeToWatchList: PropTypes.bool,
   isHomeCurrentList: PropTypes.bool,
@@ -313,6 +297,7 @@ SeriesCard.propTypes = {
   isUserCurrentList: PropTypes.bool,
   isUserWatchedList: PropTypes.bool,
   type: PropTypes.number,
+  userlistId: PropTypes.number,
   currentEpisode: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -321,18 +306,14 @@ SeriesCard.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
-  addSerieToUserlist: PropTypes.func,
-  editUserlistSerie: PropTypes.func,
-  deleteUserlistSerie: PropTypes.func,
-  changeCurrentSeason: PropTypes.func,
-  changeCurrentEpisode: PropTypes.func,
+  addSerieToApiUserlist: PropTypes.func,
+  editSerieToApiUserlist: PropTypes.func,
 };
 
 SeriesCard.defaultProps = {
   releaseDate: '',
   director: '',
   genre: [],
-  actor: [],
   isHomeToWatchList: false,
   isHomeCurrentList: false,
   isSuggestionsList: false,
@@ -341,13 +322,11 @@ SeriesCard.defaultProps = {
   isUserCurrentList: false,
   isUserWatchedList: false,
   type: 0,
+  userlistId: 0,
   currentEpisode: 0,
   currentSeason: 0,
-  addSerieToUserlist: () => {},
-  editUserlistSerie: () => {},
-  deleteUserlistSerie: () => {},
-  changeCurrentSeason: () => {},
-  changeCurrentEpisode: () => {},
+  addSerieToApiUserlist: () => {},
+  editSerieToApiUserlist: () => {},
 };
 
 // };

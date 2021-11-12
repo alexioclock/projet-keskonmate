@@ -24,11 +24,9 @@ const mapDispatchToProps = (dispatch) => ({
     const action = setPassword(newValue);
     dispatch(action);
   },
-  
   handleSubmit: () => {
     dispatch(submitLogin());
   },
-
   error: () => {
     dispatch(errorConnexion());
   },

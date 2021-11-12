@@ -1,10 +1,17 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
-const SuggestionList = ({ series, userlist }) => {
+const SuggestionList = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
+  let userlistId = 0;
+  let userlistSeasonNb = 0;
+  let userlistEpisodeNb = 0;
+  useEffect(() => {
+    loadSeries();
+  }, []);
   return (
     <div className="suggestion-list">
       <p className="list-name">
@@ -18,16 +25,32 @@ const SuggestionList = ({ series, userlist }) => {
       <div className="series-cards">
         {series.map((serie) => {
           serieType = 0;
+          userlistId = 0;
+          userlistSeasonNb = 0;
+          userlistEpisodeNb = 0;
             <>
               {userlist.forEach((userlistSerie) => {
-                if (serie.id === userlistSerie.seriesNb) {
+                if (serie.id === userlistSerie.series.id) {
                   serieType = userlistSerie.type;
+                  userlistId = userlistSerie.id;
+                  userlistSeasonNb = userlistSerie.seasonNb;
+                  userlistEpisodeNb = userlistSerie.episodeNb;
                 }
               })}
             </>;
             return (
               serie.homeOrder >= 1
-            && <SeriesCard key={serie.id} isSuggestionsList type={serieType} {...serie} />
+              && (
+                <SeriesCard
+                  key={serie.id}
+                  isSuggestionsList
+                  userlistId={userlistId}
+                  currentSeason={userlistSeasonNb}
+                  currentEpisode={userlistEpisodeNb}
+                  type={serieType}
+                  {...serie}
+                />
+              )
             );
         })}
       </div>
@@ -36,17 +59,11 @@ const SuggestionList = ({ series, userlist }) => {
 };
 
 SuggestionList.propTypes = {
-  series: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
-  userlist: PropTypes.arrayOf(
-    PropTypes.shape({
-      seriesNb: PropTypes.number.isRequired,
-      type: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  series: PropTypes.array.isRequired,
+
+  loadSeries: PropTypes.func.isRequired,
+
+  userlist: PropTypes.array.isRequired,
 };
 
 export default SuggestionList;

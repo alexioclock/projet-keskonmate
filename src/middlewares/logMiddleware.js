@@ -1,10 +1,18 @@
 import axios from 'axios';
-import { SUBMIT_LOGIN, successLogin, errorConnexion } from 'src/actions/login';
+import {
+  SUBMIT_LOGIN,
+  FETCH_USER,
+  successLogin,
+  errorConnexion,
+  fetchUser,
+  saveUser,
+} from 'src/actions/login';
+import { fetchUserlist } from 'src/actions/actions';
 
 const logMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN:
-      const state = store.getState();
+      // const state = store.getState();
       axios.post(
         // URL
         'http://keskonmate.me/api/login',
@@ -17,19 +25,36 @@ const logMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          const { token } = response.data;
+          const { token, userId } = response.data;
 
           localStorage.setItem('token', token);
 
-          const actionSuccess = successLogin(response.data.nickname);
-          store.dispatch(actionSuccess);
+          store.dispatch(successLogin());
+          store.dispatch(fetchUser(userId));
         })
         .catch((error) => {
           console.warn(error);
-          store.dispatch(errorConnexion);
+          store.dispatch(errorConnexion());
         });
 
       break;
+
+    case FETCH_USER:
+      axios.get(`http://keskonmate.me/api/v1/users/${action.userId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+        .then((response) => {
+          store.dispatch(saveUser(response.data));
+          store.dispatch(fetchUserlist(action.userId));
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+
+      break;
+
     default:
   }
 
