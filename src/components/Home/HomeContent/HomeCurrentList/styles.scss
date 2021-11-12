@@ -11,6 +11,7 @@
   text-align: center;
   font-size: 0.9em;
   padding-bottom: 1rem;
+  animation: slideRight 0.8s ease-in-out;
 
   & .list-name{
     margin:1rem auto;
@@ -21,6 +22,7 @@
   & .series-link:hover{
     color:vars.$darkColor;
     text-decoration: underline;
+
   }
 
   & .series-cards {
@@ -46,6 +48,18 @@
   }
 }
 
+@keyframes slideRight {
+  0% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+}
+
 @media only screen and (min-width:1024px){
   .home-current-list {
     width:45%;
@@ -60,6 +74,7 @@
 
         & .series-card-div {
           margin:1rem auto; 
+          background-color: red;
 
           & .series-card {
             width:180px;

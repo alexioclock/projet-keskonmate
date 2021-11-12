@@ -8,7 +8,7 @@
   top: 45px;
   right: 5px;
   border-radius: 5px;
-  z-index: 5;
+  z-index: 3;
   
   
   a{
@@ -23,6 +23,7 @@
     background-color: vars.$backgroundColor;
     border-radius:5px;
     border: 0.5px solid #fff;
+    color: vars.$darkColor;
   }
 
 }

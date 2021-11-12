@@ -1,14 +1,16 @@
 import './styles.scss';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({
-  nickname,
-  password,
-  setNickname,
-  setPassword,
-  handleSubmit,
-  error,
-}) => (
+const LoginForm = (
+  {
+    nickname,
+    password,
+    setNickname,
+    setPassword,
+    handleSubmit,
+    error,
+  },
+) => (
   <form
     className="login-form"
     onSubmit={(event) => {
@@ -17,7 +19,7 @@ const LoginForm = ({
     }}
   >
     <label htmlFor="username-input">
-      Pseudo
+      Email
       <input
         className="username-input"
         id="username-input"

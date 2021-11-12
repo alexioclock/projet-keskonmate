@@ -11,6 +11,8 @@
   text-align: center;
   font-size: 0.9em;
   padding-bottom: 1rem;
+  animation: slideLeft 0.8s ease-in-out;
+
 
   & .list-name{
     margin:1rem auto;
@@ -44,6 +46,18 @@
       }
     }
   }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
 }
 
 @media only screen and (min-width:1024px){

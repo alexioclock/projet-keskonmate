@@ -1,10 +1,22 @@
 @use "src/styles/vars";
 
 .catalogue-filters {
-  z-index: 1;
+  z-index: 2;
   position: sticky;
   top: 43px;
-  
+  animation: filterTransition 2s ease-in-out;
+
+  @keyframes filterTransition {
+    0%{
+      opacity: 0;
+    }
+    80%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 
   @media only screen and (min-device-width : 1024px) {
     border:none;
@@ -44,6 +56,7 @@
       position: sticky;
       top: 40px;
     }
+    
   }
 
   &-header {
@@ -62,29 +75,39 @@
   }
 
   &-list {
-    margin: 50px 20px;
 
     @media only screen and (min-device-width : 1024px) {
-      margin: 50px 10px;
+      // margin: 50px 10px;
     }
   }
 
   &-item {
-    margin: 50px 0;
     font-size: 1.5em;
 
     @media only screen and (min-device-width : 1024px) {
       font-size: 1em;
       text-align: center;
+      margin:1rem 0;
     }
+
     &-button {
       background-color: transparent;
       border:none;
       color: vars.$darkColor;
       font-family: vars.$textFont;
+      width: 100%;
+      padding: 1.5rem 1rem;
+      border-radius: 10px;
     }
     &-button:hover {
       font-weight: 500;
+      background-color: vars.$backgroundColorLight;
     }
   }
 }
+
+.catalogue-filters-close:hover{
+  transition: 0.4s;
+  transform: scale(1.1);
+}
+

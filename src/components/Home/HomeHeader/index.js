@@ -38,6 +38,7 @@ const HomeHeader = ({ isConnected, username }) => {
         </div>
         {isDropdownOpen && (
         <LoginForm />
+        
         )}
       </div>
       )}
@@ -53,6 +54,7 @@ const HomeHeader = ({ isConnected, username }) => {
       )}
     </div>
   );
+  
 };
 HomeHeader.propTypes = {
   isConnected: PropTypes.bool.isRequired,

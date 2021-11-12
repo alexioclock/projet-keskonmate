@@ -1,7 +1,8 @@
 @use 'src/styles/vars';
 
 .series-card-div .series-card {
-  height: 400px;
+  z-index:1;
+  height: 370px;
   width: 280px;
   margin: 0 auto;
   font-family: vars.$textFont;
@@ -39,9 +40,8 @@
     position: absolute;
     bottom: 50px;
     left: -110px;
-    z-index:5;
   }
-
+  
   &-icon-edit-dropdown-list, &-icon-add-dropdown-list, &-icon-delete-dropdown-list {
     display: flex;
     flex-direction: column;
@@ -137,19 +137,5 @@
     
   }
 
-
 }
 
-// header de la card (sélecteurs de Semantic UI pour passer par dessus leurs propriétés)
-// .ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
-//   font-size: 1.5em;
-//   padding: 0.5em 0;
-// }
-
-// .ui.card>.content, .ui.cards>.card>.content {
-//   padding: 0.5rem 1rem;
-// }
-
-// a:hover {
-//   color: #000;
-// }
