@@ -53,8 +53,6 @@ const LoginForm = (
         <button
           type="submit"
           className="login-submit"
-          // onClick={() =>
-          // }
         >
           Se connecter
         </button>
@@ -62,7 +60,14 @@ const LoginForm = (
           Inscription
         </a>
       </div>
-      {isError ? 'pas derreur' : 'erreur'}
+      
+      {isError
+        ? (
+          <p className="login-error">
+            Echec connexion
+          </p>
+        )
+        : ''}
     </form>
   );
 };

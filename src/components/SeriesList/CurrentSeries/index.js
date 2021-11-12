@@ -19,10 +19,11 @@ const CurrentSeries = ({ currentSeries }) => (
             <SeriesCard
               key={serie.id}
               type={serie.type}
+              userlistId={serie.id}
               currentSeason={serie.seasonNb}
               currentEpisode={serie.episodeNb}
               isUserCurrentList
-              {...serie.series[0]}
+              {...serie.series}
             />
           )
         ))}

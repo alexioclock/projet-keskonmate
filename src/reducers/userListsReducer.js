@@ -1,34 +1,31 @@
-import userListsData from 'src/utils/userlists';
-
+/* eslint-disable eqeqeq */
 import {
-  ADD_SERIE_TO_LIST,
-  EDIT_USERLIST_SERIE,
-  DELETE_USERLIST_SERIE,
-  CHANGE_CURRENT_SEASON_VALUE,
-  CHANGE_CURRENT_EPISODE_VALUE,
+  ADD_USERLIST_FROM_API,
+  EDIT_USERLIST_FROM_API,
+  FIND_SERIE_IN_USERLIST,
+  SAVE_USERLIST,
 } from 'src/actions/actions';
 
 const initialState = {
-  userLists: userListsData,
+  userLists: [],
+  currentSerieInUserlist: {},
+  currentSerieId: 0,
+  currentSerieType: 0,
+  currentUserlistId: 0,
+  currentUserlistSeasonNb: 0,
+  currentUserlistEpisodeNb: 0,
 };
 
 function userListsReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_SERIE_TO_LIST: {
-      const newUserlistArray = [...state.userLists, {
-        id: (state.userLists.length > 0 ? state.userLists[state.userLists.length - 1].id + 1 : 1),
-        seasonNb: 0,
-        seriesNb: action.serieId,
-        episodeNb: 0,
-        type: action.serieType,
-        series:
-        [
-          {
-            id: action.serieId,
-            title: action.serieTitle,
-          },
-        ],
-      }];
+    case SAVE_USERLIST:
+      return {
+        ...state,
+        userLists: action.userlist,
+      };
+
+    case ADD_USERLIST_FROM_API: {
+      const newUserlistArray = [...state.userLists, action.userlist];
 
       return {
         ...state,
@@ -36,75 +33,42 @@ function userListsReducer(state = initialState, action) {
       };
     }
 
-    case EDIT_USERLIST_SERIE: {
+    case EDIT_USERLIST_FROM_API: {
+      const newUserlistArray = [...state.userLists];
+      newUserlistArray.forEach((userlistSerie) => {
+        if (userlistSerie.id == action.userlist.id) {
+          userlistSerie.type = action.userlist.type;
+          userlistSerie.episodeNb = action.userlist.episodeNb;
+          userlistSerie.seasonNb = action.userlist.seasonNb;
+        }
+      });
+      return {
+        ...state,
+        userLists: newUserlistArray,
+      };
+    }
+
+    case FIND_SERIE_IN_USERLIST: {
+      let serieType = 0;
+      let userlistId = 0;
+      let userlistSeasonNb = 0;
+      let userlistEpisodeNb = 0;
       const newUserlistArray = [...state.userLists];
       newUserlistArray.forEach((serie) => {
-        if (serie.seriesNb === action.serieId) {
-          serie.type = action.serieType;
+        if (serie.series.id == action.serieId && serie.type != 0) {
+          serieType = serie.type;
+          userlistId = serie.id;
+          userlistSeasonNb = serie.seasonNb;
+          userlistEpisodeNb = serie.episodeNb;
         }
       });
       return {
         ...state,
-        userLists: newUserlistArray,
-      };
-    }
-
-    case DELETE_USERLIST_SERIE: {
-      const userlistArray = [...state.userLists];
-      const newUserlistArray = [];
-      userlistArray.forEach((serie) => {
-        if (serie.seriesNb !== action.serieId) {
-          newUserlistArray.push({
-            id: serie.id,
-            seasonNb: serie.seasonNb,
-            seriesNb: serie.seriesNb,
-            episodeNb: serie.episodeNb,
-            createdAt: serie.createdAt,
-            updatedAt: serie.updatedAt,
-            type: serie.type,
-
-            series:
-            [
-              {
-                id: serie.series[0].id,
-                title: serie.series[0].title,
-              },
-            ],
-          });
-        }
-        else {
-          serie.type = 0;
-        }
-      });
-      return {
-        ...state,
-        userLists: newUserlistArray,
-      };
-    }
-
-    case CHANGE_CURRENT_SEASON_VALUE: {
-      const newUserlistArray = [...state.userLists];
-      newUserlistArray.forEach((serie) => {
-        if (serie.seriesNb === action.serieId) {
-          serie.seasonNb = action.value;
-        }
-      });
-      return {
-        ...state,
-        userLists: newUserlistArray,
-      };
-    }
-
-    case CHANGE_CURRENT_EPISODE_VALUE: {
-      const newUserlistArray = [...state.userLists];
-      newUserlistArray.forEach((serie) => {
-        if (serie.seriesNb === action.serieId) {
-          serie.episodeNb = action.value;
-        }
-      });
-      return {
-        ...state,
-        userLists: newUserlistArray,
+        currentSerieType: serieType,
+        currentSerieId: action.serieId,
+        currentUserlistId: userlistId,
+        currentUserlistSeasonNb: userlistSeasonNb,
+        currentUserlistEpisodeNb: userlistEpisodeNb,
       };
     }
 

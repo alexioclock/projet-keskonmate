@@ -66,8 +66,13 @@ const CatalogueFilters = ({ alphabeticalFilter, alphabeticalReverseFilter }) => 
 };
 
 CatalogueFilters.propTypes = {
-  alphabeticalFilter: PropTypes.func.isRequired,
-  alphabeticalReverseFilter: PropTypes.func.isRequired,
+  alphabeticalFilter: PropTypes.func,
+  alphabeticalReverseFilter: PropTypes.func,
+};
+
+CatalogueFilters.defaultProps = {
+  alphabeticalFilter: () => {},
+  alphabeticalReverseFilter: () => {},
 };
 // == Export
 export default CatalogueFilters;

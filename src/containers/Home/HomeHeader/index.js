@@ -3,7 +3,7 @@ import HomeHeader from 'src/components/Home/HomeHeader';
 
 const mapStateToProps = (state) => ({
   isConnected: state.user.isConnected,
-  username: state.user.user.username,
+  username: state.user.currentUser.userNickname,
 });
 
 const mapDispatchToProps = (dispatch) => ({

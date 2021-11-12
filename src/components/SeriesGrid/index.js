@@ -10,6 +10,9 @@ import './styles.scss';
 
 const SeriesGrid = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
+  let userlistId = 0;
+  let userlistSeasonNb = 0;
+  let userlistEpisodeNb = 0;
   useEffect(() => {
     loadSeries();
   }, []);
@@ -17,10 +20,16 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
     <div className="series-grid">
       {series.map((serie) => {
         serieType = 0;
+        userlistId = 0;
+        userlistSeasonNb = 0;
+        userlistEpisodeNb = 0;
           <>
             {userlist.forEach((userlistSerie) => {
-              if (serie.id === userlistSerie.seriesNb) {
+              if (serie.id === userlistSerie.series.id) {
                 serieType = userlistSerie.type;
+                userlistId = userlistSerie.id;
+                userlistSeasonNb = userlistSerie.seasonNb;
+                userlistEpisodeNb = userlistSerie.episodeNb;
               }
             })}
           </>;
@@ -28,6 +37,9 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
             <SeriesCard
               key={serie.id}
               isCatalogue
+              userlistId={userlistId}
+              currentSeason={userlistSeasonNb}
+              currentEpisode={userlistEpisodeNb}
               type={serieType}
               {...serie}
             />
@@ -48,7 +60,10 @@ SeriesGrid.propTypes = {
 
   userlist: PropTypes.arrayOf(
     PropTypes.shape({
-      seriesNb: PropTypes.number.isRequired,
+      series: PropTypes.oneOfType([
+        PropTypes.array.isRequired,
+        PropTypes.object.isRequired,
+      ]).isRequired,
       type: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,

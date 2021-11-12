@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import LoginForm from 'src/components/Header/LoginForm';
 import {
-  setPassword, setNickname, submitLogin, errorLogin,
+  setPassword, setNickname, submitLogin,
 } from 'src/actions/login';
 
 // === mapStateToProps
@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch) => ({
     const action = setPassword(newValue);
     dispatch(action);
   },
-
   handleSubmit: () => {
     dispatch(submitLogin());
   },
@@ -35,7 +34,6 @@ const mapDispatchToProps = (dispatch) => ({
   // handleError: () => {
   //   dispatch(errorLogin());
   // },
-
 });
 
 // === création de l'assistant

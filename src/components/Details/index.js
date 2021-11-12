@@ -6,11 +6,16 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
-import ListsButtons from './ListsButtons';
 
 const Details = ({
   isConnected,
-  userSerie,
+  type,
+  userlistId,
+  userlistSeasonNb,
+  userlistEpisodeNb,
+  findSerieInUserlist,
+  addSerieToApiUserlist,
+  editSerieToApiUserlist,
 }) => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +24,7 @@ const Details = ({
     axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
       .then((response) => {
         setCurrentSeriesDetails(response.data);
+        findSerieInUserlist(slug);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -32,19 +38,129 @@ const Details = ({
         <div className="banner-container">
           {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
           {currentSeriesDetails.image === ''
-        && (
-          <img
-            className="poster"
-            src={Poster}
-            alt="poster"
-          />
-        )}
+            && (
+              <img
+                className="poster"
+                src={Poster}
+                alt="poster"
+              />
+            )}
           <img className="poster" src={currentSeriesDetails.image} alt="" />
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
-            { !isConnected
-              ? <a href="/connection" className="connection-button">Connecte-toi </a>
-              : <ListsButtons type={userSerie.type} /> }
+            {!isConnected
+            && <a href="/connection" className="connection-button">Connecte-toi </a>}
+            {isConnected
+            && (type === 1)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    editSerieToApiUserlist(userlistId, 3, userlistSeasonNb, userlistEpisodeNb);
+                  }}
+                >
+                  Déplacer vers ma liste [à voir]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    editSerieToApiUserlist(userlistId, 0, userlistSeasonNb, userlistEpisodeNb);
+                  }}
+                >
+                  Supprimer de ma liste [déjà vu]
+                </a>
+              </div>
+            )}
+            {isConnected
+            && (type === 2)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    editSerieToApiUserlist(userlistId, 1, userlistSeasonNb, userlistEpisodeNb);
+                  }}
+                >
+                  Déplacer vers ma liste [déjà vu]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    editSerieToApiUserlist(userlistId, 0, userlistSeasonNb, userlistEpisodeNb);
+                  }}
+                >
+                  Supprimer de ma liste [en cours]
+                </a>
+              </div>
+            )}
+            {isConnected
+            && (type === 3)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    editSerieToApiUserlist(userlistId, 2, userlistSeasonNb, userlistEpisodeNb);
+                  }}
+                >
+                  Déplacer vers ma liste [en cours]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    editSerieToApiUserlist(userlistId, 0, userlistSeasonNb, userlistEpisodeNb);
+                  }}
+                >
+                  Supprimer de ma liste [à voir]
+                </a>
+              </div>
+            )}
+            {isConnected
+            && (type === 0)
+            && (
+              <div className="type">
+                <a
+                  className="button"
+                  onClick={() => {
+                    addSerieToApiUserlist(
+                      slug,
+                      currentSeriesDetails.title,
+                      currentSeriesDetails.image,
+                      1,
+                    );
+                  }}
+                >
+                  Ajouter à ma liste [déjà vu]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    addSerieToApiUserlist(
+                      slug,
+                      currentSeriesDetails.title,
+                      currentSeriesDetails.image,
+                      2,
+                    );
+                  }}
+                >
+                  Ajouter à ma liste [en cours]
+                </a>
+                <a
+                  className="button"
+                  onClick={() => {
+                    addSerieToApiUserlist(
+                      slug,
+                      currentSeriesDetails.title,
+                      currentSeriesDetails.image,
+                      3,
+                    );
+                  }}
+                >
+                  Ajouter à ma liste [à voir]
+                </a>
+              </div>
+            )}
           </div>
         </div>
 
@@ -106,17 +222,22 @@ const Details = ({
 };
 Details.propTypes = {
   isConnected: PropTypes.bool.isRequired,
-
-  userSerie: PropTypes.shape({
-    type: PropTypes.number.isRequired,
-  }),
-
+  findSerieInUserlist: PropTypes.func.isRequired,
+  type: PropTypes.number.isRequired,
+  userlistId: PropTypes.number,
+  userlistSeasonNb: PropTypes.number,
+  userlistEpisodeNb: PropTypes.number,
+  addSerieToApiUserlist: PropTypes.func,
+  editSerieToApiUserlist: PropTypes.func,
 };
 
 Details.defaultProps = {
-  userSerie: {
-    type: 0,
-  },
+  userlistId: 0,
+  userlistSeasonNb: 0,
+  userlistEpisodeNb: 0,
+  addSerieToApiUserlist: () => {},
+  editSerieToApiUserlist: () => {},
 };
+
 // == Export
 export default Details;

@@ -4,6 +4,8 @@ export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const SUCCESS_LOGIN = 'SUCCESS_LOGIN';
 export const LOG_OUT = 'LOG_OUT';
 export const ERROR_LOGIN = 'ERROR_LOGIN';
+export const FETCH_USER = 'FETCH_USER';
+export const SAVE_USER = 'SAVE_USER';
 
 // === action creators
 export const setNickname = (newValue) => ({
@@ -21,9 +23,8 @@ export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
 
-export const successLogin = (nickname) => ({
+export const successLogin = () => ({
   type: SUCCESS_LOGIN,
-  nickname: nickname,
 });
 
 export const logout = () => ({
@@ -32,4 +33,14 @@ export const logout = () => ({
 
 export const errorLogin = () => ({
   type: ERROR_LOGIN,
+});
+
+export const fetchUser = (userId) => ({
+  type: FETCH_USER,
+  userId: userId,
+});
+
+export const saveUser = (userInfos) => ({
+  type: SAVE_USER,
+  userInfos: userInfos,
 });

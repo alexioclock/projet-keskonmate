@@ -1,62 +1,18 @@
 // === action types
-export const DO_SOMETHING = 'DO_SOMETHING';
-export const LOG_IN = 'LOG_IN';
 export const TOGGLE_ADD_DROPDOWN_OPEN = 'TOGGLE_ADD_DROPDOWN_OPEN';
-export const ADD_SERIE_TO_LIST = 'ADD_SERIE_TO_LIST';
-export const EDIT_USERLIST_SERIE = 'EDIT_USERLIST_SERIE';
-export const DELETE_USERLIST_SERIE = 'DELETE_USERLIST_SERIE';
-export const CHANGE_CURRENT_SEASON_VALUE = 'CHANGE_CURRENT_SEASON_VALUE';
-export const CHANGE_CURRENT_EPISODE_VALUE = 'CHANGE_CURRENT_EPISODE_VALUE';
 export const HANDLE_SEARCH_CHANGE = 'HANDLE_SEARCH_CHANGE';
 export const FILTER_SEARCHED_SERIES = 'FILTER_SEARCHED_SERIES';
-
+export const FETCH_USERLIST = 'FETCH_USERLIST';
+export const SAVE_USERLIST = 'SAVE_USERLIST';
+export const FIND_SERIE_IN_USERLIST = 'FIND_SERIE_IN_USERLIST';
+export const ADD_USERLIST_FROM_API = 'ADD_USERLIST_FROM_API';
+export const EDIT_USERLIST_FROM_API = 'EDIT_USERLIST_FROM_API';
+export const ADD_SERIE_TO_API_USERLIST = 'ADD_SERIE_TO_API_USERLIST';
+export const EDIT_SERIE_TO_API_USERLIST = 'EDIT_SERIE_TO_API_USERLIST';
 
 // === action creators
-export const addSerieToList = (newSerieId, newSerieTitle, newSerieType) => ({
-  type: ADD_SERIE_TO_LIST,
-  serieId: newSerieId,
-  serieTitle: newSerieTitle,
-  serieType: newSerieType,
-});
-
-export const editUserlistSerie = (serieId, newSerieType) => ({
-  type: EDIT_USERLIST_SERIE,
-  serieId: serieId,
-  serieType: newSerieType,
-});
-
-export const deleteUserlistSerie = (serieId) => ({
-  type: DELETE_USERLIST_SERIE,
-  serieId: serieId,
-});
-
-export const doSomething = (/* newValue */) => ({
-  type: DO_SOMETHING,
-  /* value: newValue, */
-});
-
-// export const logIn = (/* newValue */) => ({
-//   type: LOG_IN,
-//   /* value: newValue, */
-// });
 export const toggleAddDropdownOpen = () => ({
   type: TOGGLE_ADD_DROPDOWN_OPEN,
-});
-export const logIn = (/* newValue */) => ({
-  type: LOG_IN,
-  /* value: newValue, */
-});
-
-export const changeCurrentSeasonValue = (serieId, newSeasonValue) => ({
-  type: CHANGE_CURRENT_SEASON_VALUE,
-  serieId: serieId,
-  value: newSeasonValue,
-});
-
-export const changeCurrentEpisodeValue = (serieId, newEpisodeValue) => ({
-  type: CHANGE_CURRENT_EPISODE_VALUE,
-  serieId: serieId,
-  value: newEpisodeValue,
 });
 
 export const handleSearchChange = (newValue) => ({
@@ -68,3 +24,53 @@ export const filterSearchedSeries = () => ({
   type: FILTER_SEARCHED_SERIES,
 });
 
+export const findSerieInUserlist = (serieId) => ({
+  type: FIND_SERIE_IN_USERLIST,
+  serieId: serieId,
+});
+
+export const fetchUserlist = (userId) => ({
+  type: FETCH_USERLIST,
+  userId: userId,
+});
+
+export const saveUserlist = (userlist) => ({
+  type: SAVE_USERLIST,
+  userlist: userlist,
+});
+
+export const addUserlistFromApi = (newUserlist) => ({
+  type: ADD_USERLIST_FROM_API,
+  userlist: newUserlist,
+});
+
+export const editUserlistFromApi = (newUserlist) => ({
+  type: EDIT_USERLIST_FROM_API,
+  userlist: newUserlist,
+});
+
+export const addSerieToApiUserlist = (
+  newSerieId,
+  newSerieTitle,
+  newSerieImage,
+  newSerieType,
+) => ({
+  type: ADD_SERIE_TO_API_USERLIST,
+  serieId: newSerieId,
+  serieTitle: newSerieTitle,
+  serieImage: newSerieImage,
+  serieType: newSerieType,
+});
+
+export const editSerieToApiUserlist = (
+  userlistId,
+  newSerieType,
+  newCurrentSeason,
+  newCurrentEpisode,
+) => ({
+  type: EDIT_SERIE_TO_API_USERLIST,
+  userlistId: userlistId,
+  serieType: newSerieType,
+  currentSeason: newCurrentSeason,
+  currentEpisode: newCurrentEpisode,
+});
