@@ -26,13 +26,8 @@ const SeriesCard = ({
   userlistId,
   currentSeason,
   currentEpisode,
-  addSerieToUserlist,
-  editUserlistSerie,
-  changeCurrentSeason,
-  changeCurrentEpisode,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
-
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
@@ -53,8 +48,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, image, 1);
-                      addSerieToApiUserlist();
+                      addSerieToApiUserlist(id, title, image, 1);
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -64,8 +58,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, image, 2);
-                      addSerieToApiUserlist();
+                      addSerieToApiUserlist(id, title, image, 2);
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -75,8 +68,7 @@ const SeriesCard = ({
                     type="button"
                     className="series-card-icon-add-dropdown-list-item"
                     onClick={() => {
-                      addSerieToUserlist(id, title, image, 3);
-                      addSerieToApiUserlist();
+                      addSerieToApiUserlist(id, title, image, 3);
                       setIsAddDropdownOpen(false);
                     }}
                   >
@@ -113,8 +105,7 @@ const SeriesCard = ({
                       type="button"
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
-                        editUserlistSerie(userlistId, 1);
-                        editSerieToApiUserlist();
+                        editSerieToApiUserlist(userlistId, 1, currentSeason, currentEpisode);
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -130,8 +121,7 @@ const SeriesCard = ({
                       type="button"
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
-                        editUserlistSerie(userlistId, 2);
-                        editSerieToApiUserlist();
+                        editSerieToApiUserlist(userlistId, 2, currentSeason, currentEpisode);
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -147,8 +137,7 @@ const SeriesCard = ({
                       type="button"
                       className="series-card-icon-edit-dropdown-list-item"
                       onClick={() => {
-                        editUserlistSerie(userlistId, 3);
-                        editSerieToApiUserlist();
+                        editSerieToApiUserlist(userlistId, 3, currentSeason, currentEpisode);
                         setIsEditDropdownOpen(false);
                       }}
                     >
@@ -182,8 +171,7 @@ const SeriesCard = ({
                         type="button"
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
-                          editUserlistSerie(userlistId, 0);
-                          editSerieToApiUserlist();
+                          editSerieToApiUserlist(userlistId, 0, currentSeason, currentEpisode);
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -198,8 +186,7 @@ const SeriesCard = ({
                         type="button"
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
-                          editUserlistSerie(userlistId, 0);
-                          editSerieToApiUserlist();
+                          editSerieToApiUserlist(userlistId, 0, currentSeason, currentEpisode);
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -214,8 +201,7 @@ const SeriesCard = ({
                         type="button"
                         className="series-card-icon-delete-dropdown-list-item"
                         onClick={() => {
-                          editUserlistSerie(userlistId, 0);
-                          editSerieToApiUserlist();
+                          editSerieToApiUserlist(userlistId, 0, currentSeason, currentEpisode);
                           setIsDeleteDropdownOpen(false);
                         }}
                       >
@@ -266,8 +252,7 @@ const SeriesCard = ({
                     name="season-nb"
                     value={currentSeason}
                     onChange={(event) => {
-                      changeCurrentSeason(userlistId, event.target.value);
-                      editSerieToApiUserlist();
+                      editSerieToApiUserlist(userlistId, type, event.target.value, currentEpisode);
                     }}
                   />
                 </label>
@@ -279,8 +264,7 @@ const SeriesCard = ({
                     name="episode-nb"
                     value={currentEpisode}
                     onChange={(event) => {
-                      changeCurrentEpisode(userlistId, event.target.value);
-                      editSerieToApiUserlist();
+                      editSerieToApiUserlist(userlistId, type, currentSeason, event.target.value);
                     }}
                   />
                 </label>
@@ -322,10 +306,6 @@ SeriesCard.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
-  addSerieToUserlist: PropTypes.func,
-  editUserlistSerie: PropTypes.func,
-  changeCurrentSeason: PropTypes.func,
-  changeCurrentEpisode: PropTypes.func,
   addSerieToApiUserlist: PropTypes.func,
   editSerieToApiUserlist: PropTypes.func,
 };
@@ -345,10 +325,6 @@ SeriesCard.defaultProps = {
   userlistId: 0,
   currentEpisode: 0,
   currentSeason: 0,
-  addSerieToUserlist: () => {},
-  editUserlistSerie: () => {},
-  changeCurrentSeason: () => {},
-  changeCurrentEpisode: () => {},
   addSerieToApiUserlist: () => {},
   editSerieToApiUserlist: () => {},
 };

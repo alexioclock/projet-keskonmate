@@ -11,6 +11,8 @@ import './styles.scss';
 const SeriesGrid = ({ series, userlist, loadSeries }) => {
   let serieType = 0;
   let userlistId = 0;
+  let userlistSeasonNb = 0;
+  let userlistEpisodeNb = 0;
   useEffect(() => {
     loadSeries();
   }, []);
@@ -19,11 +21,15 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
       {series.map((serie) => {
         serieType = 0;
         userlistId = 0;
+        userlistSeasonNb = 0;
+        userlistEpisodeNb = 0;
           <>
             {userlist.forEach((userlistSerie) => {
               if (serie.id === userlistSerie.series.id) {
                 serieType = userlistSerie.type;
                 userlistId = userlistSerie.id;
+                userlistSeasonNb = userlistSerie.seasonNb;
+                userlistEpisodeNb = userlistSerie.episodeNb;
               }
             })}
           </>;
@@ -32,6 +38,8 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
               key={serie.id}
               isCatalogue
               userlistId={userlistId}
+              currentSeason={userlistSeasonNb}
+              currentEpisode={userlistEpisodeNb}
               type={serieType}
               {...serie}
             />

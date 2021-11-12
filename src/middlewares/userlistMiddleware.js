@@ -3,6 +3,8 @@ import {
   ADD_SERIE_TO_API_USERLIST,
   EDIT_SERIE_TO_API_USERLIST,
   FETCH_USERLIST,
+  addUserlistFromApi,
+  editUserlistFromApi,
   fetchUserlist,
   saveUserlist,
   findSerieInUserlist,
@@ -28,21 +30,20 @@ const userlistMiddleware = (store) => (next) => (action) => {
       break;
 
     case ADD_SERIE_TO_API_USERLIST: {
-      const { currentSerieId, currentSerieType } = store.getState().userLists;
       const { currentUser } = store.getState().user;
       const newUserLists = {
         seasonNb: 0,
         episodeNb: 0,
         createdAt: '2021-10-27T15:31:06+02:00',
         updatedAt: null,
-        type: currentSerieType,
-        series: currentSerieId,
+        type: action.serieType,
+        series: action.serieId,
         users: currentUser.id,
       };
 
       axios.post(
         // URL
-        'http://keskonmate.me/api/v1/userlists/',
+        'http://keskonmate.me/api/v1/userlists',
         newUserLists,
         {
           headers: {
@@ -51,7 +52,11 @@ const userlistMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
+          // Ici le back devrait nous envoyer toutes les infos sur la série qui vient d'être ajoutée
           console.log(response);
+          // On récupère ces infos et on les stocke dans le state grâce au dispatch d'une action
+          // response.data est un objet contenant les infos de la série ajoutée
+          store.dispatch(addUserlistFromApi(response.data));
           store.dispatch(fetchUserlist(currentUser.id));
         })
         .catch((error) => {
@@ -61,28 +66,21 @@ const userlistMiddleware = (store) => (next) => (action) => {
     }
 
     case EDIT_SERIE_TO_API_USERLIST: {
-      const {
-        currentSerieType,
-        currentUserlistId,
-        currentSeasonValue,
-        currentEpisodeValue,
-      } = store.getState().userLists;
-
       const { currentUser } = store.getState().user;
 
-      console.log(`Id de la série dans la userlist : ${currentUserlistId}`);
+      console.log(`Id de la série dans la userlist : ${action.userlistId}`);
 
       const newUserLists = {
-        type: +currentSerieType,
-        seasonNb: +currentSeasonValue,
-        episodeNb: +currentEpisodeValue,
+        type: +action.serieType,
+        seasonNb: +action.currentSeason,
+        episodeNb: +action.currentEpisode,
       };
 
       console.log(newUserLists);
 
       axios.patch(
         // URL
-        `http://keskonmate.me/api/v1/userlists/${currentUserlistId}`,
+        `http://keskonmate.me/api/v1/userlists/${action.userlistId}`,
         newUserLists,
         {
           headers: {
@@ -92,6 +90,7 @@ const userlistMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
+          store.dispatch(editUserlistFromApi(response.data));
           store.dispatch(fetchUserlist(currentUser.id));
         })
         .catch((error) => {

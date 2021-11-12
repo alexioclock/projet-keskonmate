@@ -11,9 +11,9 @@ const Details = ({
   isConnected,
   type,
   userlistId,
+  userlistSeasonNb,
+  userlistEpisodeNb,
   findSerieInUserlist,
-  addSerieToUserlist,
-  editUserlistSerie,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
 }) => {
@@ -57,8 +57,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(userlistId, 3);
-                    editSerieToApiUserlist();
+                    editSerieToApiUserlist(userlistId, 3, userlistSeasonNb, userlistEpisodeNb);
                   }}
                 >
                   Déplacer vers ma liste [à voir]
@@ -66,8 +65,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(userlistId, 0);
-                    editSerieToApiUserlist();
+                    editSerieToApiUserlist(userlistId, 0, userlistSeasonNb, userlistEpisodeNb);
                   }}
                 >
                   Supprimer de ma liste [déjà vu]
@@ -81,8 +79,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(userlistId, 1);
-                    editSerieToApiUserlist();
+                    editSerieToApiUserlist(userlistId, 1, userlistSeasonNb, userlistEpisodeNb);
                   }}
                 >
                   Déplacer vers ma liste [déjà vu]
@@ -90,8 +87,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(userlistId, 0);
-                    editSerieToApiUserlist();
+                    editSerieToApiUserlist(userlistId, 0, userlistSeasonNb, userlistEpisodeNb);
                   }}
                 >
                   Supprimer de ma liste [en cours]
@@ -105,8 +101,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(userlistId, 2);
-                    editSerieToApiUserlist();
+                    editSerieToApiUserlist(userlistId, 2, userlistSeasonNb, userlistEpisodeNb);
                   }}
                 >
                   Déplacer vers ma liste [en cours]
@@ -114,8 +109,7 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    editUserlistSerie(userlistId, 0);
-                    editSerieToApiUserlist();
+                    editSerieToApiUserlist(userlistId, 0, userlistSeasonNb, userlistEpisodeNb);
                   }}
                 >
                   Supprimer de ma liste [à voir]
@@ -129,13 +123,12 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    addSerieToUserlist(
+                    addSerieToApiUserlist(
                       slug,
                       currentSeriesDetails.title,
                       currentSeriesDetails.image,
                       1,
                     );
-                    addSerieToApiUserlist();
                   }}
                 >
                   Ajouter à ma liste [déjà vu]
@@ -143,13 +136,12 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    addSerieToUserlist(
+                    addSerieToApiUserlist(
                       slug,
                       currentSeriesDetails.title,
                       currentSeriesDetails.image,
                       2,
                     );
-                    addSerieToApiUserlist();
                   }}
                 >
                   Ajouter à ma liste [en cours]
@@ -157,13 +149,12 @@ const Details = ({
                 <a
                   className="button"
                   onClick={() => {
-                    addSerieToUserlist(
+                    addSerieToApiUserlist(
                       slug,
                       currentSeriesDetails.title,
                       currentSeriesDetails.image,
                       3,
                     );
-                    addSerieToApiUserlist();
                   }}
                 >
                   Ajouter à ma liste [à voir]
@@ -234,16 +225,16 @@ Details.propTypes = {
   findSerieInUserlist: PropTypes.func.isRequired,
   type: PropTypes.number.isRequired,
   userlistId: PropTypes.number,
-  addSerieToUserlist: PropTypes.func,
-  editUserlistSerie: PropTypes.func,
+  userlistSeasonNb: PropTypes.number,
+  userlistEpisodeNb: PropTypes.number,
   addSerieToApiUserlist: PropTypes.func,
   editSerieToApiUserlist: PropTypes.func,
 };
 
 Details.defaultProps = {
   userlistId: 0,
-  addSerieToUserlist: () => {},
-  editUserlistSerie: () => {},
+  userlistSeasonNb: 0,
+  userlistEpisodeNb: 0,
   addSerieToApiUserlist: () => {},
   editSerieToApiUserlist: () => {},
 };

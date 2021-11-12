@@ -18,6 +18,8 @@ const ToWatchSeries = ({ toWatchSeries }) => (
             key={serie.id}
             type={serie.type}
             userlistId={serie.id}
+            currentSeason={serie.seasonNb}
+            currentEpisode={serie.episodeNb}
             isUserToWatchList
             {...serie.series}
           />
