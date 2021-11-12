@@ -13,6 +13,7 @@ import {
   OLDER_TO_YOUNGER_FILTER,
   ALPHABETICAL_DIRECTOR_FILTER,
   REVERSE_ALPHABETICAL_DIRECTOR_FILTER,
+  GENRE_FILTER,
 } from 'src/actions/seriesFilter';
 
 const seriesMiddleware = (store) => (next) => (action) => {
@@ -96,6 +97,17 @@ const seriesMiddleware = (store) => (next) => (action) => {
 
     case REVERSE_ALPHABETICAL_DIRECTOR_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?column=director&order=DESC')
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveSeries(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      break;
+
+    case GENRE_FILTER:
+      axios.get(`http://keskonmate.me/api/v1/series?genre=${action.genreId}`)
         .then((response) => {
           console.log(response);
           store.dispatch(saveSeries(response.data));

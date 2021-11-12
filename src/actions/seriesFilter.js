@@ -5,6 +5,7 @@ export const YOUNGER_TO_OLDER_FILTER = ' YOUNGER_TO_OLDER_FILTER';
 export const OLDER_TO_YOUNGER_FILTER = 'OLDER_TO_YOUNGER_FILTER';
 export const ALPHABETICAL_DIRECTOR_FILTER = 'ALPHABETICAL_DIRECTOR_FILTER';
 export const REVERSE_ALPHABETICAL_DIRECTOR_FILTER = 'REVERSE_ALPHABETICAL_DIRECTOR_FILTER';
+export const GENRE_FILTER = 'GENRE_FILTER';
 
 export const alphabeticalTitleFilter = () => ({
   type: ALPHABETICAL_TITLE_FILTER,
@@ -28,4 +29,9 @@ export const alphabeticalDirectorFilter = () => ({
 
 export const reverseAlphabeticalDirectorFilter = () => ({
   type: REVERSE_ALPHABETICAL_DIRECTOR_FILTER,
+});
+
+export const genreFilter = (genreId) => ({
+  type: GENRE_FILTER,
+  genreId: genreId,
 });
