@@ -1,5 +1,6 @@
 @use 'src/styles/vars';
-
+ .home-header{
+  margin-top: 7em;
 .home-header-not-connected{
   width: 300px;
   text-align: center;
@@ -67,4 +68,5 @@
     width:350px;  
   }
 
+}
 }

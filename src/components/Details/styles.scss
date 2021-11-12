@@ -29,7 +29,6 @@
         font-size: 1.8rem;
         font-weight: 700;
         color: whitesmoke;
-        animation: apparitionTitle 1s ease-out;
         margin:1rem auto;
       }  
       .connection-button{
@@ -40,23 +39,12 @@
         color: white;
         padding: 0.3rem 0.6rem;
         font-size: 1rem;
-        animation : apparitionButton 0.8s ease-out;
         width: fit-content;
         align-self: center;
         margin:0 auto;
       }
     }
 
-    @keyframes apparitionTitle {
-      from {
-        opacity: 0;
-        transform: translate(0, -100px);
-      }  
-      to{
-        opacity: 1;
-        transform: translate(0px);
-      }  
-    }  
   }  
     // CSS TAG GENRE
   .ul-genre{
@@ -83,7 +71,6 @@
   .resume{
     text-align: center;
     margin: 2rem 1rem;
-    animation: apparitionResume 1s ease-out;
 
 
     h3{
@@ -94,16 +81,7 @@
     }  
   }  
 
-  @keyframes apparitionButton {
-    from {
-      opacity: 0;
-      transform: translate(0, -100px);
-    }
-    to{
-      opacity: 1;
-      transform: translate(0px);
-    }
-  }
+
 
   .connection-button:hover{
     background-color: vars.$backgroundColor;
@@ -175,25 +153,7 @@
   }
 }
 
-@keyframes apparitionResume {
-  from {
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-}
 
-@keyframes apparition {
-  from {
-    opacity: 0;
-    transform: translate(-100px);
-  }
-  to{
-    opacity: 1;
-    transform: translate(0px);
-  }
-}
 
 // CSS MEDIA SCREEN 
 @media only screen and (min-width: 768px) {

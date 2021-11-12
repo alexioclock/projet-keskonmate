@@ -70,6 +70,7 @@
   }
 
   &-header {
+    position: relative;
     display: block;
     font-size: 1.5em;
     padding: 1em 0;
@@ -89,6 +90,7 @@
     top: -40px;
     margin: 0px 20px;
 
+
     & .info-form {
       display: flex;
       justify-content: space-between;
@@ -96,7 +98,9 @@
 
       label{
         font-weight: 500;
-        color: vars.$darkColor;
+        color: vars.$darkColor;     
+
+        
         input {
           cursor: pointer;
           display: flex;

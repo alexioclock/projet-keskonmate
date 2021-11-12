@@ -17,6 +17,7 @@ import Footer from '../Footer';
 const App = () => (
   <BrowserRouter>
     <Header />
+    <div className="app-container">
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/series-vues" exact component={WatchedSeries} />
@@ -31,8 +32,8 @@ const App = () => (
       <Route path="/mon-compte" exact component={ProfilePage} />
       <Route path="/inscription" exact component={Form} />
       <Route component={NotFound} />
-
     </Switch>
+    </div>
     <Footer />
   </BrowserRouter>
 );

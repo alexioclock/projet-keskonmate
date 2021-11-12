@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
+import Loading from '../Loading';
+
 
 const Details = ({
   isConnected,
@@ -24,15 +26,25 @@ const Details = ({
     axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
       .then((response) => {
         setCurrentSeriesDetails(response.data);
+
         findSerieInUserlist(slug);
         setIsLoading(false);
       })
       .catch((error) => {
         console.warn(error);
+      })
+      .finally(() => {
+        // traitement exécuté après le traitement de la réponse, que ce soit un
+        // succès ou un échec
+        console.log('finally');
+
+        // on indique que le chargement des articles est terminé
+        setIsLoading(false);
       });
   }, []);
   return (
     <div className="detail-container">
+      {isLoading && <Loading />}
       {!isLoading && (
       <>
         <div className="banner-container">
