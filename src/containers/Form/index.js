@@ -7,7 +7,7 @@ import {
   setEmailInput,
   setPasswordInput,
   setConfirmPasswordInput,
-} from '../../actions/suscribeForm';
+} from '../../actions/subscribeForm';
 
 // on importe l'action que l'on veut dispatch
 
