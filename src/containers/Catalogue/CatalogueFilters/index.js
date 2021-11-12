@@ -1,17 +1,36 @@
 import { connect } from 'react-redux';
 import CatalogueFilters from 'src/components/Catalogue/CatalogueFilters';
-import { alphabeticalFilter, alphabeticalReverseFilter } from 'src/actions/seriesFilter';
+import {
+  alphabeticalTitleFilter,
+  reverseAlphabeticalTitleFilter,
+  youngerToOlderFilter,
+  olderToYoungerFilter,
+  alphabeticalDirectorFilter,
+  reverseAlphabeticalDirectorFilter,
+} from 'src/actions/seriesFilter';
 
 const mapStateToProps = (state) => ({
 
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  alphabeticalFilter: () => {
-    dispatch(alphabeticalFilter());
+  setAlphabeticalTitleFilter: () => {
+    dispatch(alphabeticalTitleFilter());
   },
-  alphabeticalReverseFilter: () => {
-    dispatch(alphabeticalReverseFilter());
+  setReverseAlphabeticalTitleFilter: () => {
+    dispatch(reverseAlphabeticalTitleFilter());
+  },
+  setYoungerToOlderFilter: () => {
+    dispatch(youngerToOlderFilter());
+  },
+  setOlderToYoungerFilter: () => {
+    dispatch(olderToYoungerFilter());
+  },
+  setAlphabeticalDirectorFilter: () => {
+    dispatch(alphabeticalDirectorFilter());
+  },
+  setReverseAlphabeticalDirectorFilter: () => {
+    dispatch(reverseAlphabeticalDirectorFilter());
   },
 });
 
