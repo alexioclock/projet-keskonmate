@@ -14,6 +14,8 @@ import {
   ALPHABETICAL_DIRECTOR_FILTER,
   REVERSE_ALPHABETICAL_DIRECTOR_FILTER,
   GENRE_FILTER,
+  FETCH_HOME_ORDER,
+  saveHomeOrder,
 } from 'src/actions/seriesFilter';
 
 const seriesMiddleware = (store) => (next) => (action) => {
@@ -32,7 +34,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case FIND_SERIES:
       axios.get(`http://keskonmate.me/api/v1/series/${action.slug}`)
         .then((response) => {
-          console.log(response);
           store.dispatch(saveCurrentSeriesDetails(response.data));
         })
         .catch((error) => {
@@ -43,7 +44,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case ALPHABETICAL_TITLE_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?order=ASC')
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
@@ -54,7 +54,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case REVERSE_ALPHABETICAL_TITLE_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?order=DESC')
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
@@ -65,7 +64,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case YOUNGER_TO_OLDER_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?column=releaseDate&order=DESC')
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
@@ -76,7 +74,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case OLDER_TO_YOUNGER_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?column=releaseDate&order=ASC')
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
@@ -87,7 +84,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case ALPHABETICAL_DIRECTOR_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?column=director&order=ASC')
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
@@ -98,7 +94,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case REVERSE_ALPHABETICAL_DIRECTOR_FILTER:
       axios.get('http://keskonmate.me/api/v1/series?column=director&order=DESC')
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
@@ -109,11 +104,18 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case GENRE_FILTER:
       axios.get(`http://keskonmate.me/api/v1/series?genre=${action.genreId}`)
         .then((response) => {
-          console.log(response);
           store.dispatch(saveSeries(response.data));
         })
         .catch((error) => {
           console.warn(error);
+        });
+      break;
+
+    case FETCH_HOME_ORDER:
+      axios.get('http://keskonmate.me/api/v1/series/homeorder')
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveHomeOrder(response.data));
         });
       break;
 

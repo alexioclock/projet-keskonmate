@@ -4,14 +4,15 @@ import { useEffect } from 'react';
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 
-const SuggestionList = ({ series, userlist, loadSeries }) => {
+const SuggestionList = ({ userlist, loadHomeOrder, homeOrder }) => {
   let serieType = 0;
   let userlistId = 0;
   let userlistSeasonNb = 0;
   let userlistEpisodeNb = 0;
   useEffect(() => {
-    loadSeries();
+    loadHomeOrder();
   }, []);
+  console.log(homeOrder);
   return (
     <div className="suggestion-list">
       <p className="list-name">
@@ -23,7 +24,7 @@ const SuggestionList = ({ series, userlist, loadSeries }) => {
       </a>
 
       <div className="series-cards">
-        {series.map((serie) => {
+        {userlist.map((serie) => {
           serieType = 0;
           userlistId = 0;
           userlistSeasonNb = 0;
@@ -61,7 +62,7 @@ const SuggestionList = ({ series, userlist, loadSeries }) => {
 SuggestionList.propTypes = {
   series: PropTypes.array.isRequired,
 
-  loadSeries: PropTypes.func.isRequired,
+  loadHomeOrder: PropTypes.func.isRequired,
 
   userlist: PropTypes.array.isRequired,
 };
