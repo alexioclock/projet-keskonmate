@@ -160,6 +160,8 @@
             border-radius: 5px;
             font-size: 0.8rem;
             margin:auto 0;
+            font-family: vars.$textFont;
+            color: vars.$darkColor;
           }
           input::placeholder{
           font-family: vars.$textFont;
