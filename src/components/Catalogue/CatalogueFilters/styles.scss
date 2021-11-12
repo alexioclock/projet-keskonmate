@@ -23,7 +23,8 @@
   }
   
   &-close {
-    z-index: 4;
+    z-index: 1;
+    top: 5em;
     position: absolute;
     border: none;
     width: 50px;
@@ -79,6 +80,7 @@
 
     @media only screen and (min-device-width : 1024px) {
       // margin: 50px 10px;
+      background-color: black;
     }
   }
 
@@ -107,8 +109,11 @@
   }
 }
 
+
 .catalogue-filters-close:hover{
   transition: 0.4s;
   transform: scale(1.1);
 }
+
+
 

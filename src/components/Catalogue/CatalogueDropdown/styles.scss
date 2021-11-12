@@ -1,8 +1,8 @@
 @use 'src/styles/vars';
 .catalogue-dropdown {
-  z-index: 2;
+  z-index: 3;
   position: sticky;
-  top: 0px;
+  top: 5em;
   width: 100%;
   height: 40px;
   margin: 7em auto 0;
