@@ -1,3 +1,6 @@
+@use 'src/styles/vars';
+
+
 .LoaderBalls {
   width: 155px;
   margin: auto;
@@ -13,7 +16,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #00f1ca;
+    background: vars.$darkColor;
 
     &:nth-child(1) {
       animation: bouncing $anim-drt alternate infinite $anim-ease;
