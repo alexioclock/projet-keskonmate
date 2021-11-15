@@ -5,7 +5,7 @@ import { openLoginForm } from 'src/actions/subscribeForm';
 const mapStateToProps = (state) => ({
   isConnected: state.user.isConnected,
   username: state.user.currentUser.userNickname,
-  isLoginFormOpened: false,
+  isLoginFormOpened: state.subscribeForm.isLoginFormOpened,
 });
 
 const mapDispatchToProps = (dispatch) => ({
