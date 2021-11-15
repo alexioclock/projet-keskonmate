@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
-import Poster from 'src/assets/pictures/squid-game.jpg';
 import Loading from '../Loading';
 
 const Details = ({
