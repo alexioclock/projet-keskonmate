@@ -20,38 +20,40 @@ const SeriesGrid = ({
     loadSeries();
   }, []);
   return (
-    <div className="series-grid">
+    <div className="series-catalogue">
       {showLoading && (
         <Loading />
       )}
       {!showLoading && (
-        {series.map((serie) => {
-          serieType = 0;
-          userlistId = 0;
-          userlistSeasonNb = 0;
-          userlistEpisodeNb = 0;
-            <>
-              {userlist.forEach((userlistSerie) => {
-                if (serie.id === userlistSerie.series.id) {
-                  serieType = userlistSerie.type;
-                  userlistId = userlistSerie.id;
-                  userlistSeasonNb = userlistSerie.seasonNb;
-                  userlistEpisodeNb = userlistSerie.episodeNb;
-                }
-              })}
-            </>;
-            return (
-              <SeriesCard
-                key={serie.id}
-                isCatalogue
-                userlistId={userlistId}
-                currentSeason={userlistSeasonNb}
-                currentEpisode={userlistEpisodeNb}
-                type={serieType}
-                {...serie}
-              />
-            );
-        })}
+        <div className="series-grid">
+          {series.map((serie) => {
+            serieType = 0;
+            userlistId = 0;
+            userlistSeasonNb = 0;
+            userlistEpisodeNb = 0;
+              <>
+                {userlist.forEach((userlistSerie) => {
+                  if (serie.id === userlistSerie.series.id) {
+                    serieType = userlistSerie.type;
+                    userlistId = userlistSerie.id;
+                    userlistSeasonNb = userlistSerie.seasonNb;
+                    userlistEpisodeNb = userlistSerie.episodeNb;
+                  }
+                })}
+              </>;
+              return (
+                <SeriesCard
+                  key={serie.id}
+                  isCatalogue
+                  userlistId={userlistId}
+                  currentSeason={userlistSeasonNb}
+                  currentEpisode={userlistEpisodeNb}
+                  type={serieType}
+                  {...serie}
+                />
+              );
+          })}
+        </div>
       )}
     </div>
   );
