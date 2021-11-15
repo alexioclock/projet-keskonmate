@@ -4,6 +4,7 @@ import {
   FIND_SERIES,
   saveSeries,
   saveCurrentSeriesDetails,
+  setNotLoading,
 } from 'src/actions/series';
 
 import {
@@ -24,9 +25,11 @@ const seriesMiddleware = (store) => (next) => (action) => {
       axios.get('http://keskonmate.me/api/v1/series')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
+          store.dispatch(setNotLoading());
         })
         .catch((error) => {
           console.warn(error);
+          store.dispatch(setNotLoading());
         });
 
       break;
