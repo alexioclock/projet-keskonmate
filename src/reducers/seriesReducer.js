@@ -1,5 +1,6 @@
 import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
+import { SAVE_HOME_ORDER } from '../actions/seriesFilter';
 
 const initialState = {
   // ici le state initial
@@ -7,6 +8,7 @@ const initialState = {
   searchedSerie: '',
   filteredSeries: [],
   filterBygenre: [],
+  homeOrderList: [],
 };
 
 function seriesReducer(state = initialState, action) {
@@ -44,6 +46,11 @@ function seriesReducer(state = initialState, action) {
       };
     }
 
+    case SAVE_HOME_ORDER:
+      return {
+        ...state,
+        homeOrderList: action.homeOrder,
+      };
     default:
       return state;
   }
