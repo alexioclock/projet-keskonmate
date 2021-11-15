@@ -3,8 +3,9 @@
 .catalogue-filters {
   z-index: 2;
   position: sticky;
-  top: 130px;
+  top: 150px;
   animation: filterTransition 2s ease-in-out;
+  width: 95%;
 
 
   @keyframes filterTransition {
