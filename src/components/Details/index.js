@@ -46,14 +46,6 @@ const Details = ({
       <>
         <div className="banner-container">
           {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
-          {currentSeriesDetails.image === ''
-            && (
-              <img
-                className="poster"
-                src={Poster}
-                alt="poster"
-              />
-            )}
           <img className="poster" src={currentSeriesDetails.image} alt="" />
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
