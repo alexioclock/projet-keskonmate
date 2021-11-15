@@ -7,12 +7,13 @@ import { Dropdown } from 'semantic-ui-react';
 import './styles.scss';
 
 const CatalogueDropdown = ({ setGenreFilter }) => {
-  const [currentGenre, setCurrentGenre] = useState([]);
+  const [genreArray, setGenreArray] = useState([]);
+  const [currentGenre, setCurrentGenre] = useState('');
 
   useEffect(() => {
     axios.get('http://keskonmate.me/api/v1/genres')
       .then((response) => {
-        setCurrentGenre(response.data);
+        setGenreArray(response.data);
       })
       .catch((error) => {
         console.warn(error);
@@ -24,15 +25,17 @@ const CatalogueDropdown = ({ setGenreFilter }) => {
       <Dropdown
         className="catalogue-dropdown-item"
         placeholder="Choisissez vos catégories"
+        value={currentGenre}
         fluid
         selection
-        options={currentGenre.map((item) => (
+        options={genreArray.map((item) => (
           {
             key: (item.id),
             text: (item.name),
             value: (item.name),
             onClick: () => {
               setGenreFilter(item.id);
+              setCurrentGenre(item.name);
               console.log(item.id);
             },
           }

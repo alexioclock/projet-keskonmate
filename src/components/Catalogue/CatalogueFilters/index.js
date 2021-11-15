@@ -19,6 +19,7 @@ const CatalogueFilters = ({
   // s'il vaut true : il faut déployer le menu des filtres
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   return (
+    <div className="container-catalogue">
     <div className="catalogue-filters">
       {!isFiltersOpen && (
       <div className="catalogue-filters-close">
@@ -41,7 +42,7 @@ const CatalogueFilters = ({
                 setAlphabeticalTitleFilter();
               }}
             >
-              par titre<br />(A-Z)
+              <p>par titre (A-Z)</p>
             </button>
           </li>
           <li className="catalogue-filters-item">
@@ -52,7 +53,7 @@ const CatalogueFilters = ({
                 setReverseAlphabeticalTitleFilter();
               }}
             >
-              par titre<br />(Z-A)
+              <p>par titre (Z-A)</p>
             </button>
           </li>
           <li className="catalogue-filters-item">
@@ -63,7 +64,7 @@ const CatalogueFilters = ({
                 setYoungerToOlderFilter();
               }}
             >
-              par date de sortie<br />(du plus récent au plus ancien)
+              <p>par date de sortie<br />(du plus récent au plus ancien)</p>
             </button>
           </li>
           <li className="catalogue-filters-item">
@@ -74,7 +75,7 @@ const CatalogueFilters = ({
                 setOlderToYoungerFilter();
               }}
             >
-              par date de sortie<br />(du plus ancien au plus récent)
+              <p>par date de sortie<br />(du plus ancien au plus récent)</p>
             </button>
           </li>
           <li className="catalogue-filters-item">
@@ -85,7 +86,7 @@ const CatalogueFilters = ({
                 setAlphabeticalDirectorFilter();
               }}
             >
-              par réalisateur<br />(A-Z)
+              <p>par réalisateur (A-Z)</p>
             </button>
           </li>
           <li className="catalogue-filters-item">
@@ -96,12 +97,13 @@ const CatalogueFilters = ({
                 setReverseAlphabeticalDirectorFilter();
               }}
             >
-              par réalisateur<br />(Z-A)
+              <p>par réalisateur (Z-A)</p>
             </button>
           </li>
         </ul>
       </div>
       )}
+    </div>
     </div>
   );
 };

@@ -35,6 +35,17 @@
   align-items: center;
 }
 
+.element-footer a{
+  color: black;
+  transition: 0.5s;
+
+}
+
+.element-footer a:hover{
+  transform: scale(1.1);
+
+}
+
 .element-footer-slash{
   display: none;
 }
