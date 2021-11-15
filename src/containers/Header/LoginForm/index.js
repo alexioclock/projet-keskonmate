@@ -8,7 +8,7 @@ import {
 const mapStateToProps = (state) => ({
   nickname: state.user.nicknameLogin,
   password: state.user.passwordLogin,
-  isError: state.user.isError,
+  errorMessage: state.user.errorMessage,
 });
 
 const mapDispatchToProps = (dispatch) => ({

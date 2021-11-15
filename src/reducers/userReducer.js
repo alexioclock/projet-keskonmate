@@ -6,7 +6,7 @@ const initialState = {
   currentUser: {},
   nicknameLogin: '',
   passwordLogin: '',
-  isError: false,
+  errorMessage: '',
   isConnected: false,
 };
 
@@ -39,7 +39,7 @@ function userReducer(state = initialState, action) {
     case ERROR_LOGIN:
       return {
         ...state,
-        isError: true,
+        errorMessage: action.errorMessage,
       };
 
     case SAVE_USER:

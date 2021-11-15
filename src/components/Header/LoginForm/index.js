@@ -8,7 +8,7 @@ const LoginForm = (
     setNickname,
     setPassword,
     handleSubmit,
-    isError,
+    errorMessage,
   },
 ) => (
   <form
@@ -58,11 +58,11 @@ const LoginForm = (
       </a>
     </div>
 
-    {isError
+    {errorMessage !== ''
       ? (
-        <p className="login-error">
-          Echec connexion
-        </p>
+        <div className="login-error">
+          <p>{errorMessage}</p>
+        </div>
       )
       : ''}
   </form>
@@ -74,7 +74,7 @@ LoginForm.propTypes = {
   setNickname: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  isError: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string.isRequired,
 
 };
 export default LoginForm;

@@ -20,8 +20,14 @@ const logMiddleware = (store) => (next) => (action) => {
         {
           // username: state.user.nicknameLogin,
           // password: state.user.passwordLogin,
+
+          // Utilisateur vérifié (1)
           username: 'admin@keskonmate.me',
           password: 'admin',
+
+          // Utilisateur non vérifié (0)
+          // username: 'test1@keskonmate.me',
+          // password: 'test1',
         },
       )
         .then((response) => {
@@ -29,12 +35,11 @@ const logMiddleware = (store) => (next) => (action) => {
 
           localStorage.setItem('token', token);
 
-          store.dispatch(successLogin());
           store.dispatch(fetchUser(userId));
         })
         .catch((error) => {
           console.warn(error);
-          store.dispatch(errorLogin());
+          store.dispatch(errorLogin('Identifiants incorrects'));
         });
       break;
     }
@@ -47,8 +52,14 @@ const logMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response.data);
-          store.dispatch(saveUser(response.data));
-          store.dispatch(fetchUserlist(action.userId));
+          if (response.data.verified === 1) {
+            store.dispatch(successLogin());
+            store.dispatch(saveUser(response.data));
+            store.dispatch(fetchUserlist(action.userId));
+          }
+          else {
+            store.dispatch(errorLogin('Veuillez confirmer votre compte'));
+          }
         })
         .catch((error) => {
           console.warn(error);

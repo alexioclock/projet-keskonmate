@@ -44,10 +44,9 @@
 
   .login-error{
     color:red;
-    position: absolute;
-    bottom: 0.8rem;
-    left:1.5rem;
     font-weight: 500;
+    font-size: 1em;
+    text-align: center;
   }
 }
 .links{
@@ -117,17 +116,5 @@
         font-size: 1rem;
       }
     }
-
-    .login-error{
-      font-size: 1.5rem;
-      bottom: 1rem;
-      left:4rem;
-      font-weight: 500;
-    }
   }
-}
-
-
-.error{
-  color: red;
 }
