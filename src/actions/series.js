@@ -2,6 +2,7 @@ export const FETCH_SERIES = 'FETCH_SERIES';
 export const SAVE_SERIES = 'SAVE_SERIES';
 export const FIND_SERIES = 'FIND_SERIES';
 export const SAVE_CURRENT_SERIES_DETAILS = 'SAVE_CURRENT_SERIES_DETAILS';
+export const SET_NOT_LOADING = 'SET_NOT_LOADING';
 
 export const fetchSeries = () => ({
   type: FETCH_SERIES,
@@ -21,3 +22,8 @@ export const saveCurrentSeriesDetails = (series) => ({
   type: SAVE_CURRENT_SERIES_DETAILS,
   currentSeriesDetails: series,
 });
+
+export const setNotLoading = () => ({
+  type: SET_NOT_LOADING,
+
+})

@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 // Composants
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
+import Loading from 'src/components/Loading';
 
 // Style
 import './styles.scss';
 
 // == Composant
 
-const SeriesGrid = ({ series, userlist, loadSeries }) => {
+const SeriesGrid = ({
+  series, userlist, loadSeries, showLoading,
+}) => {
   let serieType = 0;
   let userlistId = 0;
   let userlistSeasonNb = 0;
@@ -17,34 +20,41 @@ const SeriesGrid = ({ series, userlist, loadSeries }) => {
     loadSeries();
   }, []);
   return (
-    <div className="series-grid">
-      {series.map((serie) => {
-        serieType = 0;
-        userlistId = 0;
-        userlistSeasonNb = 0;
-        userlistEpisodeNb = 0;
-          <>
-            {userlist.forEach((userlistSerie) => {
-              if (serie.id === userlistSerie.series.id) {
-                serieType = userlistSerie.type;
-                userlistId = userlistSerie.id;
-                userlistSeasonNb = userlistSerie.seasonNb;
-                userlistEpisodeNb = userlistSerie.episodeNb;
-              }
-            })}
-          </>;
-          return (
-            <SeriesCard
-              key={serie.id}
-              isCatalogue
-              userlistId={userlistId}
-              currentSeason={userlistSeasonNb}
-              currentEpisode={userlistEpisodeNb}
-              type={serieType}
-              {...serie}
-            />
-          );
-      })}
+    <div className="series-catalogue">
+      {showLoading && (
+        <Loading />
+      )}
+      {!showLoading && (
+        <div className="series-grid">
+          {series.map((serie) => {
+            serieType = 0;
+            userlistId = 0;
+            userlistSeasonNb = 0;
+            userlistEpisodeNb = 0;
+              <>
+                {userlist.forEach((userlistSerie) => {
+                  if (serie.id === userlistSerie.series.id) {
+                    serieType = userlistSerie.type;
+                    userlistId = userlistSerie.id;
+                    userlistSeasonNb = userlistSerie.seasonNb;
+                    userlistEpisodeNb = userlistSerie.episodeNb;
+                  }
+                })}
+              </>;
+              return (
+                <SeriesCard
+                  key={serie.id}
+                  isCatalogue
+                  userlistId={userlistId}
+                  currentSeason={userlistSeasonNb}
+                  currentEpisode={userlistEpisodeNb}
+                  type={serieType}
+                  {...serie}
+                />
+              );
+          })}
+        </div>
+      )}
     </div>
   );
 };
@@ -68,6 +78,7 @@ SeriesGrid.propTypes = {
     }).isRequired,
   ).isRequired,
 
+  showLoading: PropTypes.bool.isRequired,
 };
 
 // == Export

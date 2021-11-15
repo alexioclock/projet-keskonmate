@@ -1,4 +1,4 @@
-import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS } from 'src/actions/series';
+import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS, SET_NOT_LOADING } from 'src/actions/series';
 import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
 import { SAVE_HOME_ORDER } from '../actions/seriesFilter';
 
@@ -9,6 +9,7 @@ const initialState = {
   filteredSeries: [],
   filterBygenre: [],
   homeOrderList: [],
+  showLoading: true,
 };
 
 function seriesReducer(state = initialState, action) {
@@ -50,6 +51,12 @@ function seriesReducer(state = initialState, action) {
       return {
         ...state,
         homeOrderList: action.homeOrder,
+      };
+
+    case SET_NOT_LOADING:
+      return {
+        ...state,
+        showLoading: false,
       };
     default:
       return state;
