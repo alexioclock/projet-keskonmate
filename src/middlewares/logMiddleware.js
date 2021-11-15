@@ -7,6 +7,7 @@ import {
   fetchUser,
   saveUser,
 } from 'src/actions/login';
+import { SUBMIT_INSCRIPTION } from 'src/actions/subscribeForm';
 import { fetchUserlist } from 'src/actions/actions';
 
 const logMiddleware = (store) => (next) => (action) => {
@@ -45,6 +46,7 @@ const logMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
+          console.log(response.data);
           store.dispatch(saveUser(response.data));
           store.dispatch(fetchUserlist(action.userId));
         })
@@ -53,6 +55,28 @@ const logMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+
+    case SUBMIT_INSCRIPTION: {
+      const state = store.getState();
+      const newUser = {
+        userNickname: state.subscribeForm.nicknameInput,
+        password: state.subscribeForm.passwordInput,
+        email: state.subscribeForm.emailInput,
+      };
+      console.log(newUser);
+      axios.post(
+        // URL
+        'http://keskonmate.me/api/v1/users/add',
+        newUser,
+      )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      break;
+    }
 
     default:
   }
