@@ -104,3 +104,14 @@
 
 
 
+.container-catalogue{
+  position: absolute;
+  height: 880vh;
+  width: 400px;
+  
+  .catalogue-filters{
+    position: sticky;
+  }
+  
+}
+

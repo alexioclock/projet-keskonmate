@@ -19,6 +19,7 @@ const CatalogueFilters = ({
   // s'il vaut true : il faut déployer le menu des filtres
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   return (
+    <div className="container-catalogue">
     <div className="catalogue-filters">
       {!isFiltersOpen && (
       <div className="catalogue-filters-close">
@@ -102,6 +103,7 @@ const CatalogueFilters = ({
         </ul>
       </div>
       )}
+    </div>
     </div>
   );
 };
