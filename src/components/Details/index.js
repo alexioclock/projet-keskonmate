@@ -179,7 +179,7 @@ const Details = ({
         <div className="genre-list">
           <ul className="ul-genre">
             {currentSeriesDetails.genre.map((genre) => (
-              <li className="li-genre" key={genre.id}><a href="/">{genre.name}</a></li>
+              <li className="li-genre" key={genre.id}>{genre.name}</li>
             ))}
           </ul>
         </div>
@@ -187,6 +187,10 @@ const Details = ({
         <div className="resume">
           <h3>Résumé</h3>
           <p>{currentSeriesDetails.synopsis}</p>
+        </div>
+
+        <div className="seasons-container">
+          <h3>Nombre de saisons : {currentSeriesDetails.season.length} </h3>
         </div>
 
         <div className="actors-container">
@@ -205,22 +209,6 @@ const Details = ({
                   <Image src={actor.image} />
                   <Card.Content>
                     <Card.Header className="actor-name">{actor.name}</Card.Header>
-                  </Card.Content>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="seasons-container">
-          <h3>Saisons</h3>
-          <ul className="ul-seasons">
-            {currentSeriesDetails.season.map((season) => (
-              <li className="li-seasons" key={season.id}>
-                <Card className="season-card">
-                  <Image src="" className="season-image" />
-                  <Card.Content>
-                    <Card.Header>Saison {season.seasonNumber}</Card.Header>
                   </Card.Content>
                 </Card>
               </li>
