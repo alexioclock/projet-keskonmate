@@ -31,8 +31,9 @@ export const logout = () => ({
   type: LOG_OUT,
 });
 
-export const errorLogin = () => ({
+export const errorLogin = (errorMessage) => ({
   type: ERROR_LOGIN,
+  errorMessage: errorMessage,
 });
 
 export const fetchUser = (userId) => ({

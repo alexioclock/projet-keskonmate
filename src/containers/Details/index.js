@@ -5,6 +5,7 @@ import {
   addSerieToApiUserlist,
   editSerieToApiUserlist,
 } from 'src/actions/actions';
+import { openLoginForm } from 'src/actions/subscribeForm';
 import Details from 'src/components/Details';
 
 // eslint-disable-next-line arrow-body-style
@@ -25,6 +26,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   editSerieToApiUserlist: (serieId, newSerieType) => {
     dispatch(editSerieToApiUserlist(serieId, newSerieType));
+  },
+  openLoginForm: () => {
+    const action = openLoginForm();
+    dispatch(action);
   },
 });
 

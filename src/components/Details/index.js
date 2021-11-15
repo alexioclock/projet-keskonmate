@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { Card, Image } from 'semantic-ui-react';
-import Poster from 'src/assets/pictures/squid-game.jpg';
 import Loading from '../Loading';
 
 const Details = ({
@@ -17,6 +16,7 @@ const Details = ({
   findSerieInUserlist,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
+  openLoginForm,
 }) => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -45,19 +45,21 @@ const Details = ({
       <>
         <div className="banner-container">
           {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
-          {currentSeriesDetails.image === ''
-            && (
-              <img
-                className="poster"
-                src={Poster}
-                alt="poster"
-              />
-            )}
           <img className="poster" src={currentSeriesDetails.image} alt="" />
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
             {!isConnected
-            && <a href="/connection" className="connection-button">Connecte-toi </a>}
+            && (
+            <button
+              className="connection-button"
+              type="button"
+              onClick={() => {
+                openLoginForm();
+              }}
+            >
+              Connecte-toi
+            </button>
+            )}
             {isConnected
             && (type === 1)
             && (
@@ -225,6 +227,8 @@ Details.propTypes = {
   userlistEpisodeNb: PropTypes.number,
   addSerieToApiUserlist: PropTypes.func,
   editSerieToApiUserlist: PropTypes.func,
+  openLoginForm: PropTypes.func.isRequired,
+
 };
 
 Details.defaultProps = {

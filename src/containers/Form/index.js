@@ -7,6 +7,8 @@ import {
   setEmailInput,
   setPasswordInput,
   setConfirmPasswordInput,
+  submitInscription,
+  openLoginForm,
 } from '../../actions/subscribeForm';
 
 // on importe l'action que l'on veut dispatch
@@ -15,10 +17,10 @@ import {
 // si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  // inputNickname: state.suscribeForm.nicknameInput,
-  // emailInput: state.suscribeForm.emailInput,
-  // passwordInput: state.suscribeForm.passwordInput,
-  // confirmPasswordInput: state.suscribeForm.confirmPasswordInput,
+  inputNickname: state.subscribeForm.nicknameInput,
+  emailInput: state.subscribeForm.emailInput,
+  passwordInput: state.subscribeForm.passwordInput,
+  confirmPasswordInput: state.subscribeForm.confirmPasswordInput,
 });
 
 // === mapDispatchToProps
@@ -40,6 +42,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setConfirmPasswordInput: (newValue) => {
     const action = setConfirmPasswordInput(newValue);
+    dispatch(action);
+  },
+  submitInscription: () => {
+    dispatch(submitInscription());
+  },
+  openLoginForm: () => {
+    const action = openLoginForm();
     dispatch(action);
   },
 });
