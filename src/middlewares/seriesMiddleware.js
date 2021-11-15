@@ -114,7 +114,6 @@ const seriesMiddleware = (store) => (next) => (action) => {
     case FETCH_HOME_ORDER:
       axios.get('http://keskonmate.me/api/v1/series/homeorder')
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveHomeOrder(response.data));
         });
       break;
