@@ -17,7 +17,7 @@ const Form = ( {
 
         
       return(
-    <div className="form">
+    <div className="container-form">
       <form 
       className="suscribe-form" 
       action="/" 

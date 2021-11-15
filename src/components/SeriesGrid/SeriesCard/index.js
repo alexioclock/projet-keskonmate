@@ -28,6 +28,8 @@ const SeriesCard = ({
   currentEpisode,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
+  isConnected,
+  openLoginForm,
 }) => {
   const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
   const [isEditDropdownOpen, setIsEditDropdownOpen] = useState(false);
@@ -43,38 +45,53 @@ const SeriesCard = ({
             && (
             <div className="series-card-icon-add-div">
               <div className={isAddDropdownOpen ? 'series-card-icon-add-dropdown--open' : 'series-card-icon-add-dropdown'}>
-                <ul className="series-card-icon-add-dropdown-list">
-                  <button
-                    type="button"
-                    className="series-card-icon-add-dropdown-list-item"
-                    onClick={() => {
-                      addSerieToApiUserlist(id, title, image, 1);
-                      setIsAddDropdownOpen(false);
-                    }}
-                  >
-                    Ajouter à ma liste [déjà vu]
-                  </button>
-                  <button
-                    type="button"
-                    className="series-card-icon-add-dropdown-list-item"
-                    onClick={() => {
-                      addSerieToApiUserlist(id, title, image, 2);
-                      setIsAddDropdownOpen(false);
-                    }}
-                  >
-                    Ajouter à ma liste [en cours]
-                  </button>
-                  <button
-                    type="button"
-                    className="series-card-icon-add-dropdown-list-item"
-                    onClick={() => {
-                      addSerieToApiUserlist(id, title, image, 3);
-                      setIsAddDropdownOpen(false);
-                    }}
-                  >
-                    Ajouter à ma liste [à voir]
-                  </button>
-                </ul>
+                {(!isConnected) && (
+                  <ul className="series-card-icon-add-dropdown-list">
+                    <button
+                      type="button"
+                      className="series-card-icon-add-dropdown-list-item"
+                      onClick={() => {
+                        openLoginForm();
+                      }}
+                    >
+                      Connecte-toi
+                    </button>
+                  </ul>
+                )}
+                {(isConnected) && (
+                  <ul className="series-card-icon-add-dropdown-list">
+                    <button
+                      type="button"
+                      className="series-card-icon-add-dropdown-list-item"
+                      onClick={() => {
+                        addSerieToApiUserlist(id, title, image, 1);
+                        setIsAddDropdownOpen(false);
+                      }}
+                    >
+                      Ajouter à ma liste [déjà vu]
+                    </button>
+                    <button
+                      type="button"
+                      className="series-card-icon-add-dropdown-list-item"
+                      onClick={() => {
+                        addSerieToApiUserlist(id, title, image, 2);
+                        setIsAddDropdownOpen(false);
+                      }}
+                    >
+                      Ajouter à ma liste [en cours]
+                    </button>
+                    <button
+                      type="button"
+                      className="series-card-icon-add-dropdown-list-item"
+                      onClick={() => {
+                        addSerieToApiUserlist(id, title, image, 3);
+                        setIsAddDropdownOpen(false);
+                      }}
+                    >
+                      Ajouter à ma liste [à voir]
+                    </button>
+                  </ul>
+                )}
               </div>
               <Plus
                 className="series-card-icon series-card-icon-add"
@@ -308,6 +325,8 @@ SeriesCard.propTypes = {
   ]),
   addSerieToApiUserlist: PropTypes.func,
   editSerieToApiUserlist: PropTypes.func,
+  isConnected: PropTypes.bool.isRequired,
+  openLoginForm: PropTypes.func.isRequired,
 };
 
 SeriesCard.defaultProps = {
