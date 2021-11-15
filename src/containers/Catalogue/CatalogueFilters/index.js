@@ -10,6 +10,7 @@ import {
 } from 'src/actions/seriesFilter';
 
 const mapStateToProps = (state) => ({
+  showLoading: state.series.showLoading,
 
 });
 
