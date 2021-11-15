@@ -1,16 +1,18 @@
+.footer {
+  position: relative;
+  top: 100px;
+}
 .container-footer{
-  position: absolute;
   // min-height: calc(100vh - 90vh);
   font-size: 1em;
   width: 100%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   align-content: center;
-  margin: 2rem 0 1rem;
   animation: footerDisplay 2s ease-in-out;
-
 }
 
 @keyframes footerDisplay {
@@ -26,13 +28,14 @@
 }
 
 .element-footer{
-  display: flex;
+  // display: flex;
   flex-direction: column;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 5px;
   align-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .element-footer a{
@@ -50,11 +53,16 @@
   display: none;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .container-footer{
     display: flex;
     flex-direction: row;
-    
+    align-items: center;
+    align-content: center;
+  }
+
+  .element-footer {
+    width: 20%;
   }
 
   .element-footer-slash{
