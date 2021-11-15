@@ -15,10 +15,10 @@ import {
 // si on a besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  inputNickname: state.suscribeForm.nicknameInput,
-  emailInput: state.suscribeForm.emailInput,
-  passwordInput: state.suscribeForm.passwordInput,
-  confirmPasswordInput: state.suscribeForm.confirmPasswordInput,
+  // inputNickname: state.suscribeForm.nicknameInput,
+  // emailInput: state.suscribeForm.emailInput,
+  // passwordInput: state.suscribeForm.passwordInput,
+  // confirmPasswordInput: state.suscribeForm.confirmPasswordInput,
 });
 
 // === mapDispatchToProps

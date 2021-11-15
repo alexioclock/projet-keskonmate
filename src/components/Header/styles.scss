@@ -260,23 +260,6 @@
     border-top: 1px solid #D4D4D4;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-  
-    .form-results-list-link{    
-
-      .form-results-list-item {
-      padding: 1em 1em;
-      }
-      .form-results-list-item:hover{
-        padding: 1em 1em;
-        font-size: vars.$textFont;
-        color: vars.$darkColor;
-        background-color: vars.$backgroundColorLight;
-        border-radius: 5px;
-      }
-    }
-    .form-results-list-link:hover{
-      text-decoration: none;
-    }
   }
 }
 
@@ -372,12 +355,19 @@
   }
   .form-results-div {
     top: 58px;
-    left: 107px;
-    width: 21.5%;
+    left: 120px;
+    width: 24%;
   }
   
 }
 
+@media only screen and (min-width:1200px) {
+  .form-results-div {
+    top: 58px;
+    left: 130px;
+    width: 24%;
+  }
+}
 @media only screen and (min-width:1440px) {
   .header{
     font-size: 1.2rem;
@@ -395,11 +385,17 @@
     }
   }
   .form-results-div {
-    left: 150px;
-    width: 24%;
+    left: 160px;
+    width: 26%;
   }
 }
 
+@media only screen and (min-width:1600px) {
+  .form-results-div {
+    left: 180px;
+    width: 26%;
+  }
+}
 
 @media only screen and (min-width:1850px) {
   .header{
@@ -410,8 +406,8 @@
     }
   }
   .form-results-div {
-    left: 182px;
-    width: 26%;
+    left: 200px;
+    width: 28%;
   }
 }
 
@@ -431,4 +427,26 @@
 
 
 
+
+.form-results-list-item{
+  padding: 1em 1em;
+  text-decoration: none;
+  text-decoration-color:transparent;
+
+}
+
+.form-results-list-item:hover{
+  padding: 1em 1em;
+  font-size: vars.$textFont;
+  color: vars.$darkColor;
+  background-color: vars.$backgroundColorLight;
+  border-radius: 5px;
+  text-decoration: none;
+  text-decoration-color:transparent;
+
+  a{
+    text-decoration: transparent;
+  }
+
+}
 
