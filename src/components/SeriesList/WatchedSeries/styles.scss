@@ -1,5 +1,6 @@
 .list-navigation .watched-series-grid {
   animation: slideWatchList 0.8s ease-in-out;
+  top:-10px;
 
 
   @keyframes slideWatchList {
