@@ -17,6 +17,7 @@ const Details = ({
   findSerieInUserlist,
   addSerieToApiUserlist,
   editSerieToApiUserlist,
+  openLoginForm,
 }) => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -57,7 +58,17 @@ const Details = ({
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
             {!isConnected
-            && <a href="/connection" className="connection-button">Connecte-toi </a>}
+            && (
+            <button
+              className="connection-button"
+              type="button"
+              onClick={() => {
+                openLoginForm();
+              }}
+            >
+              Connecte-toi
+            </button>
+            )}
             {isConnected
             && (type === 1)
             && (
@@ -225,6 +236,8 @@ Details.propTypes = {
   userlistEpisodeNb: PropTypes.number,
   addSerieToApiUserlist: PropTypes.func,
   editSerieToApiUserlist: PropTypes.func,
+  openLoginForm: PropTypes.func.isRequired,
+
 };
 
 Details.defaultProps = {
