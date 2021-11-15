@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-.header{
+.header-header{
   width: 100%;
   top: 0;
   position: fixed;
@@ -151,7 +151,7 @@
 
 
 @media only screen and (min-width:768px) {
-  .header{
+  .header-header{
     a:hover{
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -281,7 +281,7 @@
 }
 
 @media only screen and (min-width:1024px) {
-  .header{
+  .header-header{
     a:hover{
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -379,7 +379,7 @@
 }
 
 @media only screen and (min-width:1440px) {
-  .header{
+  .header-header{
     font-size: 1.2rem;
     .navbar{
       .searchbar{
@@ -402,7 +402,7 @@
 
 
 @media only screen and (min-width:1850px) {
-  .header{
+  .header-header{
     .navbar{
       .searchbar{
         width: 38%;
@@ -416,7 +416,7 @@
 }
 
 @media only screen and (min-width:2300px) {
-  .header{
+  .header-header{
     .navbar{
       .searchbar{
         width: 41%;
