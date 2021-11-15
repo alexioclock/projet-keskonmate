@@ -1,12 +1,11 @@
 // == Import
-import "./loading.scss";
+import './loading.scss';
 // == Composant
 const Loading = () => (
-
   <div className="LoaderBalls">
-    <div className="LoaderBalls__item" ></div>
-    <div className="LoaderBalls__item"></div>
-    <div className="LoaderBalls__item"></div>
+    <div className="LoaderBalls__item" />
+    <div className="LoaderBalls__item" />
+    <div className="LoaderBalls__item" />
   </div>
 );
 

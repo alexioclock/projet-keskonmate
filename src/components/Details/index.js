@@ -34,9 +34,6 @@ const Details = ({
       })
       .finally(() => {
         // traitement exécuté après le traitement de la réponse, que ce soit un
-        // succès ou un échec
-        console.log('finally');
-
         // on indique que le chargement des articles est terminé
         setIsLoading(false);
       });
