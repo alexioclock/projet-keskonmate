@@ -14,7 +14,7 @@ const Header = ({
   username, isConnected, openLoginForm,
   isLoginFormOpened,
 }) => (
-  <div className="header">
+  <div className="header-header">
     <div className="navbar">
       <div className="series">
         <Link to="/series" className="series-link">
