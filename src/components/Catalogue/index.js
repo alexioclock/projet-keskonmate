@@ -12,11 +12,9 @@ const Catalogue = () => (
     {/* Carousel */}
     <CatalogueDropdown />
     {/* Filtres */}
-    <div className="filters-and-grid">
-      <CatalogueFilters />
-      {/* Grille de séries */}
-      <SeriesGrid />
-    </div>
+    <CatalogueFilters />
+    {/* Grille de séries */}
+    <SeriesGrid />
   </div>
 );
 

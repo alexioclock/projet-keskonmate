@@ -8,7 +8,6 @@ import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
 import Loading from '../Loading';
 
-
 const Details = ({
   isConnected,
   type,

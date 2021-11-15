@@ -3,7 +3,7 @@
 .catalogue-filters {
   z-index: 2;
   position: sticky;
-  top: 43px;
+  top: 130px;
   animation: filterTransition 2s ease-in-out;
 
   @keyframes filterTransition {
@@ -23,22 +23,12 @@
   }
   
   &-close {
-    z-index: 1;
-    top: 5em;
-    position: absolute;
     border: none;
     width: 50px;
     height: 50px;
     background: #FFF;
     border-radius: 7px;
-    margin-top:2rem;
 
-    @media only screen and (min-device-width : 1024px) {
-      border: none;
-      z-index: 1;
-      position: sticky;
-      top: 40px;
-    }
     &-logo{
       margin:0.6rem 0 0 0.6rem;
     }
@@ -48,17 +38,16 @@
   }
 
   &-open {
+    border: none;
     width: 100%;
     background: #FFF;
     border-radius: 15px;
-    border: none;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
 
     @media only screen and (min-device-width : 1024px) {
-      z-index: 1;
-      position: sticky;
-      top: 40px;
     }
-    
   }
 
   &-header {
@@ -67,7 +56,8 @@
     
     & h2 {
       margin: 5px auto;
-      font-size: 2em;
+      padding-left: 1em;
+      font-size: 1.8em;
       font-weight: 500;
 
       @media only screen and (min-device-width : 1024px) {
@@ -76,16 +66,8 @@
     }
   }
 
-  &-list {
-
-    @media only screen and (min-device-width : 1024px) {
-      // margin: 50px 10px;
-      background-color: black;
-    }
-  }
-
   &-item {
-    font-size: 1.5em;
+    font-size: 1em;
 
     @media only screen and (min-device-width : 1024px) {
       font-size: 1em;
@@ -94,17 +76,21 @@
     }
 
     &-button {
-      background-color: transparent;
       border:none;
       color: vars.$darkColor;
+      background: #FFF;
       font-family: vars.$textFont;
       width: 100%;
       padding: 1.5rem 1rem;
       border-radius: 10px;
+
+      & p {
+        // min-width: 200px;
+        margin: auto;
+      }
     }
     &-button:hover {
       font-weight: 500;
-      background-color: vars.$backgroundColorLight;
     }
   }
 }
