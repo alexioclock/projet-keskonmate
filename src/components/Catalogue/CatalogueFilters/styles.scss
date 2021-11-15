@@ -6,6 +6,7 @@
   top: 43px;
   animation: filterTransition 2s ease-in-out;
 
+
   @keyframes filterTransition {
     0%{
       opacity: 0;
@@ -25,7 +26,7 @@
   &-close {
     z-index: 1;
     top: 5em;
-    position: absolute;
+    position: sticky;
     border: none;
     width: 50px;
     height: 50px;
@@ -80,7 +81,6 @@
 
     @media only screen and (min-device-width : 1024px) {
       // margin: 50px 10px;
-      background-color: black;
     }
   }
 
