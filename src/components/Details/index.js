@@ -8,7 +8,6 @@ import { Card, Image } from 'semantic-ui-react';
 import Poster from 'src/assets/pictures/squid-game.jpg';
 import Loading from '../Loading';
 
-
 const Details = ({
   isConnected,
   type,
@@ -35,9 +34,6 @@ const Details = ({
       })
       .finally(() => {
         // traitement exécuté après le traitement de la réponse, que ce soit un
-        // succès ou un échec
-        console.log('finally');
-
         // on indique que le chargement des articles est terminé
         setIsLoading(false);
       });
