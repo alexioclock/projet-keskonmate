@@ -18,12 +18,12 @@ const logMiddleware = (store) => (next) => (action) => {
         // URL
         'http://keskonmate.me/api/login',
         {
-          // username: state.user.nicknameLogin,
-          // password: state.user.passwordLogin,
+          username: state.user.nicknameLogin,
+          password: state.user.passwordLogin,
 
           // Utilisateur vérifié (1)
-          username: 'admin@keskonmate.me',
-          password: 'admin',
+          // username: 'keskonmate@gmail.com',
+          // password: 'test',
 
           // Utilisateur non vérifié (0)
           // username: 'test1@keskonmate.me',
