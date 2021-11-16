@@ -13,7 +13,7 @@ import {
 const userlistMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_USERLIST:
-      axios.get(`http://keskonmate.me/api/v1/users/${action.userId}`, {
+      axios.get(`http://backoffice-keskonmate.me/api/v1/users/${action.userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -43,7 +43,7 @@ const userlistMiddleware = (store) => (next) => (action) => {
 
       axios.post(
         // URL
-        'http://keskonmate.me/api/v1/userlists',
+        'http://backoffice-keskonmate.me/api/v1/userlists',
         newUserLists,
         {
           headers: {
@@ -80,7 +80,7 @@ const userlistMiddleware = (store) => (next) => (action) => {
 
       axios.patch(
         // URL
-        `http://keskonmate.me/api/v1/userlists/${action.userlistId}`,
+        `http://backoffice-keskonmate.me/api/v1/userlists/${action.userlistId}`,
         newUserLists,
         {
           headers: {

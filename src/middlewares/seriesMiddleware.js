@@ -22,7 +22,7 @@ import {
 const seriesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SERIES:
-      axios.get('http://keskonmate.me/api/v1/series')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
           store.dispatch(setNotLoading());
@@ -35,7 +35,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case FIND_SERIES:
-      axios.get(`http://keskonmate.me/api/v1/series/${action.slug}`)
+      axios.get(`http://backoffice-keskonmate.me/api/v1/series/${action.slug}`)
         .then((response) => {
           store.dispatch(saveCurrentSeriesDetails(response.data));
         })
@@ -45,7 +45,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case ALPHABETICAL_TITLE_FILTER:
-      axios.get('http://keskonmate.me/api/v1/series?order=ASC')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series?order=ASC')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -55,7 +55,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case REVERSE_ALPHABETICAL_TITLE_FILTER:
-      axios.get('http://keskonmate.me/api/v1/series?order=DESC')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series?order=DESC')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -65,7 +65,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case YOUNGER_TO_OLDER_FILTER:
-      axios.get('http://keskonmate.me/api/v1/series?column=releaseDate&order=DESC')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series?column=releaseDate&order=DESC')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -75,7 +75,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case OLDER_TO_YOUNGER_FILTER:
-      axios.get('http://keskonmate.me/api/v1/series?column=releaseDate&order=ASC')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series?column=releaseDate&order=ASC')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -85,7 +85,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case ALPHABETICAL_DIRECTOR_FILTER:
-      axios.get('http://keskonmate.me/api/v1/series?column=director&order=ASC')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series?column=director&order=ASC')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -95,7 +95,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case REVERSE_ALPHABETICAL_DIRECTOR_FILTER:
-      axios.get('http://keskonmate.me/api/v1/series?column=director&order=DESC')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series?column=director&order=DESC')
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -105,7 +105,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case GENRE_FILTER:
-      axios.get(`http://keskonmate.me/api/v1/series?genre=${action.genreId}`)
+      axios.get(`http://backoffice-keskonmate.me/api/v1/series?genre=${action.genreId}`)
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
@@ -115,7 +115,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_HOME_ORDER:
-      axios.get('http://keskonmate.me/api/v1/series/homeorder')
+      axios.get('http://backoffice-keskonmate.me/api/v1/series/homeorder')
         .then((response) => {
           store.dispatch(saveHomeOrder(response.data));
         });

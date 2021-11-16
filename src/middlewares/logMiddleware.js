@@ -16,7 +16,7 @@ const logMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       axios.post(
         // URL
-        'http://keskonmate.me/api/login',
+        'http://backoffice-keskonmate.me/api/login',
         {
           username: state.user.nicknameLogin,
           password: state.user.passwordLogin,
@@ -45,7 +45,7 @@ const logMiddleware = (store) => (next) => (action) => {
     }
 
     case FETCH_USER:
-      axios.get(`http://keskonmate.me/api/v1/users/${action.userId}`, {
+      axios.get(`http://backoffice-keskonmate.me/api/v1/users/${action.userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -77,7 +77,7 @@ const logMiddleware = (store) => (next) => (action) => {
       console.log(newUser);
       axios.post(
         // URL
-        'http://keskonmate.me/api/v1/users/add',
+        'http://backoffice-keskonmate.me/api/v1/users/add',
         newUser,
       )
         .then((response) => {
