@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import './styles.scss';
 
 const HomeHeader = ({
@@ -17,9 +19,9 @@ const HomeHeader = ({
           </p>
         </div>
         <div className="home-header-not-connected-links">
-          <a href="/inscription">
+          <Link to="/inscription">
             Inscrivez-vous
-          </a>
+          </Link>
           &nbsp;pour commencer vos listes !
           <p>
             ou

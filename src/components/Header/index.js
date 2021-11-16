@@ -20,9 +20,9 @@ const Header = ({
         <Link to="/series" className="series-link">
           Toutes les séries
         </Link>
-        <a href="/series" className="series-icon">
+        <Link to="/series" className="series-icon">
           <List />
-        </a>
+        </Link>
       </div>
 
       <div className="searchbar">
