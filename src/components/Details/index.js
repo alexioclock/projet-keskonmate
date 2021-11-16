@@ -22,7 +22,7 @@ const Details = ({
   const [isLoading, setIsLoading] = useState(true);
   const [currentSeriesDetails, setCurrentSeriesDetails] = useState({});
   useEffect(() => {
-    axios.get(`http://keskonmate.me/api/v1/series/${slug}`)
+    axios.get(`http://backoffice-keskonmate.me/api/v1/series/${slug}`)
       .then((response) => {
         setCurrentSeriesDetails(response.data);
 

@@ -11,7 +11,7 @@ const CatalogueDropdown = ({ setGenreFilter }) => {
   const [currentGenre, setCurrentGenre] = useState('');
 
   useEffect(() => {
-    axios.get('http://keskonmate.me/api/v1/genres')
+    axios.get('http://backoffice-keskonmate.me/api/v1/genres')
       .then((response) => {
         setGenreArray(response.data);
       })
