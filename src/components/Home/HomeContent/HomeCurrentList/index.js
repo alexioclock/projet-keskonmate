@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
@@ -8,9 +9,9 @@ const HomeCurrentList = ({ currentSeries }) => (
     <p className="list-name">
       Les séries en cours
     </p>
-    <a href="/series-en-cours" className="series-link">
+    <Link to="/series-en-cours" className="series-link">
       Voir la liste complète
-    </a>
+    </Link>
     <div className="series-cards">
       {currentSeries.map((serie) => (
         serie.type === 2

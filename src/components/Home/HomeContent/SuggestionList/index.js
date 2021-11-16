@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
@@ -18,9 +19,9 @@ const SuggestionList = ({ userlist, loadHomeOrder, homeOrderList }) => {
         Vous pourriez aimer...
       </p>
 
-      <a href="/series" className="series-link">
+      <Link to="/series" className="series-link">
         Voir notre catalogue de séries
-      </a>
+      </Link>
 
       <div className="series-cards">
         {homeOrderList.map((serie) => {
