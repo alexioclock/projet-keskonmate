@@ -20,8 +20,9 @@ export const handleSearchChange = (newValue) => ({
   value: newValue,
 });
 
-export const filterSearchedSeries = () => ({
+export const filterSearchedSeries = (value) => ({
   type: FILTER_SEARCHED_SERIES,
+  value: value,
 });
 
 export const findSerieInUserlist = (serieId) => ({

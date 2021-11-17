@@ -1,5 +1,10 @@
-import { SAVE_SERIES, SAVE_CURRENT_SERIES_DETAILS, SET_NOT_LOADING } from 'src/actions/series';
-import { HANDLE_SEARCH_CHANGE, FILTER_SEARCHED_SERIES } from 'src/actions/actions';
+import {
+  SAVE_SERIES,
+  SAVE_CURRENT_SERIES_DETAILS,
+  SET_NOT_LOADING,
+  SAVE_FILTERED_SERIES,
+} from 'src/actions/series';
+import { HANDLE_SEARCH_CHANGE } from 'src/actions/actions';
 import { SAVE_HOME_ORDER } from '../actions/seriesFilter';
 
 const initialState = {
@@ -32,20 +37,11 @@ function seriesReducer(state = initialState, action) {
         currentSeriesDetails: action.currentSeriesDetails,
       };
 
-    case FILTER_SEARCHED_SERIES: {
-      const newSeriesArray = [...state.seriesList];
-      const newSeriesArrayFiltered = newSeriesArray.filter((serie) => {
-        const currentTitleLowered = serie.title.toLowerCase();
-        const inputSearchLowered = state.searchedSerie.toLowerCase();
-        return currentTitleLowered.includes(inputSearchLowered);
-      });
+    case SAVE_FILTERED_SERIES:
       return {
-        // en déversant les informations du state actuel
         ...state,
-        // et en appliquant des modifications
-        filteredSeries: newSeriesArrayFiltered,
+        filteredSeries: action.series,
       };
-    }
 
     case SAVE_HOME_ORDER:
       return {

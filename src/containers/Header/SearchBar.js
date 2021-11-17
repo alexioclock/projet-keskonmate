@@ -19,8 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
   handleSearchChange: (newValue) => {
     dispatch(handleSearchChange(newValue));
   },
-  filterSearchedSeries: () => {
-    dispatch(filterSearchedSeries());
+  filterSearchedSeries: (newValue) => {
+    dispatch(filterSearchedSeries(newValue));
   },
 });
 

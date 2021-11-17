@@ -21,7 +21,7 @@ const SearchBar = ({
           onChange={(event) => {
             setIsOpen(true);
             handleSearchChange(event.target.value);
-            filterSearchedSeries();
+            filterSearchedSeries(event.target.value);
           }}
         />
         <button
