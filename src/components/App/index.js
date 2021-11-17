@@ -9,7 +9,7 @@ import Form from 'src/containers/Form';
 import WatchedSeries from 'src/containers/SeriesList/WatchedSeries';
 import ToWatchSeries from 'src/containers/SeriesList/ToWatchSeries';
 import CurrentSeries from 'src/containers/SeriesList/CurrentSeries';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import NotFound from '../NotFound';
 import Footer from '../Footer';
 
