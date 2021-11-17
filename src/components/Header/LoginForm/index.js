@@ -1,5 +1,6 @@
 import './styles.scss';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const LoginForm = (
   {
@@ -53,9 +54,9 @@ const LoginForm = (
       >
         Se connecter
       </button>
-      <a href="/inscription" className="inscription">
+      <Link to="/inscription" className="inscription">
         Inscription
-      </a>
+      </Link>
     </div>
 
     {errorMessage !== ''

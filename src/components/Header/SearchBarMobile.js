@@ -36,7 +36,7 @@ const SearchBarMobile = ({
               value={search}
               onChange={(event) => {
                 handleSearchChange(event.target.value);
-                filterSearchedSeries();
+                filterSearchedSeries(event.target.value);
               }}
             />
             <button
