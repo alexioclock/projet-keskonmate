@@ -3,6 +3,7 @@ import {
   FETCH_SERIES,
   FIND_SERIES,
   saveSeries,
+  saveFilteredSeries,
   saveCurrentSeriesDetails,
   setNotLoading,
 } from 'src/actions/series';
@@ -18,6 +19,7 @@ import {
   FETCH_HOME_ORDER,
   saveHomeOrder,
 } from 'src/actions/seriesFilter';
+import { FILTER_SEARCHED_SERIES } from '../actions/actions';
 
 const seriesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -118,6 +120,16 @@ const seriesMiddleware = (store) => (next) => (action) => {
       axios.get('http://backoffice-keskonmate.me/api/v1/series/homeorder')
         .then((response) => {
           store.dispatch(saveHomeOrder(response.data));
+        });
+      break;
+
+    case FILTER_SEARCHED_SERIES:
+      axios.get(`http://backoffice-keskonmate.me/api/v1/series?keyword=${action.value}`)
+        .then((response) => {
+          store.dispatch(saveFilteredSeries(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
         });
       break;
 
