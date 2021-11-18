@@ -1,0 +1,452 @@
+@use 'src/styles/vars';
+
+.header-header{
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 4;
+  background-color: vars.$backgroundColor;
+  height: 80px;
+
+
+  .navbar{
+    display:flex;
+    justify-content: space-between;
+    color: vars.$darkColor;
+    padding:1rem;
+
+    .series{
+      align-self: center;
+      .series-link{
+      display:none;
+      }
+      .series-icon:hover{
+        color: vars.$darkColor;
+      }
+
+    }
+    .searchbar{
+      align-self: center;
+      z-index: 3;
+      .div-form-mobile{
+      // the button we have to click for the form to appear
+      .form-display{
+        border:none;
+        background-color: transparent;
+        color: vars.$darkColor;
+      }
+      .form-mobile{
+          z-index: 5;
+          display: flex;
+          position: absolute;
+          top:0;
+          left:0;
+          width:100%;
+          padding: 15px 0;
+          margin:none;
+          background-color: #fff;
+          height:100px;
+          .form-mobile-input{
+            height:1.7rem;
+            border:none;
+            width:85%;
+            text-align: left;
+            font-family: vars.$textFont;
+            color:vars.$darkColor;
+            margin:auto;
+          }
+          input::placeholder{
+            font-family: vars.$textFont;
+            text-align: left;
+          }
+          button{
+            border:none;
+            background-color: transparent;
+          }
+        }
+      }
+      // SearchBar on desktop
+      .form{
+        display: none;
+        button{
+          display: none;
+        }
+      }
+    }
+  
+    .logo{
+      font-size: 15px;
+    }
+
+    .lists{
+      align-self: center;
+      .list-link{
+      display:none;
+      }
+      .list-icon:hover{
+        color: vars.$darkColor;
+      }
+    }
+ 
+    .isConnected-links{
+      .account-button{
+        border:none;
+        background-color: transparent;
+        color: vars.$darkColor;          
+        .user-name{
+          display: none;
+        }
+      }
+    }
+    
+    .isNotConnected-links{
+      .account-button{
+        border: none;
+        background-color: transparent;
+        color: vars.$darkColor;
+        .connection{
+          display: none;
+        }
+      }
+    }
+    .user-icon:hover{
+      color:vars.$darkColor;
+    }
+  }
+}
+
+.form-results-div {
+  display: none;
+}
+
+.mobile-form-results-div {
+  display: block;
+  background: #FFF;
+  z-index: 2;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 100%;
+  padding: 0 0.8em;
+  border-top: 1px solid #D4D4D4;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  max-height: 180px;
+  overflow: auto;
+
+  .mobile-form-results-list{
+    width: 100%;
+    .mobile-form-results-list-item {
+    padding: 1em 1em;
+    width:100%;
+    font-family: vars.$textFont;
+    }
+    .mobile-form-results-list-item:hover {
+    color: vars.$darkColor;
+    background-color: vars.$backgroundColorLight;
+    border-radius: 5px;
+    }
+  }
+}
+
+
+@media only screen and (min-width:768px) {
+  .header-header{
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .navbar{
+      justify-content: flex-start;
+      .series{
+        width:5%;
+      }
+      .searchbar{
+        width:36%;
+        .form-display{
+          display: none;
+        }
+        .form-mobile-element{
+        display: none;
+        }
+      // SearchBar on large screen
+        .form{
+          display: flex;
+          .form-input{
+            width:80%;
+            border:none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin:auto 0;
+            font-family: vars.$textFont;
+            color: vars.$darkColor;
+          }
+          input::placeholder{
+          font-family: vars.$textFont;
+          }
+
+          button{
+          color:vars.$darkColor;
+          display: inline-block;
+          background-color: transparent;
+          border: none;
+          }
+        }
+      }
+      .link-logo{
+        width:30%;
+        .logo{
+          font-size: 20px;
+        }
+      }
+      .lists{
+        width:17%;
+        text-align: right;
+      }
+
+      .isConnected-links{
+        align-self: center;
+        width:20%;
+        .account-button{
+        display: flex;
+        justify-content: flex-end;
+          .user-name{
+            display: inline-block;
+            width:95%;
+            align-self: center;
+            margin-right:5px;
+            font-weight: 500;
+            text-align:right;
+          }
+        }
+      }
+      .isNotConnected-links{
+        align-self:center ;
+        width:22%;
+        .account-button{
+          display: flex;
+          justify-content: flex-end;
+          .connection{
+            display: inline-block;
+            width:95%;
+            margin-right:5px;
+            font-weight: 500;
+            text-align:right;
+            align-self: center;
+          }
+        }
+      }
+      
+      .account:hover{
+        color:vars.$darkColor;   
+      }
+    }
+  }
+  .mobile-form-results-div {
+    display: none;
+  }
+  
+  .form-results-div {
+    display: block;
+    background: #FFF;
+    z-index: 2;
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    width: 25.5%;
+    max-height: 400px;
+    overflow: auto;
+    padding: 0 0.8em;
+    border-top: 1px solid #D4D4D4;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .header-header{
+    a:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .navbar{
+      .series{
+        .series-link{
+          display: inline-block;
+          text-align: center;
+          font-weight: 500;
+          margin-right:1rem;
+        }
+        .series-link:hover{
+          color:vars.$darkColor;
+
+        }
+        .series-icon{
+          display: none;
+        }
+        width:10%;
+      }
+
+      .searchbar{
+        width: 32%;
+      }
+
+      .form{
+        .form-input{
+          width:75%
+        }
+      }
+
+      .link-logo{
+        width:30%;
+        .logo{
+          font-size: 23px;
+        }
+      }
+      .lists{
+        .list-link{
+          display: inline-block;
+          font-weight:500 ;
+        }
+        .list-link:hover{
+          color:vars.$darkColor;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+        .list-icon{
+          display: none;
+        }
+      }
+      .isConnected-links{
+        width:18%;
+        .account-button{
+          display: flex;
+          width: 100%;
+          .user-name{
+            display: inline-block;
+            text-align: right;
+            margin-right:10px;
+            margin-top: 5px;
+            align-self: center;
+          }
+          .user-icon{
+            align-self: center;
+          }
+        }
+      }
+      .isNotConnected-links{
+        width:18%;
+        .account-button{
+          display: flex;
+          width: 100%;
+          .connection{
+            display: inline-block;
+            text-align: right;
+            margin-right:10px;
+            margin-top: 5px;
+            align-self: center;
+          }
+          .user-icon{
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+  .form-results-div {
+    top: 58px;
+    left: 120px;
+    width: 24%;
+  }
+  
+}
+
+@media only screen and (min-width:1200px) {
+  .form-results-div {
+    top: 58px;
+    left: 130px;
+    width: 24%;
+  }
+}
+@media only screen and (min-width:1440px) {
+  .header-header{
+    font-size: 1.2rem;
+    .navbar{
+      .searchbar{
+        width: 34%;
+      }
+      .link-logo{
+        width:25%;
+      }
+      .account{
+        width:15%;
+      }
+
+    }
+  }
+  .form-results-div {
+    left: 160px;
+    width: 26%;
+  }
+}
+
+@media only screen and (min-width:1600px) {
+  .form-results-div {
+    left: 180px;
+    width: 26%;
+  }
+}
+
+@media only screen and (min-width:1850px) {
+  .header-header{
+    .navbar{
+      .searchbar{
+        width: 38%;
+      }
+    }
+  }
+  .form-results-div {
+    left: 200px;
+    width: 28%;
+  }
+}
+
+@media only screen and (min-width:2300px) {
+  .header-header{
+    .navbar{
+      .searchbar{
+        width: 41%;
+      }
+    }
+  }
+  .form-results-div {
+    left: 242px;
+    width: 27.3%;
+  }
+}
+
+
+
+
+.form-results-list-item{
+  padding: 1em 1em;
+  text-decoration: none;
+  text-decoration-color:transparent;
+
+}
+
+.form-results-list-item:hover{
+  padding: 1em 1em;
+  font-size: vars.$textFont;
+  color: vars.$darkColor;
+  background-color: vars.$backgroundColorLight;
+  border-radius: 5px;
+  text-decoration: none;
+  text-decoration-color:transparent;
+
+  a{
+    text-decoration: transparent;
+  }
+
+}
+

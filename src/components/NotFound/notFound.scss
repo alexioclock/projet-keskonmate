@@ -1,0 +1,28 @@
+.notFound{
+
+  height: 70vh;
+  h4{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 8em;
+  }
+
+  p{
+    text-align: center;
+  }
+
+  img{
+    margin-top: 1em;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }
+  }
+}

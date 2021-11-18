@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+.home-content{
+  font-family: vars.$textFont;
+}
+
+@media only screen and (min-width:1024px){
+  
+  .home-lists{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+}

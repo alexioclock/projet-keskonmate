@@ -1,0 +1,58 @@
+@use 'src/styles/vars';
+
+.type {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  color:#FFF;
+  font-weight: 500;
+  .button{
+    background-color: vars.$darkColor;
+    border: solid 1px #FFF;
+    padding: 0.3rem 0.1rem;
+    border-radius: 5px;
+    width: 48%;
+  }
+
+  .button:hover{
+    background-color: vars.$backgroundColor;
+    color:vars.$darkColor;
+    transition-duration: 0.3s;
+  }
+}
+@media only screen and (min-width:768px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:18rem;
+    .button{
+      width:42%;
+      padding:0.6rem;
+    }
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:24rem;
+    .button{
+      align-self: center;
+      width:35%;
+
+    }
+  }
+}
+
+@media only screen and (min-width:1440px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:24rem;
+    .button{
+      width:25%;
+    }
+  }
+}

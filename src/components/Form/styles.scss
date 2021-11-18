@@ -1,0 +1,139 @@
+
+.container-form{
+  background-color: #f1ded4;
+  top:7em;
+  position: relative;
+  text-align: center;
+  animation: formTransition 1s ease-out;
+  background-color :#fff4f1;
+  width: 20em;
+  margin:auto;
+  border-radius: 10px;
+
+}
+
+h1{
+  font-size: 2em;
+  padding-top: 1em;
+  margin-bottom: 2em;
+  animation: title 1.2s ease-out;
+}
+
+@keyframes title {
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+// .suscribe-form{
+//   text-align: center;
+//   animation: formTransition 1s ease-out;
+//   background-color :#fff4f1;
+//   width: 20em;
+//   margin:auto;
+//   border-radius: 10px;
+// }
+
+@keyframes formTransition {
+  from {
+    opacity: 0;
+    transform: translate(0, -300px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+
+input{
+  border: none;
+  background-color: #fff;
+  padding: 0.8em 1em 0.8em 1em;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  //*******************ADD AFTER MERGE
+  // color:vars.$darkColor;
+  //font-family: vars.$textFont;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+.container{
+  margin-bottom: 2em;
+}
+
+.error-message-div--green {
+  font-size: 1em;
+  color: #13A713;
+  margin: 1em auto 2em;
+}
+
+.error-message-div--red {
+  font-size: 1em;
+  color: red;
+  margin: 1em auto 2em;
+}
+
+.validation-button{
+  margin-bottom: 1em;
+  border-radius: 5px;
+  background-color: #13A713;
+  border: none;
+  padding: 0.8em 1em;
+  color: white;
+  
+  box-shadow: 0 0 0 0 #13A713;
+  animation: pulse 1,3s infinite; 
+  transition-duration: 0.5s;
+  //*************************ADD AFTER MERGE
+  //font-family: vars.$textFont;
+}
+
+.validation-button:hover{
+  background-color: #0e850e;
+  margin-bottom: 1em;
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 18px #13A713(0, 0, 0, 0.01);
+  }
+}
+
+.social-links{
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+  animation: socialTransition 1.7s ease-out;
+
+  li{
+    margin: 0 15px;
+  }
+}
+
+@keyframes socialTransition {
+  from {
+    opacity: 0;
+    transform: translate(-300px, 0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+.popcorn{
+  position: absolute;
+  height: 50px;
+  width: auto;
+  margin-left: 8em;
+  margin-top: 6em;
+}
+
+

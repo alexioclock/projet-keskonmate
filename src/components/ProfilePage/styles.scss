@@ -1,0 +1,87 @@
+@use 'src/styles/vars';
+.profile-page {
+  margin: 7em auto;
+  text-align: center;
+  animation: slideProfile 2s ease-in-out;
+
+
+  &-title {
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  &-container {
+    margin: 2em;
+  }
+
+  &-subtitle {
+    margin: 1.5em;
+    font-weight: 500;
+  }
+  p{
+    font-weight: 700;
+  }
+  .form-subtitle {
+    margin: 1em;
+  }
+  .profile-page-container-input{
+    padding-top:2em;
+    padding-bottom:2em;
+    background-color: #fff4f1;
+    border-radius:10px;
+    margin:auto;
+    width:90%;
+    input{
+      border: none;
+      background-color: #fff;
+      padding: 0.8em 1em 0.8em 1em;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      color:vars.$darkColor;
+      font-family: vars.$textFont;
+      width:90%;
+    }
+    
+    input::placeholder {
+      text-align: center;
+    }
+    .validation-button{
+      border-radius: 5px;
+      background-color: vars.$darkColor;
+      border: none;
+      padding: 0.8em 1em 0.8em 1em;
+      color: white;
+      margin-top: 1em;
+      box-shadow: 0 0 0 0 vars.$darkColor;
+      animation: pulse 1,3s infinite; 
+      transition-duration: 0.5s;
+      font-family: vars.$textFont;
+      font-weight: 500;
+    }
+    
+    .validation-button:hover{
+      background-color: vars.$lightBlue;
+    }
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .profile-page{
+    .profile-page-container-input{
+      width:50%;
+      input{
+        width:50%;
+      }
+    }
+  }
+}
+
+
+@keyframes slideProfile {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

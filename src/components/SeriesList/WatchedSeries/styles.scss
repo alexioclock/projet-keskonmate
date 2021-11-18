@@ -1,0 +1,36 @@
+.list-navigation .watched-series-grid {
+  animation: slideWatchList 0.8s ease-in-out;
+  top:-10px;
+
+
+  @keyframes slideWatchList {
+    from{
+      transform: translateX(1500px);
+    } to{
+      transform: translateX(0);
+    }
+  }
+  & .series-card {
+    width: 220px;
+    height: 220px;
+    margin: 2rem auto;
+    
+    &-icons-list {
+      left: 90px;
+    }
+
+    &-icon-edit-dropdown--open, &-icon-add-dropdown--open, &-icon-delete-dropdown--open {
+      width: 220px;
+      left: -90px;
+    }
+
+    &-icon-edit-dropdown-list-item, &-icon-add-dropdown-list-item, &-icon-delete-dropdown-list-item {
+      font-size: 0.8em;
+    }
+
+    &-content {
+      top: -40px;
+    }
+  }
+}
+

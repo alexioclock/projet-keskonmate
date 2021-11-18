@@ -1,0 +1,88 @@
+@use 'src/styles/vars';
+
+.home-current-list {
+  font-family: vars.$textFont;
+  text-align: center;
+  border:1px solid #fff;
+  border-radius: 10px;
+  background-color: vars.$backgroundColorLight;
+  width: 95%;
+  margin: 0 auto 1rem;
+  text-align: center;
+  font-size: 0.9em;
+  padding-bottom: 1rem;
+  animation: slideRight 0.8s ease-in-out;
+
+  & .list-name{
+    margin:1rem auto;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  & .series-link:hover{
+    color:vars.$darkColor;
+    text-decoration: underline;
+
+  }
+
+  & .series-cards {
+
+    & .series-card {
+      width: 220px;
+      height: 220px;
+      margin: 2rem auto;
+      
+      & .series-card-icons-list {
+        left: 90px;
+      }
+
+      & .series-card-icon-edit-dropdown--open, & .series-card-icon-add-dropdown--open, & .series-card-icon-delete-dropdown--open {
+        width: 220px;
+        left: -90px;
+      }
+
+      & .series-card-content {
+        top: -35px;
+      }
+    }
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+}
+
+@media only screen and (min-width:1024px){
+  .home-current-list {
+    width:45%;
+    
+    & .series-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap:20px;
+      
+      & .series-card {
+
+        & .series-card-div {
+          margin:1rem auto; 
+          background-color: red;
+
+          & .series-card {
+            width:180px;
+            height:260px;
+            margin:0 auto;
+          }
+        }
+      }
+    }
+  }
+}

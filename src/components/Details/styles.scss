@@ -1,0 +1,277 @@
+@use 'src/styles/vars';
+
+.detail-container{
+  background-color: #f1ded4;
+  margin-top: 2rem;
+  font-family: vars.$textFont;
+  .LoaderBalls{
+    padding-top:10rem;
+  }
+  // STYLE CSS BANNER 
+  .banner-container{
+    height: 15rem;
+    width: 100%; 
+    text-align: center;
+    .poster{
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(40%);
+      width: 100%;
+      background-repeat: no-repeat;
+    }
+    .banner-text{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      bottom: 10.5rem;
+      justify-content:flex-end;
+      height:10rem;
+      .series-title{
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: whitesmoke;
+        margin:1rem auto;
+      }  
+      .connection-button{
+        font-weight: 500;
+        border-radius: 5px;
+        border: 1.5px solid white;
+        background-color: vars.$darkColor;
+        color: white;
+        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+        width: fit-content;
+        align-self: center;
+        margin:0 auto;
+      }
+    }
+
+  }  
+    // CSS TAG GENRE
+  .ul-genre{
+    margin: 1em 0.5em 2em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    .li-genre{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: whitesmoke;
+      padding: 0.7em 1em 0.7em 1em;
+      border-radius: 3px;
+      font-size: 0.8em;
+      margin-right: 0.5rem;
+    }  
+  }  
+
+  // CSS RESUME SERIE
+  .resume{
+    text-align: center;
+    margin: 2rem 1rem;
+
+
+    h3{
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      font-size: 1.5em;
+    }  
+  }  
+
+
+
+  .connection-button:hover{
+    background-color: vars.$backgroundColor;
+    color:vars.$darkColor;
+    transition-duration: 0.3s;
+  }
+
+  //CSS ACTORS LIST
+  .actors-container{
+    text-align: center;
+    font-weight: bold;
+
+    h3{
+     font-size: 1.5em;
+    }
+    .ul-actors{
+      margin: 2em 2em 2em 2em;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .li-actors{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 0.5rem 0.5rem 0;
+        .actor-card{
+          width:10rem;
+        
+          .actor-name{
+            width:100%;
+          }
+        }
+       }
+      }
+    }
+
+  //CSS SEASONS LIST
+  .seasons-container{
+    text-align: center;
+    margin: 2rem 1rem;
+
+    h3{
+      font-size: 1.5em;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .ul-seasons{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2em 2em 2em 2em;
+      .li-seasons{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 0.5rem 0.5rem 0;
+
+        .season-card{
+          width:10rem;
+          .season-image{
+            width:150px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// CSS MEDIA SCREEN 
+@media only screen and (min-width: 768px) {
+  .detail-container{
+    margin-top: 1rem;
+    .banner-container{
+      height: 15rem;
+      .banner-text{
+        height:15rem;
+        bottom:16rem;
+        .series-title{
+          font-size: 2.8rem;
+        }
+      }
+    }
+    .connection-button{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .detail-container{
+    .banner-container{
+      height: 20rem;
+      .banner-text{
+        height:20rem;
+        bottom: 21rem;
+        .series-title{
+          height:4rem;
+          padding-bottom:4rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .detail-container{
+    .genre-list{
+      margin-left:2rem;
+    }
+    .resume{
+      width:90%;
+      margin: 0 auto 2rem;
+    }
+
+  }
+}
+
+.type {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  color:#FFF;
+  font-weight: 500;
+  .button{
+    background-color: vars.$darkColor;
+    border: solid 1px #FFF;
+    padding: 0.3rem 0.1rem;
+    border-radius: 5px;
+    width: 48%;
+    animation : apparitionButton 0.8s ease-out;
+  }
+  @keyframes apparitionButton {
+    from {
+      opacity: 0;
+      transform: translate(0, -100px);
+    }
+    to{
+      opacity: 1;
+      transform: translate(0px);
+    }
+  }
+
+  .button:hover{
+    background-color: vars.$backgroundColor;
+    color:vars.$darkColor;
+    transition-duration: 0.3s;
+  }
+}
+@media only screen and (min-width:768px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:18rem;
+    .button{
+      width:42%;
+      padding:0.6rem;
+    }
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:24rem;
+    .button{
+      align-self: center;
+      width:35%;
+
+    }
+  }
+}
+
+@media only screen and (min-width:1440px) {
+  .type{
+    font-size: 1.2rem;
+    justify-content: space-around;
+    bottom:24rem;
+    .button{
+      width:25%;
+    }
+  }
+}

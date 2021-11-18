@@ -1,0 +1,120 @@
+@use 'src/styles/vars';
+
+.login-form{
+  // display: none;
+  position: absolute;
+  background-color: vars.$backgroundColorLight;
+  width: 10rem;
+  height:12rem;
+  position: absolute;
+  top: 45px;
+  right: 5px;
+  border-radius: 5px;
+  padding:10px 10px 20px 10px;
+  z-index: 4;
+  
+  label{
+    margin-top:0.2rem;
+    font-size: 1rem;
+    display: block;
+    font-weight: 500;
+    input{
+      width:100%;
+      margin-top:0.1rem;
+      margin-bottom: 0.2rem;
+      border:none;
+      border-radius: 3px;
+      background-color: #fff;
+      height: 1.7rem;
+      color:vars.$darkColor;
+      padding-left:0.2rem;
+      font-size:1rem;
+      font-family: vars.$textFont;
+    }
+    .lost-password{
+      font-style:italic;
+      font-size: 0.7rem;
+    }
+    .lost-password:hover{
+      color: vars.$darkColor;
+      font-weight:700;
+      text-decoration:none;
+    }
+  }
+
+  .login-error{
+    color:red;
+    font-weight: 500;
+    font-size: 1em;
+    text-align: center;
+  }
+}
+.links{
+  display:flex;
+  justify-content: space-between;
+  height:3rem;
+  .login-submit{
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    font-family: vars.$textFont;
+    color:vars.$darkColor;
+    align-self: center;
+    margin:none;
+    padding: none;
+  }
+  .login-submit:hover{
+    font-weight: 700;
+  }
+  .inscription{
+    font-weight: 500;
+    font-size: 0.7rem;
+    align-self: center;
+  }
+  .inscription:hover{
+    color: vars.$darkColor;
+    font-weight: 700;
+    text-decoration:none;
+  }
+}
+
+
+@media only screen and (min-width:768px) {
+  .login-form{
+    top: 60px;
+    right: 10px;
+    padding:10px 10px 40px 10px;
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .login-form{
+    width:300px;
+    height:300px;
+    top: 70px;
+    right: 15px;
+    padding:25px 25px 40px 25px;
+
+    label{
+      font-size: 1.3rem;
+      input{
+        margin-top:0.6rem;
+        margin-bottom: 0.6rem;
+        height: 2rem;
+      }
+      .lost-password{
+        font-size: 0.8rem;
+      }
+    }
+    .links{
+      margin-top: 1.5rem;
+      .login-submit{
+        font-size: 1rem;
+      }
+      .inscription{
+        font-size: 1rem;
+      }
+    }
+  }
+}
