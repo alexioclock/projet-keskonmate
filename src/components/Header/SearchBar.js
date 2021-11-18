@@ -1,8 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from 'react-feather';
-
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 const SearchBar = ({
   series,

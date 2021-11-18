@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types';
-// Composants
+
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
 import Loading from 'src/components/Loading';
 
-// Style
 import './styles.scss';
-
-// == Composant
 
 const SeriesGrid = ({
   series, userlist, showLoading,
@@ -61,7 +58,6 @@ SeriesGrid.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-
   userlist: PropTypes.arrayOf(
     PropTypes.shape({
       series: PropTypes.oneOfType([
@@ -71,9 +67,7 @@ SeriesGrid.propTypes = {
       type: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-
   showLoading: PropTypes.bool.isRequired,
 };
 
-// == Export
 export default SeriesGrid;

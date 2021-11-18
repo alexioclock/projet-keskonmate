@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {
-  findSerieInUserlist,
-  addSerieToApiUserlist,
-  editSerieToApiUserlist,
-} from 'src/actions/actions';
-import { openLoginForm } from 'src/actions/subscribeForm';
+
 import Details from 'src/components/Details';
+
+import { findSerieInUserlist, addSerieToApiUserlist, editSerieToApiUserlist } from 'src/actions/actions';
+import { openLoginForm } from 'src/actions/subscribeForm';
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => ({

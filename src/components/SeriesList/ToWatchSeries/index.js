@@ -1,4 +1,3 @@
-// == Import
 import PropTypes from 'prop-types';
 
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
@@ -6,7 +5,6 @@ import ListNavigation from 'src/components/ListNavigation';
 
 import './styles.scss';
 
-// == Composant
 const ToWatchSeries = ({ toWatchSeries }) => (
   <div className="list-navigation">
     <ListNavigation />
@@ -37,5 +35,4 @@ ToWatchSeries.propTypes = {
   ).isRequired,
 };
 
-// == Export
 export default ToWatchSeries;

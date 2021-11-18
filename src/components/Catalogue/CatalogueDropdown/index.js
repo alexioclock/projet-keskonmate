@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 import { Dropdown } from 'semantic-ui-react';
-// Style
+
 import './styles.scss';
 
 const CatalogueDropdown = ({ setGenreFilter }) => {
@@ -15,8 +15,7 @@ const CatalogueDropdown = ({ setGenreFilter }) => {
       .then((response) => {
         setGenreArray(response.data);
       })
-      .catch((error) => {
-        console.warn(error);
+      .catch(() => {
       });
   }, []);
 
@@ -36,7 +35,6 @@ const CatalogueDropdown = ({ setGenreFilter }) => {
             onClick: () => {
               setGenreFilter(item.id);
               setCurrentGenre(item.name);
-              console.log(item.id);
             },
           }
         ))}

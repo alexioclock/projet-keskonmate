@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import './styles.scss';
+
 import SuggestionList from 'src/containers/Home/HomeContent/SuggestionList';
 import HomeCurrentList from 'src/containers/Home/HomeContent/HomeCurrentList';
 import HomeToWatchList from 'src/containers/Home/HomeContent/HomeToWatchList';
+
+import './styles.scss';
 
 const HomeContent = ({ isConnected }) => (
   <div className="home-content">

@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Plus, Trash2, Edit2 } from 'react-feather';
-import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-// Style
+import { Card, Image } from 'semantic-ui-react';
+
 import './styles.scss';
 
-// == Composant
 const SeriesCard = ({
   id,
   title,
@@ -36,7 +35,6 @@ const SeriesCard = ({
   const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
   return (
     <div className="series-card-div">
-      {/* Grille de SeriesCard */}
       <Card className="series-card">
         <Image className="series-card-image" src={image} />
         <div className="series-card-icons-list">
@@ -305,7 +303,7 @@ SeriesCard.propTypes = {
       name: PropTypes.string,
     }),
   ),
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   isHomeToWatchList: PropTypes.bool,
   isHomeCurrentList: PropTypes.bool,
   isSuggestionsList: PropTypes.bool,
@@ -333,6 +331,7 @@ SeriesCard.defaultProps = {
   releaseDate: '',
   director: '',
   genre: [],
+  image: '',
   isHomeToWatchList: false,
   isHomeCurrentList: false,
   isSuggestionsList: false,
@@ -348,6 +347,4 @@ SeriesCard.defaultProps = {
   editSerieToApiUserlist: () => {},
 };
 
-// };
-// == Export
 export default SeriesCard;

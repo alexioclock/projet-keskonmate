@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 
 import LoginForm from 'src/components/Header/LoginForm';
-import {
-  setPassword, setNickname, submitLogin,
-} from 'src/actions/login';
+
+import { setPassword, setNickname, submitLogin } from 'src/actions/login';
 
 const mapStateToProps = (state) => ({
   nickname: state.user.nicknameLogin,
@@ -23,8 +22,6 @@ const mapDispatchToProps = (dispatch) => ({
   handleSubmit: () => {
     dispatch(submitLogin());
   },
-
 });
 
-// === création de l'assistant
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

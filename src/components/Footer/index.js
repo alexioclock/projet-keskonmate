@@ -1,7 +1,7 @@
-import './styles.scss';
 import { Link } from 'react-router-dom';
 
-// == Composant
+import './styles.scss';
+
 const Footer = () =>(
   <div className="footer">
     <ul className="container-footer">
@@ -16,5 +16,4 @@ const Footer = () =>(
   </div>
 );
 
-// == Export
 export default Footer;

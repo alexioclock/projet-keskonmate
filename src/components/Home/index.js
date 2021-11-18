@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-import './style.scss';
 import HomeContent from 'src/containers/Home/HomeContent';
 import HomeHeader from 'src/containers/Home/HomeHeader';
+
+import './style.scss';
 
 const Home = ({ loadSeries }) => {
   useEffect(() => {

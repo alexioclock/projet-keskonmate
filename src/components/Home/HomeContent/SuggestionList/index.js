@@ -2,8 +2,9 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
+
+import './styles.scss';
 
 const SuggestionList = ({ userlist, loadHomeOrder, homeOrderList }) => {
   let serieType = 0;
@@ -61,9 +62,7 @@ const SuggestionList = ({ userlist, loadHomeOrder, homeOrderList }) => {
 
 SuggestionList.propTypes = {
   homeOrderList: PropTypes.array.isRequired,
-
   loadHomeOrder: PropTypes.func.isRequired,
-
   userlist: PropTypes.array.isRequired,
 };
 

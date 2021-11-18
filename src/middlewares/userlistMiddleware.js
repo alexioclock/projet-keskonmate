@@ -23,8 +23,7 @@ const userlistMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUserlist(response.data.userlist));
           store.dispatch(findSerieInUserlist(currentSerieId));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
 
       break;
@@ -42,7 +41,6 @@ const userlistMiddleware = (store) => (next) => (action) => {
       };
 
       axios.post(
-        // URL
         'http://backoffice-keskonmate.me/api/v1/userlists',
         newUserLists,
         {
@@ -52,34 +50,23 @@ const userlistMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // Ici le back devrait nous envoyer toutes les infos sur la série qui vient d'être ajoutée
-          console.log(response);
-          // On récupère ces infos et on les stocke dans le state grâce au dispatch d'une action
-          // response.data est un objet contenant les infos de la série ajoutée
           store.dispatch(addUserlistFromApi(response.data));
           store.dispatch(fetchUserlist(currentUser.id));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
     }
 
     case EDIT_SERIE_TO_API_USERLIST: {
       const { currentUser } = store.getState().user;
-
-      console.log(`Id de la série dans la userlist : ${action.userlistId}`);
-
       const newUserLists = {
         type: +action.serieType,
         seasonNb: +action.currentSeason,
         episodeNb: +action.currentEpisode,
       };
-
-      console.log(newUserLists);
-
       axios.patch(
-        // URL
         `http://backoffice-keskonmate.me/api/v1/userlists/${action.userlistId}`,
         newUserLists,
         {
@@ -89,20 +76,18 @@ const userlistMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
           store.dispatch(editUserlistFromApi(response.data));
           store.dispatch(fetchUserlist(currentUser.id));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
     }
 
     default:
   }
 
-  // on passe l'action au suivant (userlistMiddleware suivant ou reducer)
   next(action);
 };
 

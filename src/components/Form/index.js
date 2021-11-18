@@ -1,8 +1,9 @@
-// == Import
-import './styles.scss';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import Popcorn from '../../assets/pictures/popcorn.png';
+
+import './styles.scss';
 
 // == Composant
 const Form = ({
@@ -177,5 +178,4 @@ Form.defaultProps = {
   confirmPasswordInput: '',
 };
 
-// == Export
 export default Form;

@@ -1,17 +1,20 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import {
-  User, List, Bookmark,
-} from 'react-feather';
-import logo from 'src/assets/logo.png';
+import { User, List, Bookmark } from 'react-feather';
+
 import LoginForm from 'src/containers/Header/LoginForm';
 import UserDropdown from 'src/containers/Header/UserDropdown';
 import SearchBar from 'src/containers/Header/SearchBar';
 import SearchBarMobile from 'src/containers/Header/SearchBarMobile';
+
+import logo from 'src/assets/logo.png';
+
 import './styles.scss';
 
 const Header = ({
-  username, isConnected, openLoginForm,
+  username,
+  isConnected,
+  openLoginForm,
   isLoginFormOpened,
 }) => (
   <div className="header-header">

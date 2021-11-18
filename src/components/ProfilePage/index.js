@@ -1,26 +1,18 @@
 import PropTypes from 'prop-types';
-// Components
 
-// Style
 import './styles.scss';
 
-// == Components
 const ProfilePage = ({ username, email }) => (
   <div className="profile-page">
     <h1 className="profile-page-title">Mon profil</h1>
     <div className="profile-page-container">
       <h2 className="profile-page-subtitle">Mon pseudo</h2>
-      {/* value permet de préremplir le champ avec les données de l'utilisateur :
-      TODO le rendre dynamique avec les données reçues */}
       <p>{username}</p>
     </div>
     <div className="profile-page-container">
       <h2 className="profile-page-subtitle">Mon email</h2>
-      {/* value permet de préremplir le champ avec les données de l'utilisateur :
-      TODO le rendre dynamique avec les données reçues */}
       <p>{email}</p>
     </div>
-    {/* Il faudra y mettre la route vers l'API qui édite un utilisateur */}
     <form action="/" method="post" className="profile-page-container-input">
       <h2 className="form-title profile-page-subtitle">Je veux changer mon mot de passe</h2>
       <div className="old-password-container">

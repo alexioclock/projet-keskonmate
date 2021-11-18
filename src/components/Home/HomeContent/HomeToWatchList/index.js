@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
+
+import './styles.scss';
 
 const HomeToWatchList = ({ toWatchSeries }) => (
   <div className="home-list home-to-watch-list">
