@@ -8,8 +8,7 @@ const mapStateToProps = (state) => ({
   showLoading: state.series.showLoading,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-
+const mapDispatchToProps = () => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SeriesGrid);

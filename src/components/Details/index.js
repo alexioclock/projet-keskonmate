@@ -3,9 +3,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './styles.scss';
+
 import { Card, Image } from 'semantic-ui-react';
 import Loading from '../Loading';
+
+import './styles.scss';
 
 const Details = ({
   isConnected,
@@ -29,12 +31,9 @@ const Details = ({
         findSerieInUserlist(slug);
         setIsLoading(false);
       })
-      .catch((error) => {
-        console.warn(error);
+      .catch(() => {
       })
       .finally(() => {
-        // traitement exécuté après le traitement de la réponse, que ce soit un
-        // on indique que le chargement des articles est terminé
         setIsLoading(false);
       });
   }, []);
@@ -44,7 +43,6 @@ const Details = ({
       {!isLoading && (
       <>
         <div className="banner-container">
-          {/* Poster à changer quand on aura l'url de l'image depuis l'API */}
           <img className="poster" src={currentSeriesDetails.image} alt="" />
           <div className="banner-text">
             <h1 className="series-title">{currentSeriesDetails.title}</h1>
@@ -239,5 +237,4 @@ Details.defaultProps = {
   editSerieToApiUserlist: () => {},
 };
 
-// == Export
 export default Details;

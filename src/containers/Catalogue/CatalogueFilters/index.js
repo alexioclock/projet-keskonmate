@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
+
 import CatalogueFilters from 'src/components/Catalogue/CatalogueFilters';
+
 import {
   alphabeticalTitleFilter,
   reverseAlphabeticalTitleFilter,
@@ -9,8 +11,7 @@ import {
   reverseAlphabeticalDirectorFilter,
 } from 'src/actions/seriesFilter';
 
-const mapStateToProps = (state) => ({
-
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({

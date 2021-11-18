@@ -7,7 +7,6 @@ import {
 } from 'src/actions/subscribeForm';
 
 const initialState = {
-  // ici le state initial
   nicknameInput: '',
   emailInput: '',
   passwordInput: '',

@@ -7,13 +7,11 @@ export const ERROR_LOGIN = 'ERROR_LOGIN';
 export const FETCH_USER = 'FETCH_USER';
 export const SAVE_USER = 'SAVE_USER';
 
-// === action creators
 export const setNickname = (newValue) => ({
   type: SET_NICKNAME,
   value: newValue,
 });
 
-// === action creators
 export const setPassword = (newValue) => ({
   type: SET_PASSWORD,
   value: newValue,

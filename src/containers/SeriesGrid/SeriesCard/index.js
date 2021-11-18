@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
+
 import SeriesCard from 'src/components/SeriesGrid/SeriesCard';
+
 import { openLoginForm } from 'src/actions/subscribeForm';
 
-import {
-  addSerieToApiUserlist,
-  editSerieToApiUserlist,
-} from 'src/actions/actions';
+import { addSerieToApiUserlist, editSerieToApiUserlist } from 'src/actions/actions';
 
 const mapStateToProps = (state) => ({
   isConnected: state.user.isConnected,

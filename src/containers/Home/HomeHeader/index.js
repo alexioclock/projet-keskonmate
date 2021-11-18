@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
+
 import HomeHeader from 'src/components/Home/HomeHeader';
+
 import { openLoginForm } from 'src/actions/subscribeForm';
 
 const mapStateToProps = (state) => ({

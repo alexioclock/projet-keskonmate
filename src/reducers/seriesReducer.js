@@ -8,7 +8,6 @@ import { HANDLE_SEARCH_CHANGE } from 'src/actions/actions';
 import { SAVE_HOME_ORDER } from '../actions/seriesFilter';
 
 const initialState = {
-  // ici le state initial
   seriesList: [],
   searchedSerie: '',
   filteredSeries: [],

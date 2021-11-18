@@ -14,7 +14,6 @@ const SearchBarMobile = ({
   return (
     <div className="div-form-mobile">
 
-      {/* OnClick: the form-mobile appears */}
       <button
         type="button"
         className="form-display"
@@ -25,8 +24,6 @@ const SearchBarMobile = ({
         <Search />
       </button>
 
-      {/* Form for the mobile that appear when you click on the search icon
-    It replaces all the header */}
       {isSearchBarOpen && (
         <>
           <form className="form-mobile">

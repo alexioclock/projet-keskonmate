@@ -1,11 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 import './styles.scss';
-// const options = [
-//   { key: 'series-vues', text: 'Séries déjà vues', value: 'series-vues' },
-//   { key: 'actual', text: 'Séries en cours ', value: 'series-en-cours' },
-//   { key: 'futur', text: 'Séries à voir', value: 'series-a-voir' },
-// ];
 
 const ListNavigation = () => (
   <div className="desktop-list">

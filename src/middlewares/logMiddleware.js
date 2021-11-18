@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
   SUBMIT_LOGIN,
   FETCH_USER,
@@ -20,25 +21,14 @@ const logMiddleware = (store) => (next) => (action) => {
         {
           username: state.user.nicknameLogin,
           password: state.user.passwordLogin,
-
-          // Utilisateur vérifié (1)
-          // username: 'keskonmate@gmail.com',
-          // password: 'test',
-
-          // Utilisateur non vérifié (0)
-          // username: 'test1@keskonmate.me',
-          // password: 'test1',
         },
       )
         .then((response) => {
           const { token, userId } = response.data;
-
           localStorage.setItem('token', token);
-
           store.dispatch(fetchUser(userId));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
           store.dispatch(errorLogin('Identifiants incorrects'));
         });
       break;
@@ -51,7 +41,6 @@ const logMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           if (response.data.verified === 1) {
             store.dispatch(successLogin());
             store.dispatch(saveUser(response.data));
@@ -61,8 +50,7 @@ const logMiddleware = (store) => (next) => (action) => {
             store.dispatch(errorLogin('Veuillez confirmer votre compte'));
           }
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
 
       break;
@@ -74,17 +62,13 @@ const logMiddleware = (store) => (next) => (action) => {
         password: state.subscribeForm.passwordInput,
         email: state.subscribeForm.emailInput,
       };
-      console.log(newUser);
       axios.post(
-        // URL
         'http://backoffice-keskonmate.me/api/v1/users/add',
         newUser,
       )
-        .then((response) => {
-          console.log(response);
+        .then(() => {
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
       break;
     }

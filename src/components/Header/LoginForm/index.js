@@ -1,6 +1,8 @@
-import './styles.scss';
 import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
+
+import './styles.scss';
 
 const LoginForm = (
   {
@@ -76,6 +78,6 @@ LoginForm.propTypes = {
   setPassword: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired,
-
 };
+
 export default LoginForm;

@@ -1,6 +1,5 @@
-// == Import
 import './loading.scss';
-// == Composant
+
 const Loading = () => (
   <div className="LoaderBalls">
     <div className="LoaderBalls__item" />
@@ -9,5 +8,4 @@ const Loading = () => (
   </div>
 );
 
-// == Export
 export default Loading;

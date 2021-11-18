@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
   FETCH_SERIES,
   FIND_SERIES,
@@ -19,6 +20,7 @@ import {
   FETCH_HOME_ORDER,
   saveHomeOrder,
 } from 'src/actions/seriesFilter';
+
 import { FILTER_SEARCHED_SERIES } from '../actions/actions';
 
 const seriesMiddleware = (store) => (next) => (action) => {
@@ -29,8 +31,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveSeries(response.data));
           store.dispatch(setNotLoading());
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
           store.dispatch(setNotLoading());
         });
 
@@ -41,9 +42,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveCurrentSeriesDetails(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case ALPHABETICAL_TITLE_FILTER:
@@ -51,9 +52,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case REVERSE_ALPHABETICAL_TITLE_FILTER:
@@ -61,9 +62,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case YOUNGER_TO_OLDER_FILTER:
@@ -71,9 +72,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case OLDER_TO_YOUNGER_FILTER:
@@ -81,9 +82,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case ALPHABETICAL_DIRECTOR_FILTER:
@@ -91,9 +92,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case REVERSE_ALPHABETICAL_DIRECTOR_FILTER:
@@ -101,9 +102,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case GENRE_FILTER:
@@ -111,9 +112,9 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     case FETCH_HOME_ORDER:
@@ -121,6 +122,7 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveHomeOrder(response.data));
         });
+
       break;
 
     case FILTER_SEARCHED_SERIES:
@@ -128,15 +130,14 @@ const seriesMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveFilteredSeries(response.data));
         })
-        .catch((error) => {
-          console.warn(error);
+        .catch(() => {
         });
+
       break;
 
     default:
   }
 
-  // on passe l'action au suivant (middleware suivant ou reducer)
   next(action);
 };
 

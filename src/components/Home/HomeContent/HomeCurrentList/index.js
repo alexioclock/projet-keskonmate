@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import './styles.scss';
 import SeriesCard from 'src/containers/SeriesGrid/SeriesCard';
+
+import './styles.scss';
 
 const HomeCurrentList = ({ currentSeries }) => (
   <div className="home-current-list">

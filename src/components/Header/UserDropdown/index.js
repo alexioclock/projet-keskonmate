@@ -1,7 +1,10 @@
+import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
+
 import './styles.scss';
 
-const UserDropdown = ( {logout} ) => (
+const UserDropdown = ({ logout }) => (
   <div
     className="dropdown-content"
   >
@@ -11,5 +14,9 @@ const UserDropdown = ( {logout} ) => (
   </div>
 
 );
+
+UserDropdown.propTypes = {
+  logout: PropTypes.func.isRequired,
+};
 
 export default UserDropdown;
