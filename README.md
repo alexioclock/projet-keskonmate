@@ -1,17 +1,14 @@
-# projet-liste-lecture-front
+# Projet :
+Catalogue de séries qui permet également de créer ses propres listes de visionnage. L'utilisateur connecté peut ajouter une série dans la liste à voir, en cours ou déjà vu.
+
+# Techno :
+React, Redux, symfony
 
 
-## The necessary dependencies
-- axios: ^0.24.0,
-- feather-icons: ^4.28.0,
-- prop-types: ^15.7.2,
-- react: ^17.0.2,
-- react-dom: ^17.0.2,
-- react-feather: ^2.0.9,
-- react-horizontal-scrolling-menu: ^2.5.0,
-- react-redux: ^7.2.6,
-- react-router-dom: ^5.3.0,
-- redux: ^4.1.2,
-- redux-devtools-extension: ^2.13.9,
-- semantic-ui-css: ^2.4.1,
-- semantic-ui-react: ^2.0.4
+# Fonctionnalités
+- Connexion / Déconnexion
+- Inscription 
+- filtrer les séries selon l'alphabet, selon la date de parution
+- barre de recherche
+- ajout, suprression des séries dans les différentes listes
+- déplacer les séries d'une liste à l'autre
